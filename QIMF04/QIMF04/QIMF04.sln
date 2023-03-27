@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "QIMF04", "QIMF04.rptproj", "{BB2DC8B7-2B0C-4B03-B794-5D0B3DB9179D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB2DC8B7-2B0C-4B03-B794-5D0B3DB9179D}.Debug|Default.ActiveCfg = Debug
+		{BB2DC8B7-2B0C-4B03-B794-5D0B3DB9179D}.Debug|Default.Build.0 = DebugLocal
+		{BB2DC8B7-2B0C-4B03-B794-5D0B3DB9179D}.Debug|Default.Deploy.0 = DebugLocal
+		{BB2DC8B7-2B0C-4B03-B794-5D0B3DB9179D}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{BB2DC8B7-2B0C-4B03-B794-5D0B3DB9179D}.DebugLocal|Default.Build.0 = DebugLocal
+		{BB2DC8B7-2B0C-4B03-B794-5D0B3DB9179D}.Release|Default.ActiveCfg = Release
+		{BB2DC8B7-2B0C-4B03-B794-5D0B3DB9179D}.Release|Default.Build.0 = Release
+		{BB2DC8B7-2B0C-4B03-B794-5D0B3DB9179D}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

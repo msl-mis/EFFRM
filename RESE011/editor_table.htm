@@ -1,0 +1,98 @@
+﻿<html>
+<head>
+    <title>插入表格</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=big5">
+    <style type="text/css">
+        body, td {
+            font-family: Arial, "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "微軟正黑體", "Microsoft JhengHei", "標楷體", DFKai-SB, sans-serif !important;
+            font-size: 12px;
+        }
+
+        .cmdbtn {
+            width: 45px;
+            height: 20px;
+        }
+
+        .hole {
+            font-family: arial;
+            font-size: 10px;
+            width: 24px;
+            height: 18px;
+            text-align: right;
+        }
+
+        div {
+            cursor: default;
+        }
+    </style>
+    <script language=javascript>
+        function TableOK(){
+            var dotable,tmpcol,tmprow,docol,dorow
+            if(tba[0].checked){algn="left";}
+            if(tba[1].checked){algn="center";}
+            if(tba[2].checked){algn="right";}
+            tmpcol="<td align="+algn+"></td>";
+            docol=""
+            dorow=""
+            for ( var i=0; i<tbc.value; i++ ){
+                docol=docol+tmpcol;
+            }
+            docol="<tr>"+docol+"</tr>"
+            for ( var j=0; j<tbr.value; j++ ){
+                dorow=dorow+docol;
+            }
+            dotable="<table border="+tbb.value+" cellspacing="+tbs.value+" cellpadding="+tbp.value+">"+dorow+"</table>"
+            window.returnValue = dotable;
+            window.close();
+        }
+    </script>
+    <script language=VBScript>
+        Sub TabStrip_Change()
+        if (TabStrip.Value = 0) then
+        Page1.style.visibility = "hidden"
+        Page0.style.visibility = "visible"
+        end if
+        if (TabStrip.Value = 1) then
+        Page0.style.visibility = "hidden"
+        Page1.style.visibility = "visible"
+        end if
+        end sub
+    </script>
+    <body bgcolor=buttonface scroll=no topmargin=5>
+        <center>
+            <object id="TabStrip" classid="clsid:eae50eb0-4a62-11ce-bed6-00aa00611080">
+                <param name="ListIndex" value="0">
+                <param name="NewVersion" value="-1">
+                <param name="Size" value="4800;2600">
+                <param name="FontHeight" value="180">
+                <param name="FontName" value="細明體">
+                <param name="Items" value="一般設定;進階設定;">
+            </object>
+            <div id="Page0" style="visibility:visible;position:absolute;left:12px;top:30px;width:180px;height:80px;text-align:left;">
+                <table border=0 cellpadding=0 cellspacing=2>
+                    <tr><td>邊框粗細：</td><td><input type=text name=tbb size=2 value="1" maxlength=2 onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class=hole></td><td>px</td></tr>
+                    <tr><td>表格欄數：</td><td><input type=text name=tbc size=2 value="2" maxlength=2 onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class=hole></td><td>欄</td></tr>
+                    <tr><td>表格列數：</td><td><input type=text name=tbr size=2 value="2" maxlength=2 onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class=hole></td><td>列</td></tr>
+                </table>
+            </div>
+            <div id="Page1" style="visibility:hidden;position:absolute;left:12px;top:30px;width:180px;height:80px;text-align:left;">
+                <table border=0 cellpadding=0 cellspacing=2>
+                    <tr><td>邊框間距：</td><td width=24><input type=text name=tbs size=2 maxlength=2 value="2" onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class=hole></td><td width=85>px</td></tr>
+                    <tr><td>欄內留白：</td><td width=24><input type=text name=tbp size=2 maxlength=2 value="2" onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class=hole></td><td>px</td></tr>
+                    <tr><td>欄位對齊：</td><td colspan=2><input type=radio name=tba checked>左<input type=radio name=tba>中<input type=radio name=tba>右</td></tr>
+                </table>
+            </div>
+            <div style="position:absolute;left:10px;top:108px;width:170px;height:80px;">
+                <table border=0 cellpadding=0 cellspacing=0>
+                    <tr>
+                        <td width=50 align=center><input type=button onclick="window.close();" value="取消" class=cmdbtn></td>
+                        <td width=50 align=center><input type=button onclick="TableOK();" value="完成" class=cmdbtn></td>
+                    </tr>
+                </table>
+            </div>
+        </center>
+        <script>
+            window.setTimeout('TabStrip.blur()',100);
+        </script>
+    </body>
+</html>
