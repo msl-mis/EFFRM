@@ -208,5 +208,6 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMPRMVE01.js?NoCache=202108311455" type="text/javascript"></script>
+    <script src="../../_Common/OEM/JS/OEMUtils.js"></script>
+<script src="ODMPRMVE01.js?NoCache=202108311458" type="text/javascript"></script>
 </asp:Content>

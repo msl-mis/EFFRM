@@ -1280,15 +1280,28 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 				strfoodmoney03_DoMathScript_money03_onblur+=";";
 			foodmoney03.TxtInput.Attributes.Add("onblur",strfoodmoney03_DoMathScript_money03_onblur+"domath_money03();");
 
+            //20230328 edit by peggy Start
+            #region 金額三位一撇
+            TextBox2[] arrayTextBox = {
+                carmoney01.TxtInput, carmoney02.TxtInput, carmoney03.TxtInput,
+                staymoney01.TxtInput,staymoney02.TxtInput, staymoney03.TxtInput,
+                foodmoney01.TxtInput,foodmoney02.TxtInput, foodmoney03.TxtInput,
+                money01.TxtInput,money02.TxtInput, money03.TxtInput,totalmoney.TxtInput
+                                        };
+            OEMLibrary.RegisterNumberFormat(this, arrayTextBox);
+            #endregion
+            //20230328 edit by peggy End
 
 
-		}//settingClientFunction結尾
 
-		/// <summary>
-		/// %%必填%%
-		/// </summary>
-		/// <param name="pMiMjManager"></param>
-		protected override void buildMiMjManager(Hashtable pMiMjManager)
+
+        }//settingClientFunction結尾
+
+        /// <summary>
+        /// %%必填%%
+        /// </summary>
+        /// <param name="pMiMjManager"></param>
+        protected override void buildMiMjManager(Hashtable pMiMjManager)
 		{
 
 		}//buildMiMjManager結尾
