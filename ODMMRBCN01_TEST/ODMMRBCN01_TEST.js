@@ -19,8 +19,26 @@ function CustomerSaveCheck_Head(tStatus)
 	else if (tStatus == "APPROVE")
 	{
 		//簽核時要驗證
+		if (gApprovedMark == "簽核主管3")
+		{
+			//20230322 edit by winni Start
+			var chk1 = document.getElementById("MasterPage_MasterPageContent_checkbox1_chk");
+			var chk2 = document.getElementById("MasterPage_MasterPageContent_checkbox2_chk");
+			var chk3 = document.getElementById("MasterPage_MasterPageContent_checkbox3_chk");
+			var chk4 = document.getElementById("MasterPage_MasterPageContent_checkbox4_chk");
+			var chk5 = document.getElementById("MasterPage_MasterPageContent_checkbox5_chk");
+
+			if (chk1.checked == false && chk2.checked == false && chk3.checked == false && chk4.checked == false
+				&& chk5.checked == false)
+			{
+				tErr += "checkBox須至一選項!";
+			}
+			//20230322 edit by winni End
+		}
 
 	}
+
+	//tErr += "TEST";
 
 	//填表及簽核都要驗證
 

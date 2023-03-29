@@ -310,17 +310,64 @@ this.checkbox5.Text = String.Empty;
 				#endregion CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
 			}
 
-			#region 自訂Page_Prender區塊
-			
-			#endregion 自訂Page_Prender區塊
-		}
-		#endregion Page_Prender做的事
+            #region 自訂Page_Prender區塊
 
-		#region setBasicInfo , 設定表單的基本屬性
-		/// <summary>
-		/// 設定表單的基本屬性 (setBasicInfo)
-		/// </summary>
-		protected override void setBasicInfo()
+            #endregion 自訂Page_Prender區塊
+
+            //20230322 edit by winni Start
+            if (!IsPostBack)  //表單第一次進入
+            {
+                if (base.FormStatus == EFFormStatus.APPROVE && !BlnISApproved)  //簽核狀態且該關卡未簽核
+                {
+                    DataRow[] aryDr = RstTRFlow.Tables[0].Select(string.Format(" resdb003='{0}' AND resdb004='{1}'", FlowNo, BranchNo));  //取得目前關卡
+
+                    string approvedMark = "";
+
+                    if (aryDr.Length > 0)
+                    {
+                        approvedMark = aryDr[0]["resdb066"].ToString();  //取得流程說明
+
+                        if (approvedMark == "簽核主管1")  //判斷流程說明
+                        {
+                            turningOnOff("On", director01);
+                            director01.Value = UserInfo.LoginName;
+                        }
+                        else if (approvedMark == "簽核主管2")
+                        {
+                            //簽核主管2 do .....
+                            turningOnOff("On", director02);
+                            director02.Value = UserInfo.LoginName;
+                        }
+                        else if (approvedMark == "簽核主管3")
+                        {
+                            //簽核主管2 do .....
+                            turningOnOff("On", director03);
+                            turningOnOff("On", checkbox1);
+                            turningOnOff("On", checkbox2);
+                            turningOnOff("On", checkbox3);
+                            turningOnOff("On", checkbox4);
+                            turningOnOff("On", checkbox5);
+                            director03.Value = UserInfo.LoginName;
+                        }
+
+                        ScriptManager.RegisterClientScriptBlock(this, typeof(string), Guid.NewGuid().ToString(), ";var gApprovedMark='" + approvedMark + "';", true);
+
+                        //ScriptManager.RegisterClientScriptBlock(this, typeof(string), Guid.NewGuid().ToString(), ";alert('RegisterClientScriptBlock');", true);
+                        //ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), ";alert('RegisterStartupScript');", true);
+                        //ScriptManager.RegisterStartupScript
+                    }
+                }
+            }
+
+            //20230322 edit by winni End
+        }
+        #endregion Page_Prender做的事
+
+        #region setBasicInfo , 設定表單的基本屬性
+        /// <summary>
+        /// 設定表單的基本屬性 (setBasicInfo)
+        /// </summary>
+        protected override void setBasicInfo()
 		{
 			// 作業代號
 			this.TaskId = "ODMMRBCN01_TEST";

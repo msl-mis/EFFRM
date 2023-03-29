@@ -4,7 +4,7 @@
 <%@ Register TagPrefix="cc1" Namespace="tw.com.dsc.dscDotNet.dscWebControls" Assembly="PlatformUtil" %>
 
 <asp:Content ID="ODMMRBCN01_TESTFormContent" ContentPlaceHolderID="MasterPageContent" runat="server">
-	<!--單檔架構 -->
+    <!--單檔架構 -->
 	<!--2009/03/19:Joseph:<div id="cover" style="OVERFLOW: auto; WIDTH: 100%;">-->
 		<div id="cover" style="WIDTH: 100%;">
 			<div id="createRecord" style="WIDTH: 100%; HEIGHT: 100%" runat="server">
@@ -234,5 +234,5 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMMRBCN01_TEST.js?NoCache=202108311455" type="text/javascript"></script>
+<script src="ODMMRBCN01_TEST.js?NoCache=202303220004" type="text/javascript"></script>
 </asp:Content>
