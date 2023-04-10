@@ -376,16 +376,30 @@ this.chkprice.Text = String.Empty;
 			}
 
 			#region 自訂Page_Prender區塊
-			
-			#endregion 自訂Page_Prender區塊
-		}
-		#endregion Page_Prender做的事
 
-		#region setBasicInfo , 設定表單的基本屬性
-		/// <summary>
-		/// 設定表單的基本屬性 (setBasicInfo)
-		/// </summary>
-		protected override void setBasicInfo()
+			#endregion 自訂Page_Prender區塊
+
+			//20230322 edit by winni Start
+			//前端隱藏
+			//datetime1.Style.Add("display", "none");
+			//後端隱藏
+			//datetime1.Visible = false;
+
+			
+			if (base.FormStatus == EFFormStatus.CREATE) //開單才要執行
+			{
+                //唯獨欄位
+                //turningOnOff("Off", datetime1);
+            }
+            //20230322 edit by winni End
+        }
+        #endregion Page_Prender做的事
+
+        #region setBasicInfo , 設定表單的基本屬性
+        /// <summary>
+        /// 設定表單的基本屬性 (setBasicInfo)
+        /// </summary>
+        protected override void setBasicInfo()
 		{
 			// 作業代號
 			this.TaskId = "ODMTESTV02";
@@ -1229,8 +1243,13 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			empl2.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_empl2_txt');");
 			
 			opentype.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype_btn","MasterPage_MasterPageContent_opentype_txt","S"));
-			opentype.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype_txt","OpenMIMJ01_20_opentype","MasterPage_MasterPageContent_opentype_txt,MasterPage_MasterPageContent_openitem_txt")+";InitTriggerOpen();");
-			opentype.TxtInput.Attributes.Add("onchange","FunOnChange_opentype();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype_txt');");
+
+			//20230322 edit by winni S
+            //opentype.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype_txt", "OpenMIMJ01_20_opentype", "MasterPage_MasterPageContent_opentype_txt,MasterPage_MasterPageContent_openitem_txt") + ";InitTriggerOpen();");
+            opentype.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype_txt","OpenMIMJ01_20_opentype","MasterPage_MasterPageContent_opentype_txt,MasterPage_MasterPageContent_openitem_txt")+ ";InitTriggerOpen();opentype_change();");
+            //20230322 edit by winni E
+
+            opentype.TxtInput.Attributes.Add("onchange","FunOnChange_opentype();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype_txt');");
 
 			openitem.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem_btn","MasterPage_MasterPageContent_opentype_txt","MasterPage_MasterPageContent_openitem_txt","S"));
 			openitem.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem_txt","TrigMIMJ01_05_openitem","MasterPage_MasterPageContent_openitem_txt,MasterPage_MasterPageContent_opentype_txt"));
@@ -1359,7 +1378,7 @@ this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('Master
 			defalutHash.Add("curr05", "RMB");
 			defalutHash.Add("curr06", "RMB");
 			defalutHash.Add("selven", "冠志廠");
-		}
+        }
 
 		//草稿儲存後要將主旨清除
 		protected override void AfterCreateToolSaveForm()

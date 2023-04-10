@@ -489,5 +489,9 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMTESTV02.js?NoCache=202108311455" type="text/javascript"></script>
+	<%--//20230322 edit by winni S--%>
+    <script src="../../_Common/OEM/JS/OEMSetControl.js"></script>
+	<%--//20230322 edit by winni E--%>
+
+<script src="ODMTESTV02.js?NoCache=2021083114550004" type="text/javascript"></script>
 </asp:Content>

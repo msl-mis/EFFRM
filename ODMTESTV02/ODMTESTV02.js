@@ -137,6 +137,19 @@ function CustomerSaveCheck_Head(tStatus)
 				tErr += getI18NForSpecial('FD', 'ODMTESTV02', 'kind_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
 			}
 
+		//20230322 edit by winni S
+		//驗證第二個開窗必填
+		var _opentype = document.getElementById("MasterPage_MasterPageContent_opentype_txt");
+		var _openitem = document.getElementById("MasterPage_MasterPageContent_openitem_txt");
+		if (_opentype != null && _opentype.value != "")
+		{
+			if (_openitem.value == "")
+			{
+				tErr += "item必填!" + "\r\n";
+			}
+		}
+		//20230322 edit by winni S
+
 	}
 	else if (tStatus == "APPROVE")
 	{
@@ -904,7 +917,7 @@ function chkTriggerFieldNull_Head()
 	if($("#MasterPage_MasterPageContent_chkitem02_chk").length>0){
 		if($("#MasterPage_MasterPageContent_chkitem02_chk")[0].checked){
 			if($("#MasterPage_MasterPageContent_itemname_txt").val().trim().length==0){
-				tErr+='請確認 "支出類別" 、 "使用年限" 、 "使用單位" 是否有填寫\r\n';
+				tErr+='請確認 支出類別 或 使用年限 是否有填寫\r\n';
 			}
 		}
 		else{
@@ -1028,4 +1041,17 @@ function jsDoDispatch(pFormID, pSheetNo, pDispatchFormID){
 	}
 }
 
+//20230322 edit by winni S
+//第一個開窗後將第二個窗唯獨或開放，第二個開窗必填
+function opentype_change() {
+	var open = document.getElementById("MasterPage_MasterPageContent_opentype_txt");
 
+	if (open != null && open.value != "") {
+		//openitem
+		OEMTurnningOnOff("On", "openitem", true);
+	}
+	else {
+		OEMTurnningOnOff("Off", "openitem");
+	}
+}
+//20230322 edit by winni E
