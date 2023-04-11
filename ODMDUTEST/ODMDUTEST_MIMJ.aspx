@@ -1,0 +1,1 @@
+﻿<%@ Page language="c#" validateRequest="false" CodeFile="ODMDUTEST_MIMJ.aspx.cs" AutoEventWireup="false" Inherits="tw.com.dsc.easyflowDotNet.forms.ODMDUTEST_MIMJ" %>

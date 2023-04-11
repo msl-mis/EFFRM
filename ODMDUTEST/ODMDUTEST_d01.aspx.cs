@@ -35,14 +35,14 @@ using com.digiwin.net.ef.classlibrary;
 //2014/12/30;3.7.3.3;hiro;S00-20141225002;派送表單功能強化↓
 using tw.com.dsc.easyflowDotNet.kernelBasePage.easyflowfunction;
 //2014/12/30;3.7.3.3;hiro;S00-20141225002;派送表單功能強化↑
-
+@UsingClass
 
 namespace tw.com.dsc.easyflowDotNet.forms
 {
 	/// <summary>
-	/// ODMMRBCN01_TEST02 的摘要描述。
+	/// @BOID 的摘要描述。
 	/// </summary>
-	public partial class ODMMRBCN01_TEST02 : tw.com.dsc.easyflowDotNet.kernelBasePage.EFBasePage
+	public partial class @BOID : @InheritClass
 	{
 		//edit by teppy 2011/02/08 Start
 		#region 讀取 sysba 參數設定用物件
@@ -96,69 +96,24 @@ namespace tw.com.dsc.easyflowDotNet.forms
 		protected override void Page_Load(object sender, EventArgs e)
 		{
 			base.Page_Load(sender, e);
-			AjaxPro.Utility.RegisterTypeForAjax(typeof(ODMMRBCN01_TEST02));
+			AjaxPro.Utility.RegisterTypeForAjax(typeof(@BOID));
 			UserInfoClass tClass = (UserInfoClass)Session["UserInfo"];
 			string tLanguageType = tClass.Language;
 
 			//多國語系
-			this.Title= MultiLanguage.GetComment("FD","ODMMRBCN01_TEST02","lblTitle",this.UserInfo.Language);
-			string tHeadTabStrip01Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "HeadTabStrip01", tLanguageType);
-			if(tHeadTabStrip01Text.Length>4){
-				this.TabStrip1.Items[0].Text = tHeadTabStrip01Text.Substring(0,4)+"..";
-				this.TabStrip1.Items[0].ToolTip = tHeadTabStrip01Text;
-			}
-			else{
-				this.TabStrip1.Items[0].Text = tHeadTabStrip01Text;
-			}
-
-			this.dept.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "dept", tLanguageType);
-			this.name.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "name", tLanguageType);
-			this.txtno.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtno", tLanguageType);
-			this.txtordno.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtordno", tLanguageType);
-			this.txtpdname.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtpdname", tLanguageType);
-			this.txtpdno.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtpdno", tLanguageType);
-			this.txtpdqty.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtpdqty", tLanguageType);
-			this.txtreason.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtreason", tLanguageType);
-			this.condate.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "condate", tLanguageType);
-			this.superid.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "superid", tLanguageType);
-			this.director01.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "director01", tLanguageType);
-			this.director02.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "director02", tLanguageType);
-			this.chk01_1.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk01_1", tLanguageType);
-			this.chk01_2.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk01_2", tLanguageType);
-			this.chk02_2.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk02_2", tLanguageType);
-			this.chk03_2.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk03_2", tLanguageType);
-			this.chk04_2.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk04_2", tLanguageType);
-			this.chk01_3.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk01_3", tLanguageType);
-			this.chk02_3.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk02_3", tLanguageType);
-			this.chk03_3.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk03_3", tLanguageType);
-			this.chk04_3.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk04_3", tLanguageType);
-			this.chk01_4.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk01_4", tLanguageType);
-			this.chk02_4.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk02_4", tLanguageType);
-			this.chk03_4.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk03_4", tLanguageType);
-			this.chk04_4.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk04_4", tLanguageType);
-			this.chk01_5.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk01_5", tLanguageType);
-			this.chk02_5.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk02_5", tLanguageType);
-			this.chk03_5.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk03_5", tLanguageType);
-			this.chk04_5.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk04_5", tLanguageType);
-			this.director03.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "director03", tLanguageType);
-			this.chk02_1.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk02_1", tLanguageType);
-			this.chk03_1.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk03_1", tLanguageType);
-			this.chk04_1.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk04_1", tLanguageType);
-			this.testnum.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "testnum", tLanguageType);
-			this.director04.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "director04", tLanguageType);
-
+			this.Title= MultiLanguage.GetComment("FD","@BOID","lblTitle",this.UserInfo.Language);
+@MutiLanguage
 
 			#region 自訂排序
-			
+			@tTABOrder
 			#endregion 自訂排序
 
 			#region 限制修改欄位
-			this.TxtCreateToolSubject.InputEnabled=false;
-
+@tFieldEnabled
 			#endregion 限制修改欄位
 
 			#region 增加初始設定
-			
+			@InitPageLoadScript
 			#endregion 增加初始設定
 		}
 		#endregion
@@ -189,266 +144,55 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			//ToolTip參數：Y:顯示ToolTip；N:不顯示
 			string strToolTipParameter = objEFPara.EF_getCompanyParameterData("ToolTip").ToString();
 			
-			if(strToolTipParameter=="Y"){
-				this.txtreason.ToolTip = this.txtreason.Text;
-
-			}
 
 			#endregion 與管理程式共用Before Prender區段
 
 			base.Page_Prender(sender, e);
 
 			#region 與管理程式共用After Prender區段
-			//單頭RadioButton控制項 start
-			rditem.Attributes["style"] = "display:none;";
-			rditem_ctrolRadio0.Checked = (rditem.Value == "0"); rditem_ctrolRadio0.Enabled = rditem.InputEnabled;
-			rditem_ctrolRadio1.Checked = (rditem.Value == "1"); rditem_ctrolRadio1.Enabled = rditem.InputEnabled;
-			rditem_ctrolRadio2.Checked = (rditem.Value == "2"); rditem_ctrolRadio2.Enabled = rditem.InputEnabled;
-
-
-			//單頭RadioButton控制項 end
-
-this.chk01_1.Text = String.Empty;
-this.chk01_2.Text = String.Empty;
-this.chk02_2.Text = String.Empty;
-this.chk03_2.Text = String.Empty;
-this.chk04_2.Text = String.Empty;
-this.chk01_3.Text = String.Empty;
-this.chk02_3.Text = String.Empty;
-this.chk03_3.Text = String.Empty;
-this.chk04_3.Text = String.Empty;
-this.chk01_4.Text = String.Empty;
-this.chk02_4.Text = String.Empty;
-this.chk03_4.Text = String.Empty;
-this.chk04_4.Text = String.Empty;
-this.chk01_5.Text = String.Empty;
-this.chk02_5.Text = String.Empty;
-this.chk03_5.Text = String.Empty;
-this.chk04_5.Text = String.Empty;
-this.chk02_1.Text = String.Empty;
-this.chk03_1.Text = String.Empty;
-this.chk04_1.Text = String.Empty;
-
-
-
+			
+@ListboxOpenQueryChangeBackColor
 			#endregion 與管理程式共用After Prender區段
 
-			//單頭底圖顯示設定
-			#region ================ 表單底圖判斷顯示時機 ================
-			Head01_file_1.Visible = false;
-
-			switch (base.FormStatus)
-			{
-				case EFFormStatus.CREATE: //填單
-					{
-						Head01_file_1.Visible = true;
-
-					}
-					break;
-				case EFFormStatus.APPROVE: //簽核
-					{
-						Head01_file_1.Visible = true;
-
-					}
-					break;
-				case EFFormStatus.DISPLAY: //原稿
-					{
-						Head01_file_1.Visible = true;
-
-					}
-					break;
-			}
-			#endregion
-
-
-			#region 註冊使用者自訂檢查 Javascript
-			if (base.FormStatus.ToString() == "CREATE")
-			{
-				//傳送
-				string tParentScript = base.BtnCreateToolSendForm.Attributes["onclick"].ToString();
-				if(tParentScript.IndexOf("SetCustomSubject()")<0){
-					tParentScript = tParentScript.Replace("if (!checkSubjectField())", "SetCustomSubject();if (!checkSubjectField())");
-					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
-					base.BtnCreateToolSendForm.Attributes.Add("onclick", tParentScript);
-				}
-
-				//送單前置處理按鈕
-				tParentScript = "";
-				if(base.BtnPreCreateToolSendForm.Attributes["onclick"]!=null)
-					tParentScript = base.BtnPreCreateToolSendForm.Attributes["onclick"].ToString();
-				if(tParentScript.IndexOf("CustomerSaveCheck_Head(")<0){
-					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; } " + tParentScript + "";
-					base.BtnPreCreateToolSendForm.Attributes.Add("onclick", tParentScript);
-				}
-
-				//草稿儲存
-				tParentScript = base.BtnCreateToolSaveForm.Attributes["onclick"].ToString();
-				if(tParentScript.IndexOf("DraftSaveCheck()")<0){
-					tParentScript = "if (!DraftSaveCheck()) {return false; }" + tParentScript + "";
-					base.BtnCreateToolSaveForm.Attributes.Add("onclick", tParentScript);
-				}
-			}
-			else if (base.FormStatus.ToString() == "APPROVE")
-			{
-				string tParentScript = base.BtnApproveToolDecide.Attributes["onclick"].ToString();
-				if(tParentScript.IndexOf("CustomerSaveCheck_Head(")<0){
-					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
-					base.BtnApproveToolDecide.Attributes.Add("onclick", tParentScript);
-				}
-
-				tParentScript = base.BtnApproveToolAgree.Attributes["onclick"].ToString();
-				if(tParentScript.IndexOf("CustomerSaveCheck_Head(")<0){
-					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
-					base.BtnApproveToolAgree.Attributes.Add("onclick", tParentScript);
-				}
-
-				tParentScript = base.BtnApproveToolDone.Attributes["onclick"].ToString();
-				if(tParentScript.IndexOf("CustomerSaveCheck_Head(")<0){
-					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
-					base.BtnApproveToolDone.Attributes.Add("onclick", tParentScript);
-				}
-			}
-			#endregion
-
+			@UserJavascript
 
 			#region 自訂下拉選項
-			
+			@tDDLSql
 			#endregion 自訂下拉選項
 
 			#region 增加初始設定(可判斷表單狀態)
-
+@InitPagePrenderScript
 			#endregion 增加初始設定(可判斷表單狀態)
 
 			if (base.FormStatus.ToString() == "APPROVE" || base.FormStatus.ToString() == "DISPLAY")
 			{
 				#region 派送表單功能強化控制項
-				
+				@DispatchFormCSCode
 				#endregion 派送表單功能強化控制項
 
 				#region CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
-				
+				@CmpCodeCSCode
 				#endregion CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
 			}
 
 			#region 自訂Page_Prender區塊
-
+			@SetCustomCode_Page_Prender
 			#endregion 自訂Page_Prender區塊
+		}
+		#endregion Page_Prender做的事
 
-			//20230410 edit by Peggy Start
-				//唯讀欄位
-				turningOnOff("Off", director01);//簽核主管1填表時為不可填
-				turningOnOff("Off", chk01_1);
-				turningOnOff("Off", chk01_2);
-				turningOnOff("Off", chk01_3);
-				turningOnOff("Off", chk01_4);
-				turningOnOff("Off", chk01_5);
-
-				turningOnOff("Off", director02);//簽核主管2填表時為不可填
-				turningOnOff("Off", chk02_1);
-				turningOnOff("Off", chk02_2);
-				turningOnOff("Off", chk02_3);
-				turningOnOff("Off", chk02_4);
-				turningOnOff("Off", chk02_5);
-
-				turningOnOff("Off", director03);//簽核主管3填表時為不可填
-				turningOnOff("Off", chk03_1);
-				turningOnOff("Off", chk03_2);
-				turningOnOff("Off", chk03_3);
-				turningOnOff("Off", chk03_4);
-				turningOnOff("Off", chk03_5);
-
-				turningOnOff("Off", director04);//簽核主管4填表時為不可填
-				turningOnOff("Off", chk04_1);
-				turningOnOff("Off", chk04_2);
-				turningOnOff("Off", chk04_3);
-				turningOnOff("Off", chk04_4);
-				turningOnOff("Off", chk04_5);
-            //20230410 edit by Peggy End
-
-            //20230407 edit by Peggy Start
-            if (!IsPostBack)  //表單第一次進入
-            {
-                if (base.FormStatus == EFFormStatus.APPROVE && !BlnISApproved)  //簽核狀態且該關卡未簽核
-                {
-                    DataRow[] aryDr = RstTRFlow.Tables[0].Select(string.Format(" resdb003='{0}' AND resdb004='{1}'", FlowNo, BranchNo));  //取得目前關卡
-
-                    string approvedMark = "";
-
-                    if (aryDr.Length > 0)
-                    {
-                        approvedMark = aryDr[0]["resdb066"].ToString();  //取得流程說明
-
-                        if (approvedMark == "簽核主管1")  //判斷流程說明
-                        {
-                            turningOnOff("On", director01);
-                            turningOnOff("On", chk01_1);
-                            turningOnOff("On", chk01_2);
-                            turningOnOff("On", chk01_3);
-                            turningOnOff("On", chk01_4);
-                            turningOnOff("On", chk01_5);
-                            director01.Value = UserInfo.LoginName;
-                        }
-                        else if (approvedMark == "簽核主管2")
-                        {
-                            //簽核主管2 do .....
-                            turningOnOff("On", director02);
-                            turningOnOff("On", chk02_1);
-                            turningOnOff("On", chk02_2);
-                            turningOnOff("On", chk02_3);
-                            turningOnOff("On", chk02_4);
-                            turningOnOff("On", chk02_5);
-                            director02.Value = UserInfo.LoginName;
-                        }
-                        else if (approvedMark == "簽核主管3")
-                        {
-                            //簽核主管3 do .....
-                            turningOnOff("On", director03);
-                            turningOnOff("On", chk03_1);
-                            turningOnOff("On", chk03_2);
-                            turningOnOff("On", chk03_3);
-                            turningOnOff("On", chk03_4);
-                            turningOnOff("On", chk03_5);
-                            director03.Value = UserInfo.LoginName;
-                        }
-                        else if (approvedMark == "簽核主管4")
-                        {
-                            //簽核主管3 do .....
-                            turningOnOff("On", director04);
-                            turningOnOff("On", chk04_1);
-                            turningOnOff("On", chk04_2);
-                            turningOnOff("On", chk04_3);
-                            turningOnOff("On", chk04_4);
-                            turningOnOff("On", chk04_5);
-                            director04.Value = UserInfo.LoginName;
-                        }
-
-                        ScriptManager.RegisterClientScriptBlock(this, typeof(string), Guid.NewGuid().ToString(), ";var gApprovedMark='" + approvedMark + "';", true);
-
-                        //ScriptManager.RegisterClientScriptBlock(this, typeof(string), Guid.NewGuid().ToString(), ";alert('RegisterClientScriptBlock');", true);
-                        //ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), ";alert('RegisterStartupScript');", true);
-                        //ScriptManager.RegisterStartupScript
-                    }
-                }
-            }
-
-            //20230407 edit by Peggy End
-
-        }
-        #endregion Page_Prender做的事
-
-
-        #region setBasicInfo , 設定表單的基本屬性
-        /// <summary>
-        /// 設定表單的基本屬性 (setBasicInfo)
-        /// </summary>
-        protected override void setBasicInfo()
+		#region setBasicInfo , 設定表單的基本屬性
+		/// <summary>
+		/// 設定表單的基本屬性 (setBasicInfo)
+		/// </summary>
+		protected override void setBasicInfo()
 		{
 			// 作業代號
-			this.TaskId = "ODMMRBCN01_TEST02";
+			this.TaskId = "@BOID";
 			// 表單代號
-			this.formID = "ODMMRBCN01_TEST02";
+			this.formID = "@BOID";
 			// 有幾個單身 ex.0-->單檔, 1-->雙檔(一個單身), 2-->雙檔(二個單身)
-			this.detailDepth = 0;
+			this.detailDepth = @DetailNum;
 		}
 		#endregion setBasicInfo , 設定表單的基本屬性
 
@@ -930,7 +674,7 @@ this.chk04_1.Text = String.Empty;
 			List<DscRow> listRow_Body03 = new List<DscRow>();
 			List<DscRow> listRow_Body04 = new List<DscRow>();
 			List<DscRow> listRow_Body05 = new List<DscRow>();
-			int intBodyCount = 0;
+			int intBodyCount = @BodyCount;
 			for(int i = 0; i < intBodyCount; i++)
 			{
 				DscDataObj tBodyGridObj = null;
@@ -1028,7 +772,7 @@ this.chk04_1.Text = String.Empty;
 			//}
 			//
 			#endregion 範例
-
+@SetDetailVerifyInApprove
 
 			return tRetMsg;
 		}
@@ -1244,7 +988,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 		#endregion 執行派送表單
 
 		#region 自訂Ajax
-		
+		@NewAjax
 		#endregion 自訂Ajax
 		#endregion AjaxMethod()
 
@@ -1256,12 +1000,8 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 		{
 			//參數1.為原本的開窗方式  參數2.為樹狀的開窗
 			string tWindowOpenStyle = objEFPara.EF_getCompanyParameterData("WindowOpenStyle").ToString();
-
-			//單頭控制項
-
-this.rditem_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_rditem_txt').value = '0';");
-this.rditem_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_rditem_txt').value = '1';");
-this.rditem_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_rditem_txt').value = '2';");
+@ClickEvent
+@TriggerFieldonclick
 		}//settingClientFunction結尾
 
 		/// <summary>
@@ -1270,11 +1010,7 @@ this.rditem_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('Mast
 		/// <param name="pMiMjManager"></param>
 		protected override void buildMiMjManager(Hashtable pMiMjManager)
 		{
-			//單頭控制項
-			if ( FormStatus == EFFormStatus.CREATE ) {
-
-			}
-
+@MiMjManagers
 		}//buildMiMjManager結尾
 		#endregion settingClientFunction , 註冊onclick、onblur、onchange事件
 
@@ -1285,25 +1021,11 @@ this.rditem_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('Mast
 		protected override void settingImgAssistantInfo(System.Collections.Generic.List<DigiWinImgAssistant> pListImage)
 		{
 			base.settingImgAssistantInfo(pListImage);
-
+@ImageManagers
 		}//settingImgAssistantInfo結尾
 
 		#region SetDefaultValue , 設定表單欄位的初始值
-		protected override void SetDefaultValue(Hashtable defalutHash)
-		{
-			defalutHash.Add("odmmrbcntest02001", this.formID);
-			defalutHash.Add("odmmrbcntest02002", this.SheetNo);
-			defalutHash.Add("dept", ajaxGetDepartmentName());
-			defalutHash.Add("name", this.UserInfo.LoginName.ToString());
-			defalutHash.Add("superid", ajaxGetSupervisorID());
-		}
-
-		//草稿儲存後要將主旨清除
-		protected override void AfterCreateToolSaveForm()
-		{
-			base.TxtCreateToolSubject.Text = String.Empty;
-		}
-
+		@SetDefaultValue
 		#endregion SetDefaultValue , 設定表單欄位的初始值
 
 		#region DB 相關 Method
@@ -2034,44 +1756,13 @@ order by resdd003 desc";
 
 
 
-		#region ReGetCondValue , 設定條件欄位陣列
-		protected override void ReGetCondValue(object[,] pAryCondValue)
-		{
-			string tValue = string.Empty;
-			string tTemp = string.Empty;
-			double tDbl = 0;
-		
-		}
-		#endregion
-
-		#region 重設表單關係人, 表單代理人
-		//重設表單關係人
-		protected override string ReGetParserRoleID()
-		{
-			return base.AryFormProperty.Filler.ToString().Trim();
-		}
-
-		//重設表單代理人
-		protected override string ReGetAgentID()
-		{
-			return objRE.FindAgentID(base.StrParserRoleID, this.m_strProcID);
-		}
-		#endregion
-
-		
-		
-		
-		protected override void BeforePrint(ref string pReport, ref string pReportID, ref string pWhere, ref string pOrder, ref string pReportDirectory)
-		{
-			pReport = "ODMMRBCN01_TEST02";
-			pReportID = "ODMMRBCN01_TEST02_02";//憑證式
-			pWhere = "AND (odmmrbcntest02001='" + this.formID + "') AND (odmmrbcntest02002='" + this.SheetNo + "')";
-			pReportDirectory = "ODMMRBCN01_TEST02";
-			base.BeforePrint(ref pReportID, ref pWhere, ref pOrder, ref pOrder, ref pReportDirectory);
-		}
-
-		
-		
-		
+		@DscReGetCondValue
+		@DscReGetAgentIDParserRoleID
+		@DscGridHashTable
+		@DscGridShowColumn
+		@BeforePrint
+		@SetDetailComputeInfo
+		@SetDetailDefaultValue
+		@SetCustomCode_Other
 	}
 }

@@ -9,95 +9,27 @@ function CustomerSaveCheck_Head(tStatus)
 	if (tStatus == "CREATE")
 	{
 		//填表時要驗證
-		//Radio Button 驗証
-			if ($('#MasterPage_MasterPageContent_rditem_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_rditem_txt').value == '')
-			{
-				tErr += getI18NForSpecial('FD', 'ODMMRBCN01_TEST02', 'rditem_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-			}
 
 	}
 	else if (tStatus == "APPROVE")
 	{
 		//簽核時要驗證
-		if (gApprovedMark == "簽核主管1")
-		{
-			//20230407 edit by Peggy Start
-			var chk1 = document.getElementById("MasterPage_MasterPageContent_chk01_1_chk");
-			var chk2 = document.getElementById("MasterPage_MasterPageContent_chk01_2_chk");
-			var chk3 = document.getElementById("MasterPage_MasterPageContent_chk01_3_chk");
-			var chk4 = document.getElementById("MasterPage_MasterPageContent_chk01_4_chk");
-			var chk5 = document.getElementById("MasterPage_MasterPageContent_chk01_5_chk");
 
-			if (chk1.checked == false && chk2.checked == false && chk3.checked == false && chk4.checked == false
-				&& chk5.checked == false)
-			{
-				tErr += "處理結果必須選擇一項!";
-			}
-			//20230407 edit by Peggy End
-		}
-		if (gApprovedMark == "簽核主管2")
-		{
-			//20230407 edit by Peggy Start
-			var chk1 = document.getElementById("MasterPage_MasterPageContent_chk02_1_chk");
-			var chk2 = document.getElementById("MasterPage_MasterPageContent_chk02_2_chk");
-			var chk3 = document.getElementById("MasterPage_MasterPageContent_chk02_3_chk");
-			var chk4 = document.getElementById("MasterPage_MasterPageContent_chk02_4_chk");
-			var chk5 = document.getElementById("MasterPage_MasterPageContent_chk02_5_chk");
-
-			if (chk1.checked == false && chk2.checked == false && chk3.checked == false && chk4.checked == false
-				&& chk5.checked == false)
-			{
-				tErr += "處理結果必須選擇一項!";
-			}
-			//20230407 edit by Peggy End
-		}
-		if (gApprovedMark == "簽核主管3")
-		{
-			//20230407 edit by Peggy Start
-			var chk1 = document.getElementById("MasterPage_MasterPageContent_chk03_1_chk");
-			var chk2 = document.getElementById("MasterPage_MasterPageContent_chk03_2_chk");
-			var chk3 = document.getElementById("MasterPage_MasterPageContent_chk03_3_chk");
-			var chk4 = document.getElementById("MasterPage_MasterPageContent_chk03_4_chk");
-			var chk5 = document.getElementById("MasterPage_MasterPageContent_chk03_5_chk");
-
-			if (chk1.checked == false && chk2.checked == false && chk3.checked == false && chk4.checked == false
-				&& chk5.checked == false)
-			{
-				tErr += "處理結果必須選擇一項!";
-			}
-			//20230407 edit by Peggy End
-		}
-		if (gApprovedMark == "簽核主管4")
-		{
-			//20230407 edit by Peggy Start
-			var chk1 = document.getElementById("MasterPage_MasterPageContent_chk04_1_chk");
-			var chk2 = document.getElementById("MasterPage_MasterPageContent_chk04_2_chk");
-			var chk3 = document.getElementById("MasterPage_MasterPageContent_chk04_3_chk");
-			var chk4 = document.getElementById("MasterPage_MasterPageContent_chk04_4_chk");
-			var chk5 = document.getElementById("MasterPage_MasterPageContent_chk04_5_chk");
-
-			if (chk1.checked == false && chk2.checked == false && chk3.checked == false && chk4.checked == false
-				&& chk5.checked == false)
-			{
-				tErr += "處理結果必須選擇一項!";
-			}
-			//20230407 edit by Peggy End
-		}
 	}
 
 	//填表及簽核都要驗證
 	//float格式驗証
-	var ttestnum = $('#MasterPage_MasterPageContent_testnum_txt');
-	if(ttestnum.length>0){
-		var ttestnumValue = $('#MasterPage_MasterPageContent_testnum_txt').val().trim();
-		if (ttestnumValue.length>0){
-			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(ttestnumValue)){
+	var ttotomoney = $('#MasterPage_MasterPageContent_totomoney_txt');
+	if(ttotomoney.length>0){
+		var ttotomoneyValue = $('#MasterPage_MasterPageContent_totomoney_txt').val().trim();
+		if (ttotomoneyValue.length>0){
+			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(ttotomoneyValue)){
 				//輸入的資料不符合float數值格式 !
-				tErr += '「' + getI18NForSpecial('FD', 'ODMMRBCN01_TEST02', 'testnum', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFloatErrMsg + '\r\n';
+				tErr += '「' + getI18NForSpecial('FD', 'ODMDUTEST', 'totomoney', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFloatErrMsg + '\r\n';
 			}
 			else{
-				ttestnumValue=ttestnumValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_testnum_txt').val(parseFloat(ttestnumValue).toFixed(2));
+				ttotomoneyValue=ttotomoneyValue.replace(/\,/g,'');
+				$('#MasterPage_MasterPageContent_totomoney_txt').val(parseFloat(ttotomoneyValue).toFixed(2));
 			}
 		}
 	}
@@ -124,17 +56,17 @@ function DraftSaveCheck(){
 	var tDecimalErrMsg = getI18NForSpecial('PSMSG', 'Validation', 'DecimalErrMsg', '../../_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
 	//數值驗證
 	//float格式驗証
-	var ttestnum = $('#MasterPage_MasterPageContent_testnum_txt');
-	if(ttestnum.length>0){
-		var ttestnumValue = $('#MasterPage_MasterPageContent_testnum_txt').val().trim();
-		if (ttestnumValue.length>0){
-			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(ttestnumValue)){
+	var ttotomoney = $('#MasterPage_MasterPageContent_totomoney_txt');
+	if(ttotomoney.length>0){
+		var ttotomoneyValue = $('#MasterPage_MasterPageContent_totomoney_txt').val().trim();
+		if (ttotomoneyValue.length>0){
+			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(ttotomoneyValue)){
 				//輸入的資料不符合float數值格式 !
-				tErr += '「' + getI18NForSpecial('FD', 'ODMMRBCN01_TEST02', 'testnum', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFloatErrMsg + '\r\n';
+				tErr += '「' + getI18NForSpecial('FD', 'ODMDUTEST', 'totomoney', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFloatErrMsg + '\r\n';
 			}
 			else{
-				ttestnumValue=ttestnumValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_testnum_txt').val(parseFloat(ttestnumValue).toFixed(2));
+				ttotomoneyValue=ttotomoneyValue.replace(/\,/g,'');
+				$('#MasterPage_MasterPageContent_totomoney_txt').val(parseFloat(ttotomoneyValue).toFixed(2));
 			}
 		}
 	}
@@ -158,7 +90,7 @@ function CustomerSaveCheck_DetailAllData(pFormId, pUniversalId)
 {
 	var tErr = "";
 
-	
+	tErr = tw.com.dsc.easyflowDotNet.forms.ODMDUTEST.ajaxCheckAllDetailDataVerify(pFormId, pUniversalId).value;
 
 	if (tErr == "")
 	{
@@ -192,6 +124,25 @@ function CustomerSaveCheck_Body(tStatus)
 	}
 
 	//填表及簽核都要驗證
+	if($('#MasterPage_MasterPageContent_TabStrip2')[0].selectedIndex==0){
+		//float格式驗証
+		var ttext1 = $('#MasterPage_MasterPageContent_text1_txt');
+		if(ttext1.length>0){
+			var ttext1Value = $('#MasterPage_MasterPageContent_text1_txt').val().trim();
+			if (ttext1Value.length>0){
+				if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(ttext1Value)){
+					//輸入的資料不符合float數值格式 !
+					tErr += '「' + getI18NForSpecial('FD', 'ODMDUTEST_d01', 'text1', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFloatErrMsg + '\r\n';
+				}
+				else{
+					ttext1Value=ttext1Value.replace(/\,/g,'');
+					$('#MasterPage_MasterPageContent_text1_txt').val(parseFloat(ttext1Value).toFixed(2));
+				}
+			}
+		}
+	}
+
+
 
 
 	if (tErr == "")
@@ -221,6 +172,34 @@ function InitTriggerMust(tStatus){
 }
 
 function InitTriggerOpen(){
+	if($("#MasterPage_MasterPageContent_dept1_txt").length>0){
+		if($("#MasterPage_MasterPageContent_dept1_txt").val()==""){
+			$('#MasterPage_MasterPageContent_newopenquery3_txt')[0].style.backgroundColor='#deecea';
+			$('#MasterPage_MasterPageContent_newopenquery3_txt').val("");
+			$('#MasterPage_MasterPageContent_newopenquery3_txt2').text("");
+			if(!$('#MasterPage_MasterPageContent_newopenquery3_txt').attr("disabled"))
+			{
+				$('#MasterPage_MasterPageContent_newopenquery3_txt').prop("disabled",true);
+				$('#MasterPage_MasterPageContent_newopenquery3_btn').prop("disabled",true);
+				$('#MasterPage_MasterPageContent_newopenquery3_btn').css("cursor","default");
+				$('#MasterPage_MasterPageContent_newopenquery3_btn').css("pointer-events","none");
+			}
+		}
+		else{
+			$('#MasterPage_MasterPageContent_newopenquery3_txt')[0].style.backgroundColor='white';
+			if($('#MasterPage_MasterPageContent_newopenquery3_txt').hasClass("PL_ReadOnly")){
+				$('#MasterPage_MasterPageContent_newopenquery3_txt')[0].style.backgroundColor='#deecea';
+			}
+			else if($('#MasterPage_MasterPageContent_newopenquery3_txt').attr("disabled"))
+			{
+				$('#MasterPage_MasterPageContent_newopenquery3_txt').prop("disabled",false);
+				$('#MasterPage_MasterPageContent_newopenquery3_btn').prop("disabled",false);
+				$('#MasterPage_MasterPageContent_newopenquery3_btn').css("cursor","pointer");
+				$('#MasterPage_MasterPageContent_newopenquery3_btn').css("pointer-events","auto");
+			}
+		}
+	}
+
 
 }
 
@@ -238,6 +217,33 @@ function CreateOption(pValue,pText,objselect)
 	var new_option = new Option(pText,pValue);
 	objselect.options.add(new_option);
 }
+
+function FunOnChange_dept1()
+{
+	var evt = (event)?event:window.event;
+	var element=evt.srcElement || evt.target;
+	//如果是透過 automimj 不觸發
+	if (element != null && element.id != null)
+	{
+		$('#MasterPage_MasterPageContent_newopenquery3_txt').val("");
+		$('#MasterPage_MasterPageContent_newopenquery3_txt2').text("");
+	}
+}//EndFun_FunOnChange_dept1()
+
+function FunCheckIsChanged_dept1()
+{
+	var PreSetValue = $('#MasterPage_MasterPageContent_hdnOpenQueryPreSetValue').val();
+	if(PreSetValue.length>0){
+		var aryPreSetValue = PreSetValue.split('§');
+		if(aryPreSetValue.length>1){
+			if("dept1" == aryPreSetValue[0] && $('#MasterPage_MasterPageContent_dept1_txt').val() != aryPreSetValue[1])
+				FunOnChange_dept1();
+		}
+	}
+	else{
+		FunOnChange_dept1();
+	}
+}//EndFun_FunCheckIsChanged_dept1()
 
 
 
@@ -259,7 +265,7 @@ function getMoneyWord(pNumberContrlID, pDecimalPlaces, pWordControlID)
 			else{
 				//這裡使用者如果輸入超過16進位的數值，就會失真！
 				//tControlNumValue = parseFloat(tControlNumValue).toFixed(pDecimalPlaces);
-				tControlNumValue = tw.com.dsc.easyflowDotNet.forms.ODMMRBCN01_TEST02.ajaxGetFixedNum(tControlNumValue, pDecimalPlaces).value;
+				tControlNumValue = tw.com.dsc.easyflowDotNet.forms.ODMDUTEST.ajaxGetFixedNum(tControlNumValue, pDecimalPlaces).value;
 
 				$('#MasterPage_MasterPageContent_'+pNumberContrlID+'_txt').val(tControlNumValue);
 				var iIntegerSTR="";
@@ -294,7 +300,7 @@ function getMoneyWord(pNumberContrlID, pDecimalPlaces, pWordControlID)
 				return false;
 			}
 
-			var tControlWordValue = tw.com.dsc.easyflowDotNet.forms.ODMMRBCN01_TEST02.ajaxGetMoneyWord(tControlNumValue).value;
+			var tControlWordValue = tw.com.dsc.easyflowDotNet.forms.ODMDUTEST.ajaxGetMoneyWord(tControlNumValue).value;
 			$('#MasterPage_MasterPageContent_'+pWordControlID+'_txt').val(tControlWordValue);
 		}
 		//2015/09/14;3.7.3.19;hiro;V00-20150914007;修正數值轉大寫，數值為空白時，沒有一併清空轉大寫欄位↓
@@ -318,14 +324,7 @@ function SetCustomSubject()
 	var tSubjectVal='';
 	var tSubjectTxt=document.getElementById("MasterPage_txtCreateToolSubject_txt").value;
 	var tSubjectSelf='';
-	tSubjectSelf+='CN物料會議記錄-'+
-$('#MasterPage_MasterPageContent_condate_txt').val()+'-'+
-$('#MasterPage_MasterPageContent_dept_txt').val();
-
-	//自訂主旨
-	tSubjectVal=tSubjectSelf;
-
-	if(tSubjectVal.length>255){tSubjectVal=tSubjectVal.substring(0,255);}
+	tSubjectVal=tSubjectTxt;
 	//使用者自訂主旨end
 
 	$("#MasterPage_txtCreateToolSubject_txt").val(tSubjectVal);
@@ -378,7 +377,7 @@ function jsDoDispatch(pFormID, pSheetNo, pDispatchFormID){
 	//若您已有編輯此表單資料, 此動作會清除您所編輯的資料! [請問是否繼續?
 	var tConfirmSTR = getI18NForSpecial('FD','EFBaseMasterPage','EFMsgBoxJS007','../../../src/_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
 	if(window.confirm(tConfirmSTR.split('[')[0].toString() + "\r\n\r\n" + tConfirmSTR.split('[')[1].toString())){
-		var bResult = tw.com.dsc.easyflowDotNet.forms.ODMMRBCN01_TEST02.ajaxDoDispatchForm(pFormID, pSheetNo, pDispatchFormID).value;
+		var bResult = tw.com.dsc.easyflowDotNet.forms.ODMDUTEST.ajaxDoDispatchForm(pFormID, pSheetNo, pDispatchFormID).value;
 		var tDispatchFormResult="";
 		if(bResult){
 			//執行派送表單成功!
@@ -395,4 +394,33 @@ function jsDoDispatch(pFormID, pSheetNo, pDispatchFormID){
 	}
 }
 
+//單身新增狀態，開窗控件MJ取得初始值設定
+function AutoMJForBodyAddStatus(){
+	try{
+		var tHeadStatus = document.getElementById("MasterPage_MasterPageContent_currentDiv").value;
+		if (tHeadStatus=='qbeResult'){}
+		else{
+			var tBody01DetailStatus=$("#MasterPage_MasterPageContent_GridUserControl1_hdnGS002").val();
+			if("add"==tBody01DetailStatus){
+				if(document.getElementById('MasterPage_MasterPageContent_newopenquery1_txt') != null)
+				{
+					document.getElementById('MasterPage_MasterPageContent_newopenquery1_txt').onchange(); document.getElementById('MasterPage_MasterPageContent_newopenquery1_txt').onblur();
+				}
+				if(document.getElementById('MasterPage_MasterPageContent_newopenquery2_txt') != null)
+				{
+					document.getElementById('MasterPage_MasterPageContent_newopenquery2_txt').onchange(); document.getElementById('MasterPage_MasterPageContent_newopenquery2_txt').onblur();
+				}
+				if(document.getElementById('MasterPage_MasterPageContent_dept1_txt') != null)
+				{
+					document.getElementById('MasterPage_MasterPageContent_dept1_txt').onchange(); document.getElementById('MasterPage_MasterPageContent_dept1_txt').onblur();
+				}
+				if(document.getElementById('MasterPage_MasterPageContent_newopenquery3_txt') != null)
+				{
+					document.getElementById('MasterPage_MasterPageContent_newopenquery3_txt').onchange(); document.getElementById('MasterPage_MasterPageContent_newopenquery3_txt').onblur();
+				}
+			}
+		}
+	}
+	catch(e){}
+}
 

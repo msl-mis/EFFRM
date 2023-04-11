@@ -35,14 +35,15 @@ using com.digiwin.net.ef.classlibrary;
 //2014/12/30;3.7.3.3;hiro;S00-20141225002;派送表單功能強化↓
 using tw.com.dsc.easyflowDotNet.kernelBasePage.easyflowfunction;
 //2014/12/30;3.7.3.3;hiro;S00-20141225002;派送表單功能強化↑
+using com.digiwin.net.ef.kernelBasePage;
 
 
 namespace tw.com.dsc.easyflowDotNet.forms
 {
 	/// <summary>
-	/// ODMMRBCN01_TEST02 的摘要描述。
+	/// ODMDUTEST 的摘要描述。
 	/// </summary>
-	public partial class ODMMRBCN01_TEST02 : tw.com.dsc.easyflowDotNet.kernelBasePage.EFBasePage
+	public partial class ODMDUTEST : EFBasePage2
 	{
 		//edit by teppy 2011/02/08 Start
 		#region 讀取 sysba 參數設定用物件
@@ -96,13 +97,13 @@ namespace tw.com.dsc.easyflowDotNet.forms
 		protected override void Page_Load(object sender, EventArgs e)
 		{
 			base.Page_Load(sender, e);
-			AjaxPro.Utility.RegisterTypeForAjax(typeof(ODMMRBCN01_TEST02));
+			AjaxPro.Utility.RegisterTypeForAjax(typeof(ODMDUTEST));
 			UserInfoClass tClass = (UserInfoClass)Session["UserInfo"];
 			string tLanguageType = tClass.Language;
 
 			//多國語系
-			this.Title= MultiLanguage.GetComment("FD","ODMMRBCN01_TEST02","lblTitle",this.UserInfo.Language);
-			string tHeadTabStrip01Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "HeadTabStrip01", tLanguageType);
+			this.Title= MultiLanguage.GetComment("FD","ODMDUTEST","lblTitle",this.UserInfo.Language);
+			string tHeadTabStrip01Text = MultiLanguage.GetComment("FD", "ODMDUTEST", "HeadTabStrip01", tLanguageType);
 			if(tHeadTabStrip01Text.Length>4){
 				this.TabStrip1.Items[0].Text = tHeadTabStrip01Text.Substring(0,4)+"..";
 				this.TabStrip1.Items[0].ToolTip = tHeadTabStrip01Text;
@@ -110,55 +111,47 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			else{
 				this.TabStrip1.Items[0].Text = tHeadTabStrip01Text;
 			}
+			string tBodyTabStrip01Text = MultiLanguage.GetComment("FD", "ODMDUTEST", "BodyTabStrip01", tLanguageType);
+			if(tBodyTabStrip01Text.Length>4){
+				this.TabStrip2.Items[0].Text = tBodyTabStrip01Text.Substring(0,4)+"..";
+				this.TabStrip2.Items[0].ToolTip = tBodyTabStrip01Text;
+			}
+			else{
+				this.TabStrip2.Items[0].Text = tBodyTabStrip01Text;
+			}
 
-			this.dept.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "dept", tLanguageType);
-			this.name.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "name", tLanguageType);
-			this.txtno.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtno", tLanguageType);
-			this.txtordno.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtordno", tLanguageType);
-			this.txtpdname.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtpdname", tLanguageType);
-			this.txtpdno.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtpdno", tLanguageType);
-			this.txtpdqty.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtpdqty", tLanguageType);
-			this.txtreason.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "txtreason", tLanguageType);
-			this.condate.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "condate", tLanguageType);
-			this.superid.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "superid", tLanguageType);
-			this.director01.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "director01", tLanguageType);
-			this.director02.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "director02", tLanguageType);
-			this.chk01_1.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk01_1", tLanguageType);
-			this.chk01_2.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk01_2", tLanguageType);
-			this.chk02_2.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk02_2", tLanguageType);
-			this.chk03_2.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk03_2", tLanguageType);
-			this.chk04_2.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk04_2", tLanguageType);
-			this.chk01_3.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk01_3", tLanguageType);
-			this.chk02_3.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk02_3", tLanguageType);
-			this.chk03_3.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk03_3", tLanguageType);
-			this.chk04_3.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk04_3", tLanguageType);
-			this.chk01_4.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk01_4", tLanguageType);
-			this.chk02_4.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk02_4", tLanguageType);
-			this.chk03_4.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk03_4", tLanguageType);
-			this.chk04_4.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk04_4", tLanguageType);
-			this.chk01_5.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk01_5", tLanguageType);
-			this.chk02_5.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk02_5", tLanguageType);
-			this.chk03_5.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk03_5", tLanguageType);
-			this.chk04_5.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk04_5", tLanguageType);
-			this.director03.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "director03", tLanguageType);
-			this.chk02_1.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk02_1", tLanguageType);
-			this.chk03_1.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk03_1", tLanguageType);
-			this.chk04_1.Text = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "chk04_1", tLanguageType);
-			this.testnum.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "testnum", tLanguageType);
-			this.director04.Title = MultiLanguage.GetComment("FD", "ODMMRBCN01_TEST02", "director04", tLanguageType);
+			this.label3.Text = MultiLanguage.GetComment("FD", "ODMDUTEST", "label3", tLanguageType);
+			this.txtname.Title = MultiLanguage.GetComment("FD", "ODMDUTEST", "txtname", tLanguageType);
+			this.datetime1.Title = MultiLanguage.GetComment("FD", "ODMDUTEST", "datetime1", tLanguageType);
+			this.totomoney.Title = MultiLanguage.GetComment("FD", "ODMDUTEST", "totomoney", tLanguageType);
+			this.newopenquery1.Title = MultiLanguage.GetComment("FD", "ODMDUTEST_d01", "newopenquery1", tLanguageType);
+			this.newopenquery2.Title = MultiLanguage.GetComment("FD", "ODMDUTEST_d01", "newopenquery2", tLanguageType);
+			this.text1.Title = MultiLanguage.GetComment("FD", "ODMDUTEST_d01", "text1", tLanguageType);
+			this.dept1.Title = MultiLanguage.GetComment("FD", "ODMDUTEST_d01", "dept1", tLanguageType);
+			this.newopenquery3.Title = MultiLanguage.GetComment("FD", "ODMDUTEST_d01", "newopenquery3", tLanguageType);
 
 
 			#region 自訂排序
-			
+			txtname.TxtInput_TabIndex=101;
+			datetime1.TxtInput_TabIndex=102;
+			totomoney.TxtInput_TabIndex=107;
+			newopenquery1.TxtInput_TabIndex=505;
+			newopenquery2.TxtInput_TabIndex=505;
+			text1.TxtInput_TabIndex=506;
+			dept1.TxtInput_TabIndex=508;
+			newopenquery3.TxtInput_TabIndex=510;
+			base._BtnDetailSave.TabIndex=511;
+			base._BtnDetailExit.TabIndex=512;
 			#endregion 自訂排序
 
 			#region 限制修改欄位
-			this.TxtCreateToolSubject.InputEnabled=false;
+			this.TxtCreateToolSubject.InputEnabled=true;
 
 			#endregion 限制修改欄位
 
 			#region 增加初始設定
-			
+			ScriptManager.RegisterStartupScript(this, typeof(string), "InitTriggerOpen", "InitTriggerOpen();", true);
+ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "InitCalculated();", true);
 			#endregion 增加初始設定
 		}
 		#endregion
@@ -189,78 +182,20 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			//ToolTip參數：Y:顯示ToolTip；N:不顯示
 			string strToolTipParameter = objEFPara.EF_getCompanyParameterData("ToolTip").ToString();
 			
-			if(strToolTipParameter=="Y"){
-				this.txtreason.ToolTip = this.txtreason.Text;
-
-			}
 
 			#endregion 與管理程式共用Before Prender區段
 
 			base.Page_Prender(sender, e);
 
 			#region 與管理程式共用After Prender區段
-			//單頭RadioButton控制項 start
-			rditem.Attributes["style"] = "display:none;";
-			rditem_ctrolRadio0.Checked = (rditem.Value == "0"); rditem_ctrolRadio0.Enabled = rditem.InputEnabled;
-			rditem_ctrolRadio1.Checked = (rditem.Value == "1"); rditem_ctrolRadio1.Enabled = rditem.InputEnabled;
-			rditem_ctrolRadio2.Checked = (rditem.Value == "2"); rditem_ctrolRadio2.Enabled = rditem.InputEnabled;
+			
 
-
-			//單頭RadioButton控制項 end
-
-this.chk01_1.Text = String.Empty;
-this.chk01_2.Text = String.Empty;
-this.chk02_2.Text = String.Empty;
-this.chk03_2.Text = String.Empty;
-this.chk04_2.Text = String.Empty;
-this.chk01_3.Text = String.Empty;
-this.chk02_3.Text = String.Empty;
-this.chk03_3.Text = String.Empty;
-this.chk04_3.Text = String.Empty;
-this.chk01_4.Text = String.Empty;
-this.chk02_4.Text = String.Empty;
-this.chk03_4.Text = String.Empty;
-this.chk04_4.Text = String.Empty;
-this.chk01_5.Text = String.Empty;
-this.chk02_5.Text = String.Empty;
-this.chk03_5.Text = String.Empty;
-this.chk04_5.Text = String.Empty;
-this.chk02_1.Text = String.Empty;
-this.chk03_1.Text = String.Empty;
-this.chk04_1.Text = String.Empty;
-
+			totomoney.InputEnabled = false;//設定為單身加總，預設唯讀
 
 
 			#endregion 與管理程式共用After Prender區段
 
-			//單頭底圖顯示設定
-			#region ================ 表單底圖判斷顯示時機 ================
-			Head01_file_1.Visible = false;
-
-			switch (base.FormStatus)
-			{
-				case EFFormStatus.CREATE: //填單
-					{
-						Head01_file_1.Visible = true;
-
-					}
-					break;
-				case EFFormStatus.APPROVE: //簽核
-					{
-						Head01_file_1.Visible = true;
-
-					}
-					break;
-				case EFFormStatus.DISPLAY: //原稿
-					{
-						Head01_file_1.Visible = true;
-
-					}
-					break;
-			}
-			#endregion
-
-
+			
 			#region 註冊使用者自訂檢查 Javascript
 			if (base.FormStatus.ToString() == "CREATE")
 			{
@@ -268,7 +203,7 @@ this.chk04_1.Text = String.Empty;
 				string tParentScript = base.BtnCreateToolSendForm.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("SetCustomSubject()")<0){
 					tParentScript = tParentScript.Replace("if (!checkSubjectField())", "SetCustomSubject();if (!checkSubjectField())");
-					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
+					tParentScript = "if (!ajaxCheckDetialRowCountInCreate('" + this.formID + "', '" + this.UniversalID + "')){event.returnValue=false;return false;} if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; } " + tParentScript + "";
 					base.BtnCreateToolSendForm.Attributes.Add("onclick", tParentScript);
 				}
 
@@ -277,7 +212,7 @@ this.chk04_1.Text = String.Empty;
 				if(base.BtnPreCreateToolSendForm.Attributes["onclick"]!=null)
 					tParentScript = base.BtnPreCreateToolSendForm.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("CustomerSaveCheck_Head(")<0){
-					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; } " + tParentScript + "";
+					tParentScript = "if (!ajaxCheckDetialRowCountInCreate('" + this.formID + "', '" + this.UniversalID + "')){event.returnValue=false;return false;} if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; } " + tParentScript + "";
 					base.BtnPreCreateToolSendForm.Attributes.Add("onclick", tParentScript);
 				}
 
@@ -292,23 +227,31 @@ this.chk04_1.Text = String.Empty;
 			{
 				string tParentScript = base.BtnApproveToolDecide.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("CustomerSaveCheck_Head(")<0){
-					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
+					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; } if (!CustomerSaveCheck_DetailAllData('" + this.formID + "', '" + this.UniversalID + "')) {return false; }" + tParentScript + "";
 					base.BtnApproveToolDecide.Attributes.Add("onclick", tParentScript);
 				}
 
 				tParentScript = base.BtnApproveToolAgree.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("CustomerSaveCheck_Head(")<0){
-					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
+					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; } if (!CustomerSaveCheck_DetailAllData('" + this.formID + "', '" + this.UniversalID + "')) {return false; }" + tParentScript + "";
 					base.BtnApproveToolAgree.Attributes.Add("onclick", tParentScript);
 				}
 
 				tParentScript = base.BtnApproveToolDone.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("CustomerSaveCheck_Head(")<0){
-					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
+					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; } if (!CustomerSaveCheck_DetailAllData('" + this.formID + "', '" + this.UniversalID + "')) {return false; }" + tParentScript + "";
 					base.BtnApproveToolDone.Attributes.Add("onclick", tParentScript);
 				}
 			}
 			#endregion
+			#region 註冊使用者自訂檢查單身 Javascript
+			string tDetailParentScript = string.Empty;
+			if (_BtnDetailSave.Attributes["onclick"] != null) { tDetailParentScript = _BtnDetailSave.Attributes["onclick"].ToString();}
+			if(tDetailParentScript.IndexOf("CustomerSaveCheck_Body(")<0){
+				tDetailParentScript = "if (!CustomerSaveCheck_Body('" + base.FormStatus.ToString() + "')) {return false } " + tDetailParentScript;
+				base._BtnDetailSave.Attributes.Add("onclick", tDetailParentScript);
+			}
+			#endregion 註冊使用者自訂檢查單身
 
 
 			#region 自訂下拉選項
@@ -316,6 +259,9 @@ this.chk04_1.Text = String.Empty;
 			#endregion 自訂下拉選項
 
 			#region 增加初始設定(可判斷表單狀態)
+			if (base.FormStatus.ToString() == "APPROVE"){
+				ScriptManager.RegisterStartupScript(this, typeof(string), "InitAutoMJForBodyAddStatus", "AutoMJForBodyAddStatus();", true);
+			}
 
 			#endregion 增加初始設定(可判斷表單狀態)
 
@@ -331,124 +277,23 @@ this.chk04_1.Text = String.Empty;
 			}
 
 			#region 自訂Page_Prender區塊
-
+			
 			#endregion 自訂Page_Prender區塊
+		}
+		#endregion Page_Prender做的事
 
-			//20230410 edit by Peggy Start
-				//唯讀欄位
-				turningOnOff("Off", director01);//簽核主管1填表時為不可填
-				turningOnOff("Off", chk01_1);
-				turningOnOff("Off", chk01_2);
-				turningOnOff("Off", chk01_3);
-				turningOnOff("Off", chk01_4);
-				turningOnOff("Off", chk01_5);
-
-				turningOnOff("Off", director02);//簽核主管2填表時為不可填
-				turningOnOff("Off", chk02_1);
-				turningOnOff("Off", chk02_2);
-				turningOnOff("Off", chk02_3);
-				turningOnOff("Off", chk02_4);
-				turningOnOff("Off", chk02_5);
-
-				turningOnOff("Off", director03);//簽核主管3填表時為不可填
-				turningOnOff("Off", chk03_1);
-				turningOnOff("Off", chk03_2);
-				turningOnOff("Off", chk03_3);
-				turningOnOff("Off", chk03_4);
-				turningOnOff("Off", chk03_5);
-
-				turningOnOff("Off", director04);//簽核主管4填表時為不可填
-				turningOnOff("Off", chk04_1);
-				turningOnOff("Off", chk04_2);
-				turningOnOff("Off", chk04_3);
-				turningOnOff("Off", chk04_4);
-				turningOnOff("Off", chk04_5);
-            //20230410 edit by Peggy End
-
-            //20230407 edit by Peggy Start
-            if (!IsPostBack)  //表單第一次進入
-            {
-                if (base.FormStatus == EFFormStatus.APPROVE && !BlnISApproved)  //簽核狀態且該關卡未簽核
-                {
-                    DataRow[] aryDr = RstTRFlow.Tables[0].Select(string.Format(" resdb003='{0}' AND resdb004='{1}'", FlowNo, BranchNo));  //取得目前關卡
-
-                    string approvedMark = "";
-
-                    if (aryDr.Length > 0)
-                    {
-                        approvedMark = aryDr[0]["resdb066"].ToString();  //取得流程說明
-
-                        if (approvedMark == "簽核主管1")  //判斷流程說明
-                        {
-                            turningOnOff("On", director01);
-                            turningOnOff("On", chk01_1);
-                            turningOnOff("On", chk01_2);
-                            turningOnOff("On", chk01_3);
-                            turningOnOff("On", chk01_4);
-                            turningOnOff("On", chk01_5);
-                            director01.Value = UserInfo.LoginName;
-                        }
-                        else if (approvedMark == "簽核主管2")
-                        {
-                            //簽核主管2 do .....
-                            turningOnOff("On", director02);
-                            turningOnOff("On", chk02_1);
-                            turningOnOff("On", chk02_2);
-                            turningOnOff("On", chk02_3);
-                            turningOnOff("On", chk02_4);
-                            turningOnOff("On", chk02_5);
-                            director02.Value = UserInfo.LoginName;
-                        }
-                        else if (approvedMark == "簽核主管3")
-                        {
-                            //簽核主管3 do .....
-                            turningOnOff("On", director03);
-                            turningOnOff("On", chk03_1);
-                            turningOnOff("On", chk03_2);
-                            turningOnOff("On", chk03_3);
-                            turningOnOff("On", chk03_4);
-                            turningOnOff("On", chk03_5);
-                            director03.Value = UserInfo.LoginName;
-                        }
-                        else if (approvedMark == "簽核主管4")
-                        {
-                            //簽核主管3 do .....
-                            turningOnOff("On", director04);
-                            turningOnOff("On", chk04_1);
-                            turningOnOff("On", chk04_2);
-                            turningOnOff("On", chk04_3);
-                            turningOnOff("On", chk04_4);
-                            turningOnOff("On", chk04_5);
-                            director04.Value = UserInfo.LoginName;
-                        }
-
-                        ScriptManager.RegisterClientScriptBlock(this, typeof(string), Guid.NewGuid().ToString(), ";var gApprovedMark='" + approvedMark + "';", true);
-
-                        //ScriptManager.RegisterClientScriptBlock(this, typeof(string), Guid.NewGuid().ToString(), ";alert('RegisterClientScriptBlock');", true);
-                        //ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), ";alert('RegisterStartupScript');", true);
-                        //ScriptManager.RegisterStartupScript
-                    }
-                }
-            }
-
-            //20230407 edit by Peggy End
-
-        }
-        #endregion Page_Prender做的事
-
-
-        #region setBasicInfo , 設定表單的基本屬性
-        /// <summary>
-        /// 設定表單的基本屬性 (setBasicInfo)
-        /// </summary>
-        protected override void setBasicInfo()
+		#region setBasicInfo , 設定表單的基本屬性
+		/// <summary>
+		/// 設定表單的基本屬性 (setBasicInfo)
+		/// </summary>
+		protected override void setBasicInfo()
 		{
 			// 作業代號
-			this.TaskId = "ODMMRBCN01_TEST02";
+			this.TaskId = "ODMDUTEST";
 			// 表單代號
-			this.formID = "ODMMRBCN01_TEST02";
+			this.formID = "ODMDUTEST";
 			// 有幾個單身 ex.0-->單檔, 1-->雙檔(一個單身), 2-->雙檔(二個單身)
-			this.detailDepth = 0;
+			this.detailDepth = 1;
 		}
 		#endregion setBasicInfo , 設定表單的基本屬性
 
@@ -930,7 +775,7 @@ this.chk04_1.Text = String.Empty;
 			List<DscRow> listRow_Body03 = new List<DscRow>();
 			List<DscRow> listRow_Body04 = new List<DscRow>();
 			List<DscRow> listRow_Body05 = new List<DscRow>();
-			int intBodyCount = 0;
+			int intBodyCount = 1;
 			for(int i = 0; i < intBodyCount; i++)
 			{
 				DscDataObj tBodyGridObj = null;
@@ -1028,6 +873,25 @@ this.chk04_1.Text = String.Empty;
 			//}
 			//
 			#endregion 範例
+
+
+
+			//float格式驗証
+			for(int i=0;i<intBody01RowCount;i++){
+				string ttext1 = "";
+				if(listRow_Body01[i]["text1"].Value!=null)
+					ttext1 = listRow_Body01[i]["text1"].Value.ToString();
+				if(ttext1.Length>0){
+					double doubletext1 = 0;
+					double.TryParse(ttext1, out doubletext1);
+					if(!Regex.IsMatch(ttext1, @"^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$")){
+						//輸入的資料不符合float數值格式 !
+						tRetMsg += "「" + MultiLanguage.GetComment("FD", "ODMDUTEST_d01", "text1", tLanguageType) + "」  " + tFloatErrMsg + "\r\n";
+						break;
+					}
+				}
+			}
+
 
 
 			return tRetMsg;
@@ -1258,10 +1122,29 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			string tWindowOpenStyle = objEFPara.EF_getCompanyParameterData("WindowOpenStyle").ToString();
 
 			//單頭控制項
+			string strtotomoney_DoSumGridFiledScript_onblur="";
+			if(totomoney.TxtInput.Attributes["onblur"]!=null){strtotomoney_DoSumGridFiledScript_onblur=totomoney.TxtInput.Attributes["onblur"].ToString();}
+			totomoney.TxtInput.Attributes.Add("onblur", strtotomoney_DoSumGridFiledScript_onblur);
 
-this.rditem_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_rditem_txt').value = '0';");
-this.rditem_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_rditem_txt').value = '1';");
-this.rditem_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_rditem_txt').value = '2';");
+			//單身一控制項
+			newopenquery1.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_newopenquery1_btn","MasterPage_MasterPageContent_newopenquery1_txt","S"));
+			newopenquery1.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_newopenquery1_txt","RESAK_01_newopenquery1_d01","MasterPage_MasterPageContent_newopenquery1_txt")+";isDetailSaveButtonEnabled('GridUserControl1_Button9');");
+			newopenquery1.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_newopenquery1_txt');");
+
+			newopenquery2.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_newopenquery2_btn","MasterPage_MasterPageContent_newopenquery2_txt","S"));
+			newopenquery2.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_newopenquery2_txt","OpenMIMJ01_15_newopenquery2_d01","MasterPage_MasterPageContent_newopenquery2_txt")+";isDetailSaveButtonEnabled('GridUserControl1_Button9');");
+			newopenquery2.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_newopenquery2_txt');");
+
+			dept1.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_dept1_btn","MasterPage_MasterPageContent_dept1_txt","S"));
+			dept1.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_dept1_txt","部門代號_dept1_d01","MasterPage_MasterPageContent_dept1_txt,MasterPage_MasterPageContent_newopenquery3_txt")+";isDetailSaveButtonEnabled('GridUserControl1_Button9');InitTriggerOpen();");
+			dept1.TxtInput.Attributes.Add("onchange","InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_dept1_txt');");
+
+			newopenquery3.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_newopenquery3_btn","MasterPage_MasterPageContent_dept1_txt","MasterPage_MasterPageContent_newopenquery3_txt","S"));
+			newopenquery3.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_newopenquery3_txt","TrigMIMJ01_06_newopenquery3_d01","MasterPage_MasterPageContent_newopenquery3_txt,MasterPage_MasterPageContent_dept1_txt")+";isDetailSaveButtonEnabled('GridUserControl1_Button9');");
+			newopenquery3.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_newopenquery3_txt');");
+
+
+
 		}//settingClientFunction結尾
 
 		/// <summary>
@@ -1272,6 +1155,15 @@ this.rditem_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('Mast
 		{
 			//單頭控制項
 			if ( FormStatus == EFFormStatus.CREATE ) {
+
+			}
+
+			//單身一控制項
+			if (FormStatus == EFFormStatus.CREATE) {
+				pMiMjManager.Add("newopenquery1_0", newopenquery1);
+				pMiMjManager.Add("newopenquery2_0", newopenquery2);
+				pMiMjManager.Add("dept1_0", dept1);
+				pMiMjManager.Add("newopenquery3_0", newopenquery3);
 
 			}
 
@@ -1291,11 +1183,9 @@ this.rditem_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('Mast
 		#region SetDefaultValue , 設定表單欄位的初始值
 		protected override void SetDefaultValue(Hashtable defalutHash)
 		{
-			defalutHash.Add("odmmrbcntest02001", this.formID);
-			defalutHash.Add("odmmrbcntest02002", this.SheetNo);
-			defalutHash.Add("dept", ajaxGetDepartmentName());
-			defalutHash.Add("name", this.UserInfo.LoginName.ToString());
-			defalutHash.Add("superid", ajaxGetSupervisorID());
+			defalutHash.Add("odmdutest01001", this.formID);
+			defalutHash.Add("odmdutest01002", this.SheetNo);
+			defalutHash.Add("txtname", this.UserInfo.LoginName.ToString());
 		}
 
 		//草稿儲存後要將主旨清除
@@ -2058,20 +1948,143 @@ order by resdd003 desc";
 		}
 		#endregion
 
-		
-		
+		#region 管理Grid Hashtable
+		protected override Hashtable setGridFormate(Hashtable pGridsHash)
+		{
+			Hashtable GridUserControl1Hash = new Hashtable();
+			GridUserControl1Hash.Add(CreateBasePage.UserControl, GridUserControl1);
+			GridUserControl1Hash.Add(CreateBasePage.objSource, MasterObj.DetailObjs[0]);
+			pGridsHash.Add("Grid1", GridUserControl1Hash);
+			//自動產生序號
+			MasterObj.DetailObjs[0].setIncrementalFields("odmdutestd01003", "odmdutestd01001;odmdutestd01002", 4, "");
+		return pGridsHash;
+		}
+		#endregion 管理Grid Hashtable
+
+		#region Grid 顯示設定
+		protected override void settingHeaderShown()
+		{
+			string tSQL="";
+			string tReturnValue="";
+			if (FormStatus == EFFormStatus.CREATE)
+			{
+				//轉會表單
+				if (base.CmdForwardApproveForm == "Y")
+				{
+				GridUserControl1.ShowColumns("newopenquery2", 70);
+				GridUserControl1.ShowColumns("newopenquery2C", 70);
+				GridUserControl1.ShowColumns("newopenquery1", 70);
+				GridUserControl1.ShowColumns("newopenquery1C", 70);
+				GridUserControl1.ShowColumns("text1", 70, gridUserControl.GridColumnType.Money, gridUserControl.GridColumnAlign.Center);
+				GridUserControl1.ShowColumns("dept1", 70);
+				GridUserControl1.ShowColumns("dept1C", 70);
+				GridUserControl1.ShowColumns("newopenquery3", 70);
+				GridUserControl1.ShowColumns("newopenquery3C", 70);
+				}
+				else {
+					GridUserControl1.ShowColumns("newopenquery2", 70);
+					GridUserControl1.ShowColumns("newopenquery2C", 70);
+					GridUserControl1.ShowColumns("newopenquery1", 70);
+					GridUserControl1.ShowColumns("newopenquery1C", 70);
+					GridUserControl1.ShowColumns("text1", 70, gridUserControl.GridColumnType.Money, gridUserControl.GridColumnAlign.Center);
+					GridUserControl1.ShowColumns("dept1", 70);
+					GridUserControl1.ShowColumns("dept1C", 70);
+					GridUserControl1.ShowColumns("newopenquery3", 70);
+					GridUserControl1.ShowColumns("newopenquery3C", 70);
+				}
+			}
+			else if (FormStatus == EFFormStatus.APPROVE)
+			{
+				GridUserControl1.ShowColumns("newopenquery2", 70);
+				GridUserControl1.ShowColumns("newopenquery2C", 70);
+				GridUserControl1.ShowColumns("newopenquery1", 70);
+				GridUserControl1.ShowColumns("newopenquery1C", 70);
+				GridUserControl1.ShowColumns("text1", 70, gridUserControl.GridColumnType.Money, gridUserControl.GridColumnAlign.Center);
+				GridUserControl1.ShowColumns("dept1", 70);
+				GridUserControl1.ShowColumns("dept1C", 70);
+				GridUserControl1.ShowColumns("newopenquery3", 70);
+				GridUserControl1.ShowColumns("newopenquery3C", 70);
+			}
+			else if (FormStatus == EFFormStatus.DISPLAY)
+			{
+				if (FormType.ToUpper() == "INFO")
+				{
+				GridUserControl1.ShowColumns("newopenquery2", 70);
+				GridUserControl1.ShowColumns("newopenquery2C", 70);
+				GridUserControl1.ShowColumns("newopenquery1", 70);
+				GridUserControl1.ShowColumns("newopenquery1C", 70);
+				GridUserControl1.ShowColumns("text1", 70, gridUserControl.GridColumnType.Money, gridUserControl.GridColumnAlign.Center);
+				GridUserControl1.ShowColumns("dept1", 70);
+				GridUserControl1.ShowColumns("dept1C", 70);
+				GridUserControl1.ShowColumns("newopenquery3", 70);
+				GridUserControl1.ShowColumns("newopenquery3C", 70);
+				}
+				else
+				{
+				GridUserControl1.ShowColumns("newopenquery2", 70);
+				GridUserControl1.ShowColumns("newopenquery2C", 70);
+				GridUserControl1.ShowColumns("newopenquery1", 70);
+				GridUserControl1.ShowColumns("newopenquery1C", 70);
+				GridUserControl1.ShowColumns("text1", 70, gridUserControl.GridColumnType.Money, gridUserControl.GridColumnAlign.Center);
+				GridUserControl1.ShowColumns("dept1", 70);
+				GridUserControl1.ShowColumns("dept1C", 70);
+				GridUserControl1.ShowColumns("newopenquery3", 70);
+				GridUserControl1.ShowColumns("newopenquery3C", 70);
+				}
+			}
+			else
+			{
+				GridUserControl1.ShowColumns("newopenquery2", 70);
+				GridUserControl1.ShowColumns("newopenquery2C", 70);
+				GridUserControl1.ShowColumns("newopenquery1", 70);
+				GridUserControl1.ShowColumns("newopenquery1C", 70);
+				GridUserControl1.ShowColumns("text1", 70, gridUserControl.GridColumnType.Money, gridUserControl.GridColumnAlign.Center);
+				GridUserControl1.ShowColumns("dept1", 70);
+				GridUserControl1.ShowColumns("dept1C", 70);
+				GridUserControl1.ShowColumns("newopenquery3", 70);
+				GridUserControl1.ShowColumns("newopenquery3C", 70);
+			}
+		}
+		#endregion Grid 顯示設定
+
 		
 		protected override void BeforePrint(ref string pReport, ref string pReportID, ref string pWhere, ref string pOrder, ref string pReportDirectory)
 		{
-			pReport = "ODMMRBCN01_TEST02";
-			pReportID = "ODMMRBCN01_TEST02_02";//憑證式
-			pWhere = "AND (odmmrbcntest02001='" + this.formID + "') AND (odmmrbcntest02002='" + this.SheetNo + "')";
-			pReportDirectory = "ODMMRBCN01_TEST02";
+			pReport = "ODMDUTEST";
+			pReportID = "ODMDUTEST_02";//憑證式
+			pWhere = "AND (odmdutest01001='" + this.formID + "') AND (odmdutest01002='" + this.SheetNo + "')";
+			pReportDirectory = "ODMDUTEST";
 			base.BeforePrint(ref pReportID, ref pWhere, ref pOrder, ref pOrder, ref pReportDirectory);
 		}
 
 		
+
+		#region 單身欄位加總
+		//設定明細計算資訊
+		protected override void SetDetailComputeInfo(ComputeObjList computeObjList)
+		{
+			base.SetDetailComputeInfo(computeObjList);
+			//加入加總資訊 (單頭,明細)，明細新刪修會同步至單頭)
+			//computeObjList.ADDSumInfo("Head", "Body");
+			computeObjList.ADDSumInfo("totomoney", "text1");
+
+		}
+		#endregion 單身欄位加總
+
 		
+		/// <summary>
+		/// Type2 表單類新方法，設定欄位預設值
+		/// </summary>
+		/// <param name='dictDetail'></param>
+		protected override void SetDetailDefaultValue(System.Collections.Generic.Dictionary<string, string> dictDetail)
+		{
+			//必要，帶入欄位關聯預設值
+			
+			//單身一欄位預設值
+			dictDetail.Add("odmdutestd01001", formID);
+			dictDetail.Add("odmdutestd01002", SheetNo);
+
+		}
 		
 	}
 }

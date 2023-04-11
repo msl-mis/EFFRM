@@ -335,5 +335,5 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMMRBCN01_TEST02.js?NoCache=202108311455" type="text/javascript"></script>
+<script src="ODMMRBCN01_TEST02.js?NoCache=20230410001" type="text/javascript"></script>
 </asp:Content>
