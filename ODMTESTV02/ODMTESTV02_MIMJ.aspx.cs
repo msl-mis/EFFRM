@@ -59,6 +59,11 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					base.doMIByDB("TrigMIMJ01","05", @"192.168.10.22", "price");
 					break;
 				}
+				case "MasterPage_MasterPageContent_openpayee_btn":			//開窗連結外部資料庫
+				{
+					base.doMIByDB("OpenMIMJ01","09", @"192.168.10.31", "MSLCN");
+					break;
+				}
 
 				default:
 					break;
@@ -109,6 +114,11 @@ namespace tw.com.dsc.easyflowDotNet.forms
 				case "TrigMIMJ01_05_openitem":	
 				{
 					base.doMJByDB("TrigMIMJ01","05", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem_txt2=item_name");
+					break;
+				}
+				case "OpenMIMJ01_09_openpayee":	
+				{
+					base.doMJByDB("OpenMIMJ01","09", @"192.168.10.31", "MSLCN","MasterPage_MasterPageContent_openpayee_txt2=MA002");
 					break;
 				}
 

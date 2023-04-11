@@ -160,6 +160,7 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.openitem.Title = MultiLanguage.GetComment("FD", "ODMTESTV02", "openitem", tLanguageType);
 			this.selven.Title = MultiLanguage.GetComment("FD", "ODMTESTV02", "selven", tLanguageType);
 			this.chkprice.Text = MultiLanguage.GetComment("FD", "ODMTESTV02", "chkprice", tLanguageType);
+			this.openpayee.Title = MultiLanguage.GetComment("FD", "ODMTESTV02", "openpayee", tLanguageType);
 
 
 			#region 自訂排序
@@ -375,31 +376,35 @@ this.chkprice.Text = String.Empty;
 				#endregion CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
 			}
 
-			#region 自訂Page_Prender區塊
+            #region 自訂Page_Prender區塊
 
-			#endregion 自訂Page_Prender區塊
+            #endregion 自訂Page_Prender區塊
 
-			//20230322 edit by winni Start
-			//前端隱藏
-			//datetime1.Style.Add("display", "none");
-			//後端隱藏
-			//datetime1.Visible = false;
+            //20230322 edit by winni Start
+            //前端隱藏
+            //datetime1.Style.Add("display", "none");
+            //後端隱藏
+            //datetime1.Visible = false;
 
-			
-			if (base.FormStatus == EFFormStatus.CREATE) //開單才要執行
-			{
+
+            if (base.FormStatus == EFFormStatus.CREATE) //開單才要執行
+            {
                 //唯獨欄位
                 //turningOnOff("Off", datetime1);
             }
             //20230322 edit by winni End
-        }
-        #endregion Page_Prender做的事
 
-        #region setBasicInfo , 設定表單的基本屬性
-        /// <summary>
-        /// 設定表單的基本屬性 (setBasicInfo)
-        /// </summary>
-        protected override void setBasicInfo()
+
+            //20230411 Peggy  
+            ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), "openRadio();", true);
+        }
+		#endregion Page_Prender做的事
+
+		#region setBasicInfo , 設定表單的基本屬性
+		/// <summary>
+		/// 設定表單的基本屬性 (setBasicInfo)
+		/// </summary>
+		protected override void setBasicInfo()
 		{
 			// 作業代號
 			this.TaskId = "ODMTESTV02";
@@ -1243,17 +1248,19 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			empl2.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_empl2_txt');");
 			
 			opentype.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype_btn","MasterPage_MasterPageContent_opentype_txt","S"));
-
-			//20230322 edit by winni S
+            //20230322 edit by winni S
             //opentype.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype_txt", "OpenMIMJ01_20_opentype", "MasterPage_MasterPageContent_opentype_txt,MasterPage_MasterPageContent_openitem_txt") + ";InitTriggerOpen();");
-            opentype.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype_txt","OpenMIMJ01_20_opentype","MasterPage_MasterPageContent_opentype_txt,MasterPage_MasterPageContent_openitem_txt")+ ";InitTriggerOpen();opentype_change();");
+            opentype.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype_txt", "OpenMIMJ01_20_opentype", "MasterPage_MasterPageContent_opentype_txt,MasterPage_MasterPageContent_openitem_txt") + ";InitTriggerOpen();opentype_change();");
             //20230322 edit by winni E
-
-            opentype.TxtInput.Attributes.Add("onchange","FunOnChange_opentype();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype_txt');");
+			opentype.TxtInput.Attributes.Add("onchange","FunOnChange_opentype();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype_txt');");
 
 			openitem.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem_btn","MasterPage_MasterPageContent_opentype_txt","MasterPage_MasterPageContent_openitem_txt","S"));
 			openitem.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem_txt","TrigMIMJ01_05_openitem","MasterPage_MasterPageContent_openitem_txt,MasterPage_MasterPageContent_opentype_txt"));
 			openitem.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_openitem_txt');");
+
+			openpayee.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_openpayee_btn","MasterPage_MasterPageContent_openpayee_txt","S"));
+			openpayee.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openpayee_txt","OpenMIMJ01_09_openpayee","MasterPage_MasterPageContent_openpayee_txt"));
+			openpayee.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_openpayee_txt');");
 
 			string strmoney01_DoMathScript_mtotal_onChange=string.Empty;
 			if(money01.TxtInput.Attributes["onchange"]!=null){strmoney01_DoMathScript_mtotal_onChange=money01.TxtInput.Attributes["onchange"].ToString().Trim(';');}
@@ -1315,29 +1322,38 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 				strmoney05_DoMathScript_mtotal_onblur+=";";
 			money05.TxtInput.Attributes.Add("onblur",strmoney05_DoMathScript_mtotal_onblur+"domath_mtotal();");
 
+            //20230411 Peggy 註冊在js建的規則, 於chkitem02
+            //this.chkitem02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem02_chk')[0].checked){{$('#MasterPage_MasterPageContent_itemname').show();}} else{{$('#MasterPage_MasterPageContent_itemname').hide();}} " + ";openRadio();");
+            this.chkitem02.Attributes.Add("onclick", ";openRadio();");
+            this.chkitem05.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem05_chk')[0].checked){{$('#MasterPage_MasterPageContent_chkother').show();}} else{{$('#MasterPage_MasterPageContent_chkother').hide();}} ");
+			this.chkatt01.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt01_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv01').show();}} else{{$('#MasterPage_MasterPageContent_inv01').hide();}} ");
+			this.chkatt02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt02_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv02').show();}} else{{$('#MasterPage_MasterPageContent_inv02').hide();}} ");
+			this.other.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_other_chk')[0].checked){{$('#MasterPage_MasterPageContent_attother').show();}} else{{$('#MasterPage_MasterPageContent_attother').hide();}} ");
+			this.chkprice.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkprice_chk')[0].checked){{$('#MasterPage_MasterPageContent_typename01').show();}} else{{$('#MasterPage_MasterPageContent_typename01').hide();}} ");
+			this.chkven_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkven_txt').value = '0';");
+			this.chkven_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkven_txt').value = '1';");
+			this.chpay_ctrolRadio0.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '0';");
+			this.chpay_ctrolRadio1.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '1';");
+			this.chpay_ctrolRadio2.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '2';");
+			this.kind_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '0';");
+			this.kind_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '1';");
+			this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '2';");
 
-this.chkitem02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem02_chk')[0].checked){{$('#MasterPage_MasterPageContent_itemname').show();}} else{{$('#MasterPage_MasterPageContent_itemname').hide();}} ");
-this.chkitem05.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem05_chk')[0].checked){{$('#MasterPage_MasterPageContent_chkother').show();}} else{{$('#MasterPage_MasterPageContent_chkother').hide();}} ");
-this.chkatt01.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt01_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv01').show();}} else{{$('#MasterPage_MasterPageContent_inv01').hide();}} ");
-this.chkatt02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt02_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv02').show();}} else{{$('#MasterPage_MasterPageContent_inv02').hide();}} ");
-this.chkatt03.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt03_chk')[0].checked){{$('#MasterPage_MasterPageContent_orderno').show();}} else{{$('#MasterPage_MasterPageContent_orderno').hide();}} ");
-this.other.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_other_chk')[0].checked){{$('#MasterPage_MasterPageContent_attother').show();}} else{{$('#MasterPage_MasterPageContent_attother').hide();}} ");
-this.chkprice.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkprice_chk')[0].checked){{$('#MasterPage_MasterPageContent_typename01').show();}} else{{$('#MasterPage_MasterPageContent_typename01').hide();}} ");
-this.chkven_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkven_txt').value = '0';");
-this.chkven_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkven_txt').value = '1';");
-this.chpay_ctrolRadio0.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '0';");
-this.chpay_ctrolRadio1.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '1';");
-this.chpay_ctrolRadio2.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '2';");
-this.kind_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '0';");
-this.kind_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '1';");
-this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '2';");
-		}//settingClientFunction結尾
+            #region
+			//^_^ 20230411 Peggy 
+            //三位一撇
+            OEMLibrary.RegisterNumberFormat(this, new TextBox2[] {
+            money01.TxtInput,money02.TxtInput,money03.TxtInput,
+            money04.TxtInput,money05.TxtInput,mtotal.TxtInput
+            });
+            #endregion
+        }//settingClientFunction結尾
 
-		/// <summary>
-		/// %%必填%%
-		/// </summary>
-		/// <param name="pMiMjManager"></param>
-		protected override void buildMiMjManager(Hashtable pMiMjManager)
+        /// <summary>
+        /// %%必填%%
+        /// </summary>
+        /// <param name="pMiMjManager"></param>
+        protected override void buildMiMjManager(Hashtable pMiMjManager)
 		{
 			//單頭控制項
 			if ( FormStatus == EFFormStatus.CREATE ) {
@@ -1345,17 +1361,19 @@ this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('Master
 				pMiMjManager.Add("empl2_0", empl2);
 				pMiMjManager.Add("opentype_0", opentype);
 				pMiMjManager.Add("openitem_0", openitem);
+				pMiMjManager.Add("openpayee_0", openpayee);
 
 			}
 
 		}//buildMiMjManager結尾
-		#endregion settingClientFunction , 註冊onclick、onblur、onchange事件
+        #endregion settingClientFunction , 註冊onclick、onblur、onchange事件
 
-		///<summary>
-		///圖片控制項
-		///</summary>
-		///<param name="pListImage"></param>
-		protected override void settingImgAssistantInfo(System.Collections.Generic.List<DigiWinImgAssistant> pListImage)
+
+        ///<summary>
+        ///圖片控制項
+        ///</summary>
+        ///<param name="pListImage"></param>
+        protected override void settingImgAssistantInfo(System.Collections.Generic.List<DigiWinImgAssistant> pListImage)
 		{
 			base.settingImgAssistantInfo(pListImage);
 
@@ -1378,7 +1396,7 @@ this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('Master
 			defalutHash.Add("curr05", "RMB");
 			defalutHash.Add("curr06", "RMB");
 			defalutHash.Add("selven", "冠志廠");
-        }
+		}
 
 		//草稿儲存後要將主旨清除
 		protected override void AfterCreateToolSaveForm()
