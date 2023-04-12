@@ -1290,13 +1290,23 @@ this.rdtc_ctrolRadio1.Attributes.Add("onclick", "InitTriggerMust('" + base.FormS
 this.rdtc_ctrolRadio2.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_rdtc_txt').value = '2';");
 this.rdtc_ctrolRadio3.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_rdtc_txt').value = '3';");
 this.rdtc_ctrolRadio4.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_rdtc_txt').value = '4';");
-		}//settingClientFunction結尾
 
-		/// <summary>
-		/// %%必填%%
-		/// </summary>
-		/// <param name="pMiMjManager"></param>
-		protected override void buildMiMjManager(Hashtable pMiMjManager)
+            #region 
+			//^_^ 20230412 Peggy Start
+            //三位一撇
+            OEMLibrary.RegisterNumberFormat(this, new TextBox2[] {
+            money01.TxtInput,money02.TxtInput,money03.TxtInput,
+            money04.TxtInput,money05.TxtInput,mtotal.TxtInput
+            });
+            #endregion
+
+        }//settingClientFunction結尾
+
+        /// <summary>
+        /// %%必填%%
+        /// </summary>
+        /// <param name="pMiMjManager"></param>
+        protected override void buildMiMjManager(Hashtable pMiMjManager)
 		{
 				pMiMjManager.Add("empl1_0", empl1);
 				pMiMjManager.Add("empl2_0", empl2);

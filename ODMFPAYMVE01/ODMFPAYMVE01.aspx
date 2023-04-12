@@ -44,7 +44,7 @@
                         </cc1:DscTextBox>
 
                         <cc1:DscDateAssistant2 ID='datetime1' runat='server' Title='datetime1' ShowTitle='False'
-                            Style="position: absolute; left: 611px; top: 110px; z-index: 663;"
+                            Style="position: absolute; left: 568px; top: 110px; z-index: 663;"
                             TxtInput_TabIndex='101'
                             DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/'
                             BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -125,81 +125,81 @@
                             <InputStyle Width='88px' Height='22px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='textarea1' runat='server' Title='內容01' ShowTitle='False'
-                            Style="z-index: 692; position: absolute; left: 91px; top: 353px;"
+                            Style="z-index: 692; position: absolute; left: 91px; top: 353px; width: 460px;"
                             TxtInput_TabIndex='111' TextMode='MultiLine'>
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='textarea1'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='425px' Height='80px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='460px' Height='80px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='money01' runat='server' Title='金額01' ShowTitle='False'
-                            Style="z-index: 669; position: absolute; left: 586px; top: 384px;"
+                            Style="z-index: 669; position: absolute; left: 559px; top: 384px; width: 130px;"
                             TxtInput_TabIndex='112' TextAlign="Right">
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='money01'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='107px' Height='25px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='textarea2' runat='server' Title='內容02' ShowTitle='False'
-                            Style="z-index: 691; position: absolute; left: 91px; top: 440px;"
+                            Style="z-index: 691; position: absolute; left: 91px; top: 440px;width: 460px;"
                             TxtInput_TabIndex='113' TextMode='MultiLine'>
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='textarea2'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='425px' Height='75px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='460px' Height='75px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='money02' runat='server' Title='金額02' ShowTitle='False'
-                            Style="z-index: 668; position: absolute; left: 586px; top: 460px;"
+                            Style="z-index: 668; position: absolute; left: 559px; top: 460px; width: 130px;"
                             TxtInput_TabIndex='114' TextAlign="Right">
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='money02'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='107px' Height='25px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='textarea3' runat='server' Title='內容03' ShowTitle='False'
-                            Style="z-index: 690; position: absolute; left: 91px; top: 518px;"
+                            Style="z-index: 690; position: absolute; left: 91px; top: 518px;width: 460px;"
                             TxtInput_TabIndex='115' TextMode='MultiLine'>
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='textarea3'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='425px' Height='65px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='460px' Height='65px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='money03' runat='server' Title='金額03' ShowTitle='False'
-                            Style="z-index: 667; position: absolute; left: 586px; top: 542px;"
+                            Style="z-index: 667; position: absolute; left: 559px; top: 542px; width: 130px;"
                             TxtInput_TabIndex='116' TextAlign="Right">
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='money03'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='107px' Height='25px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='textarea4' runat='server' Title='內容04' ShowTitle='False'
-                            Style="z-index: 689; position: absolute; left: 91px; top: 586px;"
+                            Style="z-index: 689; position: absolute; left: 91px; top: 586px;width: 460px;"
                             TxtInput_TabIndex='117' TextMode='MultiLine'>
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='textarea4'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='425px' Height='50px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='460px' Height='50px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='money04' runat='server' Title='金額04' ShowTitle='False'
-                            Style="z-index: 666; position: absolute; left: 586px; top: 600px;"
+                            Style="z-index: 666; position: absolute; left: 559px; top: 600px; width: 130px;"
                             TxtInput_TabIndex='118' TextAlign="Right">
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='money04'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='107px' Height='25px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='textarea5' runat='server' Title='內容05' ShowTitle='False'
-                            Style="z-index: 688; position: absolute; left: 91px; top: 641px;"
+                            Style="z-index: 688; position: absolute; left: 91px; top: 641px;width: 460px;"
                             TxtInput_TabIndex='119' TextMode='MultiLine'>
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='textarea5'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='425px' Height='40px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='460px' Height='40px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='money05' runat='server' Title='金額05' ShowTitle='False'
-                            Style="z-index: 665; position: absolute; left: 586px; top: 650px;"
+                            Style="z-index: 665; position: absolute; left: 559px; top: 650px; width: 130px;"
                             TxtInput_TabIndex='120' TextAlign="Right">
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='money05'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='107px' Height='25px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscTextBox ID='mtotal' runat='server' Title='總金額' ShowTitle='False'
-                            Style="z-index: 664; position: absolute; left: 586px; top: 688px;"
+                            Style="z-index: 664; position: absolute; left: 559px; top: 687px; width: 130px;"
                             TxtInput_TabIndex='121' TextAlign="Right">
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='mtotal'></FrmFieldKeys>
                             <TitleStyle Width='100px'></TitleStyle>
-                            <InputStyle Width='107px' Height='25px' CssClass='Edit20'></InputStyle>
+                            <InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
                         </cc1:DscTextBox>
                         <cc1:DscCheckBox ID='chkatt01' runat='server' Text='發票' ShowTitle='False'
                             Style="z-index: 694; position: absolute; left: 89px; top: 721px;"
@@ -307,8 +307,8 @@
                             <FrmFieldKeys FrmID='FrmODMFPAYMVE01' BOID='ODMFPAYMVE01' FieldName='paydate'></FrmFieldKeys>
                         </cc1:DscDateAssistant2>
                         <cc1:DscDropDownList ID='cur01' runat='server' Title='幣別01' ShowTitle='False'
-                            Style="z-index: 676; position: absolute; left: 524px; top: 386px;"
-                            DDLInput_TabIndex='142'>
+                            Style="z-index: 676; position: absolute; left: 379px; top: 731px;"
+                            DDLInput_TabIndex='142' Visible="False">
                             <Items>
                                 <asp:ListItem Selected='True' Value='VND'>VND</asp:ListItem>
                                 <asp:ListItem Selected='False' Value='USD'>USD</asp:ListItem>
@@ -319,8 +319,8 @@
                             <CommentList F0001='Combo' F0002='ODMFPAYMVE01_cur01' />
                         </cc1:DscDropDownList>
                         <cc1:DscDropDownList ID='cur03' runat='server' Title='幣別03' ShowTitle='False'
-                            Style="z-index: 674; position: absolute; left: 524px; top: 547px;"
-                            DDLInput_TabIndex='142'>
+                            Style="z-index: 674; position: absolute; left: 511px; top: 728px;"
+                            DDLInput_TabIndex='142' Visible="False">
                             <Items>
                                 <asp:ListItem Selected='True' Value='VND'>VND</asp:ListItem>
                                 <asp:ListItem Selected='False' Value='USD'>USD</asp:ListItem>
@@ -331,8 +331,8 @@
                             <CommentList F0001='Combo' F0002='ODMFPAYMVE01_cur03' />
                         </cc1:DscDropDownList>
                         <cc1:DscDropDownList ID='cur02' runat='server' Title='幣別02' ShowTitle='False'
-                            Style="z-index: 675; position: absolute; left: 524px; top: 463px;"
-                            DDLInput_TabIndex='143'>
+                            Style="z-index: 675; position: absolute; left: 441px; top: 729px;"
+                            DDLInput_TabIndex='143' Visible="False">
                             <Items>
                                 <asp:ListItem Selected='True' Value='VND'>VND</asp:ListItem>
                                 <asp:ListItem Selected='False' Value='USD'>USD</asp:ListItem>
@@ -343,8 +343,8 @@
                             <CommentList F0001='Combo' F0002='ODMFPAYMVE01_cur02' />
                         </cc1:DscDropDownList>
                         <cc1:DscDropDownList ID='cur04' runat='server' Title='幣別04' ShowTitle='False'
-                            Style="z-index: 673; position: absolute; left: 524px; top: 603px;"
-                            DDLInput_TabIndex='143'>
+                            Style="z-index: 673; position: absolute; left: 584px; top: 725px;"
+                            DDLInput_TabIndex='143' Visible="False">
                             <Items>
                                 <asp:ListItem Selected='True' Value='VND'>VND</asp:ListItem>
                                 <asp:ListItem Selected='False' Value='USD'>USD</asp:ListItem>
@@ -355,8 +355,8 @@
                             <CommentList F0001='Combo' F0002='ODMFPAYMVE01_cur04' />
                         </cc1:DscDropDownList>
                         <cc1:DscDropDownList ID='cur05' runat='server' Title='幣別05' ShowTitle='False'
-                            Style="z-index: 672; position: absolute; left: 524px; top: 652px;"
-                            DDLInput_TabIndex='143'>
+                            Style="z-index: 672; position: absolute; left: 379px; top: 768px;"
+                            DDLInput_TabIndex='143' Visible="False">
                             <Items>
                                 <asp:ListItem Selected='True' Value='VND'>VND</asp:ListItem>
                                 <asp:ListItem Selected='False' Value='USD'>USD</asp:ListItem>
@@ -367,7 +367,7 @@
                             <CommentList F0001='Combo' F0002='ODMFPAYMVE01_cur05' />
                         </cc1:DscDropDownList>
                         <cc1:DscDropDownList ID='curr' runat='server' Title='幣別' ShowTitle='False'
-                            Style="z-index: 671; position: absolute; left: 524px; top: 691px;"
+                            Style="z-index: 671; position: absolute; left: 499px; top: 690px;"
                             DDLInput_TabIndex='143'>
                             <Items>
                                 <asp:ListItem Selected='True' Value='VND'>VND</asp:ListItem>
@@ -396,7 +396,7 @@
                         <asp:RadioButton ID='rdtc_ctrolRadio4' runat='server' GroupName='rdtc' Text='' Value='4' Style='position: absolute; top: 200px; left: 501px; z-index: 697;' />
 
                         <div style="position: absolute; left: 2px; top: 5px; z-index: 10;">
-                            <img src="ODMFPAYMVE02.png" id="Head01_file_1" runat="server" width="736" height="891" />
+                            <img src="ODMFPAYMVE.png" id="Head01_file_1" runat="server" width="736" height="891" />
                         </div>
 
                     </div>
@@ -432,7 +432,7 @@
     </div>
 
     <!--引用JavaScript-->
-    <script src="ODMFPAYMVE01.js?NoCache=20220216" type="text/javascript"></script>
+    <script src="ODMFPAYMVE01.js?NoCache=20230412001" type="text/javascript"></script>
     <%--//^_^ 20230216 edit by 16386 tingwei 0000256084_38_0001↓--%>
     <script src="../../_Common/OEM/JS/OEMUtils.js" type="text/javascript"></script>
     <%--//^_^ 20230216 edit by 16386 tingwei 0000256084_38_0001↓--%>

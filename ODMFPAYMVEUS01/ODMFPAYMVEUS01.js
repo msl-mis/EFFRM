@@ -328,7 +328,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
 	if(tmoney01.length>0){
-		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim();
+		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim().replace(/\,/g, '');
 		if (tmoney01Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney01Value)){
 				//輸入的資料不符合float數值格式 !
@@ -344,7 +344,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney02 = $('#MasterPage_MasterPageContent_money02_txt');
 	if(tmoney02.length>0){
-		var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim();
+		var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim().replace(/\,/g, '');
 		if (tmoney02Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney02Value)){
 				//輸入的資料不符合float數值格式 !
@@ -360,7 +360,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney03 = $('#MasterPage_MasterPageContent_money03_txt');
 	if(tmoney03.length>0){
-		var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim();
+		var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim().replace(/\,/g, '');
 		if (tmoney03Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney03Value)){
 				//輸入的資料不符合float數值格式 !
@@ -376,7 +376,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney04 = $('#MasterPage_MasterPageContent_money04_txt');
 	if(tmoney04.length>0){
-		var tmoney04Value = $('#MasterPage_MasterPageContent_money04_txt').val().trim();
+		var tmoney04Value = $('#MasterPage_MasterPageContent_money04_txt').val().trim().replace(/\,/g, '');
 		if (tmoney04Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney04Value)){
 				//輸入的資料不符合float數值格式 !
@@ -392,7 +392,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney05 = $('#MasterPage_MasterPageContent_money05_txt');
 	if(tmoney05.length>0){
-		var tmoney05Value = $('#MasterPage_MasterPageContent_money05_txt').val().trim();
+		var tmoney05Value = $('#MasterPage_MasterPageContent_money05_txt').val().trim().replace(/\,/g, '');
 		if (tmoney05Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney05Value)){
 				//輸入的資料不符合float數值格式 !
@@ -408,7 +408,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmtotal = $('#MasterPage_MasterPageContent_mtotal_txt');
 	if(tmtotal.length>0){
-		var tmtotalValue = $('#MasterPage_MasterPageContent_mtotal_txt').val().trim();
+		var tmtotalValue = $('#MasterPage_MasterPageContent_mtotal_txt').val().trim().replace(/\,/g, '');
 		if (tmtotalValue.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmtotalValue)){
 				//輸入的資料不符合float數值格式 !
@@ -672,7 +672,7 @@ function domath_mtotal()
 	try{
 		if($("#MasterPage_MasterPageContent_money01_txt").length==0)
 			return;
-		var money01 = $("#MasterPage_MasterPageContent_money01_txt").val().trim();
+		var money01 = $("#MasterPage_MasterPageContent_money01_txt").val().trim().replace(/\,/g, '');
 		if(isNaN(money01)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -684,7 +684,7 @@ function domath_mtotal()
 
 		if($("#MasterPage_MasterPageContent_money02_txt").length==0)
 			return;
-		var money02 = $("#MasterPage_MasterPageContent_money02_txt").val().trim();
+		var money02 = $("#MasterPage_MasterPageContent_money02_txt").val().trim().replace(/\,/g, '');
 		if(isNaN(money02)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -696,7 +696,7 @@ function domath_mtotal()
 
 		if($("#MasterPage_MasterPageContent_money03_txt").length==0)
 			return;
-		var money03 = $("#MasterPage_MasterPageContent_money03_txt").val().trim();
+		var money03 = $("#MasterPage_MasterPageContent_money03_txt").val().trim().replace(/\,/g, '');
 		if(isNaN(money03)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -708,7 +708,7 @@ function domath_mtotal()
 
 		if($("#MasterPage_MasterPageContent_money04_txt").length==0)
 			return;
-		var money04 = $("#MasterPage_MasterPageContent_money04_txt").val().trim();
+		var money04 = $("#MasterPage_MasterPageContent_money04_txt").val().trim().replace(/\,/g, '');
 		if(isNaN(money04)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -720,7 +720,7 @@ function domath_mtotal()
 
 		if($("#MasterPage_MasterPageContent_money05_txt").length==0)
 			return;
-		var money05 = $("#MasterPage_MasterPageContent_money05_txt").val().trim();
+		var money05 = $("#MasterPage_MasterPageContent_money05_txt").val().trim().replace(/\,/g, '');
 		if(isNaN(money05)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -736,7 +736,18 @@ function domath_mtotal()
 			return;
 		}
 
-		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value=parseFloat(finalvalue).toFixed(2);
+		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = parseFloat(finalvalue).toFixed(2);
+
+		//^_^ 20230412 Peggy 重新加上千份位↓
+		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = OEMFormat(parseFloat(finalvalue).toFixed(2));
+		document.getElementById("MasterPage_MasterPageContent_money01_txt").value = OEMFormat(parseFloat(money01).toFixed(2));
+		document.getElementById("MasterPage_MasterPageContent_money02_txt").value = OEMFormat(parseFloat(money02).toFixed(2));
+		document.getElementById("MasterPage_MasterPageContent_money03_txt").value = OEMFormat(parseFloat(money03).toFixed(2));
+		document.getElementById("MasterPage_MasterPageContent_money04_txt").value = OEMFormat(parseFloat(money04).toFixed(2));
+		document.getElementById("MasterPage_MasterPageContent_money05_txt").value = OEMFormat(parseFloat(money05).toFixed(2));
+		//^_^  20230412 Peggy 重新加上千份位↑
+
+
 	}catch(err){
 		$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 		var errorMsg = getI18NForSpecial('FD','CalculatedSet2','MutiLang_04','../../../src/_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx');
