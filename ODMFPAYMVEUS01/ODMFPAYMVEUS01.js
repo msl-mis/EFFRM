@@ -9,82 +9,82 @@ function CustomerSaveCheck_Head(tStatus)
 	if (tStatus == "CREATE")
 	{
 		//填表時要驗證
-		//數值驗証
-		var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
-		if(tmoney01.length>0){
-			if('readonly' !== tmoney01.attr('readonly') &&
-				'disabled' !== tmoney01.attr('disabled')){
-				var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim();
-				if(tmoney01Value.length==0 || isNaN(tmoney01Value))
-				{
-					tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-				}
-				else
-				{
-					if (tmoney01Value < 0 || tmoney01Value > 1000000000)
-					{
-						tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-					}
-				}
-			}
-		}
+		////數值驗証 取消數值檢查
+		//var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
+		//if(tmoney01.length>0){
+		//	if('readonly' !== tmoney01.attr('readonly') &&
+		//		'disabled' !== tmoney01.attr('disabled')){
+		//		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim();
+		//		if(tmoney01Value.length==0 || isNaN(tmoney01Value))
+		//		{
+		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+		//		}
+		//		else
+		//		{
+		//			if (tmoney01Value < 0 || tmoney01Value > 1000000000)
+		//			{
+		//				tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+		//			}
+		//		}
+		//	}
+		//}
 
-		//數值驗証
-		var tmoney02 = $('#MasterPage_MasterPageContent_money02_txt');
-		if(tmoney02.length>0){
-			if('readonly' !== tmoney02.attr('readonly') &&
-				'disabled' !== tmoney02.attr('disabled')){
-				var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim();
-				if(tmoney02Value.length==0 || isNaN(tmoney02Value))
-				{
-					tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money02_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-				}
-				else
-				{
-					if (tmoney02Value < 0 || tmoney02Value > 1000000000)
-					{
-						tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money02_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-					}
-				}
-			}
-		}
+		////數值驗証
+		//var tmoney02 = $('#MasterPage_MasterPageContent_money02_txt');
+		//if(tmoney02.length>0){
+		//	if('readonly' !== tmoney02.attr('readonly') &&
+		//		'disabled' !== tmoney02.attr('disabled')){
+		//		var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim();
+		//		if(tmoney02Value.length==0 || isNaN(tmoney02Value))
+		//		{
+		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money02_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+		//		}
+		//		else
+		//		{
+		//			if (tmoney02Value < 0 || tmoney02Value > 1000000000)
+		//			{
+		//				tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money02_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+		//			}
+		//		}
+		//	}
+		//}
 
-		//數值驗証
-		var tmoney03 = $('#MasterPage_MasterPageContent_money03_txt');
-		if(tmoney03.length>0){
-			if('readonly' !== tmoney03.attr('readonly') &&
-				'disabled' !== tmoney03.attr('disabled')){
-				var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim();
-				if(tmoney03Value.length==0 || isNaN(tmoney03Value))
-				{
-					tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money03', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money03_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-				}
-				else
-				{
-					if (tmoney03Value < 0 || tmoney03Value > 1000000000)
-					{
-						tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money03', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money03_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-					}
-				}
-			}
-		}
+		////數值驗証
+		//var tmoney03 = $('#MasterPage_MasterPageContent_money03_txt');
+		//if(tmoney03.length>0){
+		//	if('readonly' !== tmoney03.attr('readonly') &&
+		//		'disabled' !== tmoney03.attr('disabled')){
+		//		var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim();
+		//		if(tmoney03Value.length==0 || isNaN(tmoney03Value))
+		//		{
+		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money03', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money03_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+		//		}
+		//		else
+		//		{
+		//			if (tmoney03Value < 0 || tmoney03Value > 1000000000)
+		//			{
+		//				tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money03', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'money03_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+		//			}
+		//		}
+		//	}
+		//}
 
-		//數值驗証
-		var tmtotal = $('#MasterPage_MasterPageContent_mtotal_txt');
-		if(tmtotal.length>0){
-			var tmtotalValue = $('#MasterPage_MasterPageContent_mtotal_txt').val().trim();
-			if(tmtotalValue.length==0 || isNaN(tmtotalValue))
-			{
-				tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'mtotal', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'mtotal_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-			}
-			else
-			{
-				if (tmtotalValue < 0 || tmtotalValue > 1000000000)
-				{
-					tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'mtotal', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'mtotal_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-				}
-			}
-		}
+		////數值驗証
+		//var tmtotal = $('#MasterPage_MasterPageContent_mtotal_txt');
+		//if(tmtotal.length>0){
+		//	var tmtotalValue = $('#MasterPage_MasterPageContent_mtotal_txt').val().trim();
+		//	if(tmtotalValue.length==0 || isNaN(tmtotalValue))
+		//	{
+		//		tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'mtotal', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'mtotal_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+		//	}
+		//	else
+		//	{
+		//		if (tmtotalValue < 0 || tmtotalValue > 1000000000)
+		//		{
+		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'mtotal', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYMVEUS01', 'mtotal_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+		//		}
+		//	}
+		//}
 
 		//Radio Button 驗証
 			if ($('#MasterPage_MasterPageContent_chpay_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_chpay_txt').value == '')
