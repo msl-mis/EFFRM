@@ -25,9 +25,9 @@ using System.Collections.Generic;
 namespace tw.com.dsc.easyflowDotNet.forms
 {
 	/// <summary>
-	/// ODMFPAYCN02_MIMJ 的摘要描述。
+	/// ODMFPAYCNT02_MIMJ 的摘要描述。
 	/// </summary>
-	public partial class ODMFPAYCN02_MIMJ : tw.com.dsc.easyflowDotNet.kernelBasePage.EFMIMJBasepage
+	public partial class ODMFPAYCNT02_MIMJ : tw.com.dsc.easyflowDotNet.kernelBasePage.EFMIMJBasepage
 	{
 		protected new void Page_Load(object sender, System.EventArgs e)
 		{
@@ -41,60 +41,60 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			{
 				case "MasterPage_MasterPageContent_opentype01_btn":			//開窗連結外部資料庫
 				{
-					base.doMIByDB("OpenMIMJ01","20", @"192.168.10.22", "price");
+					base.doMIByDB("OpenMIMJ01","23", @"192.168.10.22", "price");
 					break;
 				}
 				case "MasterPage_MasterPageContent_openitem01_btn":			//開窗連結外部資料庫
 				{
-					base.doMIByDB("TrigMIMJ01","05", @"192.168.10.22", "price");
+					base.doMIByDB("TrigMIMJ01","08", @"192.168.10.22", "price");
 					break;
 				}
 				case "MasterPage_MasterPageContent_opentype02_btn":			//開窗連結外部資料庫
 				{
-					base.doMIByDB("OpenMIMJ01","20", @"192.168.10.22", "price");
+					base.doMIByDB("OpenMIMJ01","23", @"192.168.10.22", "price");
 					break;
 				}
 				case "MasterPage_MasterPageContent_openitem02_btn":			//開窗連結外部資料庫
 				{
-					base.doMIByDB("TrigMIMJ01","05", @"192.168.10.22", "price");
+					base.doMIByDB("TrigMIMJ01","08", @"192.168.10.22", "price");
 					break;
 				}
 				case "MasterPage_MasterPageContent_opentype03_btn":			//開窗連結外部資料庫
 				{
-					base.doMIByDB("OpenMIMJ01","20", @"192.168.10.22", "price");
+					base.doMIByDB("OpenMIMJ01","23", @"192.168.10.22", "price");
 					break;
 				}
 				case "MasterPage_MasterPageContent_openitem03_btn":			//開窗連結外部資料庫
 				{
-					base.doMIByDB("TrigMIMJ01","05", @"192.168.10.22", "price");
+					base.doMIByDB("TrigMIMJ01","08", @"192.168.10.22", "price");
 					break;
 				}
 				case "MasterPage_MasterPageContent_opentype04_btn":			//開窗連結外部資料庫
 				{
-					base.doMIByDB("OpenMIMJ01","20", @"192.168.10.22", "price");
+					base.doMIByDB("OpenMIMJ01","23", @"192.168.10.22", "price");
 					break;
 				}
 				case "MasterPage_MasterPageContent_openitem04_btn":			//開窗連結外部資料庫
 				{
-					base.doMIByDB("TrigMIMJ01","05", @"192.168.10.22", "price");
+					base.doMIByDB("TrigMIMJ01","08", @"192.168.10.22", "price");
 					break;
 				}
 				case "MasterPage_MasterPageContent_opentype05_btn":			//開窗連結外部資料庫
 				{
-					base.doMIByDB("OpenMIMJ01","20", @"192.168.10.22", "price");
+					base.doMIByDB("OpenMIMJ01","23", @"192.168.10.22", "price");
 					break;
 				}
 				case "MasterPage_MasterPageContent_openitem05_btn":			//開窗連結外部資料庫
 				{
-					base.doMIByDB("TrigMIMJ01","05", @"192.168.10.22", "price");
+					base.doMIByDB("TrigMIMJ01","08", @"192.168.10.22", "price");
 					break;
 				}
-				case "MasterPage_MasterPageContent_empl1_btn":			//員工代號
+				case "MasterPage_MasterPageContent_SenderID_btn":			//員工代號
 				{
 					base.doMI("RESAK","03");
 					break;
 				}
-				case "MasterPage_MasterPageContent_empl2_btn":			//員工代號
+				case "MasterPage_MasterPageContent_SuperID_btn":			//員工代號
 				{
 					base.doMI("RESAK","03");
 					break;
@@ -114,9 +114,9 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			//2010/12/29:3.2.1.18:hiro:S00-20101005002:新增連動式開窗選項控制項↑
 			switch(tMJ)//欄位ID命名要規則化
 			{
-				case "OpenMIMJ01_20_opentype01":	
+				case "OpenMIMJ01_23_opentype01":	
 				{
-					bSelfResult = getMJResultByDB("OpenMIMJ01","20",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype01_txt2=type_name");
+					bSelfResult = getMJResultByDB("OpenMIMJ01","23",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype01_txt2=type_name");
 					if(bSelfResult)
 					{
 						if (tAllInputValues["MasterPage_MasterPageContent_openitem01_txt"] != null && tAllInputValues["MasterPage_MasterPageContent_openitem01_txt"].ToString().Length > 0){
@@ -124,7 +124,7 @@ namespace tw.com.dsc.easyflowDotNet.forms
 							aryParamger[0]=tAllInputValues["MasterPage_MasterPageContent_openitem01_txt"].ToString();
 							aryParamger[1]=tAllInputValues["MasterPage_MasterPageContent_opentype01_txt"].ToString();
 							//自訂MsgCode
-							bool bTriggerMJ=getMJResultByDB("TrigMIMJ01","05",aryParamger,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem01_txt2=item_name");
+							bool bTriggerMJ=getMJResultByDB("TrigMIMJ01","08",aryParamger,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem01_txt2=item_name");
 							if(!bTriggerMJ){
 								base.FinalList.Add("MasterPage_MasterPageContent_openitem01_txt", "value", "");
 								base.FinalList.Add("MasterPage_MasterPageContent_openitem01_txt2", "value", "");
@@ -136,14 +136,14 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					FinishMJ(bSelfResult, FinalList);
 					break;
 				}
-				case "TrigMIMJ01_05_openitem01":	
+				case "TrigMIMJ01_08_openitem01":	
 				{
-					base.doMJByDB("TrigMIMJ01","05", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem01_txt2=item_name");
+					base.doMJByDB("TrigMIMJ01","08", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem01_txt2=item_name");
 					break;
 				}
-				case "OpenMIMJ01_20_opentype02":	
+				case "OpenMIMJ01_23_opentype02":	
 				{
-					bSelfResult = getMJResultByDB("OpenMIMJ01","20",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype02_txt2=type_name");
+					bSelfResult = getMJResultByDB("OpenMIMJ01","23",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype02_txt2=type_name");
 					if(bSelfResult)
 					{
 						if (tAllInputValues["MasterPage_MasterPageContent_openitem02_txt"] != null && tAllInputValues["MasterPage_MasterPageContent_openitem02_txt"].ToString().Length > 0){
@@ -151,7 +151,7 @@ namespace tw.com.dsc.easyflowDotNet.forms
 							aryParamger[0]=tAllInputValues["MasterPage_MasterPageContent_openitem02_txt"].ToString();
 							aryParamger[1]=tAllInputValues["MasterPage_MasterPageContent_opentype02_txt"].ToString();
 							//自訂MsgCode
-							bool bTriggerMJ=getMJResultByDB("TrigMIMJ01","05",aryParamger,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem02_txt2=item_name");
+							bool bTriggerMJ=getMJResultByDB("TrigMIMJ01","08",aryParamger,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem02_txt2=item_name");
 							if(!bTriggerMJ){
 								base.FinalList.Add("MasterPage_MasterPageContent_openitem02_txt", "value", "");
 								base.FinalList.Add("MasterPage_MasterPageContent_openitem02_txt2", "value", "");
@@ -163,14 +163,14 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					FinishMJ(bSelfResult, FinalList);
 					break;
 				}
-				case "TrigMIMJ01_05_openitem02":	
+				case "TrigMIMJ01_08_openitem02":	
 				{
-					base.doMJByDB("TrigMIMJ01","05", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem02_txt2=item_name");
+					base.doMJByDB("TrigMIMJ01","08", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem02_txt2=item_name");
 					break;
 				}
-				case "OpenMIMJ01_20_opentype03":	
+				case "OpenMIMJ01_23_opentype03":	
 				{
-					bSelfResult = getMJResultByDB("OpenMIMJ01","20",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype03_txt2=type_name");
+					bSelfResult = getMJResultByDB("OpenMIMJ01","23",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype03_txt2=type_name");
 					if(bSelfResult)
 					{
 						if (tAllInputValues["MasterPage_MasterPageContent_openitem03_txt"] != null && tAllInputValues["MasterPage_MasterPageContent_openitem03_txt"].ToString().Length > 0){
@@ -178,7 +178,7 @@ namespace tw.com.dsc.easyflowDotNet.forms
 							aryParamger[0]=tAllInputValues["MasterPage_MasterPageContent_openitem03_txt"].ToString();
 							aryParamger[1]=tAllInputValues["MasterPage_MasterPageContent_opentype03_txt"].ToString();
 							//自訂MsgCode
-							bool bTriggerMJ=getMJResultByDB("TrigMIMJ01","05",aryParamger,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem03_txt2=item_name");
+							bool bTriggerMJ=getMJResultByDB("TrigMIMJ01","08",aryParamger,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem03_txt2=item_name");
 							if(!bTriggerMJ){
 								base.FinalList.Add("MasterPage_MasterPageContent_openitem03_txt", "value", "");
 								base.FinalList.Add("MasterPage_MasterPageContent_openitem03_txt2", "value", "");
@@ -190,14 +190,14 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					FinishMJ(bSelfResult, FinalList);
 					break;
 				}
-				case "TrigMIMJ01_05_openitem03":	
+				case "TrigMIMJ01_08_openitem03":	
 				{
-					base.doMJByDB("TrigMIMJ01","05", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem03_txt2=item_name");
+					base.doMJByDB("TrigMIMJ01","08", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem03_txt2=item_name");
 					break;
 				}
-				case "OpenMIMJ01_20_opentype04":	
+				case "OpenMIMJ01_23_opentype04":	
 				{
-					bSelfResult = getMJResultByDB("OpenMIMJ01","20",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype04_txt2=type_name");
+					bSelfResult = getMJResultByDB("OpenMIMJ01","23",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype04_txt2=type_name");
 					if(bSelfResult)
 					{
 						if (tAllInputValues["MasterPage_MasterPageContent_openitem04_txt"] != null && tAllInputValues["MasterPage_MasterPageContent_openitem04_txt"].ToString().Length > 0){
@@ -205,7 +205,7 @@ namespace tw.com.dsc.easyflowDotNet.forms
 							aryParamger[0]=tAllInputValues["MasterPage_MasterPageContent_openitem04_txt"].ToString();
 							aryParamger[1]=tAllInputValues["MasterPage_MasterPageContent_opentype04_txt"].ToString();
 							//自訂MsgCode
-							bool bTriggerMJ=getMJResultByDB("TrigMIMJ01","05",aryParamger,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem04_txt2=item_name");
+							bool bTriggerMJ=getMJResultByDB("TrigMIMJ01","08",aryParamger,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem04_txt2=item_name");
 							if(!bTriggerMJ){
 								base.FinalList.Add("MasterPage_MasterPageContent_openitem04_txt", "value", "");
 								base.FinalList.Add("MasterPage_MasterPageContent_openitem04_txt2", "value", "");
@@ -217,14 +217,14 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					FinishMJ(bSelfResult, FinalList);
 					break;
 				}
-				case "TrigMIMJ01_05_openitem04":	
+				case "TrigMIMJ01_08_openitem04":	
 				{
-					base.doMJByDB("TrigMIMJ01","05", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem04_txt2=item_name");
+					base.doMJByDB("TrigMIMJ01","08", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem04_txt2=item_name");
 					break;
 				}
-				case "OpenMIMJ01_20_opentype05":	
+				case "OpenMIMJ01_23_opentype05":	
 				{
-					bSelfResult = getMJResultByDB("OpenMIMJ01","20",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype05_txt2=type_name");
+					bSelfResult = getMJResultByDB("OpenMIMJ01","23",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype05_txt2=type_name");
 					if(bSelfResult)
 					{
 						if (tAllInputValues["MasterPage_MasterPageContent_openitem05_txt"] != null && tAllInputValues["MasterPage_MasterPageContent_openitem05_txt"].ToString().Length > 0){
@@ -232,7 +232,7 @@ namespace tw.com.dsc.easyflowDotNet.forms
 							aryParamger[0]=tAllInputValues["MasterPage_MasterPageContent_openitem05_txt"].ToString();
 							aryParamger[1]=tAllInputValues["MasterPage_MasterPageContent_opentype05_txt"].ToString();
 							//自訂MsgCode
-							bool bTriggerMJ=getMJResultByDB("TrigMIMJ01","05",aryParamger,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem05_txt2=item_name");
+							bool bTriggerMJ=getMJResultByDB("TrigMIMJ01","08",aryParamger,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem05_txt2=item_name");
 							if(!bTriggerMJ){
 								base.FinalList.Add("MasterPage_MasterPageContent_openitem05_txt", "value", "");
 								base.FinalList.Add("MasterPage_MasterPageContent_openitem05_txt2", "value", "");
@@ -244,19 +244,19 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					FinishMJ(bSelfResult, FinalList);
 					break;
 				}
-				case "TrigMIMJ01_05_openitem05":	
+				case "TrigMIMJ01_08_openitem05":	
 				{
-					base.doMJByDB("TrigMIMJ01","05", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem05_txt2=item_name");
+					base.doMJByDB("TrigMIMJ01","08", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem05_txt2=item_name");
 					break;
 				}
-				case "員工代號_empl1":	
+				case "員工代號_SenderID":	
 				{
-					base.doMJ("RESAK","03","MasterPage_MasterPageContent_empl1_txt2=resak002");
+					base.doMJ("RESAK","03","MasterPage_MasterPageContent_SenderID_txt2=resak002");
 					break;
 				}
-				case "員工代號_empl2":	
+				case "員工代號_SuperID":	
 				{
-					base.doMJ("RESAK","03","MasterPage_MasterPageContent_empl2_txt2=resak002");
+					base.doMJ("RESAK","03","MasterPage_MasterPageContent_SuperID_txt2=resak002");
 					break;
 				}
 
