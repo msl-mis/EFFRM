@@ -68,48 +68,40 @@
 	<InputStyle Width='111px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='payee' runat='server' title='受款人' ShowTitle='False'
-	style="Z-INDEX:664; POSITION: absolute; LEFT: 615px; TOP: 144px;"
+	style="Z-INDEX:664; POSITION: absolute; LEFT: 615px; TOP: 141px;"
 	TxtInput_TabIndex='104'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='payee'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='120px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
-<div style="display:none;">
 <cc1:DscCheckBox ID='chkitem01' runat='server' Text='一般費用 Chi phí thường' ShowTitle='False'
-	Style="z-index:691; position: absolute; left: 59px; top: 179px;"
+	Style="z-index:691; position: absolute; left: 64px; top: 184px;"
 	CheckBoxInput_TabIndex='105'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='16px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkitem01'></FrmFieldKeys>
 </cc1:DscCheckBox>
-</div>
-<div style="display:none;">
 <cc1:DscCheckBox ID='chkitem02' runat='server' Text='資產 Tài sản' ShowTitle='False'
-	Style="z-index:684; position: absolute; left: 195px; top: 176px;"
+	Style="z-index:684; position: absolute; left: 192px; top: 184px;"
 	CheckBoxInput_TabIndex='106'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='16px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkitem02'></FrmFieldKeys>
 </cc1:DscCheckBox>
-</div>
-<div style="display:none;">
 <cc1:DscCheckBox ID='chkitem03' runat='server' Text='原物料 NVL' ShowTitle='False'
-	Style="z-index:681; position: absolute; left: 269px; top: 179px;"
+	Style="z-index:681; position: absolute; left: 271px; top: 184px;"
 	CheckBoxInput_TabIndex='107'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='16px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkitem03'></FrmFieldKeys>
 </cc1:DscCheckBox>
-</div>
-<div style="display:none;">
 <cc1:DscCheckBox ID='chkitem04' runat='server' Text='零用金 Tiền mặt' ShowTitle='False'
-	Style="z-index:677; position: absolute; left: 361px; top: 181px;"
+	Style="z-index:677; position: absolute; left: 368px; top: 184px;"
 	CheckBoxInput_TabIndex='108'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='16px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkitem04'></FrmFieldKeys>
 </cc1:DscCheckBox>
-</div>
 <cc1:DscTextBox id='chkother' runat='server' title='其他' ShowTitle='False'
 	style="Z-INDEX:666; POSITION: absolute; LEFT: 523px; TOP: 184px;"
 	TxtInput_TabIndex='110'>
@@ -124,65 +116,80 @@
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='400px' Height='80px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
+<cc1:DscOpenQuery id='opentype01' runat='server' title='主類別01' ShowTitle='False'
+	style="Z-INDEX: 669; POSITION: absolute; LEFT: 469px; TOP: 354px;"
+	TxtInput_TabIndex='112' TextMode='SingleLine'
+	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/data.gif'
+	ReturnVisible='True'>
+	<InputStyle Width='30px' Height='23px' CssClass='Edit20'></InputStyle>
+	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='opentype01'></FrmFieldKeys>
+</cc1:DscOpenQuery>
 <cc1:DscTextBox id='money01' runat='server' title='金額01' ShowTitle='False'
 	style="Z-INDEX:662; POSITION: absolute; LEFT: 621px; TOP: 370px;"
-	TxtInput_TabIndex='112'>
+	TxtInput_TabIndex='113' TextAlign="Right">
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='money01'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea2' runat='server' title='內容02' ShowTitle='False'
 	style="Z-INDEX:697; POSITION: absolute; LEFT: 56px; TOP: 434px;"
-	TxtInput_TabIndex='113' TextMode='MultiLine'>
+	TxtInput_TabIndex='114' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='textarea2'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='400px' Height='80px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
-<cc1:DscTextBox id='money02' runat='server' title='金額02' ShowTitle='False'
-	style="Z-INDEX:661; POSITION: absolute; LEFT: 621px; TOP: 460px;"
-	TxtInput_TabIndex='114'>
-	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='money02'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
-<cc1:DscOpenQuery id='opentype01' runat='server' title='主類別01' ShowTitle='False'
-	style="Z-INDEX: 668; POSITION: absolute; LEFT: 469px; TOP: 354px;"
+<cc1:DscOpenQuery id='opentype02' runat='server' title='主類別02' ShowTitle='False'
+	style="Z-INDEX: 671; POSITION: absolute; LEFT: 468px; TOP: 444px;"
 	TxtInput_TabIndex='115' TextMode='SingleLine'
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/data.gif'
 	ReturnVisible='True'>
 	<InputStyle Width='30px' Height='23px' CssClass='Edit20'></InputStyle>
-	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='opentype01'></FrmFieldKeys>
+	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='opentype02'></FrmFieldKeys>
 </cc1:DscOpenQuery>
-<cc1:DscTextBox id='textarea3' runat='server' title='內容03' ShowTitle='False'
-	style="Z-INDEX:696; POSITION: absolute; LEFT: 56px; TOP: 521px;"
-	TxtInput_TabIndex='115' TextMode='MultiLine'>
-	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='textarea3'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='400px' Height='80px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
-<cc1:DscTextBox id='money03' runat='server' title='金額03' ShowTitle='False'
-	style="Z-INDEX:660; POSITION: absolute; LEFT: 621px; TOP: 550px;"
-	TxtInput_TabIndex='116'>
-	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='money03'></FrmFieldKeys>
+<cc1:DscTextBox id='money02' runat='server' title='金額02' ShowTitle='False'
+	style="Z-INDEX:661; POSITION: absolute; LEFT: 621px; TOP: 460px;"
+	TxtInput_TabIndex='116' TextAlign="Right">
+	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='money02'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscOpenQuery id='openitem01' runat='server' title='子類別01' ShowTitle='False'
-	style="Z-INDEX: 667; POSITION: absolute; LEFT: 469px; TOP: 385px;"
+	style="Z-INDEX: 668; POSITION: absolute; LEFT: 469px; TOP: 385px;"
 	TxtInput_TabIndex='116' TextMode='SingleLine'
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/data.gif'
 	ReturnVisible='True'>
 	<InputStyle Width='30px' Height='22px' CssClass='Edit20'></InputStyle>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='openitem01'></FrmFieldKeys>
 </cc1:DscOpenQuery>
-<cc1:DscOpenQuery id='opentype02' runat='server' title='主類別02' ShowTitle='False'
-	style="Z-INDEX: 671; POSITION: absolute; LEFT: 468px; TOP: 444px;"
-	TxtInput_TabIndex='119' TextMode='SingleLine'
+<cc1:DscTextBox id='textarea3' runat='server' title='內容03' ShowTitle='False'
+	style="Z-INDEX:696; POSITION: absolute; LEFT: 56px; TOP: 521px;"
+	TxtInput_TabIndex='117' TextMode='MultiLine'>
+	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='textarea3'></FrmFieldKeys>
+	<TitleStyle Width='100px'></TitleStyle>
+	<InputStyle Width='400px' Height='80px' CssClass='Edit20'></InputStyle>
+</cc1:DscTextBox>
+<cc1:DscOpenQuery id='opentype03' runat='server' title='主類別03' ShowTitle='False'
+	style="Z-INDEX: 667; POSITION: absolute; LEFT: 469px; TOP: 536px;"
+	TxtInput_TabIndex='118' TextMode='SingleLine'
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/data.gif'
 	ReturnVisible='True'>
 	<InputStyle Width='30px' Height='23px' CssClass='Edit20'></InputStyle>
-	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='opentype02'></FrmFieldKeys>
+	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='opentype03'></FrmFieldKeys>
 </cc1:DscOpenQuery>
+<cc1:DscTextBox id='money03' runat='server' title='金額03' ShowTitle='False'
+	style="Z-INDEX:660; POSITION: absolute; LEFT: 621px; TOP: 550px;"
+	TxtInput_TabIndex='119' TextAlign="Right">
+	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='money03'></FrmFieldKeys>
+	<TitleStyle Width='100px'></TitleStyle>
+	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
+</cc1:DscTextBox>
+<cc1:DscTextBox id='mtotal' runat='server' title='總金額' ShowTitle='False'
+	style="Z-INDEX:659; POSITION: absolute; LEFT: 621px; TOP: 610px;"
+	TxtInput_TabIndex='120' TextAlign="Right">
+	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='mtotal'></FrmFieldKeys>
+	<TitleStyle Width='100px'></TitleStyle>
+	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
+</cc1:DscTextBox>
 <cc1:DscOpenQuery id='openitem02' runat='server' title='子類別02' ShowTitle='False'
 	style="Z-INDEX: 672; POSITION: absolute; LEFT: 468px; TOP: 477px;"
 	TxtInput_TabIndex='120' TextMode='SingleLine'
@@ -191,71 +198,70 @@
 	<InputStyle Width='30px' Height='23px' CssClass='Edit20'></InputStyle>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='openitem02'></FrmFieldKeys>
 </cc1:DscOpenQuery>
-<cc1:DscTextBox id='mtotal' runat='server' title='總金額' ShowTitle='False'
-	style="Z-INDEX:659; POSITION: absolute; LEFT: 621px; TOP: 611px;"
-	TxtInput_TabIndex='121'>
-	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='mtotal'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
 <cc1:DscCheckBox ID='chkatt01' runat='server' Text='發票' ShowTitle='False'
 	Style="z-index:693; position: absolute; left: 58px; top: 641px;"
-	CheckBoxInput_TabIndex='122'
+	CheckBoxInput_TabIndex='121'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='27px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkatt01'></FrmFieldKeys>
 </cc1:DscCheckBox>
 <cc1:DscTextBox id='inv01' runat='server' title='發票張數' ShowTitle='False'
-	style="Z-INDEX:685; POSITION: absolute; LEFT: 189px; TOP: 639px;"
-	TxtInput_TabIndex='123'>
+	style="Z-INDEX:685; POSITION: absolute; LEFT: 183px; TOP: 643px;"
+	TxtInput_TabIndex='122'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='inv01'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='26px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
-<cc1:DscOpenQuery id='opentype03' runat='server' title='主類別03' ShowTitle='False'
-	style="Z-INDEX: 670; POSITION: absolute; LEFT: 469px; TOP: 536px;"
-	TxtInput_TabIndex='123' TextMode='SingleLine'
-	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/data.gif'
-	ReturnVisible='True'>
-	<InputStyle Width='30px' Height='23px' CssClass='Edit20'></InputStyle>
-	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='opentype03'></FrmFieldKeys>
-</cc1:DscOpenQuery>
 <cc1:DscCheckBox ID='chkatt02' runat='server' Text='收據' ShowTitle='False'
 	Style="z-index:682; position: absolute; left: 264px; top: 643px;"
-	CheckBoxInput_TabIndex='124'
+	CheckBoxInput_TabIndex='123'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='27px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkatt02'></FrmFieldKeys>
 </cc1:DscCheckBox>
+<cc1:DscTextBox id='inv02' runat='server' title='數據張數' ShowTitle='False'
+	style="Z-INDEX:676; POSITION: absolute; LEFT: 387px; TOP: 641px;"
+	TxtInput_TabIndex='124'>
+	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='inv02'></FrmFieldKeys>
+	<TitleStyle Width='100px'></TitleStyle>
+	<InputStyle Width='30px' Height='22px' CssClass='Edit20'></InputStyle>
+</cc1:DscTextBox>
 <cc1:DscOpenQuery id='openitem03' runat='server' title='子類別03' ShowTitle='False'
-	style="Z-INDEX: 669; POSITION: absolute; LEFT: 469px; TOP: 564px;"
+	style="Z-INDEX: 670; POSITION: absolute; LEFT: 469px; TOP: 564px;"
 	TxtInput_TabIndex='124' TextMode='SingleLine'
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/data.gif'
 	ReturnVisible='True'>
 	<InputStyle Width='30px' Height='23px' CssClass='Edit20'></InputStyle>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='openitem03'></FrmFieldKeys>
 </cc1:DscOpenQuery>
-<cc1:DscTextBox id='inv02' runat='server' title='數據張數' ShowTitle='False'
-	style="Z-INDEX:676; POSITION: absolute; LEFT: 387px; TOP: 641px;"
-	TxtInput_TabIndex='125'>
-	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='inv02'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='30px' Height='22px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
 <cc1:DscCheckBox ID='chkatt04' runat='server' Text='驗收單' ShowTitle='False'
 	Style="z-index:692; position: absolute; left: 58px; top: 677px;"
-	CheckBoxInput_TabIndex='127'
+	CheckBoxInput_TabIndex='125'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='24px' Height='27px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkatt04'></FrmFieldKeys>
 </cc1:DscCheckBox>
 <cc1:DscCheckBox ID='chkatt05' runat='server' Text='進貨單' ShowTitle='False'
 	Style="z-index:683; position: absolute; left: 264px; top: 678px;"
-	CheckBoxInput_TabIndex='128'
+	CheckBoxInput_TabIndex='126'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='26px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkatt05'></FrmFieldKeys>
 </cc1:DscCheckBox>
+<cc1:DscCheckBox ID='other' runat='server' Text='其他附件' ShowTitle='False'
+	Style="z-index:694; position: absolute; left: 58px; top: 711px;"
+	CheckBoxInput_TabIndex='127'
+	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
+	<InputStyle Width='31px' Height='22px' />
+	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='other'></FrmFieldKeys>
+</cc1:DscCheckBox>
+<cc1:DscTextBox id='attother' runat='server' title='其他附件' ShowTitle='False'
+	style="Z-INDEX:687; POSITION: absolute; LEFT: 160px; TOP: 712px;"
+	TxtInput_TabIndex='128'>
+	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='attother'></FrmFieldKeys>
+	<TitleStyle Width='100px'></TitleStyle>
+	<InputStyle Width='106px' Height='22px' CssClass='Edit20'></InputStyle>
+</cc1:DscTextBox>
 <cc1:DscTextBox id='orderno' runat='server' title='訂購單號' ShowTitle='False'
 	style="Z-INDEX:663; POSITION: absolute; LEFT: 619px; TOP: 273px;"
 	TxtInput_TabIndex='130'>
@@ -263,26 +269,12 @@
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
-<cc1:DscTextBox id='attother' runat='server' title='其他附件' ShowTitle='False'
-	style="Z-INDEX:687; POSITION: absolute; LEFT: 151px; TOP: 713px;"
-	TxtInput_TabIndex='131'>
-	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='attother'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='106px' Height='22px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
 <cc1:DscCheckBox ID='chkitem05' runat='server' Text='其他 Khác' ShowTitle='False'
-	Style="z-index:673; position: absolute; left: 462px; top: 178px;"
+	Style="z-index:673; position: absolute; left: 461px; top: 184px;"
 	CheckBoxInput_TabIndex='132'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='16px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkitem05'></FrmFieldKeys>
-</cc1:DscCheckBox>
-<cc1:DscCheckBox ID='other' runat='server' Text='其他附件' ShowTitle='False'
-	Style="z-index:694; position: absolute; left: 58px; top: 711px;"
-	CheckBoxInput_TabIndex='137'
-	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
-	<InputStyle Width='31px' Height='22px' />
-	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='other'></FrmFieldKeys>
 </cc1:DscCheckBox>
 <cc1:DscTextBox id='payother' runat='server' title='其他支付' ShowTitle='False'
 	style="Z-INDEX:674; POSITION: absolute; LEFT: 411px; TOP: 229px;"
@@ -388,5 +380,9 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMFPAYMVEUS02.js?NoCache=202108311455" type="text/javascript"></script>
+	<!--控制項觸發條件--20230424 Peggy-->
+	 <script src="../../_Common/OEM/JS/OEMSetControl.js"></script>
+    <!--三位一撇--20230424 Peggy-->
+	<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
+<script src="ODMFPAYMVEUS02.js?NoCache=20230424002" type="text/javascript"></script>
 </asp:Content>

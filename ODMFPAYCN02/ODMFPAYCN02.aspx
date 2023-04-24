@@ -4,7 +4,7 @@
 <%@ Register TagPrefix="cc1" Namespace="tw.com.dsc.dscDotNet.dscWebControls" Assembly="PlatformUtil" %>
 
 <asp:Content ID="ODMFPAYCN02FormContent" ContentPlaceHolderID="MasterPageContent" runat="server">
-	<!--單檔架構 -->
+    <!--單檔架構 -->
 	<!--2009/03/19:Joseph:<div id="cover" style="OVERFLOW: auto; WIDTH: 100%;">-->
 		<div id="cover" style="WIDTH: 100%;">
 			<div id="createRecord" style="WIDTH: 100%; HEIGHT: 100%" runat="server">
@@ -23,7 +23,7 @@
 
 					<!--單頭頁籤 一-->
 					<cc1:Dscpanel id='divheadDefault' style='DISPLAY: block' runat='server' Width='100%' Height='750px' BackColor='Transparent'>
-						<div class='TabPage' style='POSITION: relative; HEIGHT: 750px; left: 0px; top: 0px;' >
+						<div class='TabPage' style='POSITION: relative; HEIGHT: 750px; left: 0px; top: 0px; text-align: center;' >
 							<asp:ValidationSummary id='ValidationSummaryHead01' style='Z-INDEX: 100; POSITION: absolute; LEFT: 745px; TOP: 7px;' runat='server' ShowSummary='False' ShowMessageBox='True'></asp:ValidationSummary>
 							<!--此區間放入單頭頁籤 一 的各個dsc元件-->
 
@@ -153,8 +153,8 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='openitem01'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='money01' runat='server' title='金額01' ShowTitle='False'
-	style="Z-INDEX:654; POSITION: absolute; LEFT: 577px; TOP: 274px;"
-	TxtInput_TabIndex='117'>
+	style="Z-INDEX:654; POSITION: absolute; LEFT: 581px; TOP: 274px;"
+	TxtInput_TabIndex='117' TextAlign="Right">
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='money01'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
@@ -183,8 +183,8 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='openitem02'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='money02' runat='server' title='金額02' ShowTitle='False'
-	style="Z-INDEX:653; POSITION: absolute; LEFT: 577px; TOP: 340px;"
-	TxtInput_TabIndex='121'>
+	style="Z-INDEX:653; POSITION: absolute; LEFT: 581px; TOP: 340px;"
+	TxtInput_TabIndex='121' TextAlign="Right">
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='money02'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
@@ -213,8 +213,8 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='openitem03'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='money03' runat='server' title='金額03' ShowTitle='False'
-	style="Z-INDEX:652; POSITION: absolute; LEFT: 577px; TOP: 400px;"
-	TxtInput_TabIndex='126'>
+	style="Z-INDEX:652; POSITION: absolute; LEFT: 581px; TOP: 400px;"
+	TxtInput_TabIndex='126' TextAlign="Right">
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='money03'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
@@ -243,8 +243,8 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='openitem04'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='money04' runat='server' title='金額04' ShowTitle='False'
-	style="Z-INDEX:651; POSITION: absolute; LEFT: 577px; TOP: 462px;"
-	TxtInput_TabIndex='130'>
+	style="Z-INDEX:651; POSITION: absolute; LEFT: 581px; TOP: 462px;"
+	TxtInput_TabIndex='130' TextAlign="Right">
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='money04'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
@@ -265,7 +265,7 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='opentype05'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscOpenQuery id='openitem05' runat='server' title='子類別05' ShowTitle='False'
-	style="Z-INDEX: 670; POSITION: absolute; LEFT: 429px; TOP: 535px;"
+	style="Z-INDEX: 670; POSITION: absolute; LEFT: 430px; TOP: 535px;"
 	TxtInput_TabIndex='133' TextMode='SingleLine'
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/data.gif'
 	ReturnVisible='True'>
@@ -273,15 +273,15 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='openitem05'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='money05' runat='server' title='金額05' ShowTitle='False'
-	style="Z-INDEX:650; POSITION: absolute; LEFT: 577px; TOP: 521px;"
-	TxtInput_TabIndex='134'>
+	style="Z-INDEX:650; POSITION: absolute; LEFT: 581px; TOP: 521px;"
+	TxtInput_TabIndex='134' TextAlign="Right">
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='money05'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='mtotal' runat='server' title='總金額' ShowTitle='False'
-	style="Z-INDEX:649; POSITION: absolute; LEFT: 577px; TOP: 566px;"
-	TxtInput_TabIndex='135'>
+	style="Z-INDEX:649; POSITION: absolute; LEFT: 581px; TOP: 566px;"
+	TxtInput_TabIndex='135' TextAlign="Right">
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='mtotal'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
@@ -363,7 +363,7 @@
 	<InputStyle Width='106px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscDropDownList ID='curr' runat='server' Title='幣別' ShowTitle='False'
-	Style="z-index:659; position: absolute; left: 513px; top: 572px;"
+	Style="z-index:659; position: absolute; left: 516px; top: 569px;"
 	DDLInput_TabIndex='148'>
 	<Items>
 		<asp:ListItem Selected='True' Value='RMB'>RMB</asp:ListItem>
@@ -375,28 +375,8 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='curr'></FrmFieldKeys>
 	<CommentList F0001='Combo' F0002='ODMFPAYCN02_curr' />
 </cc1:DscDropDownList>
-<cc1:DscDropDownList ID='curr06' runat='server' Title='幣別06' ShowTitle='False'
-	Style="z-index:658; position: absolute; left: 513px; top: 572px;"
-	DDLInput_TabIndex='148'>
-	<Items>
-		<asp:ListItem Selected='True' Value='RMB'>RMB</asp:ListItem>
-		<asp:ListItem Selected='False' Value='NTD'>NTD</asp:ListItem>
-		<asp:ListItem Selected='False' Value='USD'>USD</asp:ListItem>
-	</Items>
-	<TitleStyle Width='100px' />
-	<InputStyle Width='53px' Height='22px' />
-	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='curr06'></FrmFieldKeys>
-	<CommentList F0001='Combo' F0002='ODMFPAYCN02_curr06' />
-</cc1:DscDropDownList>
-<cc1:DscTextBox id='itemname' runat='server' title='year' ShowTitle='False'
-	style="Z-INDEX:685; POSITION: absolute; LEFT: 99px; TOP: 202px;"
-	TxtInput_TabIndex='154'>
-	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='itemname'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='30px' Height='22px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
 <cc1:DscTextBox id='useyear' runat='server' title='年' ShowTitle='False'
-	style="Z-INDEX:686; POSITION: absolute; LEFT: 99px; TOP: 202px;"
+	style="Z-INDEX:686; POSITION: absolute; LEFT: 97px; TOP: 202px;"
 	TxtInput_TabIndex='154'>
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='useyear'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -419,19 +399,15 @@
 	style="display:none;Z-INDEX:677; POSITION: absolute; LEFT: 80px; TOP: 77px;">
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='kind'></FrmFieldKeys>
 </cc1:DscTextBox>
-<asp:RadioButton ID='kind_ctrolRadio0' runat='server' GroupName='kind' Text='' Value='0' style='position:absolute;top:77px;left:80px;z-index:677;'/>
-<asp:RadioButton ID='kind_ctrolRadio1' runat='server' GroupName='kind' Text='' Value='1' style='position:absolute;top:77px;left:140px;z-index:677;'/>
-<asp:RadioButton ID='kind_ctrolRadio2' runat='server' GroupName='kind' Text='' Value='2' style='position:absolute;top:75px;left:204px;z-index:677;'/>
+<asp:RadioButton ID='kind_ctrolRadio0' runat='server' GroupName='kind' Text='' Value='0' style='position:absolute;top:75px; left:89px; z-index:677; width: 51px;'/>
+<asp:RadioButton ID='kind_ctrolRadio1' runat='server' GroupName='kind' Text='' Value='1' style='position:absolute;top:76px; left:166px; z-index:677;'/>
+<asp:RadioButton ID='kind_ctrolRadio2' runat='server' GroupName='kind' Text='' Value='2' style='position:absolute;top:75px;left:231px; z-index:677;'/>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
 	<img src="ODMFPAYCNV2.png" id="Head01_file_1" runat="server" width="719" height="715" />
 </div>
-
-						</div>
+</div>
 					</cc1:Dscpanel>
-
-
-					
 					<!--單身Grid畫面-->
 					
 					<cc1:DscPanel id="hdnDisplayInCS" style="DISPLAY: none; Z-INDEX: 116; LEFT: 264px; TOP: 72px" runat="server" Width="100%">
@@ -456,9 +432,14 @@
 					</div>
 				</cc1:DscPanel>
 				<!--2010/06/01:3.2.1.13:hiro:S00-20100323002:功能新增：新增人員、日期、部門(含多選開窗)元件↑-->
+				<!--2010/06/01:3.2.1.13:hiro:S00-20100323002:功能新增：新增人員、日期、部門(含多選開窗)元件↑-->
 			</div>
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMFPAYCN02.js?NoCache=202108311455" type="text/javascript"></script>
+	<!--控制項觸發條件--20230424 Peggy-->
+	 <script src="../../_Common/OEM/JS/OEMSetControl.js"></script>
+    <!--三位一撇--20230424 Peggy-->
+<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
+<script src="ODMFPAYCN02.js?NoCache=20230424035" type="text/javascript"></script>
 </asp:Content>

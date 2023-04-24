@@ -44,17 +44,12 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					base.doMIByDB("OpenMIMJ01","24", @"192.168.10.22", "price");
 					break;
 				}
-				case "MasterPage_MasterPageContent_openitem01_btn":			//開窗連結外部資料庫
-				{
-					base.doMIByDB("TrigMIMJ01","07", @"192.168.10.22", "price");
-					break;
-				}
 				case "MasterPage_MasterPageContent_opentype02_btn":			//開窗連結外部資料庫
 				{
 					base.doMIByDB("OpenMIMJ01","24", @"192.168.10.22", "price");
 					break;
 				}
-				case "MasterPage_MasterPageContent_openitem02_btn":			//開窗連結外部資料庫
+				case "MasterPage_MasterPageContent_openitem01_btn":			//開窗連結外部資料庫
 				{
 					base.doMIByDB("TrigMIMJ01","07", @"192.168.10.22", "price");
 					break;
@@ -62,6 +57,11 @@ namespace tw.com.dsc.easyflowDotNet.forms
 				case "MasterPage_MasterPageContent_opentype03_btn":			//開窗連結外部資料庫
 				{
 					base.doMIByDB("OpenMIMJ01","24", @"192.168.10.22", "price");
+					break;
+				}
+				case "MasterPage_MasterPageContent_openitem02_btn":			//開窗連結外部資料庫
+				{
+					base.doMIByDB("TrigMIMJ01","07", @"192.168.10.22", "price");
 					break;
 				}
 				case "MasterPage_MasterPageContent_openitem03_btn":			//開窗連結外部資料庫
@@ -116,11 +116,6 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					FinishMJ(bSelfResult, FinalList);
 					break;
 				}
-				case "TrigMIMJ01_07_openitem01":	
-				{
-					base.doMJByDB("TrigMIMJ01","07", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem01_txt2=item_name");
-					break;
-				}
 				case "OpenMIMJ01_24_opentype02":	
 				{
 					bSelfResult = getMJResultByDB("OpenMIMJ01","24",1,FinalList, @"192.168.10.22", "price","MasterPage_MasterPageContent_opentype02_txt2=type_name");
@@ -143,9 +138,9 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					FinishMJ(bSelfResult, FinalList);
 					break;
 				}
-				case "TrigMIMJ01_07_openitem02":	
+				case "TrigMIMJ01_07_openitem01":	
 				{
-					base.doMJByDB("TrigMIMJ01","07", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem02_txt2=item_name");
+					base.doMJByDB("TrigMIMJ01","07", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem01_txt2=item_name");
 					break;
 				}
 				case "OpenMIMJ01_24_opentype03":	
@@ -168,6 +163,11 @@ namespace tw.com.dsc.easyflowDotNet.forms
 						}
 					}
 					FinishMJ(bSelfResult, FinalList);
+					break;
+				}
+				case "TrigMIMJ01_07_openitem02":	
+				{
+					base.doMJByDB("TrigMIMJ01","07", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem02_txt2=item_name");
 					break;
 				}
 				case "TrigMIMJ01_07_openitem03":	
