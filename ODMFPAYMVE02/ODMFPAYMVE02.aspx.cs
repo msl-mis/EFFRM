@@ -1405,7 +1405,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			defalutHash.Add("username", this.UserInfo.LoginName.ToString());
 			defalutHash.Add("empl1", this.UserInfo.EmployeeId.ToString());
 			defalutHash.Add("empl2", ajaxGetSupervisorID());
-			defalutHash.Add("curr", "RMB");
+			defalutHash.Add("curr", "VND");
 		}
 
 		//草稿儲存後要將主旨清除
