@@ -18,6 +18,22 @@ function CustomerSaveCheck_Head(tStatus)
 	}
 
 	//填表及簽核都要驗證
+	//float格式驗証
+	var ttotalmoney = $('#MasterPage_MasterPageContent_totalmoney_txt');
+	if(ttotalmoney.length>0){
+		var ttotalmoneyValue = $('#MasterPage_MasterPageContent_totalmoney_txt').val().trim();
+		if (ttotalmoneyValue.length>0){
+			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(ttotalmoneyValue)){
+				//輸入的資料不符合float數值格式 !
+				tErr += '「' + getI18NForSpecial('FD', 'ODMAWDMVE01', 'totalmoney', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFloatErrMsg + '\r\n';
+			}
+			else{
+				ttotalmoneyValue=ttotalmoneyValue.replace(/\,/g,'');
+				$('#MasterPage_MasterPageContent_totalmoney_txt').val(parseFloat(ttotalmoneyValue).toFixed(3));
+			}
+		}
+	}
+
 	//不允許空白驗證
 	var ttxtmain = $('#MasterPage_MasterPageContent_txtmain_txt');
 	if(ttxtmain.length>0){
@@ -49,6 +65,22 @@ function DraftSaveCheck(){
 	var tFloatErrMsg = getI18NForSpecial('PSMSG', 'Validation', 'FloatErrMsg', '../../_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
 	var tDecimalErrMsg = getI18NForSpecial('PSMSG', 'Validation', 'DecimalErrMsg', '../../_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
 	//數值驗證
+	//float格式驗証
+	var ttotalmoney = $('#MasterPage_MasterPageContent_totalmoney_txt');
+	if(ttotalmoney.length>0){
+		var ttotalmoneyValue = $('#MasterPage_MasterPageContent_totalmoney_txt').val().trim().replace(/\,/g, '');
+		if (ttotalmoneyValue.length>0){
+			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(ttotalmoneyValue)){
+				//輸入的資料不符合float數值格式 !
+				tErr += '「' + getI18NForSpecial('FD', 'ODMAWDMVE01', 'totalmoney', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFloatErrMsg + '\r\n';
+			}
+			else{
+				ttotalmoneyValue=ttotalmoneyValue.replace(/\,/g,'');
+				$('#MasterPage_MasterPageContent_totalmoney_txt').val(parseFloat(ttotalmoneyValue).toFixed(3));
+			}
+		}
+	}
+
 
 
 	if (tErr == "")

@@ -10,7 +10,7 @@
 			<div id="createRecord" style="WIDTH: 100%; HEIGHT: 100%" runat="server">
 				<cc1:DscPanel id="ecPnlMaster" runat="server" Width="98%" IniHTML='&#10;<div style="OVERFLOW: auto; WIDTH: 100%; POSITION: relative; HEIGHT: 100%" ms_positioning="GridLayout"></div>'
 					FrmDefineKeys-FrmType="Query" FrmDefineKeys-FrmID="FrmODMAWDMVE01" FrmDefineKeys-BOID="ODMAWDMVE01"
-					BorderStyle="None" BorderColor="Transparent" BorderWidth="0px" Height="374px">
+					BorderStyle="None" BorderColor="Transparent" BorderWidth="0px" Height="304px">
 					<!--單頭頁籤-->
 					<iewc:TabStrip id="TabStrip1" runat="server" 
 						TabDefaultStyle="background-image:url(../../_Common/AppUtil/Themes/images/Menu/Tbtn01.gif);" 
@@ -22,8 +22,8 @@
 					<!--單頭頁籤畫面集合-->
 
 					<!--單頭頁籤 一-->
-					<cc1:Dscpanel id='divheadDefault' style='DISPLAY: block' runat='server' Width='100%' Height='374px' BackColor='Transparent'>
-						<div class='TabPage' style='POSITION: relative; HEIGHT: 374px; left: 0px; top: 0px;' >
+					<cc1:Dscpanel id='divheadDefault' style='DISPLAY: block' runat='server' Width='100%' Height='304px' BackColor='Transparent'>
+						<div class='TabPage' style='POSITION: relative; HEIGHT: 304px; left: 0px; top: 0px;' >
 							<asp:ValidationSummary id='ValidationSummaryHead01' style='Z-INDEX: 100; POSITION: absolute; LEFT: 745px; TOP: 7px;' runat='server' ShowSummary='False' ShowMessageBox='True'></asp:ValidationSummary>
 							<!--此區間放入單頭頁籤 一 的各個dsc元件-->
 
@@ -43,37 +43,44 @@
 </cc1:DscTextBox>
 
 <cc1:DscTextBox id='txtdept' runat='server' title='部門' ShowTitle='False'
-	style="Z-INDEX:700; POSITION: absolute; LEFT: 184px; TOP: 164px;"
+	style="Z-INDEX:700; POSITION: absolute; LEFT: 118px; TOP: 140px;"
 	TxtInput_TabIndex='101'>
 	<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='txtdept'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='120px' Height='25px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='110px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscDateAssistant2 ID='date' runat='server' Title='申請日期' ShowTitle='False'
-	style="POSITION: absolute; left: 812px; top: 164px; z-index: 697;" 
+	style="POSITION: absolute; left: 575px; top: 140px; z-index: 697;" 
 	TxtInput_TabIndex='103' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
-	<InputStyle Width='120px' Height='22px' CssClass='Edit20' />
+	<InputStyle Width='90px' Height='25px' CssClass='Edit20' />
 	<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='date'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
 <cc1:DscTextBox id='txtmain' runat='server' title='主旨' ShowTitle='False'
-	style="Z-INDEX:699; POSITION: absolute; LEFT: 188px; TOP: 221px;"
+	style="Z-INDEX:699; POSITION: absolute; LEFT: 124px; TOP: 183px;"
 	TxtInput_TabIndex='104'>
 	<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='txtmain'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='755px' Height='60px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='780px' Height='60px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='txtuser' runat='server' title='申請人' ShowTitle='False'
-	style="Z-INDEX:698; POSITION: absolute; LEFT: 499px; TOP: 164px;"
+	style="Z-INDEX:698; POSITION: absolute; LEFT: 347px; TOP: 140px;"
 	TxtInput_TabIndex='105'>
 	<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='txtuser'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='120px' Height='25px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='110px' Height='25px' CssClass='Edit20'></InputStyle>
+</cc1:DscTextBox>
+<cc1:DscTextBox id='totalmoney' runat='server' title='總金額' ShowTitle='False'
+	style="Z-INDEX:696; POSITION: absolute; LEFT: 803px; TOP: 140px;"
+	TxtInput_TabIndex='106'>
+	<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='totalmoney'></FrmFieldKeys>
+	<TitleStyle Width='100px'></TitleStyle>
+	<InputStyle Width='110px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
-	<img src="ODMAWDMVE01.png" id="Head01_file_1" runat="server" width="997" height="339" />
+	<img src="ODMAWDMVE01-3.png" id="Head01_file_1" runat="server" width="925" height="269" />
 </div>
 
 						</div>
@@ -109,5 +116,7 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMAWDMVE01.js?NoCache=202108311455" type="text/javascript"></script>
+	<!--三位一撇--20230424 Peggy-->
+	<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
+<script src="ODMAWDMVE01.js?NoCache=20230426002" type="text/javascript"></script>
 </asp:Content>
