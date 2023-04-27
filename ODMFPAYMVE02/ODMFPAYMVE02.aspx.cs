@@ -150,11 +150,11 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.chkatt01.Text = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "chkatt01", tLanguageType);
 			this.inv01.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "inv01", tLanguageType);
 			this.chkatt02.Text = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "chkatt02", tLanguageType);
+			this.SenderID.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "SenderID", tLanguageType);
 			this.chkatt04.Text = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "chkatt04", tLanguageType);
-			this.empl1.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "empl1", tLanguageType);
 			this.inv02.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "inv02", tLanguageType);
+			this.SuperID.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "SuperID", tLanguageType);
 			this.chkatt05.Text = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "chkatt05", tLanguageType);
-			this.empl2.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "empl2", tLanguageType);
 			this.other.Text = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "other", tLanguageType);
 			this.attother.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "attother", tLanguageType);
 			this.curr.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "curr", tLanguageType);
@@ -213,7 +213,8 @@ ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "Ini
 			string strToolTipParameter = objEFPara.EF_getCompanyParameterData("ToolTip").ToString();
 			
 			if(strToolTipParameter=="Y"){
-				this.textarea1.ToolTip = this.textarea1.Text;
+				this.payee.ToolTip = this.payee.Text;
+this.textarea1.ToolTip = this.textarea1.Text;
 this.textarea2.ToolTip = this.textarea2.Text;
 this.textarea3.ToolTip = this.textarea3.Text;
 this.textarea4.ToolTip = this.textarea4.Text;
@@ -376,12 +377,10 @@ this.other.Text = String.Empty;
 				#endregion CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
 			}
 
-
             #region 自訂Page_Prender區塊
             //20230411 Peggy  
             ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), "openRadio();", true);
             #endregion 自訂Page_Prender區塊
-
         }
         #endregion Page_Prender做的事
 
@@ -1256,33 +1255,33 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 
             openitem05.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem05_btn", "MasterPage_MasterPageContent_opentype05_txt", "MasterPage_MasterPageContent_openitem05_txt", "S"));
             openitem05.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem05_txt", "TrigMIMJ01_07_openitem05", "MasterPage_MasterPageContent_openitem05_txt,MasterPage_MasterPageContent_opentype05_txt"));
-            openitem05.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem05_txt');"); 
-			
-			switch (tWindowOpenStyle){		
+            openitem05.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem05_txt');");
+
+            switch (tWindowOpenStyle){
 				case "2":
 					string tPara = "RESAK§10§" + this.UserInfo.DepartmentId + "§§§";
 					string tUrl = "../../_Common/EFDefOpen/F2MutipleFrame.aspx?open=single&value=";
-					empl1.HtmImg.Attributes.Add("onclick", "if(!SingleSelectEmpl('" + tUrl + System.Web.HttpUtility.UrlEncode(tPara) + "','" + empl1.TxtInput.ClientID + "','員工代號_empl1')){return false;}");
+					SenderID.HtmImg.Attributes.Add("onclick", "if(!SingleSelectEmpl('" + tUrl + System.Web.HttpUtility.UrlEncode(tPara) + "','" + SenderID.TxtInput.ClientID + "','員工代號_SenderID')){return false;}");
 					break;
 				default:
-					empl1.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_empl1_btn","MasterPage_MasterPageContent_empl1_txt","S"));
+					SenderID.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_SenderID_btn","MasterPage_MasterPageContent_SenderID_txt","S"));
 					break;
 			}
-			empl1.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_empl1_txt","員工代號_empl1","MasterPage_MasterPageContent_empl1_txt"));
-			empl1.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_empl1_txt');");
+			SenderID.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_SenderID_txt","員工代號_SenderID","MasterPage_MasterPageContent_SenderID_txt"));
+			SenderID.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_SenderID_txt');");
 			
 			switch (tWindowOpenStyle){
 				case "2":
 					string tPara = "RESAK§10§" + this.UserInfo.DepartmentId + "§§§";
 					string tUrl = "../../_Common/EFDefOpen/F2MutipleFrame.aspx?open=single&value=";
-					empl2.HtmImg.Attributes.Add("onclick", "if(!SingleSelectEmpl('" + tUrl + System.Web.HttpUtility.UrlEncode(tPara) + "','" + empl2.TxtInput.ClientID + "','員工代號_empl2')){return false;}");
+					SuperID.HtmImg.Attributes.Add("onclick", "if(!SingleSelectEmpl('" + tUrl + System.Web.HttpUtility.UrlEncode(tPara) + "','" + SuperID.TxtInput.ClientID + "','員工代號_SuperID')){return false;}");
 					break;
 				default:
-					empl2.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_empl2_btn","MasterPage_MasterPageContent_empl2_txt","S"));
+					SuperID.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_SuperID_btn","MasterPage_MasterPageContent_SuperID_txt","S"));
 					break;
 			}
-			empl2.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_empl2_txt","員工代號_empl2","MasterPage_MasterPageContent_empl2_txt"));
-			empl2.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_empl2_txt');");
+			SuperID.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_SuperID_txt","員工代號_SuperID","MasterPage_MasterPageContent_SuperID_txt"));
+			SuperID.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_SuperID_txt');");
 			
 			string strmoney01_DoMathScript_mtotal_onChange=string.Empty;
 			if(money01.TxtInput.Attributes["onchange"]!=null){strmoney01_DoMathScript_mtotal_onChange=money01.TxtInput.Attributes["onchange"].ToString().Trim(';');}
@@ -1347,7 +1346,6 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
             //20230423 Peggy 註冊在js建的規則, 於chkitem02
             this.chkitem02.Attributes.Add("onclick", ";openRadio();");
             //this.chkitem02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem02_chk')[0].checked){{$('#MasterPage_MasterPageContent_itemname').show();}} else{{$('#MasterPage_MasterPageContent_itemname').hide();}} ");
-
             this.chkitem05.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem05_chk')[0].checked){{$('#MasterPage_MasterPageContent_chkother').show();}} else{{$('#MasterPage_MasterPageContent_chkother').hide();}} ");
 			this.chkatt01.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt01_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv01').show();}} else{{$('#MasterPage_MasterPageContent_inv01').hide();}} ");
 			this.chkatt02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt02_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv02').show();}} else{{$('#MasterPage_MasterPageContent_inv02').hide();}} ");
@@ -1377,8 +1375,8 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 				pMiMjManager.Add("openitem04_0", openitem04);
 				pMiMjManager.Add("opentype05_0", opentype05);
 				pMiMjManager.Add("openitem05_0", openitem05);
-				pMiMjManager.Add("empl1_0", empl1);
-				pMiMjManager.Add("empl2_0", empl2);
+				pMiMjManager.Add("SenderID_0", SenderID);
+				pMiMjManager.Add("SuperID_0", SuperID);
 
 			}
 
@@ -1403,8 +1401,8 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			defalutHash.Add("datetime1", DateTime.Now.ToString("yyyyMMdd"));
 			defalutHash.Add("dept", ajaxGetDepartmentName());
 			defalutHash.Add("username", this.UserInfo.LoginName.ToString());
-			defalutHash.Add("empl1", this.UserInfo.EmployeeId.ToString());
-			defalutHash.Add("empl2", ajaxGetSupervisorID());
+			defalutHash.Add("SenderID", this.UserInfo.EmployeeId.ToString());
+			defalutHash.Add("SuperID", ajaxGetSupervisorID());
 			defalutHash.Add("curr", "VND");
 		}
 
@@ -2164,7 +2162,7 @@ order by resdd003 desc";
 
 			tValue="";
 			try{
-				tValue = (this.empl2.Value.Trim());
+				tValue = (this.SuperID.Value.Trim());
 			}
 			catch(Exception e){
 				tValue="";
@@ -2175,7 +2173,7 @@ order by resdd003 desc";
 
 			tValue="";
 			try{
-				tValue = (this.empl1.Value.Trim());
+				tValue = (this.SenderID.Value.Trim());
 			}
 			catch(Exception e){
 				tValue="";

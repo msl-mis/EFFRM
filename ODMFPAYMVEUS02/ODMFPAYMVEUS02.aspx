@@ -42,11 +42,11 @@
 	<FRMFIELDKEYS FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='odmfpaymveus02002'></FRMFIELDKEYS>
 </cc1:DscTextBox>
 
-<cc1:DscLabel ID='lblcn' runat='server' Style="z-index:680; position: absolute; left: 316px; top: 288px; vertical-align:middle;font-family:'細明體';font-size:12pt;" Text='冠志廠(CN)' Width='100px' Height='23px'></cc1:DscLabel>
+<cc1:DscLabel ID='lblcn' runat='server' Style="z-index:679; position: absolute; left: 316px; top: 288px; vertical-align:middle;font-family:'細明體';font-size:12pt;" Text='冠志廠(CN)' Width='100px' Height='23px'></cc1:DscLabel>
 <cc1:DscLabel ID='lblvn' runat='server' Style="z-index:675; position: absolute; left: 403px; top: 288px; vertical-align:middle;font-family:'新細明體';font-size:12pt;" Text='越南廠(VN)' Width='100px' Height='25px'></cc1:DscLabel>
 <cc1:DscLabel ID='lblyear' runat='server' Style="z-index:686; position: absolute; left: 174px; top: 272px; vertical-align:middle;font-family:'新細明體';font-size:12pt;" Text='年' Width='33px' Height='28px'></cc1:DscLabel>
 <cc1:DscDateAssistant2 ID='datetime1' runat='server' Title='datetime1' ShowTitle='False'
-	style="POSITION: absolute; left: 673px; top: 104px; z-index: 658;" 
+	style="POSITION: absolute; left: 664px; top: 104px; z-index: 658;" 
 	TxtInput_TabIndex='101' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -54,63 +54,63 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='datetime1'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
 <cc1:DscTextBox id='dept' runat='server' title='部門' ShowTitle='False'
-	style="Z-INDEX:695; POSITION: absolute; LEFT: 57px; TOP: 141px;"
+	style="Z-INDEX:698; POSITION: absolute; LEFT: 56px; TOP: 143px;"
 	TxtInput_TabIndex='102'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='dept'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='125px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='username' runat='server' title='請款人' ShowTitle='False'
-	style="Z-INDEX:678; POSITION: absolute; LEFT: 329px; TOP: 141px;"
+	style="Z-INDEX:680; POSITION: absolute; LEFT: 281px; TOP: 143px;"
 	TxtInput_TabIndex='103'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='username'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='111px' Height='25px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='100px' Height='23px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='payee' runat='server' title='受款人' ShowTitle='False'
-	style="Z-INDEX:664; POSITION: absolute; LEFT: 615px; TOP: 141px;"
-	TxtInput_TabIndex='104'>
+	style="Z-INDEX:666; POSITION: absolute; LEFT: 499px; TOP: 135px;"
+	TxtInput_TabIndex='104' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='payee'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='120px' Height='25px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='250px' Height='40px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscCheckBox ID='chkitem01' runat='server' Text='一般費用 Chi phí thường' ShowTitle='False'
-	Style="z-index:691; position: absolute; left: 64px; top: 184px;"
+	Style="z-index:691; position: absolute; left: 63px; top: 179px;"
 	CheckBoxInput_TabIndex='105'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='16px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkitem01'></FrmFieldKeys>
 </cc1:DscCheckBox>
 <cc1:DscCheckBox ID='chkitem02' runat='server' Text='資產 Tài sản' ShowTitle='False'
-	Style="z-index:684; position: absolute; left: 192px; top: 184px;"
+	Style="z-index:684; position: absolute; left: 191px; top: 179px;"
 	CheckBoxInput_TabIndex='106'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='16px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkitem02'></FrmFieldKeys>
 </cc1:DscCheckBox>
 <cc1:DscCheckBox ID='chkitem03' runat='server' Text='原物料 NVL' ShowTitle='False'
-	Style="z-index:681; position: absolute; left: 271px; top: 184px;"
+	Style="z-index:681; position: absolute; left: 270px; top: 179px;"
 	CheckBoxInput_TabIndex='107'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='16px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkitem03'></FrmFieldKeys>
 </cc1:DscCheckBox>
 <cc1:DscCheckBox ID='chkitem04' runat='server' Text='零用金 Tiền mặt' ShowTitle='False'
-	Style="z-index:677; position: absolute; left: 368px; top: 184px;"
+	Style="z-index:677; position: absolute; left: 368px; top: 179px;"
 	CheckBoxInput_TabIndex='108'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='16px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkitem04'></FrmFieldKeys>
 </cc1:DscCheckBox>
 <cc1:DscTextBox id='chkother' runat='server' title='其他' ShowTitle='False'
-	style="Z-INDEX:666; POSITION: absolute; LEFT: 523px; TOP: 184px;"
+	style="Z-INDEX:665; POSITION: absolute; LEFT: 523px; TOP: 184px;"
 	TxtInput_TabIndex='110'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkother'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='88px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea1' runat='server' title='內容01' ShowTitle='False'
-	style="Z-INDEX:698; POSITION: absolute; LEFT: 56px; TOP: 340px;"
+	style="Z-INDEX:697; POSITION: absolute; LEFT: 56px; TOP: 340px;"
 	TxtInput_TabIndex='111' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='textarea1'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -132,7 +132,7 @@
 	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea2' runat='server' title='內容02' ShowTitle='False'
-	style="Z-INDEX:697; POSITION: absolute; LEFT: 56px; TOP: 434px;"
+	style="Z-INDEX:696; POSITION: absolute; LEFT: 56px; TOP: 434px;"
 	TxtInput_TabIndex='114' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='textarea2'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -162,7 +162,7 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='openitem01'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='textarea3' runat='server' title='內容03' ShowTitle='False'
-	style="Z-INDEX:696; POSITION: absolute; LEFT: 56px; TOP: 521px;"
+	style="Z-INDEX:695; POSITION: absolute; LEFT: 56px; TOP: 521px;"
 	TxtInput_TabIndex='117' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='textarea3'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -270,7 +270,7 @@
 	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscCheckBox ID='chkitem05' runat='server' Text='其他 Khác' ShowTitle='False'
-	Style="z-index:673; position: absolute; left: 461px; top: 184px;"
+	Style="z-index:673; position: absolute; left: 465px; top: 179px;"
 	CheckBoxInput_TabIndex='132'
 	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
 	<InputStyle Width='16px' Height='22px' />
@@ -312,7 +312,7 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='paydate'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
 <cc1:DscDropDownList ID='curr' runat='server' Title='幣別' ShowTitle='False'
-	Style="z-index:665; position: absolute; left: 562px; top: 615px;"
+	Style="z-index:664; position: absolute; left: 562px; top: 615px;"
 	DDLInput_TabIndex='143'>
 	<Items>
 		<asp:ListItem Selected='True' Value='USD'>USD</asp:ListItem>
@@ -330,18 +330,18 @@
 	<InputStyle Width='29px' Height='28px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='chkven' runat='server' title='冠志廠(CN)' ShowTitle='False'
-	style="display:none;Z-INDEX:679; POSITION: absolute; LEFT: 317px; TOP: 267px;">
+	style="display:none;Z-INDEX:678; POSITION: absolute; LEFT: 317px; TOP: 267px;">
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chkven'></FrmFieldKeys>
 </cc1:DscTextBox>
-<asp:RadioButton ID='chkven_ctrolRadio0' runat='server' GroupName='chkven' Text='' Value='0' style='position:absolute;top:267px;left:317px;z-index:679;'/>
-<asp:RadioButton ID='chkven_ctrolRadio1' runat='server' GroupName='chkven' Text='' Value='1' style='position:absolute;top:267px;left:404px;z-index:679;'/>
+<asp:RadioButton ID='chkven_ctrolRadio0' runat='server' GroupName='chkven' Text='' Value='0' style='position:absolute;top:267px;left:317px;z-index:678;'/>
+<asp:RadioButton ID='chkven_ctrolRadio1' runat='server' GroupName='chkven' Text='' Value='1' style='position:absolute;top:267px;left:404px;z-index:678;'/>
 <cc1:DscTextBox id='chpay' runat='server' title='現金 Tiền mặt' ShowTitle='False'
-	style="display:none;Z-INDEX:679; POSITION: absolute; LEFT: 133px; TOP: 233px;">
+	style="display:none;Z-INDEX:678; POSITION: absolute; LEFT: 133px; TOP: 233px;">
 	<FrmFieldKeys FrmID='FrmODMFPAYMVEUS02' BOID='ODMFPAYMVEUS02' FieldName='chpay'></FrmFieldKeys>
 </cc1:DscTextBox>
-<asp:RadioButton ID='chpay_ctrolRadio0' runat='server' GroupName='chpay' Text='' Value='0' style='position:absolute;top:233px;left:133px;z-index:679;'/>
-<asp:RadioButton ID='chpay_ctrolRadio1' runat='server' GroupName='chpay' Text='' Value='1' style='position:absolute;top:227px;left:237px;z-index:679;'/>
-<asp:RadioButton ID='chpay_ctrolRadio2' runat='server' GroupName='chpay' Text='' Value='2' style='position:absolute;top:227px;left:344px;z-index:679;'/>
+<asp:RadioButton ID='chpay_ctrolRadio0' runat='server' GroupName='chpay' Text='' Value='0' style='position:absolute;top:233px;left:133px;z-index:678;'/>
+<asp:RadioButton ID='chpay_ctrolRadio1' runat='server' GroupName='chpay' Text='' Value='1' style='position:absolute;top:227px;left:237px;z-index:678;'/>
+<asp:RadioButton ID='chpay_ctrolRadio2' runat='server' GroupName='chpay' Text='' Value='2' style='position:absolute;top:227px;left:344px;z-index:678;'/>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
 	<img src="ODMFPAYMVEUSDV2.png" id="Head01_file_1" runat="server" width="792" height="778" />
@@ -384,5 +384,5 @@
 	 <script src="../../_Common/OEM/JS/OEMSetControl.js"></script>
     <!--三位一撇--20230424 Peggy-->
 	<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
-<script src="ODMFPAYMVEUS02.js?NoCache=20230424002" type="text/javascript"></script>
+<script src="ODMFPAYMVEUS02.js?NoCache=20230427004" type="text/javascript"></script>
 </asp:Content>

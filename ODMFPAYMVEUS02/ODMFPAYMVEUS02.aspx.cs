@@ -152,15 +152,14 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.paydate.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVEUS02", "paydate", tLanguageType);
 			this.curr.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVEUS02", "curr", tLanguageType);
 			this.useyear.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVEUS02", "useyear", tLanguageType);
-            
-			#region 三位一撇
+            #region 三位一撇
             //^_^ 20230411 Peggy 
             //三位一撇
             OEMLibrary.RegisterNumberFormat(this, new TextBox2[] {
             money01.TxtInput,money02.TxtInput,money03.TxtInput,
             mtotal.TxtInput
             });
-            #endregion
+            #endregion 三位一撇
             #region 自訂排序
 
             #endregion 自訂排序
@@ -205,7 +204,8 @@ ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "Ini
 			string strToolTipParameter = objEFPara.EF_getCompanyParameterData("ToolTip").ToString();
 			
 			if(strToolTipParameter=="Y"){
-				this.textarea1.ToolTip = this.textarea1.Text;
+				this.payee.ToolTip = this.payee.Text;
+this.textarea1.ToolTip = this.textarea1.Text;
 this.textarea2.ToolTip = this.textarea2.Text;
 this.textarea3.ToolTip = this.textarea3.Text;
 
@@ -365,6 +365,7 @@ this.chkitem05.Text = String.Empty;
 				
 				#endregion CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
 			}
+
             #region 自訂Page_Prender區塊
             //20230411 Peggy  
             ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), "openRadio();", true);

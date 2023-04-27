@@ -899,8 +899,7 @@ function SetCustomSubject()
 	var tSubjectVal='';
 	var tSubjectTxt=document.getElementById("MasterPage_txtCreateToolSubject_txt").value;
 	var tSubjectSelf='';
-	tSubjectSelf+='MVE一般請款單V2-'+
-$('#MasterPage_MasterPageContent_payee_txt').val();
+	tSubjectSelf+='MVE一般請款單V2-';
 
 	//自訂主旨+標準主旨
 	tSubjectVal=tSubjectSelf+tSubjectTxt;
@@ -981,6 +980,7 @@ function domath_mtotal()
 		}
 
 		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = parseFloat(finalvalue).toFixed(2);
+
 		//^_^ 20230411 Peggy 重新加上千份位↓
 		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = OEMFormat(parseFloat(finalvalue).toFixed(2));
 		document.getElementById("MasterPage_MasterPageContent_money01_txt").value = OEMFormat(parseFloat(money01).toFixed(2));
@@ -989,6 +989,7 @@ function domath_mtotal()
 		document.getElementById("MasterPage_MasterPageContent_money04_txt").value = OEMFormat(parseFloat(money04).toFixed(2));
 		document.getElementById("MasterPage_MasterPageContent_money05_txt").value = OEMFormat(parseFloat(money05).toFixed(2));
 	    //^_^  20230411 Peggy 重新加上千份位↑
+
 	}catch(err){
 		$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 		var errorMsg = getI18NForSpecial('FD','CalculatedSet2','MutiLang_04','../../../src/_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx');
@@ -1021,24 +1022,6 @@ function chkTriggerFieldNull_Head()
 		}
 		else{
 			$("#MasterPage_MasterPageContent_inv02_txt").val('');
-		}
-	}
-
-	if ($("#MasterPage_MasterPageContent_chkitem02_chk").length > 0) {
-		if ($("#MasterPage_MasterPageContent_chkitem02_chk")[0].checked) {
-			if ($("#MasterPage_MasterPageContent_useyear_txt").val().trim().length == 0) {
-				tErr += '請確認 "使用年限"  是否有填寫\r\n';
-			}
-			else
-				if ($("#MasterPage_MasterPageContent_orderno_txt").val().trim().length == 0) {
-					tErr += '請確認 "訂單號碼" 是否有填寫\r\n';
-				}
-				else if ($("#MasterPage_MasterPageContent_chkven_txt").val().trim().length == 0) {
-					tErr += '請確認 "使用單位" 是否有填寫\r\n';
-				}
-		}
-		else {
-			$("#MasterPage_MasterPageContent_useyear_txt").val('');
 		}
 	}
 
@@ -1146,6 +1129,7 @@ function jsDoDispatch(pFormID, pSheetNo, pDispatchFormID){
 		}
 	}
 }
+
 //20230424 Peggy Star
 //第一個開窗後將第二個窗唯獨或開放，第二個開窗必填
 function opentype_change() {

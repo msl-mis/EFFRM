@@ -89,12 +89,12 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					base.doMIByDB("TrigMIMJ01","07", @"192.168.10.22", "price");
 					break;
 				}
-				case "MasterPage_MasterPageContent_empl1_btn":			//員工代號
+				case "MasterPage_MasterPageContent_SenderID_btn":			//員工代號
 				{
 					base.doMI("RESAK","03");
 					break;
 				}
-				case "MasterPage_MasterPageContent_empl2_btn":			//員工代號
+				case "MasterPage_MasterPageContent_SuperID_btn":			//員工代號
 				{
 					base.doMI("RESAK","03");
 					break;
@@ -249,14 +249,14 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					base.doMJByDB("TrigMIMJ01","07", @"192.168.10.22", "price","MasterPage_MasterPageContent_openitem05_txt2=item_name");
 					break;
 				}
-				case "員工代號_empl1":	
+				case "員工代號_SenderID":	
 				{
-					base.doMJ("RESAK","03","MasterPage_MasterPageContent_empl1_txt2=resak002");
+					base.doMJ("RESAK","03","MasterPage_MasterPageContent_SenderID_txt2=resak002");
 					break;
 				}
-				case "員工代號_empl2":	
+				case "員工代號_SuperID":	
 				{
-					base.doMJ("RESAK","03","MasterPage_MasterPageContent_empl2_txt2=resak002");
+					base.doMJ("RESAK","03","MasterPage_MasterPageContent_SuperID_txt2=resak002");
 					break;
 				}
 
