@@ -158,7 +158,6 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.attother.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "attother", tLanguageType);
 			this.curr.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "curr", tLanguageType);
 			this.useyear.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "useyear", tLanguageType);
-
             #region 三位一撇
             //^_^ 20230411 Peggy 
             //三位一撇
@@ -236,7 +235,6 @@ this.textarea5.ToolTip = this.textarea5.Text;
 			kind.Attributes["style"] = "display:none;";
 			kind_ctrolRadio0.Checked = (kind.Value == "0"); kind_ctrolRadio0.Enabled = kind.InputEnabled;
 			kind_ctrolRadio1.Checked = (kind.Value == "1"); kind_ctrolRadio1.Enabled = kind.InputEnabled;
-			kind_ctrolRadio2.Checked = (kind.Value == "2"); kind_ctrolRadio2.Enabled = kind.InputEnabled;
 
 
 			//單頭RadioButton控制項 end
@@ -378,13 +376,9 @@ this.other.Text = String.Empty;
 				
 				#endregion CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
 			}
-
             #region 自訂Page_Prender區塊
             //20230411 Peggy  
             ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), "openRadio();", true);
-            #endregion 自訂Page_Prender區塊
-            #region 自訂Page_Prender區塊
-
             #endregion 自訂Page_Prender區塊
         }
         #endregion Page_Prender做的事
@@ -1348,7 +1342,6 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 				strmoney05_DoMathScript_mtotal_onblur+=";";
 			money05.TxtInput.Attributes.Add("onblur",strmoney05_DoMathScript_mtotal_onblur+"domath_mtotal();");
 
-
             //20230423 Peggy 註冊在js建的規則, 於chkitem02
             this.chkitem02.Attributes.Add("onclick", ";openRadio();");
             //this.chkitem02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem02_chk')[0].checked){{$('#MasterPage_MasterPageContent_itemname').show();}} else{{$('#MasterPage_MasterPageContent_itemname').hide();}} ");
@@ -1363,7 +1356,6 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			this.chpay_ctrolRadio2.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '2';");
 			this.kind_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '0';");
 			this.kind_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '1';");
-			this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '2';");
 		}//settingClientFunction結尾
 
 		/// <summary>
@@ -2237,6 +2229,18 @@ order by resdd003 desc";
 			}
 			pAryCondValue[0, 6] = "SenderID";
 			pAryCondValue[1, 6] = tValue; 
+
+
+			tDbl=0;
+			try{
+				tDbl = double.Parse(this.kind.Value.Trim());
+			}
+			catch(Exception e){
+				tDbl=0;
+			}
+			pAryCondValue[0, 7] = "kind";
+			pAryCondValue[1, 7] = tDbl; 
+			tDbl = 0;
 
 
 		}

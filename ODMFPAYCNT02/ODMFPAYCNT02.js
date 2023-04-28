@@ -483,15 +483,6 @@ function InitTriggerMust(tStatus){
 			}
 		}
 
-		//if($("#MasterPage_MasterPageContent_chkitem02_chk").length>0){
-		//	if($("#MasterPage_MasterPageContent_chkitem02_chk")[0].checked){
-		//		$("#MasterPage_MasterPageContent_itemname").show();
-		//	}
-		//	else{
-		//		$("#MasterPage_MasterPageContent_itemname").hide();
-		//	}
-		//}
-
 		if($("#MasterPage_MasterPageContent_chkitem05_chk").length>0){
 			if($("#MasterPage_MasterPageContent_chkitem05_chk")[0].checked){
 				$("#MasterPage_MasterPageContent_chkother").show();
@@ -989,6 +980,7 @@ function domath_mtotal()
 		document.getElementById("MasterPage_MasterPageContent_money05_txt").value = OEMFormat(parseFloat(money05).toFixed(2));
 	    //^_^  20230411 Peggy 重新加上千份位↑
 
+
 	}catch(err){
 		$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 		var errorMsg = getI18NForSpecial('FD','CalculatedSet2','MutiLang_04','../../../src/_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx');
@@ -1023,24 +1015,6 @@ function chkTriggerFieldNull_Head()
 			$("#MasterPage_MasterPageContent_inv02_txt").val('');
 		}
 	}
-	if ($("#MasterPage_MasterPageContent_chkitem02_chk").length > 0) {
-		if ($("#MasterPage_MasterPageContent_chkitem02_chk")[0].checked) {
-			if ($("#MasterPage_MasterPageContent_useyear_txt").val().trim().length == 0) {
-				tErr += '請確認 "使用年限"  是否有填寫\r\n';
-			}
-			else
-				if ($("#MasterPage_MasterPageContent_orderno_txt").val().trim().length == 0) {
-					tErr += '請確認 "訂單號碼" 是否有填寫\r\n';
-				}
-				else if ($("#MasterPage_MasterPageContent_chkven_txt").val().trim().length == 0) {
-					tErr += '請確認 "使用單位" 是否有填寫\r\n';
-				}
-		}
-		else {
-			$("#MasterPage_MasterPageContent_useyear_txt").val('');
-		}
-	}
-
 
 	if($("#MasterPage_MasterPageContent_chkitem05_chk").length>0){
 		if($("#MasterPage_MasterPageContent_chkitem05_chk")[0].checked){
@@ -1147,6 +1121,8 @@ function jsDoDispatch(pFormID, pSheetNo, pDispatchFormID){
 	}
 }
 
+
+
 //20230424 Peggy Star
 //第一個開窗後將第二個窗唯獨或開放，第二個開窗必填
 function opentype_change() {
@@ -1220,5 +1196,3 @@ function openRadio() {
 
 	}
 }
-
-
