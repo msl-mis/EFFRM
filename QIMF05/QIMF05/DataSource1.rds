@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Name>DataSource1</Name>
-  <ConnectionProperties>
-    <Extension>SQL</Extension>
-    <ConnectString>Data Source=10.20.86.167;Initial Catalog=EFNETSYS0263</ConnectString>
-  </ConnectionProperties>
-  <DataSourceID>ebfb7d26-9ac6-4b9d-9efc-ca3b39a881ab</DataSourceID>
-</RptDataSource>

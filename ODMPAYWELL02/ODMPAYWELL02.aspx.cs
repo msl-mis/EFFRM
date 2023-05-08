@@ -40,9 +40,9 @@ using tw.com.dsc.easyflowDotNet.kernelBasePage.easyflowfunction;
 namespace tw.com.dsc.easyflowDotNet.forms
 {
 	/// <summary>
-	/// ODMFPAYCNT02 的摘要描述。
+	/// ODMPAYWELL02 的摘要描述。
 	/// </summary>
-	public partial class ODMFPAYCNT02 : tw.com.dsc.easyflowDotNet.kernelBasePage.EFBasePage
+	public partial class ODMPAYWELL02 : tw.com.dsc.easyflowDotNet.kernelBasePage.EFBasePage
 	{
 		//edit by teppy 2011/02/08 Start
 		#region 讀取 sysba 參數設定用物件
@@ -96,13 +96,13 @@ namespace tw.com.dsc.easyflowDotNet.forms
 		protected override void Page_Load(object sender, EventArgs e)
 		{
 			base.Page_Load(sender, e);
-			AjaxPro.Utility.RegisterTypeForAjax(typeof(ODMFPAYCNT02));
+			AjaxPro.Utility.RegisterTypeForAjax(typeof(ODMPAYWELL02));
 			UserInfoClass tClass = (UserInfoClass)Session["UserInfo"];
 			string tLanguageType = tClass.Language;
 
 			//多國語系
-			this.Title= MultiLanguage.GetComment("FD","ODMFPAYCNT02","lblTitle",this.UserInfo.Language);
-			string tHeadTabStrip01Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "HeadTabStrip01", tLanguageType);
+			this.Title= MultiLanguage.GetComment("FD","ODMPAYWELL02","lblTitle",this.UserInfo.Language);
+			string tHeadTabStrip01Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "HeadTabStrip01", tLanguageType);
 			if(tHeadTabStrip01Text.Length>4){
 				this.TabStrip1.Items[0].Text = tHeadTabStrip01Text.Substring(0,4)+"..";
 				this.TabStrip1.Items[0].ToolTip = tHeadTabStrip01Text;
@@ -111,61 +111,43 @@ namespace tw.com.dsc.easyflowDotNet.forms
 				this.TabStrip1.Items[0].Text = tHeadTabStrip01Text;
 			}
 
-			this.lblcn.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "lblcn", tLanguageType);
-			this.lblvn.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "lblvn", tLanguageType);
-			this.datetime1.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "datetime1", tLanguageType);
-			this.dept.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "dept", tLanguageType);
-			this.username.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "username", tLanguageType);
-			this.payee.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "payee", tLanguageType);
-			this.chkitem01.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "chkitem01", tLanguageType);
-			this.chkitem02.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "chkitem02", tLanguageType);
-			this.chkitem03.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "chkitem03", tLanguageType);
-			this.chkitem04.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "chkitem04", tLanguageType);
-			this.chkitem05.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "chkitem05", tLanguageType);
-			this.chkother.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "chkother", tLanguageType);
-			this.payother.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "payother", tLanguageType);
-			this.orderno.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "orderno", tLanguageType);
-			this.textarea1.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "textarea1", tLanguageType);
-			this.opentype01.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "opentype01", tLanguageType);
-			this.openitem01.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "openitem01", tLanguageType);
-			this.money01.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "money01", tLanguageType);
-			this.textarea2.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "textarea2", tLanguageType);
-			this.opentype02.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "opentype02", tLanguageType);
-			this.openitem02.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "openitem02", tLanguageType);
-			this.money02.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "money02", tLanguageType);
-			this.textarea3.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "textarea3", tLanguageType);
-			this.opentype03.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "opentype03", tLanguageType);
-			this.openitem03.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "openitem03", tLanguageType);
-			this.money03.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "money03", tLanguageType);
-			this.textarea4.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "textarea4", tLanguageType);
-			this.opentype04.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "opentype04", tLanguageType);
-			this.openitem04.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "openitem04", tLanguageType);
-			this.money04.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "money04", tLanguageType);
-			this.textarea5.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "textarea5", tLanguageType);
-			this.opentype05.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "opentype05", tLanguageType);
-			this.openitem05.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "openitem05", tLanguageType);
-			this.money05.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "money05", tLanguageType);
-			this.mtotal.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "mtotal", tLanguageType);
-			this.chkatt01.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "chkatt01", tLanguageType);
-			this.inv01.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "inv01", tLanguageType);
-			this.chkatt02.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "chkatt02", tLanguageType);
-			this.SenderID.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "SenderID", tLanguageType);
-			this.chkatt04.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "chkatt04", tLanguageType);
-			this.inv02.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "inv02", tLanguageType);
-			this.SuperID.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "SuperID", tLanguageType);
-			this.chkatt05.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "chkatt05", tLanguageType);
-			this.other.Text = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "other", tLanguageType);
-			this.attother.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "attother", tLanguageType);
-			this.curr.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "curr", tLanguageType);
-			this.useyear.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "useyear", tLanguageType);
-            this.tax.Title = MultiLanguage.GetComment("FD", "ODMFPAYCNT02", "tax", tLanguageType);
-
+			this.datetime1.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "datetime1", tLanguageType);
+			this.dept.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "dept", tLanguageType);
+			this.username.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "username", tLanguageType);
+			this.textarea1.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "textarea1", tLanguageType);
+			this.money01.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "money01", tLanguageType);
+			this.mtotal.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "mtotal", tLanguageType);
+			this.inv01.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "inv01", tLanguageType);
+			this.inv02.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "inv02", tLanguageType);
+			this.orderno.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "orderno", tLanguageType);
+			this.attother.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "attother", tLanguageType);
+			this.other.Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "other", tLanguageType);
+			this.empl1.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "empl1", tLanguageType);
+			this.empl2.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "empl2", tLanguageType);
+			this.chkkind01.Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "chkkind01", tLanguageType);
+			this.chkkind02.Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "chkkind02", tLanguageType);
+			this.chkkind03.Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "chkkind03", tLanguageType);
+			this.chkkind04.Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "chkkind04", tLanguageType);
+			this.chkkind05.Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "chkkind05", tLanguageType);
+			this.curr.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "curr", tLanguageType);
+			this.chkadd01.Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "chkadd01", tLanguageType);
+			this.chkadd02.Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "chkadd02", tLanguageType);
+			this.chkadd04.Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "chkadd04", tLanguageType);
+			this.chkadd05.Text = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "chkadd05", tLanguageType);
+			this.queryfirm.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "queryfirm", tLanguageType);
+			this.txtother.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "txtother", tLanguageType);
+			this.textarea2.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "textarea2", tLanguageType);
+			this.money02.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "money02", tLanguageType);
+			this.opentype01.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "opentype01", tLanguageType);
+			this.openitem01.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "openitem01", tLanguageType);
+			this.opentype02.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "opentype02", tLanguageType);
+			this.openitem02.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "openitem02", tLanguageType);
+			this.useyear.Title = MultiLanguage.GetComment("FD", "ODMPAYWELL02", "useyear", tLanguageType);
             #region 三位一撇
             //^_^ 20230411 Peggy 
             //三位一撇
             OEMLibrary.RegisterNumberFormat(this, new TextBox2[] {
-            money01.TxtInput,money02.TxtInput,money03.TxtInput,
-            money04.TxtInput,money05.TxtInput,mtotal.TxtInput
+            money01.TxtInput,money02.TxtInput,mtotal.TxtInput
             });
             #endregion
 
@@ -215,9 +197,6 @@ ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "Ini
 			if(strToolTipParameter=="Y"){
 				this.textarea1.ToolTip = this.textarea1.Text;
 this.textarea2.ToolTip = this.textarea2.Text;
-this.textarea3.ToolTip = this.textarea3.Text;
-this.textarea4.ToolTip = this.textarea4.Text;
-this.textarea5.ToolTip = this.textarea5.Text;
 
 			}
 
@@ -227,13 +206,9 @@ this.textarea5.ToolTip = this.textarea5.Text;
 
 			#region 與管理程式共用After Prender區段
 			//單頭RadioButton控制項 start
-			chkven.Attributes["style"] = "display:none;";
-			chkven_ctrolRadio0.Checked = (chkven.Value == "0"); chkven_ctrolRadio0.Enabled = chkven.InputEnabled;
-			chkven_ctrolRadio1.Checked = (chkven.Value == "1"); chkven_ctrolRadio1.Enabled = chkven.InputEnabled;
-			chpay.Attributes["style"] = "display:none;";
-			chpay_ctrolRadio0.Checked = (chpay.Value == "0"); chpay_ctrolRadio0.Enabled = chpay.InputEnabled;
-			chpay_ctrolRadio1.Checked = (chpay.Value == "1"); chpay_ctrolRadio1.Enabled = chpay.InputEnabled;
-			chpay_ctrolRadio2.Checked = (chpay.Value == "2"); chpay_ctrolRadio2.Enabled = chpay.InputEnabled;
+			chkvn.Attributes["style"] = "display:none;";
+			chkvn_ctrolRadio0.Checked = (chkvn.Value == "0"); chkvn_ctrolRadio0.Enabled = chkvn.InputEnabled;
+			chkvn_ctrolRadio1.Checked = (chkvn.Value == "1"); chkvn_ctrolRadio1.Enabled = chkvn.InputEnabled;
 			kind.Attributes["style"] = "display:none;";
 			kind_ctrolRadio0.Checked = (kind.Value == "0"); kind_ctrolRadio0.Enabled = kind.InputEnabled;
 			kind_ctrolRadio1.Checked = (kind.Value == "1"); kind_ctrolRadio1.Enabled = kind.InputEnabled;
@@ -241,16 +216,16 @@ this.textarea5.ToolTip = this.textarea5.Text;
 
 			//單頭RadioButton控制項 end
 
-this.chkitem01.Text = String.Empty;
-this.chkitem02.Text = String.Empty;
-this.chkitem03.Text = String.Empty;
-this.chkitem04.Text = String.Empty;
-this.chkitem05.Text = String.Empty;
-this.chkatt01.Text = String.Empty;
-this.chkatt02.Text = String.Empty;
-this.chkatt04.Text = String.Empty;
-this.chkatt05.Text = String.Empty;
 this.other.Text = String.Empty;
+this.chkkind01.Text = String.Empty;
+this.chkkind02.Text = String.Empty;
+this.chkkind03.Text = String.Empty;
+this.chkkind04.Text = String.Empty;
+this.chkkind05.Text = String.Empty;
+this.chkadd01.Text = String.Empty;
+this.chkadd02.Text = String.Empty;
+this.chkadd04.Text = String.Empty;
+this.chkadd05.Text = String.Empty;
 
 
 			mtotal.InputEnabled = false;//設定為欄位計算，預設唯讀
@@ -378,6 +353,7 @@ this.other.Text = String.Empty;
 				
 				#endregion CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
 			}
+
             #region 自訂Page_Prender區塊
             //20230411 Peggy  
             ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), "openRadio();", true);
@@ -392,9 +368,9 @@ this.other.Text = String.Empty;
         protected override void setBasicInfo()
 		{
 			// 作業代號
-			this.TaskId = "ODMFPAYCNT02";
+			this.TaskId = "ODMPAYWELL02";
 			// 表單代號
-			this.formID = "ODMFPAYCNT02";
+			this.formID = "ODMPAYWELL02";
 			// 有幾個單身 ex.0-->單檔, 1-->雙檔(一個單身), 2-->雙檔(二個單身)
 			this.detailDepth = 0;
 		}
@@ -1205,86 +1181,56 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			//參數1.為原本的開窗方式  參數2.為樹狀的開窗
 			string tWindowOpenStyle = objEFPara.EF_getCompanyParameterData("WindowOpenStyle").ToString();
 
-            //單頭控制項
-            opentype01.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype01_btn", "MasterPage_MasterPageContent_opentype01_txt", "S"));
-            //20230424 edit by Peggy S
-            //opentype01.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype01_txt","OpenMIMJ01_23_opentype01","MasterPage_MasterPageContent_opentype01_txt,MasterPage_MasterPageContent_openitem01_txt")+";InitTriggerOpen();");
-            opentype01.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype01_txt", "OpenMIMJ01_23_opentype01", "MasterPage_MasterPageContent_opentype01_txt,MasterPage_MasterPageContent_openitem01_txt") + ";InitTriggerOpen();opentype_change();");
-            //20230424 edit by Peggy E
-            opentype01.TxtInput.Attributes.Add("onchange", "FunOnChange_opentype01();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype01_txt');");
-
-            openitem01.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem01_btn", "MasterPage_MasterPageContent_opentype01_txt", "MasterPage_MasterPageContent_openitem01_txt", "S"));
-            openitem01.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem01_txt", "TrigMIMJ01_08_openitem01", "MasterPage_MasterPageContent_openitem01_txt,MasterPage_MasterPageContent_opentype01_txt"));
-            openitem01.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem01_txt');");
-
-            opentype02.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype02_btn", "MasterPage_MasterPageContent_opentype02_txt", "S"));
-            //20230424 edit by Peggy S
-            //opentype02.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype02_txt","OpenMIMJ01_23_opentype02","MasterPage_MasterPageContent_opentype02_txt,MasterPage_MasterPageContent_openitem02_txt")+";InitTriggerOpen();");
-            opentype02.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype02_txt", "OpenMIMJ01_23_opentype02", "MasterPage_MasterPageContent_opentype02_txt,MasterPage_MasterPageContent_openitem02_txt") + ";InitTriggerOpen();opentype_change();");
-            //20230424 edit by Peggy E
-            opentype02.TxtInput.Attributes.Add("onchange", "FunOnChange_opentype02();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype02_txt');");
-
-            openitem02.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem02_btn", "MasterPage_MasterPageContent_opentype02_txt", "MasterPage_MasterPageContent_openitem02_txt", "S"));
-            openitem02.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem02_txt", "TrigMIMJ01_08_openitem02", "MasterPage_MasterPageContent_openitem02_txt,MasterPage_MasterPageContent_opentype02_txt"));
-            openitem02.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem02_txt');");
-
-            opentype03.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype03_btn", "MasterPage_MasterPageContent_opentype03_txt", "S"));
-            //20230424 edit by Peggy S
-            //opentype03.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype03_txt","OpenMIMJ01_23_opentype03","MasterPage_MasterPageContent_opentype03_txt,MasterPage_MasterPageContent_openitem03_txt")+";InitTriggerOpen();");
-            opentype03.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype03_txt", "OpenMIMJ01_23_opentype03", "MasterPage_MasterPageContent_opentype03_txt,MasterPage_MasterPageContent_openitem03_txt") + ";InitTriggerOpen();opentype_change();");
-            opentype03.TxtInput.Attributes.Add("onchange", "FunOnChange_opentype03();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype03_txt');");
-
-            openitem03.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem03_btn", "MasterPage_MasterPageContent_opentype03_txt", "MasterPage_MasterPageContent_openitem03_txt", "S"));
-            openitem03.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem03_txt", "TrigMIMJ01_08_openitem03", "MasterPage_MasterPageContent_openitem03_txt,MasterPage_MasterPageContent_opentype03_txt"));
-            openitem03.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem03_txt');");
-
-            opentype04.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype04_btn", "MasterPage_MasterPageContent_opentype04_txt", "S"));
-            //20230424 edit by Peggy S
-            //opentype04.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype04_txt","OpenMIMJ01_23_opentype04","MasterPage_MasterPageContent_opentype04_txt,MasterPage_MasterPageContent_openitem04_txt")+";InitTriggerOpen();");
-            opentype04.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype04_txt", "OpenMIMJ01_23_opentype04", "MasterPage_MasterPageContent_opentype04_txt,MasterPage_MasterPageContent_openitem04_txt") + ";InitTriggerOpen();opentype_change();");
-            opentype04.TxtInput.Attributes.Add("onchange", "FunOnChange_opentype04();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype04_txt');");
-
-            openitem04.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem04_btn", "MasterPage_MasterPageContent_opentype04_txt", "MasterPage_MasterPageContent_openitem04_txt", "S"));
-            openitem04.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem04_txt", "TrigMIMJ01_08_openitem04", "MasterPage_MasterPageContent_openitem04_txt,MasterPage_MasterPageContent_opentype04_txt"));
-            openitem04.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem04_txt');");
-
-            opentype05.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype05_btn", "MasterPage_MasterPageContent_opentype05_txt", "S"));
-            //20230424 edit by Peggy S
-            //opentype05.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype05_txt","OpenMIMJ01_23_opentype05","MasterPage_MasterPageContent_opentype05_txt,MasterPage_MasterPageContent_openitem05_txt")+";InitTriggerOpen();");
-            opentype05.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype05_txt", "OpenMIMJ01_23_opentype05", "MasterPage_MasterPageContent_opentype05_txt,MasterPage_MasterPageContent_openitem05_txt") + ";InitTriggerOpen();opentype_change();");
-            opentype05.TxtInput.Attributes.Add("onchange", "FunOnChange_opentype05();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype05_txt');");
-
-            openitem05.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem05_btn", "MasterPage_MasterPageContent_opentype05_txt", "MasterPage_MasterPageContent_openitem05_txt", "S"));
-            openitem05.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem05_txt", "TrigMIMJ01_08_openitem05", "MasterPage_MasterPageContent_openitem05_txt,MasterPage_MasterPageContent_opentype05_txt"));
-            openitem05.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem05_txt');");
-
-            switch (tWindowOpenStyle){
+			//單頭控制項
+			switch (tWindowOpenStyle){
 				case "2":
 					string tPara = "RESAK§10§" + this.UserInfo.DepartmentId + "§§§";
 					string tUrl = "../../_Common/EFDefOpen/F2MutipleFrame.aspx?open=single&value=";
-					SenderID.HtmImg.Attributes.Add("onclick", "if(!SingleSelectEmpl('" + tUrl + System.Web.HttpUtility.UrlEncode(tPara) + "','" + SenderID.TxtInput.ClientID + "','員工代號_SenderID')){return false;}");
+					empl1.HtmImg.Attributes.Add("onclick", "if(!SingleSelectEmpl('" + tUrl + System.Web.HttpUtility.UrlEncode(tPara) + "','" + empl1.TxtInput.ClientID + "','員工代號_empl1')){return false;}");
 					break;
 				default:
-					SenderID.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_SenderID_btn","MasterPage_MasterPageContent_SenderID_txt","S"));
+					empl1.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_empl1_btn","MasterPage_MasterPageContent_empl1_txt","S"));
 					break;
 			}
-			SenderID.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_SenderID_txt","員工代號_SenderID","MasterPage_MasterPageContent_SenderID_txt"));
-			SenderID.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_SenderID_txt');");
+			empl1.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_empl1_txt","員工代號_empl1","MasterPage_MasterPageContent_empl1_txt"));
+			empl1.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_empl1_txt');");
 			
 			switch (tWindowOpenStyle){
 				case "2":
 					string tPara = "RESAK§10§" + this.UserInfo.DepartmentId + "§§§";
 					string tUrl = "../../_Common/EFDefOpen/F2MutipleFrame.aspx?open=single&value=";
-					SuperID.HtmImg.Attributes.Add("onclick", "if(!SingleSelectEmpl('" + tUrl + System.Web.HttpUtility.UrlEncode(tPara) + "','" + SuperID.TxtInput.ClientID + "','員工代號_SuperID')){return false;}");
+					empl2.HtmImg.Attributes.Add("onclick", "if(!SingleSelectEmpl('" + tUrl + System.Web.HttpUtility.UrlEncode(tPara) + "','" + empl2.TxtInput.ClientID + "','員工代號_empl2')){return false;}");
 					break;
 				default:
-					SuperID.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_SuperID_btn","MasterPage_MasterPageContent_SuperID_txt","S"));
+					empl2.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_empl2_btn","MasterPage_MasterPageContent_empl2_txt","S"));
 					break;
 			}
-			SuperID.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_SuperID_txt","員工代號_SuperID","MasterPage_MasterPageContent_SuperID_txt"));
-			SuperID.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_SuperID_txt');");
+			empl2.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_empl2_txt","員工代號_empl2","MasterPage_MasterPageContent_empl2_txt"));
+			empl2.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_empl2_txt');");
 			
-			string strmoney01_DoMathScript_mtotal_onChange=string.Empty;
+			queryfirm.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_queryfirm_btn","MasterPage_MasterPageContent_queryfirm_txt","S"));
+			queryfirm.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_queryfirm_txt","OpenMIMJ01_13_queryfirm","MasterPage_MasterPageContent_queryfirm_txt"));
+			queryfirm.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_queryfirm_txt');");
+
+            opentype01.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype01_btn", "MasterPage_MasterPageContent_opentype01_txt", "S"));
+            //20230508 edit by Peggy S 加入 opentype_change()
+            opentype01.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype01_txt", "OpenMIMJ01_25_opentype01", "MasterPage_MasterPageContent_opentype01_txt,MasterPage_MasterPageContent_openitem01_txt") + ";InitTriggerOpen();opentype_change();");
+            opentype01.TxtInput.Attributes.Add("onchange", "FunOnChange_opentype01();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype01_txt');");
+
+            openitem01.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem01_btn", "MasterPage_MasterPageContent_opentype01_txt", "MasterPage_MasterPageContent_openitem01_txt", "S"));
+            openitem01.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem01_txt", "TrigMIMJ01_09_openitem01", "MasterPage_MasterPageContent_openitem01_txt,MasterPage_MasterPageContent_opentype01_txt"));
+            openitem01.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem01_txt');");
+
+            opentype02.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype02_btn", "MasterPage_MasterPageContent_opentype02_txt", "S"));
+            //20230508 edit by Peggy S 加入 opentype_change()
+            opentype02.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype02_txt", "OpenMIMJ01_25_opentype02", "MasterPage_MasterPageContent_opentype02_txt,MasterPage_MasterPageContent_openitem02_txt") + ";InitTriggerOpen();opentype_change();");
+            opentype02.TxtInput.Attributes.Add("onchange", "FunOnChange_opentype02();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype02_txt');");
+
+            openitem02.HtmImg.Attributes.Add("onclick", MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem02_btn", "MasterPage_MasterPageContent_opentype02_txt", "MasterPage_MasterPageContent_openitem02_txt", "S"));
+            openitem02.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem02_txt", "TrigMIMJ01_09_openitem02", "MasterPage_MasterPageContent_openitem02_txt,MasterPage_MasterPageContent_opentype02_txt"));
+            openitem02.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem02_txt');");
+
+            string strmoney01_DoMathScript_mtotal_onChange =string.Empty;
 			if(money01.TxtInput.Attributes["onchange"]!=null){strmoney01_DoMathScript_mtotal_onChange=money01.TxtInput.Attributes["onchange"].ToString().Trim(';');}
 			if(strmoney01_DoMathScript_mtotal_onChange.Length>0)
 				strmoney01_DoMathScript_mtotal_onChange+=";";
@@ -1308,54 +1254,12 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 				strmoney02_DoMathScript_mtotal_onblur+=";";
 			money02.TxtInput.Attributes.Add("onblur",strmoney02_DoMathScript_mtotal_onblur+"domath_mtotal();");
 
-			string strmoney03_DoMathScript_mtotal_onChange=string.Empty;
-			if(money03.TxtInput.Attributes["onchange"]!=null){strmoney03_DoMathScript_mtotal_onChange=money03.TxtInput.Attributes["onchange"].ToString().Trim(';');}
-			if(strmoney03_DoMathScript_mtotal_onChange.Length>0)
-				strmoney03_DoMathScript_mtotal_onChange+=";";
-			money03.TxtInput.Attributes.Add("onchange",strmoney03_DoMathScript_mtotal_onChange+"domath_mtotal();");
-
-			string strmoney03_DoMathScript_mtotal_onblur=string.Empty;
-			if(money03.TxtInput.Attributes["onblur"]!=null){strmoney03_DoMathScript_mtotal_onblur=money03.TxtInput.Attributes["onblur"].ToString().Trim(';');}
-			if(strmoney03_DoMathScript_mtotal_onblur.Length>0)
-				strmoney03_DoMathScript_mtotal_onblur+=";";
-			money03.TxtInput.Attributes.Add("onblur",strmoney03_DoMathScript_mtotal_onblur+"domath_mtotal();");
-
-			string strmoney04_DoMathScript_mtotal_onChange=string.Empty;
-			if(money04.TxtInput.Attributes["onchange"]!=null){strmoney04_DoMathScript_mtotal_onChange=money04.TxtInput.Attributes["onchange"].ToString().Trim(';');}
-			if(strmoney04_DoMathScript_mtotal_onChange.Length>0)
-				strmoney04_DoMathScript_mtotal_onChange+=";";
-			money04.TxtInput.Attributes.Add("onchange",strmoney04_DoMathScript_mtotal_onChange+"domath_mtotal();");
-
-			string strmoney04_DoMathScript_mtotal_onblur=string.Empty;
-			if(money04.TxtInput.Attributes["onblur"]!=null){strmoney04_DoMathScript_mtotal_onblur=money04.TxtInput.Attributes["onblur"].ToString().Trim(';');}
-			if(strmoney04_DoMathScript_mtotal_onblur.Length>0)
-				strmoney04_DoMathScript_mtotal_onblur+=";";
-			money04.TxtInput.Attributes.Add("onblur",strmoney04_DoMathScript_mtotal_onblur+"domath_mtotal();");
-
-			string strmoney05_DoMathScript_mtotal_onChange=string.Empty;
-			if(money05.TxtInput.Attributes["onchange"]!=null){strmoney05_DoMathScript_mtotal_onChange=money05.TxtInput.Attributes["onchange"].ToString().Trim(';');}
-			if(strmoney05_DoMathScript_mtotal_onChange.Length>0)
-				strmoney05_DoMathScript_mtotal_onChange+=";";
-			money05.TxtInput.Attributes.Add("onchange",strmoney05_DoMathScript_mtotal_onChange+"domath_mtotal();");
-
-			string strmoney05_DoMathScript_mtotal_onblur=string.Empty;
-			if(money05.TxtInput.Attributes["onblur"]!=null){strmoney05_DoMathScript_mtotal_onblur=money05.TxtInput.Attributes["onblur"].ToString().Trim(';');}
-			if(strmoney05_DoMathScript_mtotal_onblur.Length>0)
-				strmoney05_DoMathScript_mtotal_onblur+=";";
-			money05.TxtInput.Attributes.Add("onblur",strmoney05_DoMathScript_mtotal_onblur+"domath_mtotal();");
-
             //20230423 Peggy 註冊在js建的規則, 於chkitem02
-            this.chkitem02.Attributes.Add("onclick", ";openRadio();");
-            //this.chkitem02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem02_chk')[0].checked){{$('#MasterPage_MasterPageContent_itemname').show();}} else{{$('#MasterPage_MasterPageContent_itemname').hide();}} ");
-            this.chkitem05.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem05_chk')[0].checked){{$('#MasterPage_MasterPageContent_chkother').show();}} else{{$('#MasterPage_MasterPageContent_chkother').hide();}} ");
-			this.chkatt01.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt01_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv01').show();}} else{{$('#MasterPage_MasterPageContent_inv01').hide();}} ");
-			this.chkatt02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt02_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv02').show();}} else{{$('#MasterPage_MasterPageContent_inv02').hide();}} ");
+            this.chkkind02.Attributes.Add("onclick", ";openRadio();");
 			this.other.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_other_chk')[0].checked){{$('#MasterPage_MasterPageContent_attother').show();}} else{{$('#MasterPage_MasterPageContent_attother').hide();}} ");
-			this.chkven_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkven_txt').value = '0';");
-			this.chkven_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkven_txt').value = '1';");
-			this.chpay_ctrolRadio0.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '0';");
-			this.chpay_ctrolRadio1.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '1';");
-			this.chpay_ctrolRadio2.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '2';");
+			this.chkkind05.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkkind05_chk')[0].checked){{$('#MasterPage_MasterPageContent_txtother').show();}} else{{$('#MasterPage_MasterPageContent_txtother').hide();}} ");
+			this.chkvn_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkvn_txt').value = '0';");
+			this.chkvn_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkvn_txt').value = '1';");
 			this.kind_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '0';");
 			this.kind_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '1';");
 		}//settingClientFunction結尾
@@ -1368,18 +1272,13 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 		{
 			//單頭控制項
 			if ( FormStatus == EFFormStatus.CREATE ) {
+				pMiMjManager.Add("empl1_0", empl1);
+				pMiMjManager.Add("empl2_0", empl2);
+				pMiMjManager.Add("queryfirm_0", queryfirm);
 				pMiMjManager.Add("opentype01_0", opentype01);
 				pMiMjManager.Add("openitem01_0", openitem01);
 				pMiMjManager.Add("opentype02_0", opentype02);
 				pMiMjManager.Add("openitem02_0", openitem02);
-				pMiMjManager.Add("opentype03_0", opentype03);
-				pMiMjManager.Add("openitem03_0", openitem03);
-				pMiMjManager.Add("opentype04_0", opentype04);
-				pMiMjManager.Add("openitem04_0", openitem04);
-				pMiMjManager.Add("opentype05_0", opentype05);
-				pMiMjManager.Add("openitem05_0", openitem05);
-				pMiMjManager.Add("SenderID_0", SenderID);
-				pMiMjManager.Add("SuperID_0", SuperID);
 
 			}
 
@@ -1399,14 +1298,15 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 		#region SetDefaultValue , 設定表單欄位的初始值
 		protected override void SetDefaultValue(Hashtable defalutHash)
 		{
-			defalutHash.Add("odmfpaycnt02001", this.formID);
-			defalutHash.Add("odmfpaycnt02002", this.SheetNo);
+			defalutHash.Add("kind", "0");
+			defalutHash.Add("odmpaywell02001", this.formID);
+			defalutHash.Add("odmpaywell02002", this.SheetNo);
+			defalutHash.Add("curr", "USD");
 			defalutHash.Add("datetime1", DateTime.Now.ToString("yyyyMMdd"));
 			defalutHash.Add("dept", ajaxGetDepartmentName());
+			defalutHash.Add("empl1", this.UserInfo.EmployeeId.ToString());
+			defalutHash.Add("empl2", ajaxGetSupervisorID());
 			defalutHash.Add("username", this.UserInfo.LoginName.ToString());
-			defalutHash.Add("SenderID", this.UserInfo.EmployeeId.ToString());
-			defalutHash.Add("SuperID", ajaxGetSupervisorID());
-			defalutHash.Add("curr", "RMB");
 		}
 
 		//草稿儲存後要將主旨清除
@@ -2152,87 +2052,6 @@ order by resdd003 desc";
 			string tTemp = string.Empty;
 			double tDbl = 0;
 		
-			tValue="";
-			try{
-				tValue = (this.payee.Value.Trim());
-			}
-			catch(Exception e){
-				tValue="";
-			}
-			pAryCondValue[0, 0] = "payee";
-			pAryCondValue[1, 0] = tValue; 
-
-
-			tDbl=0;
-			try{
-				tDbl = double.Parse(this.payother.Value.Trim());
-			}
-			catch(Exception e){
-				tDbl=0;
-			}
-			pAryCondValue[0, 1] = "otherpay";
-			pAryCondValue[1, 1] = tDbl; 
-			tDbl = 0;
-
-
-			tDbl=0;
-			try{
-				tDbl = double.Parse(this.mtotal.Value.Trim());
-			}
-			catch(Exception e){
-				tDbl=0;
-			}
-			pAryCondValue[0, 2] = "mtotal";
-			pAryCondValue[1, 2] = tDbl; 
-			tDbl = 0;
-
-
-			tDbl=0;
-			try{
-				tDbl = double.Parse(this.chpay.Value.Trim());
-			}
-			catch(Exception e){
-				tDbl=0;
-			}
-			pAryCondValue[0, 3] = "cashpay";
-			pAryCondValue[1, 3] = tDbl; 
-			tDbl = 0;
-
-
-			tDbl=0;
-			try{
-				tDbl = double.Parse(this.chpay.Value.Trim());
-			}
-			catch(Exception e){
-				tDbl=0;
-			}
-			pAryCondValue[0, 4] = "bankpay";
-			pAryCondValue[1, 4] = tDbl; 
-			tDbl = 0;
-
-
-			tValue="";
-			try{
-				tValue = (this.SuperID.Value.Trim());
-			}
-			catch(Exception e){
-				tValue="";
-			}
-			pAryCondValue[0, 5] = "SuperID";
-			pAryCondValue[1, 5] = tValue; 
-
-
-			tValue="";
-			try{
-				tValue = (this.SenderID.Value.Trim());
-			}
-			catch(Exception e){
-				tValue="";
-			}
-			pAryCondValue[0, 6] = "SenderID";
-			pAryCondValue[1, 6] = tValue; 
-
-
 			tDbl=0;
 			try{
 				tDbl = double.Parse(this.kind.Value.Trim());
@@ -2240,8 +2059,8 @@ order by resdd003 desc";
 			catch(Exception e){
 				tDbl=0;
 			}
-			pAryCondValue[0, 7] = "kind";
-			pAryCondValue[1, 7] = tDbl; 
+			pAryCondValue[0, 0] = "kind";
+			pAryCondValue[1, 0] = tDbl; 
 			tDbl = 0;
 
 
@@ -2267,10 +2086,10 @@ order by resdd003 desc";
 		
 		protected override void BeforePrint(ref string pReport, ref string pReportID, ref string pWhere, ref string pOrder, ref string pReportDirectory)
 		{
-			pReport = "ODMFPAYCNT02";
-			pReportID = "ODMFPAYCNT02_02";//憑證式
-			pWhere = "AND (odmfpaycnt02001='" + this.formID + "') AND (odmfpaycnt02002='" + this.SheetNo + "')";
-			pReportDirectory = "ODMFPAYCNT02";
+			pReport = "ODMPAYWELL02";
+			pReportID = "ODMPAYWELL02_02";//憑證式
+			pWhere = "AND (odmpaywell02001='" + this.formID + "') AND (odmpaywell02002='" + this.SheetNo + "')";
+			pReportDirectory = "ODMPAYWELL02";
 			base.BeforePrint(ref pReportID, ref pWhere, ref pOrder, ref pOrder, ref pReportDirectory);
 		}
 

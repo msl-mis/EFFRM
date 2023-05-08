@@ -158,6 +158,7 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.attother.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "attother", tLanguageType);
 			this.curr.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "curr", tLanguageType);
 			this.useyear.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "useyear", tLanguageType);
+            this.tax.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "tax", tLanguageType);
 
             #region 三位一撇
             //^_^ 20230411 Peggy 

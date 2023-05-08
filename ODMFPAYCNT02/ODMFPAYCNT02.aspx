@@ -44,6 +44,7 @@
 
 <cc1:DscLabel ID='lblcn' runat='server' Style="z-index:677; position: absolute; left: 277px; top: 205px; vertical-align:middle;font-family:'Arial';font-size:12pt;font-weight:bold;" Text='冠志廠' Width='59px' Height='23px'></cc1:DscLabel>
 <cc1:DscLabel ID='lblvn' runat='server' Style="z-index:673; position: absolute; left: 363px; top: 205px; vertical-align:middle;font-family:'Arial';font-size:12pt;font-weight:bold;" Text='越南廠' Width='56px' Height='25px'></cc1:DscLabel>
+<cc1:DscLabel ID='unit' runat='server' Style="z-index:655; position: absolute; left: 572px; top: 174px; vertical-align:middle;font-family:'Arial';font-size:12pt;" Text='%' Width='29px' Height='22px'></cc1:DscLabel>
 <cc1:DscDateAssistant2 ID='datetime1' runat='server' Title='日期' ShowTitle='False'
 	style="POSITION: absolute; left: 513px; top: 73px; z-index: 660;" 
 	TxtInput_TabIndex='101' 
@@ -382,6 +383,13 @@
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='30px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
+<cc1:DscTextBox id='tax' runat='server' title='稅點' ShowTitle='False'
+	style="Z-INDEX:657; POSITION: absolute; LEFT: 524px; TOP: 171px;"
+	TxtInput_TabIndex='160'>
+	<FrmFieldKeys FrmID='FrmODMFPAYCNT02' BOID='ODMFPAYCNT02' FieldName='tax'></FrmFieldKeys>
+	<TitleStyle Width='100px'></TitleStyle>
+	<InputStyle Width='40px' Height='22px' CssClass='Edit20'></InputStyle>
+</cc1:DscTextBox>
 <cc1:DscTextBox id='chkven' runat='server' title='冠志廠' ShowTitle='False'
 	style="display:none;Z-INDEX:678; POSITION: absolute; LEFT: 258px; TOP: 206px;">
 	<FrmFieldKeys FrmID='FrmODMFPAYCNT02' BOID='ODMFPAYCNT02' FieldName='chkven'></FrmFieldKeys>
@@ -443,5 +451,5 @@
 	 <script src="../../_Common/OEM/JS/OEMSetControl.js"></script>
     <!--三位一撇--20230424 Peggy-->
 	<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
-<script src="ODMFPAYCNT02.js?NoCache=20230428003" type="text/javascript"></script>
+<script src="ODMFPAYCNT02.js?NoCache=20230428005" type="text/javascript"></script>
 </asp:Content>

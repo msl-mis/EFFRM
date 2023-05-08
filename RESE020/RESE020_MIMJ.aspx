@@ -1,1 +1,0 @@
-﻿<%@ page language="c#" validaterequest="false" autoeventwireup="false" inherits="tw.com.dsc.easyflowDotNet.forms.RESE020_MIMJ, src.FRM.RESE020" %>
