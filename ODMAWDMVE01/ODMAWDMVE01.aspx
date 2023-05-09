@@ -27,60 +27,68 @@
 							<asp:ValidationSummary id='ValidationSummaryHead01' style='Z-INDEX: 100; POSITION: absolute; LEFT: 745px; TOP: 7px;' runat='server' ShowSummary='False' ShowMessageBox='True'></asp:ValidationSummary>
 							<!--此區間放入單頭頁籤 一 的各個dsc元件-->
 
-<cc1:DscTextBox id='odmawdmve01001' runat='server' title='表單代號'
-	style='display: none; Z-INDEX: 101; POSITION: absolute; LEFT: 245px; TOP: 16px;'
-	TxtInput_TabIndex='0'>
-	<INPUTSTYLE Width='120px'></INPUTSTYLE>
-	<TITLESTYLE Width='110px'></TITLESTYLE>
-	<FRMFIELDKEYS FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='odmawdmve01001'></FRMFIELDKEYS>
-</cc1:DscTextBox>
-<cc1:DscTextBox id='odmawdmve01002' runat='server' title='表單單號'
-	style='display: none; Z-INDEX: 102; POSITION: absolute; LEFT: 245px; TOP: 49px;'
-	TxtInput_TabIndex='0'>
-	<INPUTSTYLE Width='120px'></INPUTSTYLE>
-	<TITLESTYLE Width='110px'></TITLESTYLE>
-	<FRMFIELDKEYS FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='odmawdmve01002'></FRMFIELDKEYS>
-</cc1:DscTextBox>
+		<cc1:DscTextBox id='odmawdmve01001' runat='server' title='表單代號'
+			style='display: none; Z-INDEX: 101; POSITION: absolute; LEFT: 245px; TOP: 16px;'
+			TxtInput_TabIndex='0'>
+			<INPUTSTYLE Width='120px'></INPUTSTYLE>
+			<TITLESTYLE Width='110px'></TITLESTYLE>
+			<FRMFIELDKEYS FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='odmawdmve01001'></FRMFIELDKEYS>
+		</cc1:DscTextBox>
+		<cc1:DscTextBox id='odmawdmve01002' runat='server' title='表單單號'
+			style='display: none; Z-INDEX: 102; POSITION: absolute; LEFT: 245px; TOP: 49px;'
+			TxtInput_TabIndex='0'>
+			<INPUTSTYLE Width='120px'></INPUTSTYLE>
+			<TITLESTYLE Width='110px'></TITLESTYLE>
+			<FRMFIELDKEYS FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='odmawdmve01002'></FRMFIELDKEYS>
+		</cc1:DscTextBox>
 
-<cc1:DscTextBox id='txtdept' runat='server' title='部門' ShowTitle='False'
-	style="Z-INDEX:700; POSITION: absolute; LEFT: 118px; TOP: 140px;"
-	TxtInput_TabIndex='101'>
-	<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='txtdept'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='110px' Height='25px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
-<cc1:DscDateAssistant2 ID='date' runat='server' Title='申請日期' ShowTitle='False'
-	style="POSITION: absolute; left: 575px; top: 140px; z-index: 697;" 
-	TxtInput_TabIndex='103' 
-	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
-	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
-	<InputStyle Width='90px' Height='25px' CssClass='Edit20' />
-	<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='date'></FrmFieldKeys>
-</cc1:DscDateAssistant2>
-<cc1:DscTextBox id='txtmain' runat='server' title='主旨' ShowTitle='False'
-	style="Z-INDEX:699; POSITION: absolute; LEFT: 124px; TOP: 183px;"
-	TxtInput_TabIndex='104'>
-	<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='txtmain'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='780px' Height='60px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
-<cc1:DscTextBox id='txtuser' runat='server' title='申請人' ShowTitle='False'
-	style="Z-INDEX:698; POSITION: absolute; LEFT: 347px; TOP: 140px;"
-	TxtInput_TabIndex='105'>
-	<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='txtuser'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='110px' Height='25px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
-<cc1:DscTextBox id='totalmoney' runat='server' title='總金額' ShowTitle='False'
-	style="Z-INDEX:696; POSITION: absolute; LEFT: 803px; TOP: 140px;"
-	TxtInput_TabIndex='106'>
-	<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='totalmoney'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='110px' Height='25px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
+		<cc1:DscTextBox id='txtdept' runat='server' title='部門' ShowTitle='False'
+			style="Z-INDEX:700; POSITION: absolute; LEFT: 118px; TOP: 140px;"
+			TxtInput_TabIndex='101'>
+			<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='txtdept'></FrmFieldKeys>
+			<TitleStyle Width='100px'></TitleStyle>
+			<InputStyle Width='110px' Height='25px' CssClass='Edit20'></InputStyle>
+		</cc1:DscTextBox>
+		<cc1:DscDateAssistant2 ID='date' runat='server' Title='申請日期' ShowTitle='False'
+			style="POSITION: absolute; left: 730px; top: 101px; z-index: 697;" 
+			TxtInput_TabIndex='103' 
+			DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
+			BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
+			<InputStyle Width='90px' Height='25px' CssClass='Edit20' />
+			<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='date'></FrmFieldKeys>
+		</cc1:DscDateAssistant2>
+		<cc1:DscTextBox id='txtmain' runat='server' title='主旨' ShowTitle='False'
+			style="Z-INDEX:699; POSITION: absolute; LEFT: 124px; TOP: 178px; height: 58px; width: 715px;"
+			TxtInput_TabIndex='104'>
+			<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='txtmain'></FrmFieldKeys>
+			<TitleStyle Width='100px'></TitleStyle>
+			<InputStyle Width='720px' Height='55px' CssClass='Edit20'></InputStyle>
+		</cc1:DscTextBox>
+		<cc1:DscTextBox id='txtuser' runat='server' title='申請人' ShowTitle='False'
+			style="Z-INDEX:698; POSITION: absolute; LEFT: 313px; TOP: 140px; width: 117px;"
+			TxtInput_TabIndex='105'>
+			<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='txtuser'></FrmFieldKeys>
+			<TitleStyle Width='100px'></TitleStyle>
+			<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
+		</cc1:DscTextBox>
+		<cc1:DscTextBox id='totalmoney' runat='server' title='總金額' ShowTitle='False'
+			style="Z-INDEX:696; POSITION: absolute; LEFT: 740px; TOP: 143px;"
+			TxtInput_TabIndex='106'>
+			<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE01' FieldName='totalmoney'></FrmFieldKeys>
+			<TitleStyle Width='100px'></TitleStyle>
+			<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
+		</cc1:DscTextBox>
+		<cc1:DscDateAssistant2 ID='yearmonth' runat='server' Title='年月' ShowTitle='False'
+			style="POSITION: absolute; left: 550px; top: 141px; z-index: 697;" 
+			TxtInput_TabIndex='107' 
+			DisplayMode='yyyyMM' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
+			BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
+			<InputStyle Width='90px' Height='24px' CssClass='Edit20' />
+			<FrmFieldKeys FrmID='FrmODMAWDMVE01' BOID='ODMAWDMVE02' FieldName='yearmonth'></FrmFieldKeys>
+		</cc1:DscDateAssistant2>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
-	<img src="ODMAWDMVE01-3.png" id="Head01_file_1" runat="server" width="925" height="269" />
+	<img src="ODMAWDMVE01.png" id="Head01_file_1" runat="server" height="278" style="width: 866px" />
 </div>
 
 						</div>
@@ -118,5 +126,5 @@
 <!--引用JavaScript-->
 	<!--三位一撇--20230424 Peggy-->
 	<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
-<script src="ODMAWDMVE01.js?NoCache=20230426002" type="text/javascript"></script>
+<script src="ODMAWDMVE01.js?NoCache=20230426005" type="text/javascript"></script>
 </asp:Content>

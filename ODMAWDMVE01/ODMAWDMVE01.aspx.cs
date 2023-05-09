@@ -116,14 +116,15 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.txtmain.Title = MultiLanguage.GetComment("FD", "ODMAWDMVE01", "txtmain", tLanguageType);
 			this.txtuser.Title = MultiLanguage.GetComment("FD", "ODMAWDMVE01", "txtuser", tLanguageType);
 			this.totalmoney.Title = MultiLanguage.GetComment("FD", "ODMAWDMVE01", "totalmoney", tLanguageType);
+            this.yearmonth.Title = MultiLanguage.GetComment("FD", "ODMAWDMVE01", "yearmonth", tLanguageType);
 
 
-			#region 自訂排序
-			
-			#endregion 自訂排序
+            #region 自訂排序
 
-			#region 限制修改欄位
-			this.TxtCreateToolSubject.InputEnabled=false;
+            #endregion 自訂排序
+
+            #region 限制修改欄位
+            this.TxtCreateToolSubject.InputEnabled=false;
 
 			#endregion 限制修改欄位
 
@@ -1130,10 +1131,12 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			defalutHash.Add("date", DateTime.Now.ToString("yyyyMMdd"));
 			defalutHash.Add("txtdept", ajaxGetDepartmentName());
 			defalutHash.Add("txtuser", this.UserInfo.LoginName.ToString());
-		}
+            defalutHash.Add("yearmonth", DateTime.Now.AddMonths(-1).ToString("yyyyMM"));
 
-		//草稿儲存後要將主旨清除
-		protected override void AfterCreateToolSaveForm()
+        }
+
+        //草稿儲存後要將主旨清除
+        protected override void AfterCreateToolSaveForm()
 		{
 			base.TxtCreateToolSubject.Text = String.Empty;
 		}
