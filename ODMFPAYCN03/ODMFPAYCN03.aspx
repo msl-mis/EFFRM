@@ -448,5 +448,9 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMFPAYCN03.js?NoCache=202108311455" type="text/javascript"></script>
+	<!--控制項觸發條件--20230424 Peggy-->
+	 <script src="../../_Common/OEM/JS/OEMSetControl.js"></script>
+    <!--三位一撇--20230424 Peggy-->
+<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
+<script src="ODMFPAYCN03.js?NoCache=20230510002" type="text/javascript"></script>
 </asp:Content>
