@@ -8,9 +8,7 @@ function CustomerSaveCheck_Head(tStatus)
 	var tDecimalErrMsg = getI18NForSpecial('PSMSG', 'Validation', 'DecimalErrMsg', '../../_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
 	if (tStatus == "CREATE")
 	{
-		//填表時要驗證
 		
-
 		//Radio Button 驗証
 			if ($('#MasterPage_MasterPageContent_chpay_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_chpay_txt').value == '')
 			{
@@ -254,6 +252,8 @@ function CustomerSaveCheck_Head(tStatus)
 
 	if (tErr == "")
 	{
+		//20230518 Peggy 開單(複製表單)時, 把所有欄位開啟, 才能清空欄位值
+		OEMTurnningOnOff("On", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_orderno_txt,MasterPage_MasterPageContent_useyear_txt", false);
 		return true;
 	}
 	else
@@ -410,7 +410,6 @@ function CustomerSaveCheck_DetailAllData(pFormId, pUniversalId)
 {
 	var tErr = "";
 
-	
 
 	if (tErr == "")
 	{
@@ -512,7 +511,6 @@ function InitTriggerMust(tStatus){
 				$("#MasterPage_MasterPageContent_payother").hide();
 			}
 		}
-
 
 	}
 }
@@ -1025,10 +1023,11 @@ function chkTriggerFieldNull_Head()
 				tErr += '請確認 "使用年限"  是否有填寫\r\n';
 			}
 			else
-				if ($("#MasterPage_MasterPageContent_orderno_txt").val().trim().length == 0) {
-					tErr += '請確認 "訂單號碼" 是否有填寫\r\n';
-				}
-				else if ($("#MasterPage_MasterPageContent_chkven_txt").val().trim().length == 0) {
+				//if ($("#MasterPage_MasterPageContent_orderno_txt").val().trim().length == 0) {
+				//	tErr += '請確認 "訂單號碼" 是否有填寫\r\n';
+				//}
+				//else
+					if ($("#MasterPage_MasterPageContent_chkven_txt").val().trim().length == 0) {
 					tErr += '請確認 "使用單位" 是否有填寫\r\n';
 				}
 		}
@@ -1152,12 +1151,14 @@ function opentype_change() {
 	var open04 = document.getElementById("MasterPage_MasterPageContent_opentype04_txt"); //第四個類別
 	var open05 = document.getElementById("MasterPage_MasterPageContent_opentype05_txt"); //第五個類別
 
+
 	if (open01 != null && open01.value != "") {
 		//openitem
 		OEMTurnningOnOff("On", "openitem01", true);
 	}
 	else {
-		OEMTurnningOnOff("Off", "openitem01");
+		//item01.value = "";
+		OEMTurnningOnOff("Off", "openitem01");	
 	}
 
 	if (open02 != null && open02.value != "") {
@@ -1196,7 +1197,8 @@ function opentype_change() {
 
 //20230411 Peggy 在這裡做條件判斷, 在aspx 引用OEMSetControl.js
 //勾選chkitem02時,才顯示radioButton要勾選
-function openRadio() {
+function openRadio()
+{
 	var _chkitem02 = document.getElementById("MasterPage_MasterPageContent_chkitem02_chk").checked;
 
 	if (_chkitem02) {

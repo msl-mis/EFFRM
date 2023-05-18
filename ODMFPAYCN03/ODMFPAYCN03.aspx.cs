@@ -181,8 +181,8 @@ namespace tw.com.dsc.easyflowDotNet.forms
 
 			#region 增加初始設定
 			ScriptManager.RegisterStartupScript(this, typeof(string), "InitTriggerMust", "InitTriggerMust('" + base.FormStatus.ToString() + "');", true);
-ScriptManager.RegisterStartupScript(this, typeof(string), "InitTriggerOpen", "InitTriggerOpen();", true);
-ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "InitCalculated();", true);
+			ScriptManager.RegisterStartupScript(this, typeof(string), "InitTriggerOpen", "InitTriggerOpen();", true);
+			ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "InitCalculated();", true);
 			#endregion 增加初始設定
 		}
 		#endregion
@@ -215,10 +215,10 @@ ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "Ini
 			
 			if(strToolTipParameter=="Y"){
 				this.textarea1.ToolTip = this.textarea1.Text;
-this.textarea2.ToolTip = this.textarea2.Text;
-this.textarea3.ToolTip = this.textarea3.Text;
-this.textarea4.ToolTip = this.textarea4.Text;
-this.textarea5.ToolTip = this.textarea5.Text;
+				this.textarea2.ToolTip = this.textarea2.Text;
+				this.textarea3.ToolTip = this.textarea3.Text;
+				this.textarea4.ToolTip = this.textarea4.Text;
+				this.textarea5.ToolTip = this.textarea5.Text;
 
 			}
 
@@ -243,16 +243,16 @@ this.textarea5.ToolTip = this.textarea5.Text;
 
 			//單頭RadioButton控制項 end
 
-this.chkitem01.Text = String.Empty;
-this.chkitem02.Text = String.Empty;
-this.chkitem03.Text = String.Empty;
-this.chkitem04.Text = String.Empty;
-this.chkitem05.Text = String.Empty;
-this.chkatt01.Text = String.Empty;
-this.chkatt02.Text = String.Empty;
-this.chkatt04.Text = String.Empty;
-this.chkatt05.Text = String.Empty;
-this.other.Text = String.Empty;
+				this.chkitem01.Text = String.Empty;
+				this.chkitem02.Text = String.Empty;
+				this.chkitem03.Text = String.Empty;
+				this.chkitem04.Text = String.Empty;
+				this.chkitem05.Text = String.Empty;
+				this.chkatt01.Text = String.Empty;
+				this.chkatt02.Text = String.Empty;
+				this.chkatt04.Text = String.Empty;
+				this.chkatt05.Text = String.Empty;
+				this.other.Text = String.Empty;
 
 
 			mtotal.InputEnabled = false;//設定為欄位計算，預設唯讀
@@ -381,9 +381,14 @@ this.other.Text = String.Empty;
 				#endregion CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
 			}
 
-            #region 自訂Page_Prender區塊
-            //20230411 Peggy  
-            ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), "openRadio();", true);
+			#region 自訂Page_Prender區塊
+
+			//20230411 Peggy  判斷開單時,才跑openRadio
+
+			if (base.FormStatus == EFFormStatus.CREATE )
+			{
+				ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), "openRadio();", true);
+			}
             #endregion 自訂Page_Prender區塊
         }
         #endregion Page_Prender做的事
@@ -1399,7 +1404,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			defalutHash.Add("empl1", this.UserInfo.EmployeeId.ToString());
 			defalutHash.Add("empl2", ajaxGetSupervisorID());
 			defalutHash.Add("curr", "RMB");
-		}
+        }
 
 		//草稿儲存後要將主旨清除
 		protected override void AfterCreateToolSaveForm()
