@@ -254,6 +254,7 @@ function CustomerSaveCheck_Head(tStatus)
 	{
 		//20230518 Peggy 開單(複製表單)時, 把所有欄位開啟, 才能清空欄位值
 		OEMTurnningOnOff("On", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_orderno_txt,MasterPage_MasterPageContent_useyear_txt", false);
+		MasterPage_MasterPageContent_openitem01_txt.value = "";
 		return true;
 	}
 	else
