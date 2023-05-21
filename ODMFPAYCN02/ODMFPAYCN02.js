@@ -9,103 +9,7 @@ function CustomerSaveCheck_Head(tStatus)
 	if (tStatus == "CREATE")
 	{
 		//填表時要驗證
-		////數值驗証
-		//var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
-		//if(tmoney01.length>0){
-		//	if('readonly' !== tmoney01.attr('readonly') &&
-		//		'disabled' !== tmoney01.attr('disabled')){
-		//		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim();
-		//		if(tmoney01Value.length==0 || isNaN(tmoney01Value))
-		//		{
-		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-		//		}
-		//		else
-		//		{
-		//			if (tmoney01Value < 0 || tmoney01Value > 1000000000)
-		//			{
-		//				tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-		//			}
-		//		}
-		//	}
-		//}
-
-		////數值驗証
-		//var tmoney02 = $('#MasterPage_MasterPageContent_money02_txt');
-		//if(tmoney02.length>0){
-		//	if('readonly' !== tmoney02.attr('readonly') &&
-		//		'disabled' !== tmoney02.attr('disabled')){
-		//		var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim();
-		//		if(tmoney02Value.length==0 || isNaN(tmoney02Value))
-		//		{
-		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money02_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-		//		}
-		//		else
-		//		{
-		//			if (tmoney02Value < 0 || tmoney02Value > 1000000000)
-		//			{
-		//				tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money02_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-		//			}
-		//		}
-		//	}
-		//}
-
-		////數值驗証
-		//var tmoney04 = $('#MasterPage_MasterPageContent_money04_txt');
-		//if(tmoney04.length>0){
-		//	if('readonly' !== tmoney04.attr('readonly') &&
-		//		'disabled' !== tmoney04.attr('disabled')){
-		//		var tmoney04Value = $('#MasterPage_MasterPageContent_money04_txt').val().trim();
-		//		if(tmoney04Value.length==0 || isNaN(tmoney04Value))
-		//		{
-		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money04', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money04_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-		//		}
-		//		else
-		//		{
-		//			if (tmoney04Value < 0 || tmoney04Value > 1000000000)
-		//			{
-		//				tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money04', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money04_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-		//			}
-		//		}
-		//	}
-		//}
-
-		////數值驗証
-		//var tmoney05 = $('#MasterPage_MasterPageContent_money05_txt');
-		//if(tmoney05.length>0){
-		//	if('readonly' !== tmoney05.attr('readonly') &&
-		//		'disabled' !== tmoney05.attr('disabled')){
-		//		var tmoney05Value = $('#MasterPage_MasterPageContent_money05_txt').val().trim();
-		//		if(tmoney05Value.length==0 || isNaN(tmoney05Value))
-		//		{
-		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money05', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money05_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-		//		}
-		//		else
-		//		{
-		//			if (tmoney05Value < 0 || tmoney05Value > 1000000000)
-		//			{
-		//				tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money05', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'money05_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-		//			}
-		//		}
-		//	}
-		//}
-
-		////數值驗証
-		//var tmtotal = $('#MasterPage_MasterPageContent_mtotal_txt');
-		//if(tmtotal.length>0){
-		//	var tmtotalValue = $('#MasterPage_MasterPageContent_mtotal_txt').val().trim();
-		//	if(tmtotalValue.length==0 || isNaN(tmtotalValue))
-		//	{
-		//		tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'mtotal', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'mtotal_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-		//	}
-		//	else
-		//	{
-		//		if (tmtotalValue < 0 || tmtotalValue > 1000000000)
-		//		{
-		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'mtotal', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'mtotal_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-		//		}
-		//	}
-		//}
-
+		
 		//Radio Button 驗証
 			if ($('#MasterPage_MasterPageContent_chpay_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_chpay_txt').value == '')
 			{
@@ -128,6 +32,7 @@ function CustomerSaveCheck_Head(tStatus)
 		var _openitem04 = document.getElementById("MasterPage_MasterPageContent_openitem04_txt");
 		var _opentype05 = document.getElementById("MasterPage_MasterPageContent_opentype05_txt");
 		var _openitem05 = document.getElementById("MasterPage_MasterPageContent_openitem05_txt");
+		
 		if (_opentype01 != null && _opentype01.value != "") {
 			if (_openitem01.value == "") {
 				tErr += "請選擇子項目!" + "\r\n";
@@ -348,6 +253,8 @@ function CustomerSaveCheck_Head(tStatus)
 
 	if (tErr == "")
 	{
+		//20230518 Peggy 開單(複製表單)時, 把所有欄位開啟, 才能清空欄位值
+		OEMTurnningOnOff("On", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_useyear_txt", false);
 		return true;
 	}
 	else
@@ -579,15 +486,6 @@ function InitTriggerMust(tStatus){
 				$("#MasterPage_MasterPageContent_inv02").hide();
 			}
 		}
-		//取消判斷
-		//if($("#MasterPage_MasterPageContent_chkitem02_chk").length>0){
-		//	if($("#MasterPage_MasterPageContent_chkitem02_chk")[0].checked){
-		//		$("#MasterPage_MasterPageContent_itemname").show();
-		//	}
-		//	else{
-		//		$("#MasterPage_MasterPageContent_itemname").hide();
-		//	}
-		//}
 
 		if($("#MasterPage_MasterPageContent_chkitem05_chk").length>0){
 			if($("#MasterPage_MasterPageContent_chkitem05_chk")[0].checked){
@@ -994,8 +892,8 @@ function SetCustomSubject()
 	var tSubjectVal='';
 	var tSubjectTxt=document.getElementById("MasterPage_txtCreateToolSubject_txt").value;
 	var tSubjectSelf='';
-	tSubjectSelf+='CN一般請款單V2-'+
-$('#MasterPage_MasterPageContent_payee_txt').val();
+	tSubjectSelf += 'CN一般請款單V2-' +
+		$('#MasterPage_MasterPageContent_payee_txt').val();
 
 	//自訂主旨+標準主旨
 	tSubjectVal=tSubjectSelf+tSubjectTxt;
@@ -1011,7 +909,7 @@ function domath_mtotal()
 	try{
 		if($("#MasterPage_MasterPageContent_money01_txt").length==0)
 			return;
-		var money01 = $("#MasterPage_MasterPageContent_money01_txt").val().trim().replace(/\,/g, '');
+		var money01 = $("#MasterPage_MasterPageContent_money01_txt").val().trim().replace(/\,/g, '')
 		if(isNaN(money01)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -1076,7 +974,6 @@ function domath_mtotal()
 		}
 
 		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = parseFloat(finalvalue).toFixed(2);
-
 		//^_^ 20230411 Peggy 重新加上千份位↓
 		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = OEMFormat(parseFloat(finalvalue).toFixed(2));
 		document.getElementById("MasterPage_MasterPageContent_money01_txt").value = OEMFormat(parseFloat(money01).toFixed(2));
@@ -1095,124 +992,124 @@ function domath_mtotal()
 
 
 //單頭觸發必填欄位驗證
-function chkTriggerFieldNull_Head()
-{
-	var tErr = '',tMsg = '';
+function chkTriggerFieldNull_Head() {
+	var tErr = '', tMsg = '';
 	var tFieldNotFilledMsg = getI18NForSpecial('PSMSG', 'RequriedFieldNotFilled', '1', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx');
-	if($("#MasterPage_MasterPageContent_chkatt01_chk").length>0){
-		if($("#MasterPage_MasterPageContent_chkatt01_chk")[0].checked){
-			if($("#MasterPage_MasterPageContent_inv01_txt").val().trim().length==0){
-				tErr+='[inv01-'+getI18NForSpecial('FD', 'ODMFPAYCN02', 'inv01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+']'+tFieldNotFilledMsg+'\r\n';
+	if ($("#MasterPage_MasterPageContent_chkatt01_chk").length > 0) {
+		if ($("#MasterPage_MasterPageContent_chkatt01_chk")[0].checked) {
+			if ($("#MasterPage_MasterPageContent_inv01_txt").val().trim().length == 0) {
+				tErr += '[inv01-' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'inv01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + ']' + tFieldNotFilledMsg + '\r\n';
 			}
 		}
-		else{
+		else {
 			$("#MasterPage_MasterPageContent_inv01_txt").val('');
 		}
 	}
 
-	if($("#MasterPage_MasterPageContent_chkatt02_chk").length>0){
-		if($("#MasterPage_MasterPageContent_chkatt02_chk")[0].checked){
-			if($("#MasterPage_MasterPageContent_inv02_txt").val().trim().length==0){
-				tErr+='[inv02-'+getI18NForSpecial('FD', 'ODMFPAYCN02', 'inv02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+']'+tFieldNotFilledMsg+'\r\n';
+	if ($("#MasterPage_MasterPageContent_chkatt02_chk").length > 0) {
+		if ($("#MasterPage_MasterPageContent_chkatt02_chk")[0].checked) {
+			if ($("#MasterPage_MasterPageContent_inv02_txt").val().trim().length == 0) {
+				tErr += '[inv02-' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'inv02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + ']' + tFieldNotFilledMsg + '\r\n';
 			}
 		}
-		else{
+		else {
 			$("#MasterPage_MasterPageContent_inv02_txt").val('');
 		}
 	}
-
-	if($("#MasterPage_MasterPageContent_chkitem02_chk").length>0){
-		if($("#MasterPage_MasterPageContent_chkitem02_chk")[0].checked){
-			if($("#MasterPage_MasterPageContent_useyear_txt").val().trim().length==0){
-				tErr +='請確認 "使用年限"  是否有填寫\r\n';
+	//20230510 Peggy Star
+	if ($("#MasterPage_MasterPageContent_chkitem02_chk").length > 0) {
+		if ($("#MasterPage_MasterPageContent_chkitem02_chk")[0].checked) {
+			if ($("#MasterPage_MasterPageContent_useyear_txt").val().trim().length == 0) {
+				tErr += '請確認 "使用年限"  是否有填寫\r\n';
 			}
 			else
-				if ($("#MasterPage_MasterPageContent_orderno_txt").val().trim().length == 0) {
-					tErr += '請確認 "訂單號碼" 是否有填寫\r\n';
+				//if ($("#MasterPage_MasterPageContent_orderno_txt").val().trim().length == 0) {
+				//	tErr += '請確認 "訂單號碼" 是否有填寫\r\n';
+				//}
+				//else
+				if ($("#MasterPage_MasterPageContent_chkven_txt").val().trim().length == 0) {
+					tErr += '請確認 "使用單位" 是否有填寫\r\n';
 				}
-			else if ($("#MasterPage_MasterPageContent_chkven_txt").val().trim().length == 0) {
-				tErr += '請確認 "使用單位" 是否有填寫\r\n';
-			}
 		}
-		else{
+		else {
 			$("#MasterPage_MasterPageContent_useyear_txt").val('');
 		}
 	}
+		//Peggy End
 
-	if($("#MasterPage_MasterPageContent_chkitem05_chk").length>0){
-		if($("#MasterPage_MasterPageContent_chkitem05_chk")[0].checked){
-			if($("#MasterPage_MasterPageContent_chkother_txt").val().trim().length==0){
-				tErr+='[chkother-'+getI18NForSpecial('FD', 'ODMFPAYCN02', 'chkother', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+']'+tFieldNotFilledMsg+'\r\n';
-			}
-		}
-		else{
-			$("#MasterPage_MasterPageContent_chkother_txt").val('');
-		}
-	}
-
-	if($("#MasterPage_MasterPageContent_other_chk").length>0){
-		if($("#MasterPage_MasterPageContent_other_chk")[0].checked){
-			if($("#MasterPage_MasterPageContent_attother_txt").val().trim().length==0){
-				tErr+='[attother-'+getI18NForSpecial('FD', 'ODMFPAYCN02', 'attother', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+']'+tFieldNotFilledMsg+'\r\n';
-			}
-		}
-		else{
-			$("#MasterPage_MasterPageContent_attother_txt").val('');
-		}
-	}
-
-	if($("#MasterPage_MasterPageContent_chpay_ctrolRadio2").length>0){
-		if($("#MasterPage_MasterPageContent_chpay_ctrolRadio2")[0].checked){
-			if($("#MasterPage_MasterPageContent_payother_txt").val().trim().length==0){
-				tErr+='請填寫支付方式\r\n';
-			}
-		}
-		else{
-			$("#MasterPage_MasterPageContent_payother_txt").val('');
-		}
-	}
-
-
-	if (tErr == '')
-		return true;
-	else{
-		alert(tErr);
-		return false;
-	}
-}
-
-function setSelectPanelValue()
-{
-	var aryFields = [];//單頭、單身多選開窗
-	var intFieldsLength = aryFields.length;
-	for(var i=0;i<intFieldsLength;i++){
-		var tField=aryFields[i];
-		if($('#MasterPage_MasterPageContent_DscOpenQuery'+tField+'_txt').length>0){
-			var hdnValue = $('#MasterPage_MasterPageContent_DscOpenQuery'+tField+'_txt').val();
-			$('#MasterPage_MasterPageContent_SelectPanel'+tField+'_hidText').val(hdnValue);
-			$('#MasterPage_MasterPageContent_SelectPanel'+tField+'_hidText2').val(hdnValue);
-
-			if($('#MasterPage_MasterPageContent_SelectPanel'+tField+'_lst').length>0){
-				$('#MasterPage_MasterPageContent_SelectPanel'+tField+'_lst')[0].options.length=0;
-
-				if($('#MasterPage_MasterPageContent_SelectPanel'+tField+'_lstTbx').length>0){
-					$('#MasterPage_MasterPageContent_SelectPanel'+tField+'_lstTbx').val("");
+		if ($("#MasterPage_MasterPageContent_chkitem05_chk").length > 0) {
+			if ($("#MasterPage_MasterPageContent_chkitem05_chk")[0].checked) {
+				if ($("#MasterPage_MasterPageContent_chkother_txt").val().trim().length == 0) {
+					tErr += '[chkother-' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'chkother', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + ']' + tFieldNotFilledMsg + '\r\n';
 				}
+			}
+			else {
+				$("#MasterPage_MasterPageContent_chkother_txt").val('');
+			}
+		}
 
-				if(hdnValue.length>0){
-					var aryHdnFieldSplit = hdnValue.split('§');
-					var intHdnFieldSplitLength = aryHdnFieldSplit.length;
-					for (var j = 0; j < intHdnFieldSplitLength; j++){
-						var tShowItem = aryHdnFieldSplit[j];
-						tShowItem=tShowItem.replace(/┼┼/g, " ");
-						var new_option = new Option(tShowItem, tShowItem);
-						$('#MasterPage_MasterPageContent_SelectPanel'+tField+'_lst')[0].options.add(new_option);
+		if ($("#MasterPage_MasterPageContent_other_chk").length > 0) {
+			if ($("#MasterPage_MasterPageContent_other_chk")[0].checked) {
+				if ($("#MasterPage_MasterPageContent_attother_txt").val().trim().length == 0) {
+					tErr += '[attother-' + getI18NForSpecial('FD', 'ODMFPAYCN02', 'attother', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + ']' + tFieldNotFilledMsg + '\r\n';
+				}
+			}
+			else {
+				$("#MasterPage_MasterPageContent_attother_txt").val('');
+			}
+		}
 
-						if($('#MasterPage_MasterPageContent_SelectPanel'+tField+'_lstTbx').length>0){
-							document.getElementById('MasterPage_MasterPageContent_SelectPanel' + tField + '_lstTbx').value += tShowItem;
-							if (j != intHdnFieldSplitLength - 1)
-							{
-								document.getElementById('MasterPage_MasterPageContent_SelectPanel' + tField + '_lstTbx').value += '\r\n';
+		if ($("#MasterPage_MasterPageContent_chpay_ctrolRadio2").length > 0) {
+			if ($("#MasterPage_MasterPageContent_chpay_ctrolRadio2")[0].checked) {
+				if ($("#MasterPage_MasterPageContent_payother_txt").val().trim().length == 0) {
+					tErr += '請填寫支付方式\r\n';
+				}
+			}
+			else {
+				$("#MasterPage_MasterPageContent_payother_txt").val('');
+			}
+		}
+
+
+		if (tErr == '')
+			return true;
+		else {
+			alert(tErr);
+			return false;
+		}
+	}
+
+	function setSelectPanelValue() {
+		var aryFields = [];//單頭、單身多選開窗
+		var intFieldsLength = aryFields.length;
+		for (var i = 0; i < intFieldsLength; i++) {
+			var tField = aryFields[i];
+			if ($('#MasterPage_MasterPageContent_DscOpenQuery' + tField + '_txt').length > 0) {
+				var hdnValue = $('#MasterPage_MasterPageContent_DscOpenQuery' + tField + '_txt').val();
+				$('#MasterPage_MasterPageContent_SelectPanel' + tField + '_hidText').val(hdnValue);
+				$('#MasterPage_MasterPageContent_SelectPanel' + tField + '_hidText2').val(hdnValue);
+
+				if ($('#MasterPage_MasterPageContent_SelectPanel' + tField + '_lst').length > 0) {
+					$('#MasterPage_MasterPageContent_SelectPanel' + tField + '_lst')[0].options.length = 0;
+
+					if ($('#MasterPage_MasterPageContent_SelectPanel' + tField + '_lstTbx').length > 0) {
+						$('#MasterPage_MasterPageContent_SelectPanel' + tField + '_lstTbx').val("");
+					}
+
+					if (hdnValue.length > 0) {
+						var aryHdnFieldSplit = hdnValue.split('§');
+						var intHdnFieldSplitLength = aryHdnFieldSplit.length;
+						for (var j = 0; j < intHdnFieldSplitLength; j++) {
+							var tShowItem = aryHdnFieldSplit[j];
+							tShowItem = tShowItem.replace(/┼┼/g, " ");
+							var new_option = new Option(tShowItem, tShowItem);
+							$('#MasterPage_MasterPageContent_SelectPanel' + tField + '_lst')[0].options.add(new_option);
+
+							if ($('#MasterPage_MasterPageContent_SelectPanel' + tField + '_lstTbx').length > 0) {
+								document.getElementById('MasterPage_MasterPageContent_SelectPanel' + tField + '_lstTbx').value += tShowItem;
+								if (j != intHdnFieldSplitLength - 1) {
+									document.getElementById('MasterPage_MasterPageContent_SelectPanel' + tField + '_lstTbx').value += '\r\n';
+								}
 							}
 						}
 					}
@@ -1220,102 +1117,101 @@ function setSelectPanelValue()
 			}
 		}
 	}
-}
 
 
-function jsDoDispatch(pFormID, pSheetNo, pDispatchFormID){
-	//若您已有編輯此表單資料, 此動作會清除您所編輯的資料! [請問是否繼續?
-	var tConfirmSTR = getI18NForSpecial('FD','EFBaseMasterPage','EFMsgBoxJS007','../../../src/_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
-	if(window.confirm(tConfirmSTR.split('[')[0].toString() + "\r\n\r\n" + tConfirmSTR.split('[')[1].toString())){
-		var bResult = tw.com.dsc.easyflowDotNet.forms.ODMFPAYCN02.ajaxDoDispatchForm(pFormID, pSheetNo, pDispatchFormID).value;
-		var tDispatchFormResult="";
-		if(bResult){
-			//執行派送表單成功!
-			tDispatchFormResult=getI18NForSpecial('Message','EFWizardForm','DispatchFormSuccess','../../../src/_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
-			alert(tDispatchFormResult);
-			//Refresh 原頁面避免 Session 錯亂
-			location.reload();
+	function jsDoDispatch(pFormID, pSheetNo, pDispatchFormID) {
+		//若您已有編輯此表單資料, 此動作會清除您所編輯的資料! [請問是否繼續?
+		var tConfirmSTR = getI18NForSpecial('FD', 'EFBaseMasterPage', 'EFMsgBoxJS007', '../../../src/_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
+		if (window.confirm(tConfirmSTR.split('[')[0].toString() + "\r\n\r\n" + tConfirmSTR.split('[')[1].toString())) {
+			var bResult = tw.com.dsc.easyflowDotNet.forms.ODMFPAYCN02.ajaxDoDispatchForm(pFormID, pSheetNo, pDispatchFormID).value;
+			var tDispatchFormResult = "";
+			if (bResult) {
+				//執行派送表單成功!
+				tDispatchFormResult = getI18NForSpecial('Message', 'EFWizardForm', 'DispatchFormSuccess', '../../../src/_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
+				alert(tDispatchFormResult);
+				//Refresh 原頁面避免 Session 錯亂
+				location.reload();
+			}
+			else {
+				//執行派送表單失敗!
+				tDispatchFormResult = getI18NForSpecial('Message', 'EFWizardForm', 'DispatchFormFail', '../../../src/_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
+				alert(tDispatchFormResult);
+			}
 		}
-		else{
-			//執行派送表單失敗!
-			tDispatchFormResult=getI18NForSpecial('Message','EFWizardForm','DispatchFormFail','../../../src/_Common/PlatFormUtil/KernelPage/I18N/I18NForJs.aspx');
-			alert(tDispatchFormResult);
+	}
+	//20230424 Peggy Star
+	//第一個開窗後將第二個窗唯獨或開放，第二個開窗必填
+	function opentype_change() {
+		var open01 = document.getElementById("MasterPage_MasterPageContent_opentype01_txt"); //第一個類別
+		var open02 = document.getElementById("MasterPage_MasterPageContent_opentype02_txt"); //第二個類別
+		var open03 = document.getElementById("MasterPage_MasterPageContent_opentype03_txt"); //第三個類別
+		var open04 = document.getElementById("MasterPage_MasterPageContent_opentype04_txt"); //第四個類別
+		var open05 = document.getElementById("MasterPage_MasterPageContent_opentype05_txt"); //第五個類別
+
+
+		if (open01 != null && open01.value != "") {
+			//openitem
+			OEMTurnningOnOff("On", "openitem01", true);
+		}
+		else {
+
+			OEMTurnningOnOff("Off", "openitem01");
+		}
+
+		if (open02 != null && open02.value != "") {
+			//openitem
+			OEMTurnningOnOff("On", "openitem02", true);
+		}
+		else {
+			OEMTurnningOnOff("Off", "openitem02");
+		}
+
+		if (open03 != null && open03.value != "") {
+			//openitem
+			OEMTurnningOnOff("On", "openitem03", true);
+		}
+		else {
+			OEMTurnningOnOff("Off", "openitem03");
+		}
+
+		if (open04 != null && open04.value != "") {
+			//openitem
+			OEMTurnningOnOff("On", "openitem04", true);
+		}
+		else {
+			OEMTurnningOnOff("Off", "openitem04");
+		}
+
+		if (open05 != null && open05.value != "") {
+			//openitem
+			OEMTurnningOnOff("On", "openitem05", true);
+		}
+		else {
+			OEMTurnningOnOff("Off", "openitem05");
 		}
 	}
-}
+	//20230424 Peggy End
 
-//20230424 Peggy Star
-//第一個開窗後將第二個窗唯獨或開放，第二個開窗必填
-function opentype_change() {
-	var open01 = document.getElementById("MasterPage_MasterPageContent_opentype01_txt"); //第一個類別
-	var open02 = document.getElementById("MasterPage_MasterPageContent_opentype02_txt"); //第二個類別
-	var open03 = document.getElementById("MasterPage_MasterPageContent_opentype03_txt"); //第二個類別
-	var open04 = document.getElementById("MasterPage_MasterPageContent_opentype04_txt"); //第二個類別
-	var open05 = document.getElementById("MasterPage_MasterPageContent_opentype05_txt"); //第二個類別
+	//20230411 Peggy 在這裡做條件判斷, 在aspx 引用OEMSetControl.js
+	//勾選chkitem02時,才顯示radioButton要勾選
+	function openRadio() {
+		var _chkitem02 = document.getElementById("MasterPage_MasterPageContent_chkitem02_chk").checked;
 
-	if (open01 != null && open01.value != "") {
-		//openitem
-		OEMTurnningOnOff("On", "openitem01", true);
-	}
-	else {
-		OEMTurnningOnOff("Off", "openitem01");
-	}
+		if (_chkitem02) {
+			OEMTurnningOnOff("On", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_useyear_txt", false);
+			//$("#MasterPage_MasterPageContent_orderno_txt").show();
 
-	if (open02 != null && open02.value != "") {
-		//openitem
-		OEMTurnningOnOff("On", "openitem02", true);
-	}
-	else {
-		OEMTurnningOnOff("Off", "openitem02");
-	}
+		}
+		else {
+			document.getElementById("MasterPage_MasterPageContent_chkven_ctrolRadio0").checked = false;
+			document.getElementById("MasterPage_MasterPageContent_chkven_ctrolRadio1").checked = false;
+			document.getElementById("MasterPage_MasterPageContent_chkven_txt").value = "";
+			//document.getElementById("MasterPage_MasterPageContent_orderno_txt").value = "";
+			document.getElementById("MasterPage_MasterPageContent_useyear_txt").value = "";
 
-	if (open03 != null && open03.value != "") {
-		//openitem
-		OEMTurnningOnOff("On", "openitem03", true);
-	}
-	else {
-		OEMTurnningOnOff("Off", "openitem03");
-	}
+			OEMTurnningOnOff("Off", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_useyear_txt");
+			/*	$("#MasterPage_MasterPageContent_orderno_txt").hide();*/
 
-	if (open04 != null && open04.value != "") {
-		//openitem
-		OEMTurnningOnOff("On", "openitem04", true);
+		}
 	}
-	else {
-		OEMTurnningOnOff("Off", "openitem04");
-	}
-
-	if (open05 != null && open05.value != "") {
-		//openitem
-		OEMTurnningOnOff("On", "openitem05", true);
-	}
-	else {
-		OEMTurnningOnOff("Off", "openitem05");
-	}
-}
-//20230424 Peggy End
-
-//20230411 Peggy 在這裡做條件判斷, 在aspx 引用OEMSetControl.js
-//勾選chkitem02時,才顯示radioButton要勾選
-function openRadio() {
-	var _chkitem02 = document.getElementById("MasterPage_MasterPageContent_chkitem02_chk").checked;
-
-	if (_chkitem02) {
-		OEMTurnningOnOff("On", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_orderno_txt,MasterPage_MasterPageContent_useyear_txt", false);
-		//$("#MasterPage_MasterPageContent_orderno_txt").show();
-
-	}
-	else {
-		document.getElementById("MasterPage_MasterPageContent_chkven_ctrolRadio0").checked = false;
-		document.getElementById("MasterPage_MasterPageContent_chkven_ctrolRadio1").checked = false;
-		document.getElementById("MasterPage_MasterPageContent_chkven_txt").value = "";
-		document.getElementById("MasterPage_MasterPageContent_orderno_txt").value = "";
-		document.getElementById("MasterPage_MasterPageContent_useyear_txt").value = "";
-
-		OEMTurnningOnOff("Off", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_orderno_txt,MasterPage_MasterPageContent_useyear_txt");
-		/*	$("#MasterPage_MasterPageContent_orderno_txt").hide();*/
-
-	}
-}
-
 
