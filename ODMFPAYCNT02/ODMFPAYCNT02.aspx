@@ -451,5 +451,5 @@
 	 <script src="../../_Common/OEM/JS/OEMSetControl.js"></script>
     <!--三位一撇--20230424 Peggy-->
 	<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
-<script src="ODMFPAYCNT02.js?NoCache=20230428005" type="text/javascript"></script>
+<script src="ODMFPAYCNT02.js?NoCache=20230428006" type="text/javascript"></script>
 </asp:Content>

@@ -1407,7 +1407,8 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			defalutHash.Add("SenderID", this.UserInfo.EmployeeId.ToString());
 			defalutHash.Add("SuperID", ajaxGetSupervisorID());
 			defalutHash.Add("curr", "RMB");
-		}
+            defalutHash.Add("tax", 0);
+        }
 
 		//草稿儲存後要將主旨清除
 		protected override void AfterCreateToolSaveForm()
