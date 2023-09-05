@@ -159,6 +159,8 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.curr.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "curr", tLanguageType);
 			this.useyear.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "useyear", tLanguageType);
 			this.tax.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "tax", tLanguageType);
+			this.deptid.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "deptid", tLanguageType);
+
 
             #region 三位一撇
             //^_^ 20230411 Peggy 
@@ -169,10 +171,6 @@ namespace tw.com.dsc.easyflowDotNet.forms
             });
             #endregion
 
-            #region 自訂排序
-
-            #endregion 自訂排序
-
             #region 限制修改欄位
             this.TxtCreateToolSubject.InputEnabled=true;
 
@@ -180,8 +178,8 @@ namespace tw.com.dsc.easyflowDotNet.forms
 
 			#region 增加初始設定
 			ScriptManager.RegisterStartupScript(this, typeof(string), "InitTriggerMust", "InitTriggerMust('" + base.FormStatus.ToString() + "');", true);
-			ScriptManager.RegisterStartupScript(this, typeof(string), "InitTriggerOpen", "InitTriggerOpen();", true);
-			ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "InitCalculated();", true);
+ScriptManager.RegisterStartupScript(this, typeof(string), "InitTriggerOpen", "InitTriggerOpen();", true);
+ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "InitCalculated();", true);
 			#endregion 增加初始設定
 		}
 		#endregion
@@ -199,7 +197,6 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			base.OnInit(e);
 		}
 		#endregion
-
 
 		#region Page_Prender做的事
 		/// <summary>
@@ -243,19 +240,19 @@ this.textarea5.ToolTip = this.textarea5.Text;
 
 			//單頭RadioButton控制項 end
 
-			this.chkitem01.Text = String.Empty;
-			this.chkitem02.Text = String.Empty;
-			this.chkitem03.Text = String.Empty;
-			this.chkitem04.Text = String.Empty;
-			this.chkitem05.Text = String.Empty;
-			this.chkatt01.Text = String.Empty;
-			this.chkatt02.Text = String.Empty;
-			this.chkatt04.Text = String.Empty;
-			this.chkatt05.Text = String.Empty;
-			this.other.Text = String.Empty;   
+this.chkitem01.Text = String.Empty;
+this.chkitem02.Text = String.Empty;
+this.chkitem03.Text = String.Empty;
+this.chkitem04.Text = String.Empty;
+this.chkitem05.Text = String.Empty;
+this.chkatt01.Text = String.Empty;
+this.chkatt02.Text = String.Empty;
+this.chkatt04.Text = String.Empty;
+this.chkatt05.Text = String.Empty;
+this.other.Text = String.Empty;
 
 
-            mtotal.InputEnabled = false;//設定為欄位計算，預設唯讀
+			mtotal.InputEnabled = false;//設定為欄位計算，預設唯讀
 
 
 			#endregion 與管理程式共用After Prender區段
@@ -294,7 +291,8 @@ this.textarea5.ToolTip = this.textarea5.Text;
 				//傳送
 				string tParentScript = base.BtnCreateToolSendForm.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("SetCustomSubject()")<0){
-					tParentScript = tParentScript.Replace("if (!checkSubjectField())", "SetCustomSubject();if (!checkSubjectField())");
+					tParentScript = tParentScript.Replace("if (!checkSubjectField()) {event.returnValue = false;return false; };", "");
+					tParentScript = tParentScript.Replace("ShowProgressBar", "SetCustomSubject(); if (!checkSubjectField()) {event.returnValue = false;return false; };ShowProgressBar");
 					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
 					base.BtnCreateToolSendForm.Attributes.Add("onclick", tParentScript);
 				}
@@ -381,34 +379,17 @@ this.textarea5.ToolTip = this.textarea5.Text;
 				#endregion CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
 			}
 
-
 			#region 自訂Page_Prender區塊
-			//20230411 Peggy  判斷開單時,才跑openRadio, 並清空主類及子項 & 訂單編號
-
-			//if (base.FormStatus == EFFormStatus.CREATE)
-			//{
-			//	ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), "openRadio();", true);
-   //             this.opentype01.Text = String.Empty;
-   //             this.openitem01.Text = String.Empty;
-   //             this.opentype02.Text = String.Empty;
-   //             this.openitem02.Text = String.Empty;
-   //             this.opentype03.Text = String.Empty;
-   //             this.openitem03.Text = String.Empty;
-   //             this.opentype04.Text = String.Empty;
-   //             this.openitem04.Text = String.Empty;
-   //             this.opentype05.Text = String.Empty;
-   //             this.openitem05.Text = String.Empty;
-   //             this.orderno.Text = String.Empty;
-   //         }
+			
 			#endregion 自訂Page_Prender區塊
 		}
-        #endregion Page_Prender做的事
+		#endregion Page_Prender做的事
 
-        #region setBasicInfo , 設定表單的基本屬性
-        /// <summary>
-        /// 設定表單的基本屬性 (setBasicInfo)
-        /// </summary>
-        protected override void setBasicInfo()
+		#region setBasicInfo , 設定表單的基本屬性
+		/// <summary>
+		/// 設定表單的基本屬性 (setBasicInfo)
+		/// </summary>
+		protected override void setBasicInfo()
 		{
 			// 作業代號
 			this.TaskId = "ODMFPAYCN02";
@@ -1226,7 +1207,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 
 			//單頭控制項
 			opentype01.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype01_btn","MasterPage_MasterPageContent_opentype01_txt","S"));
-			opentype01.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype01_txt","OpenMIMJ01_20_opentype01","MasterPage_MasterPageContent_opentype01_txt,MasterPage_MasterPageContent_openitem01_txt")+ ";InitTriggerOpen();opentype_change();");
+			opentype01.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype01_txt","OpenMIMJ01_20_opentype01","MasterPage_MasterPageContent_opentype01_txt,MasterPage_MasterPageContent_openitem01_txt")+";InitTriggerOpen();");
 			opentype01.TxtInput.Attributes.Add("onchange","FunOnChange_opentype01();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype01_txt');");
 
 			openitem01.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem01_btn","MasterPage_MasterPageContent_opentype01_txt","MasterPage_MasterPageContent_openitem01_txt","S"));
@@ -1234,7 +1215,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			openitem01.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_openitem01_txt');");
 
 			opentype02.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype02_btn","MasterPage_MasterPageContent_opentype02_txt","S"));
-			opentype02.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype02_txt","OpenMIMJ01_20_opentype02","MasterPage_MasterPageContent_opentype02_txt,MasterPage_MasterPageContent_openitem02_txt")+ ";InitTriggerOpen();opentype_change();");
+			opentype02.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype02_txt","OpenMIMJ01_20_opentype02","MasterPage_MasterPageContent_opentype02_txt,MasterPage_MasterPageContent_openitem02_txt")+";InitTriggerOpen();");
 			opentype02.TxtInput.Attributes.Add("onchange","FunOnChange_opentype02();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype02_txt');");
 
 			openitem02.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem02_btn","MasterPage_MasterPageContent_opentype02_txt","MasterPage_MasterPageContent_openitem02_txt","S"));
@@ -1242,7 +1223,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			openitem02.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_openitem02_txt');");
 
 			opentype03.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype03_btn","MasterPage_MasterPageContent_opentype03_txt","S"));
-			opentype03.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype03_txt","OpenMIMJ01_20_opentype03","MasterPage_MasterPageContent_opentype03_txt,MasterPage_MasterPageContent_openitem03_txt")+ ";InitTriggerOpen();opentype_change();");
+			opentype03.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype03_txt","OpenMIMJ01_20_opentype03","MasterPage_MasterPageContent_opentype03_txt,MasterPage_MasterPageContent_openitem03_txt")+";InitTriggerOpen();");
 			opentype03.TxtInput.Attributes.Add("onchange","FunOnChange_opentype03();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype03_txt');");
 
 			openitem03.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem03_btn","MasterPage_MasterPageContent_opentype03_txt","MasterPage_MasterPageContent_openitem03_txt","S"));
@@ -1250,7 +1231,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			openitem03.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_openitem03_txt');");
 
 			opentype04.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype04_btn","MasterPage_MasterPageContent_opentype04_txt","S"));
-			opentype04.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype04_txt","OpenMIMJ01_20_opentype04","MasterPage_MasterPageContent_opentype04_txt,MasterPage_MasterPageContent_openitem04_txt")+ ";InitTriggerOpen();opentype_change();");
+			opentype04.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype04_txt","OpenMIMJ01_20_opentype04","MasterPage_MasterPageContent_opentype04_txt,MasterPage_MasterPageContent_openitem04_txt")+";InitTriggerOpen();");
 			opentype04.TxtInput.Attributes.Add("onchange","FunOnChange_opentype04();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype04_txt');");
 
 			openitem04.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem04_btn","MasterPage_MasterPageContent_opentype04_txt","MasterPage_MasterPageContent_openitem04_txt","S"));
@@ -1258,7 +1239,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			openitem04.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_openitem04_txt');");
 
 			opentype05.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_opentype05_btn","MasterPage_MasterPageContent_opentype05_txt","S"));
-			opentype05.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype05_txt","OpenMIMJ01_20_opentype05","MasterPage_MasterPageContent_opentype05_txt,MasterPage_MasterPageContent_openitem05_txt")+ ";InitTriggerOpen();opentype_change();");
+			opentype05.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_opentype05_txt","OpenMIMJ01_20_opentype05","MasterPage_MasterPageContent_opentype05_txt,MasterPage_MasterPageContent_openitem05_txt")+";InitTriggerOpen();");
 			opentype05.TxtInput.Attributes.Add("onchange","FunOnChange_opentype05();InitTriggerOpen();AddtoHash('MasterPage_MasterPageContent_opentype05_txt');");
 
 			openitem05.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams_Fields("MasterPage_MasterPageContent_openitem05_btn","MasterPage_MasterPageContent_opentype05_txt","MasterPage_MasterPageContent_openitem05_txt","S"));
@@ -1291,6 +1272,19 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			empl2.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_empl2_txt","員工代號_empl2","MasterPage_MasterPageContent_empl2_txt"));
 			empl2.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_empl2_txt');");
 			
+			switch (tWindowOpenStyle){
+				case "2":
+					string tPara = "RESAL§06§" + this.UserInfo.DepartmentId + "§§§";
+					string tUrl = "../../_Common/EFDefOpen/F2MutipleFrame.aspx?open=DeptSingle&value=";
+					deptid.HtmImg.Attributes.Add("onclick", "if(!SingleSelectEmpl('" + tUrl + System.Web.HttpUtility.UrlEncode(tPara) + "','" + deptid.TxtInput.ClientID + "','部門代號_deptid')){return false;}");
+					break;
+				default:
+					deptid.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_deptid_btn","MasterPage_MasterPageContent_deptid_txt","S"));
+					break;
+			}
+			deptid.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_deptid_txt","部門代號_deptid","MasterPage_MasterPageContent_deptid_txt"));
+			deptid.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_deptid_txt');");
+
 			string strmoney01_DoMathScript_mtotal_onChange=string.Empty;
 			if(money01.TxtInput.Attributes["onchange"]!=null){strmoney01_DoMathScript_mtotal_onChange=money01.TxtInput.Attributes["onchange"].ToString().Trim(';');}
 			if(strmoney01_DoMathScript_mtotal_onChange.Length>0)
@@ -1388,6 +1382,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 				pMiMjManager.Add("openitem05_0", openitem05);
 				pMiMjManager.Add("empl1_0", empl1);
 				pMiMjManager.Add("empl2_0", empl2);
+				pMiMjManager.Add("deptid_0", deptid);
 
 			}
 
@@ -1415,8 +1410,8 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			defalutHash.Add("empl1", this.UserInfo.EmployeeId.ToString());
 			defalutHash.Add("empl2", ajaxGetSupervisorID());
 			defalutHash.Add("curr", "RMB");
-            defalutHash.Add("tax", "0");
-        }
+			defalutHash.Add("deptid", ajaxGetDepartmentId());
+		}
 
 		//草稿儲存後要將主旨清除
 		protected override void AfterCreateToolSaveForm()
@@ -2252,6 +2247,18 @@ order by resdd003 desc";
 			}
 			pAryCondValue[0, 7] = "SenderID";
 			pAryCondValue[1, 7] = tValue; 
+
+
+			tDbl=0;
+			try{
+				tDbl = double.Parse(this.deptid.Value.Trim());
+			}
+			catch(Exception e){
+				tDbl=0;
+			}
+			pAryCondValue[0, 8] = "DeptID";
+			pAryCondValue[1, 8] = tDbl; 
+			tDbl = 0;
 
 
 		}
