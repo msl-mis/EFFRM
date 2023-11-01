@@ -43,14 +43,14 @@
 </cc1:DscTextBox>
 
 <cc1:DscTextBox id='texdept' runat='server' title='部門' ShowTitle='False'
-	style="Z-INDEX:698; POSITION: absolute; LEFT: 117px; TOP: 77px;"
+	style="Z-INDEX:697; POSITION: absolute; LEFT: 111px; TOP: 66px;"
 	TxtInput_TabIndex='101'>
 	<FrmFieldKeys FrmID='FrmODMSYSMDFMVE01' BOID='ODMSYSMDFMVE01' FieldName='texdept'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='110px' Height='26px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscDateAssistant2 ID='datetime1' runat='server' Title='申請日期' ShowTitle='False'
-	style="POSITION: absolute; left: 354px; top: 77px; z-index: 696;" 
+	style="POSITION: absolute; left: 337px; top: 65px; z-index: 696;" 
 	TxtInput_TabIndex='102' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -58,7 +58,7 @@
 	<FrmFieldKeys FrmID='FrmODMSYSMDFMVE01' BOID='ODMSYSMDFMVE01' FieldName='datetime1'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
 <cc1:DscDateAssistant2 ID='datetime2' runat='server' Title='希望修改日期' ShowTitle='False'
-	style="POSITION: absolute; left: 623px; top: 77px; z-index: 694;" 
+	style="POSITION: absolute; left: 606px; top: 65px; z-index: 694;" 
 	TxtInput_TabIndex='103' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -66,35 +66,35 @@
 	<FrmFieldKeys FrmID='FrmODMSYSMDFMVE01' BOID='ODMSYSMDFMVE01' FieldName='datetime2'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
 <cc1:DscTextBox id='sysname' runat='server' title='系統名稱' ShowTitle='False'
-	style="Z-INDEX:699; POSITION: absolute; LEFT: 117px; TOP: 165px;"
+	style="Z-INDEX:699; POSITION: absolute; LEFT: 103px; TOP: 143px;"
 	TxtInput_TabIndex='104' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMSYSMDFMVE01' BOID='ODMSYSMDFMVE01' FieldName='sysname'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='170px' Height='47px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='pdname' runat='server' title='作業名稱及代號' ShowTitle='False'
-	style="Z-INDEX:695; POSITION: absolute; LEFT: 522px; TOP: 165px;"
+	style="Z-INDEX:695; POSITION: absolute; LEFT: 506px; TOP: 141px;"
 	TxtInput_TabIndex='105' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMSYSMDFMVE01' BOID='ODMSYSMDFMVE01' FieldName='pdname'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='200px' Height='48px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='content' runat='server' title='內容說明' ShowTitle='False'
-	style="Z-INDEX:700; POSITION: absolute; LEFT: 117px; TOP: 217px;"
+	style="Z-INDEX:700; POSITION: absolute; LEFT: 103px; TOP: 199px;"
 	TxtInput_TabIndex='106' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMSYSMDFMVE01' BOID='ODMSYSMDFMVE01' FieldName='content'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='610px' Height='425px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='600px' Height='330px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='rditem' runat='server' title='一般異動 Thay đổi thông thường' ShowTitle='False'
-	style="display:none;Z-INDEX:700; POSITION: absolute; LEFT: 130px; TOP: 124px;">
+	style="display:none;Z-INDEX:700; POSITION: absolute; LEFT: 114px; TOP: 107px;">
 	<FrmFieldKeys FrmID='FrmODMSYSMDFMVE01' BOID='ODMSYSMDFMVE01' FieldName='rditem'></FrmFieldKeys>
 </cc1:DscTextBox>
-<asp:RadioButton ID='rditem_ctrolRadio0' runat='server' GroupName='rditem' Text='' Value='0' style='position:absolute;top:124px;left:130px;z-index:700;'/>
-<asp:RadioButton ID='rditem_ctrolRadio1' runat='server' GroupName='rditem' Text='' Value='1' style='position:absolute;top:124px;left:369px;z-index:700;'/>
+<asp:RadioButton ID='rditem_ctrolRadio0' runat='server' GroupName='rditem' Text='' Value='0' style='position:absolute;top:107px;left:114px;z-index:700;'/>
+<asp:RadioButton ID='rditem_ctrolRadio1' runat='server' GroupName='rditem' Text='' Value='1' style='position:absolute;top:107px;left:286px;z-index:700;'/>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
-	<img src="Untitled2.png" id="Head01_file_1" runat="server" width="742" height="690" />
+	<img src="MIS.png" id="Head01_file_1" runat="server" width="735" height="690" />
 </div>
 
 						</div>
@@ -130,5 +130,5 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMSYSMDFMVE01.js?NoCache=202108311455" type="text/javascript"></script>
+<script src="ODMSYSMDFMVE01.js?NoCache=202207291705" type="text/javascript"></script>
 </asp:Content>

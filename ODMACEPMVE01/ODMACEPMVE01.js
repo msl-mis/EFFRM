@@ -23,9 +23,11 @@ function CustomerSaveCheck_Head(tStatus)
 		}
 
 		//Radio Button 驗証
-			if ($('#MasterPage_MasterPageContent_kind_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_kind_txt').value == '')
-			{
-				tErr += getI18NForSpecial('FD', 'ODMACEPMVE01', 'kind_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+			if ($('#MasterPage_MasterPageContent_kind_txt').attr('readonly') !== 'readonly'){
+				if ($('#MasterPage_MasterPageContent_kind_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_kind_txt').value == '')
+				{
+					tErr += getI18NForSpecial('FD', 'ODMACEPMVE01', 'kind_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
 			}
 
 	}
@@ -133,7 +135,8 @@ function InitOpenShowMSG(){
 }
 
 function InitTriggerMust(tStatus){
-	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""){
+	//2022/07/15;Folls;C01-20220715005;Radio及checkbox於簽核時無法實現觸發顯示欄位
+	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""|| tStatus=="APPROVE"){
 
 	}
 }

@@ -10,7 +10,7 @@
 			<div id="createRecord" style="WIDTH: 100%; HEIGHT: 100%" runat="server">
 				<cc1:DscPanel id="ecPnlMaster" runat="server" Width="98%" IniHTML='&#10;<div style="OVERFLOW: auto; WIDTH: 100%; POSITION: relative; HEIGHT: 100%" ms_positioning="GridLayout"></div>'
 					FrmDefineKeys-FrmType="Query" FrmDefineKeys-FrmID="FrmODMSCRPMVE01" FrmDefineKeys-BOID="ODMSCRPMVE01"
-					BorderStyle="None" BorderColor="Transparent" BorderWidth="0px" Height="643px">
+					BorderStyle="None" BorderColor="Transparent" BorderWidth="0px" Height="674px">
 					<!--單頭頁籤-->
 					<iewc:TabStrip id="TabStrip1" runat="server" 
 						TabDefaultStyle="background-image:url(../../_Common/AppUtil/Themes/images/Menu/Tbtn01.gif);" 
@@ -22,8 +22,8 @@
 					<!--單頭頁籤畫面集合-->
 
 					<!--單頭頁籤 一-->
-					<cc1:Dscpanel id='divheadDefault' style='DISPLAY: block' runat='server' Width='100%' Height='643px' BackColor='Transparent'>
-						<div class='TabPage' style='POSITION: relative; HEIGHT: 643px; left: 0px; top: 0px;' >
+					<cc1:Dscpanel id='divheadDefault' style='DISPLAY: block' runat='server' Width='100%' Height='674px' BackColor='Transparent'>
+						<div class='TabPage' style='POSITION: relative; HEIGHT: 674px; left: 0px; top: 0px;' >
 							<asp:ValidationSummary id='ValidationSummaryHead01' style='Z-INDEX: 100; POSITION: absolute; LEFT: 745px; TOP: 7px;' runat='server' ShowSummary='False' ShowMessageBox='True'></asp:ValidationSummary>
 							<!--此區間放入單頭頁籤 一 的各個dsc元件-->
 
@@ -42,8 +42,10 @@
 	<FRMFIELDKEYS FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='odmscrpmve01002'></FRMFIELDKEYS>
 </cc1:DscTextBox>
 
+<cc1:DscLabel ID='label1' runat='server' Style="z-index:692; position: absolute; left: 201px; top: 517px; vertical-align:middle;font-family:'標楷體';font-size:12pt;" Text='是 Có' Width='80px' Height='24px'></cc1:DscLabel>
+<cc1:DscLabel ID='label2' runat='server' Style="z-index:691; position: absolute; left: 298px; top: 518px; vertical-align:middle;font-family:'標楷體';font-size:12pt;" Text='否 Không' Width='90px' Height='22px'></cc1:DscLabel>
 <cc1:DscDateAssistant2 ID='usedate' runat='server' Title='申請日期' ShowTitle='False'
-	style="POSITION: absolute; left: 640px; top: 116px; z-index: 690;" 
+	style="POSITION: absolute; left: 682px; top: 116px; z-index: 687;" 
 	TxtInput_TabIndex='101' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -58,14 +60,14 @@
 	<InputStyle Width='140px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='username' runat='server' title='申請人' ShowTitle='False'
-	style="Z-INDEX:692; POSITION: absolute; LEFT: 462px; TOP: 162px;"
+	style="Z-INDEX:689; POSITION: absolute; LEFT: 462px; TOP: 162px;"
 	TxtInput_TabIndex='103'>
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='username'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='140px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscDateAssistant2 ID='buydate' runat='server' Title='購置日期' ShowTitle='False'
-	style="POSITION: absolute; left: 707px; top: 162px; z-index: 687;" 
+	style="POSITION: absolute; left: 707px; top: 162px; z-index: 683;" 
 	TxtInput_TabIndex='104' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -73,49 +75,49 @@
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='buydate'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
 <cc1:DscTextBox id='materialsno' runat='server' title='物料品號' ShowTitle='False'
-	style="Z-INDEX:697; POSITION: absolute; LEFT: 164px; TOP: 208px;"
+	style="Z-INDEX:696; POSITION: absolute; LEFT: 164px; TOP: 208px;"
 	TxtInput_TabIndex='105'>
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='materialsno'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='140px' Height='70px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='materialname' runat='server' title='物料名稱' ShowTitle='False'
-	style="Z-INDEX:693; POSITION: absolute; LEFT: 462px; TOP: 207px;"
+	style="Z-INDEX:690; POSITION: absolute; LEFT: 462px; TOP: 207px;"
 	TxtInput_TabIndex='106'>
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='materialname'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='140px' Height='70px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='location' runat='server' title='存放位置' ShowTitle='False'
-	style="Z-INDEX:689; POSITION: absolute; LEFT: 706px; TOP: 205px;"
+	style="Z-INDEX:686; POSITION: absolute; LEFT: 706px; TOP: 205px;"
 	TxtInput_TabIndex='107'>
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='location'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='117px' Height='70px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='materialspec' runat='server' title='物料規格' ShowTitle='False'
-	style="Z-INDEX:696; POSITION: absolute; LEFT: 164px; TOP: 290px;"
+	style="Z-INDEX:695; POSITION: absolute; LEFT: 164px; TOP: 290px;"
 	TxtInput_TabIndex='108' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='materialspec'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='180px' Height='70px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='scrpqty' runat='server' title='報廢數量' ShowTitle='False'
-	style="Z-INDEX:691; POSITION: absolute; LEFT: 513px; TOP: 310px;"
+	style="Z-INDEX:688; POSITION: absolute; LEFT: 513px; TOP: 310px;"
 	TxtInput_TabIndex='109'>
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='scrpqty'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='90px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='assprice' runat='server' title='資產價格' ShowTitle='False'
-	style="Z-INDEX:688; POSITION: absolute; LEFT: 706px; TOP: 311px;"
+	style="Z-INDEX:684; POSITION: absolute; LEFT: 706px; TOP: 311px;"
 	TxtInput_TabIndex='110'>
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='assprice'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='120px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='scrpreason' runat='server' title='報廢原因' ShowTitle='False'
-	style="Z-INDEX:695; POSITION: absolute; LEFT: 164px; TOP: 373px;"
+	style="Z-INDEX:697; POSITION: absolute; LEFT: 164px; TOP: 373px;"
 	TxtInput_TabIndex='111' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='scrpreason'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -140,22 +142,28 @@
 </cc1:DscTextBox>
 </div>
 <cc1:DscTextBox id='outprice' runat='server' title='外圍類資產價格' ShowTitle='False'
-	style="Z-INDEX:686; POSITION: absolute; LEFT: 707px; TOP: 311px;"
+	style="Z-INDEX:685; POSITION: absolute; LEFT: 706px; TOP: 311px;"
 	TxtInput_TabIndex='116'>
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='outprice'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='120px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
-<cc1:DscTextBox id='rditem' runat='server' title='材料類 NVL' ShowTitle='False'
-	style="display:none;Z-INDEX:686; POSITION: absolute; LEFT: 130px; TOP: 120px;">
+<cc1:DscTextBox id='rditem' runat='server' title='生產材料類 NVL SX' ShowTitle='False'
+	style="display:none;Z-INDEX:693; POSITION: absolute; LEFT: 72px; TOP: 111px;">
 	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='rditem'></FrmFieldKeys>
 </cc1:DscTextBox>
-<asp:RadioButton ID='rditem_ctrolRadio0' runat='server' GroupName='rditem' Text='' Value='0' style='position:absolute;top:120px;left:130px;z-index:686;'/>
-<asp:RadioButton ID='rditem_ctrolRadio1' runat='server' GroupName='rditem' Text='' Value='1' style='position:absolute;top:120px;left:233px;z-index:686;'/>
-<asp:RadioButton ID='rditem_ctrolRadio2' runat='server' GroupName='rditem' Text='' Value='2' style='position:absolute;top:120px;left:364px;z-index:686;'/>
+<asp:RadioButton ID='rditem_ctrolRadio0' runat='server' GroupName='rditem' Text='' Value='0' style='position:absolute;top:111px;left:72px;z-index:693;'/>
+<asp:RadioButton ID='rditem_ctrolRadio1' runat='server' GroupName='rditem' Text='' Value='1' style='position:absolute;top:111px;left:182px;z-index:693;'/>
+<asp:RadioButton ID='rditem_ctrolRadio2' runat='server' GroupName='rditem' Text='' Value='2' style='position:absolute;top:111px;left:302px;z-index:693;'/>
+<cc1:DscTextBox id='rdtrans' runat='server' title='是 Có' ShowTitle='False'
+	style="display:none;Z-INDEX:693; POSITION: absolute; LEFT: 179px; TOP: 518px;">
+	<FrmFieldKeys FrmID='FrmODMSCRPMVE01' BOID='ODMSCRPMVE01' FieldName='rdtrans'></FrmFieldKeys>
+</cc1:DscTextBox>
+<asp:RadioButton ID='rdtrans_ctrolRadio0' runat='server' GroupName='rdtrans' Text='' Value='0' style='position:absolute;top:518px;left:179px;z-index:693;'/>
+<asp:RadioButton ID='rdtrans_ctrolRadio1' runat='server' GroupName='rdtrans' Text='' Value='1' style='position:absolute;top:520px;left:279px;z-index:693;'/>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
-	<img src="ODMSCRPMVE01.png" id="Head01_file_1" runat="server" width="866" height="608" />
+	<img src="ODMSCRPMVE02.png" id="Head01_file_1" runat="server" width="866" height="639" />
 </div>
 
 						</div>
@@ -191,5 +199,5 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMSCRPMVE01.js?NoCache=202108311455" type="text/javascript"></script>
+<script src="ODMSCRPMVE01.js?NoCache=202207291705" type="text/javascript"></script>
 </asp:Content>

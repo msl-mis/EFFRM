@@ -57,6 +57,13 @@ function CustomerSaveCheck_Head(tStatus)
 		}
 }
 
+		//Radio Button 驗証
+			if ($('#MasterPage_MasterPageContent_rditem_txt').attr('readonly') !== 'readonly'){
+				if ($('#MasterPage_MasterPageContent_rditem_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_rditem_txt').value == '')
+				{
+					tErr += getI18NForSpecial('FD', 'ODMSCRPCN01', 'rditem_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+			}
 
 	}
 	else if (tStatus == "APPROVE")
@@ -77,8 +84,18 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tasspriceValue=tasspriceValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_assprice_txt').val(parseFloat(tasspriceValue).toFixed(2));
+				$('#MasterPage_MasterPageContent_assprice_txt').val(Math.round(parseFloat(tasspriceValue)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
+		}
+	}
+
+	//不允許空白驗證
+	var tbuydate = $('#MasterPage_MasterPageContent_buydate_txt');
+	if(tbuydate.length>0){
+		var tbuydateValue = $('#MasterPage_MasterPageContent_buydate_txt').val().trim();
+		if (tbuydateValue.length==0){
+			//欄位不允許空白 !
+			tErr += '「' + getI18NForSpecial('FD', 'ODMSCRPCN01', 'buydate', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFieldNotFilledMsg + '\r\n';
 		}
 	}
 
@@ -103,7 +120,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				toutpriceValue=toutpriceValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_outprice_txt').val(parseFloat(toutpriceValue).toFixed(2));
+				$('#MasterPage_MasterPageContent_outprice_txt').val(Math.round(parseFloat(toutpriceValue)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -140,7 +157,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tasspriceValue=tasspriceValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_assprice_txt').val(parseFloat(tasspriceValue).toFixed(2));
+				$('#MasterPage_MasterPageContent_assprice_txt').val(Math.round(parseFloat(tasspriceValue)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -156,7 +173,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				toutpriceValue=toutpriceValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_outprice_txt').val(parseFloat(toutpriceValue).toFixed(2));
+				$('#MasterPage_MasterPageContent_outprice_txt').val(Math.round(parseFloat(toutpriceValue)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -237,7 +254,8 @@ function InitOpenShowMSG(){
 }
 
 function InitTriggerMust(tStatus){
-	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""){
+	//2022/07/15;Folls;C01-20220715005;Radio及checkbox於簽核時無法實現觸發顯示欄位
+	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""|| tStatus=="APPROVE"){
 		if($("#MasterPage_MasterPageContent_rditem_ctrolRadio1").length>0){
 			if($("#MasterPage_MasterPageContent_rditem_ctrolRadio1")[0].checked){
 				$("#MasterPage_MasterPageContent_assprice").show();

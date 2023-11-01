@@ -29,7 +29,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tasspriceValue=tasspriceValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_assprice_txt').val(parseFloat(tasspriceValue).toFixed(2));
+				$('#MasterPage_MasterPageContent_assprice_txt').val(Math.round(parseFloat(tasspriceValue)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -76,7 +76,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tasspriceValue=tasspriceValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_assprice_txt').val(parseFloat(tasspriceValue).toFixed(2));
+				$('#MasterPage_MasterPageContent_assprice_txt').val(Math.round(parseFloat(tasspriceValue)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -157,7 +157,8 @@ function InitOpenShowMSG(){
 }
 
 function InitTriggerMust(tStatus){
-	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""){
+	//2022/07/15;Folls;C01-20220715005;Radio及checkbox於簽核時無法實現觸發顯示欄位
+	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""|| tStatus=="APPROVE"){
 		if($("#MasterPage_MasterPageContent_rditem_ctrolRadio1").length>0){
 			if($("#MasterPage_MasterPageContent_rditem_ctrolRadio1")[0].checked){
 				$("#MasterPage_MasterPageContent_assprice").show();

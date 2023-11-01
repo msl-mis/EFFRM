@@ -111,6 +111,8 @@ namespace tw.com.dsc.easyflowDotNet.forms
 				this.TabStrip1.Items[0].Text = tHeadTabStrip01Text;
 			}
 
+			this.label1.Text = MultiLanguage.GetComment("FD", "ODMSCRPMVE01", "label1", tLanguageType);
+			this.label2.Text = MultiLanguage.GetComment("FD", "ODMSCRPMVE01", "label2", tLanguageType);
 			this.usedate.Title = MultiLanguage.GetComment("FD", "ODMSCRPMVE01", "usedate", tLanguageType);
 			this.dept.Title = MultiLanguage.GetComment("FD", "ODMSCRPMVE01", "dept", tLanguageType);
 			this.username.Title = MultiLanguage.GetComment("FD", "ODMSCRPMVE01", "username", tLanguageType);
@@ -184,6 +186,9 @@ this.scrpreason.ToolTip = this.scrpreason.Text;
 			rditem_ctrolRadio0.Checked = (rditem.Value == "0"); rditem_ctrolRadio0.Enabled = rditem.InputEnabled;
 			rditem_ctrolRadio1.Checked = (rditem.Value == "1"); rditem_ctrolRadio1.Enabled = rditem.InputEnabled;
 			rditem_ctrolRadio2.Checked = (rditem.Value == "2"); rditem_ctrolRadio2.Enabled = rditem.InputEnabled;
+			rdtrans.Attributes["style"] = "display:none;";
+			rdtrans_ctrolRadio0.Checked = (rdtrans.Value == "0"); rdtrans_ctrolRadio0.Enabled = rdtrans.InputEnabled;
+			rdtrans_ctrolRadio1.Checked = (rdtrans.Value == "1"); rdtrans_ctrolRadio1.Enabled = rdtrans.InputEnabled;
 
 
 			//單頭RadioButton控制項 end
@@ -227,7 +232,8 @@ this.scrpreason.ToolTip = this.scrpreason.Text;
 				//傳送
 				string tParentScript = base.BtnCreateToolSendForm.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("SetCustomSubject()")<0){
-					tParentScript = tParentScript.Replace("if (!checkSubjectField())", "SetCustomSubject();if (!checkSubjectField())");
+					tParentScript = tParentScript.Replace("if (!checkSubjectField()) {event.returnValue = false;return false; };", "");
+					tParentScript = tParentScript.Replace("ShowProgressBar", "SetCustomSubject(); if (!checkSubjectField()) {event.returnValue = false;return false; };ShowProgressBar");
 					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
 					base.BtnCreateToolSendForm.Attributes.Add("onclick", tParentScript);
 				}
@@ -1145,6 +1151,8 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 this.rditem_ctrolRadio0.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_rditem_txt').value = '0';");
 this.rditem_ctrolRadio1.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_rditem_txt').value = '1';");
 this.rditem_ctrolRadio2.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_rditem_txt').value = '2';");
+this.rdtrans_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_rdtrans_txt').value = '0';");
+this.rdtrans_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_rdtrans_txt').value = '1';");
 		}//settingClientFunction結尾
 
 		/// <summary>
@@ -1170,6 +1178,7 @@ this.rditem_ctrolRadio2.Attributes.Add("onclick", "InitTriggerMust('" + base.For
 		#region SetDefaultValue , 設定表單欄位的初始值
 		protected override void SetDefaultValue(Hashtable defalutHash)
 		{
+			defalutHash.Add("rdtrans", "1");
 			defalutHash.Add("odmscrpmve01001", this.formID);
 			defalutHash.Add("odmscrpmve01002", this.SheetNo);
 			defalutHash.Add("usedate", DateTime.Now.ToString("yyyyMMdd"));
@@ -1978,6 +1987,31 @@ order by resdd003 desc";
 			pAryCondValue[0, 4] = "outprice";
 			pAryCondValue[1, 4] = tDbl; 
 			tDbl = 0;
+
+
+			tDbl=0;
+			try{
+				tDbl = double.Parse(this.rdtrans.Value.Trim());
+			}
+			catch(Exception e){
+				tDbl=0;
+			}
+			pAryCondValue[0, 5] = "rdtrans";
+			pAryCondValue[1, 5] = tDbl; 
+			tDbl = 0;
+
+
+			tValue="";
+			try{
+				tTemp = this.UserInfo.EmployeeId.ToString().Trim();
+tTemp = objRE.FindEmplDeptID(tTemp, Session["strProcID"].ToString());
+tValue = objRE.FindDeptName(tTemp, Session["strProcID"].ToString());
+			}
+			catch(Exception e){
+				tValue="";
+			}
+			pAryCondValue[0, 6] = "dept";
+			pAryCondValue[1, 6] = tValue; 
 
 
 		}
