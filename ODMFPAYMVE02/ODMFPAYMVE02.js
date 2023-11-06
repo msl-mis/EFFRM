@@ -899,7 +899,8 @@ function SetCustomSubject()
 	var tSubjectVal='';
 	var tSubjectTxt=document.getElementById("MasterPage_txtCreateToolSubject_txt").value;
 	var tSubjectSelf='';
-	tSubjectSelf+='MVE一般請款單V2-';
+	tSubjectSelf += 'MVE一般請款單V2-'+
+	$('#MasterPage_MasterPageContent_payee_txt').val();
 
 	//自訂主旨+標準主旨
 	tSubjectVal=tSubjectSelf+tSubjectTxt;

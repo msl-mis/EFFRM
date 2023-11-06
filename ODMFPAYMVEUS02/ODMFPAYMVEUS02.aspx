@@ -384,5 +384,5 @@
 	 <script src="../../_Common/OEM/JS/OEMSetControl.js"></script>
     <!--三位一撇--20230424 Peggy-->
 	<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
-<script src="ODMFPAYMVEUS02.js?NoCache=20230427004" type="text/javascript"></script>
+<script src="ODMFPAYMVEUS02.js?NoCache=20231106007" type="text/javascript"></script>
 </asp:Content>
