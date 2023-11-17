@@ -161,6 +161,7 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.tax.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "tax", tLanguageType);
 			this.deptid.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "deptid", tLanguageType);
 
+
             #region 三位一撇
             //^_^ 20230411 Peggy 
             //三位一撇
@@ -177,8 +178,8 @@ namespace tw.com.dsc.easyflowDotNet.forms
 
 			#region 增加初始設定
 			ScriptManager.RegisterStartupScript(this, typeof(string), "InitTriggerMust", "InitTriggerMust('" + base.FormStatus.ToString() + "');", true);
-ScriptManager.RegisterStartupScript(this, typeof(string), "InitTriggerOpen", "InitTriggerOpen();", true);
-ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "InitCalculated();", true);
+			ScriptManager.RegisterStartupScript(this, typeof(string), "InitTriggerOpen", "InitTriggerOpen();", true);
+			ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "InitCalculated();", true);
 			#endregion 增加初始設定
 		}
 		#endregion
@@ -211,10 +212,10 @@ ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "Ini
 			
 			if(strToolTipParameter=="Y"){
 				this.textarea1.ToolTip = this.textarea1.Text;
-this.textarea2.ToolTip = this.textarea2.Text;
-this.textarea3.ToolTip = this.textarea3.Text;
-this.textarea4.ToolTip = this.textarea4.Text;
-this.textarea5.ToolTip = this.textarea5.Text;
+				this.textarea2.ToolTip = this.textarea2.Text;
+				this.textarea3.ToolTip = this.textarea3.Text;
+				this.textarea4.ToolTip = this.textarea4.Text;
+				this.textarea5.ToolTip = this.textarea5.Text;
 
 			}
 
@@ -235,22 +236,20 @@ this.textarea5.ToolTip = this.textarea5.Text;
 			kind_ctrolRadio0.Checked = (kind.Value == "0"); kind_ctrolRadio0.Enabled = kind.InputEnabled;
 			kind_ctrolRadio1.Checked = (kind.Value == "1"); kind_ctrolRadio1.Enabled = kind.InputEnabled;
 			kind_ctrolRadio2.Checked = (kind.Value == "2"); kind_ctrolRadio2.Enabled = kind.InputEnabled;
-			safe.Attributes["style"] = "display:none;";
-			safe_ctrolRadio0.Checked = (safe.Value == "3"); safe_ctrolRadio0.Enabled = safe.InputEnabled;
 
 
 			//單頭RadioButton控制項 end
 
-this.chkitem01.Text = String.Empty;
-this.chkitem02.Text = String.Empty;
-this.chkitem03.Text = String.Empty;
-this.chkitem04.Text = String.Empty;
-this.chkitem05.Text = String.Empty;
-this.chkatt01.Text = String.Empty;
-this.chkatt02.Text = String.Empty;
-this.chkatt04.Text = String.Empty;
-this.chkatt05.Text = String.Empty;
-this.other.Text = String.Empty;
+			this.chkitem01.Text = String.Empty;
+			this.chkitem02.Text = String.Empty;
+			this.chkitem03.Text = String.Empty;
+			this.chkitem04.Text = String.Empty;
+			this.chkitem05.Text = String.Empty;
+			this.chkatt01.Text = String.Empty;
+			this.chkatt02.Text = String.Empty;
+			this.chkatt04.Text = String.Empty;
+			this.chkatt05.Text = String.Empty;
+			this.other.Text = String.Empty;
 
 
 			mtotal.InputEnabled = false;//設定為欄位計算，預設唯讀
@@ -1348,6 +1347,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 
             //20230423 Peggy 註冊在js建的規則, 於chkitem02
             this.chkitem02.Attributes.Add("onclick", ";openRadio();");
+            //this.chkitem02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem02_chk')[0].checked){{$('#MasterPage_MasterPageContent_itemname').show();}} else{{$('#MasterPage_MasterPageContent_itemname').hide();}} ");
             this.chkitem05.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem05_chk')[0].checked){{$('#MasterPage_MasterPageContent_chkother').show();}} else{{$('#MasterPage_MasterPageContent_chkother').hide();}} ");
 			this.chkatt01.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt01_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv01').show();}} else{{$('#MasterPage_MasterPageContent_inv01').hide();}} ");
 			this.chkatt02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt02_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv02').show();}} else{{$('#MasterPage_MasterPageContent_inv02').hide();}} ");
@@ -1360,7 +1360,6 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			this.kind_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '0';");
 			this.kind_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '1';");
 			this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '2';");
-			this.safe_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_safe_txt').value = '3';");
 		}//settingClientFunction結尾
 
 		/// <summary>
@@ -2259,18 +2258,6 @@ order by resdd003 desc";
 			}
 			pAryCondValue[0, 8] = "DeptID";
 			pAryCondValue[1, 8] = tDbl; 
-			tDbl = 0;
-
-
-			tDbl=0;
-			try{
-				tDbl = double.Parse(this.safe.Value.Trim());
-			}
-			catch(Exception e){
-				tDbl=0;
-			}
-			pAryCondValue[0, 9] = "safe";
-			pAryCondValue[1, 9] = tDbl; 
 			tDbl = 0;
 
 
