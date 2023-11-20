@@ -45,7 +45,7 @@
 <cc1:DscLabel ID='lblcn' runat='server' Style="z-index:677; position: absolute; left: 277px; top: 205px; vertical-align:middle;font-family:'Arial';font-size:12pt;font-weight:bold;" Text='冠志廠' Width='59px' Height='23px'></cc1:DscLabel>
 <cc1:DscLabel ID='lblvn' runat='server' Style="z-index:672; position: absolute; left: 363px; top: 205px; vertical-align:middle;font-family:'Arial';font-size:12pt;font-weight:bold;" Text='越南廠' Width='56px' Height='25px'></cc1:DscLabel>
 <cc1:DscDateAssistant2 ID='datetime1' runat='server' Title='日期' ShowTitle='False'
-	style="POSITION: absolute; left: 513px; top: 73px; z-index: 658;" 
+	style="POSITION: absolute; left: 513px; top: 73px; z-index: 657;" 
 	TxtInput_TabIndex='101' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -60,7 +60,7 @@
 	<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='username' runat='server' title='請款人' ShowTitle='False'
-	style="Z-INDEX:674; POSITION: absolute; LEFT: 320px; TOP: 106px;"
+	style="Z-INDEX:673; POSITION: absolute; LEFT: 320px; TOP: 106px;"
 	TxtInput_TabIndex='102'>
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='username'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -363,7 +363,7 @@
 	<InputStyle Width='106px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscDropDownList ID='curr' runat='server' Title='幣別' ShowTitle='False'
-	Style="z-index:659; position: absolute; left: 513px; top: 572px;"
+	Style="z-index:658; position: absolute; left: 513px; top: 572px;"
 	DDLInput_TabIndex='148'>
 	<Items>
 		<asp:ListItem Selected='True' Value='RMB'>RMB</asp:ListItem>
@@ -391,7 +391,7 @@
 </cc1:DscTextBox>
 <div style="display:none;">
 <cc1:DscOpenQuery id='deptid' runat='server' title='DeptID' ShowTitle='False'
-	style="Z-INDEX: 657; POSITION: absolute; LEFT: 513px; TOP: 42px;"
+	style="Z-INDEX: 659; POSITION: absolute; LEFT: 513px; TOP: 42px;"
 	TxtInput_TabIndex='161' TextMode='SingleLine'
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/data.gif'
 	ReturnVisible='True'>
@@ -399,35 +399,33 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='deptid'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 </div>
-<div style="display:none;">
-<cc1:DscCheckBox ID='chksafe' runat='server' Text='chk安規費' ShowTitle='False'
-	Style="z-index:673; position: absolute; left: 343px; top: 75px;"
-	CheckBoxInput_TabIndex='201'
-	Checked='False' CheckedTrueValue='1' CheckedFalseValue='0'>
-	<InputStyle Width='23px' Height='24px' />
-	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='chksafe'></FrmFieldKeys>
-</cc1:DscCheckBox>
-</div>
 <cc1:DscTextBox id='chkven' runat='server' title='冠志廠' ShowTitle='False'
-	style="display:none;Z-INDEX:673; POSITION: absolute; LEFT: 258px; TOP: 206px;">
+	style="display:none;Z-INDEX:674; POSITION: absolute; LEFT: 258px; TOP: 206px;">
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='chkven'></FrmFieldKeys>
 </cc1:DscTextBox>
-<asp:RadioButton ID='chkven_ctrolRadio0' runat='server' GroupName='chkven' Text='' Value='0' style='position:absolute;top:206px;left:258px;z-index:673;'/>
-<asp:RadioButton ID='chkven_ctrolRadio1' runat='server' GroupName='chkven' Text='' Value='1' style='position:absolute;top:206px;left:345px;z-index:673;'/>
+<asp:RadioButton ID='chkven_ctrolRadio0' runat='server' GroupName='chkven' Text='' Value='0' style='position:absolute;top:206px;left:258px;z-index:674;'/>
+<asp:RadioButton ID='chkven_ctrolRadio1' runat='server' GroupName='chkven' Text='' Value='1' style='position:absolute;top:206px;left:345px;z-index:674;'/>
 <cc1:DscTextBox id='chpay' runat='server' title='現金支付' ShowTitle='False'
-	style="display:none;Z-INDEX:673; POSITION: absolute; LEFT: 95px; TOP: 176px;">
+	style="display:none;Z-INDEX:674; POSITION: absolute; LEFT: 95px; TOP: 176px;">
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='chpay'></FrmFieldKeys>
 </cc1:DscTextBox>
-<asp:RadioButton ID='chpay_ctrolRadio0' runat='server' GroupName='chpay' Text='' Value='0' style='position:absolute;top:176px;left:95px;z-index:673;'/>
-<asp:RadioButton ID='chpay_ctrolRadio1' runat='server' GroupName='chpay' Text='' Value='1' style='position:absolute;top:176px;left:165px;z-index:673;'/>
-<asp:RadioButton ID='chpay_ctrolRadio2' runat='server' GroupName='chpay' Text='' Value='2' style='position:absolute;top:176px;left:232px;z-index:673;'/>
+<asp:RadioButton ID='chpay_ctrolRadio0' runat='server' GroupName='chpay' Text='' Value='0' style='position:absolute;top:176px;left:95px;z-index:674;'/>
+<asp:RadioButton ID='chpay_ctrolRadio1' runat='server' GroupName='chpay' Text='' Value='1' style='position:absolute;top:176px;left:165px;z-index:674;'/>
+<asp:RadioButton ID='chpay_ctrolRadio2' runat='server' GroupName='chpay' Text='' Value='2' style='position:absolute;top:176px;left:232px;z-index:674;'/>
 <cc1:DscTextBox id='kind' runat='server' title='一般類別' ShowTitle='False'
-	style="display:none;Z-INDEX:673; POSITION: absolute; LEFT: 105px; TOP: 77px;">
+	style="display:none;Z-INDEX:674; POSITION: absolute; LEFT: 105px; TOP: 77px;">
 	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='kind'></FrmFieldKeys>
 </cc1:DscTextBox>
-<asp:RadioButton ID='kind_ctrolRadio0' runat='server' GroupName='kind' Text='' Value='0' style='position:absolute;top:77px;left:105px;z-index:673;'/>
-<asp:RadioButton ID='kind_ctrolRadio1' runat='server' GroupName='kind' Text='' Value='1' style='position:absolute;top:78px;left:170px;z-index:673;'/>
-<asp:RadioButton ID='kind_ctrolRadio2' runat='server' GroupName='kind' Text='' Value='2' style='position:absolute;top:78px;left:233px;z-index:673;'/>
+<asp:RadioButton ID='kind_ctrolRadio0' runat='server' GroupName='kind' Text='' Value='0' style='position:absolute;top:77px;left:105px;z-index:674;'/>
+<asp:RadioButton ID='kind_ctrolRadio1' runat='server' GroupName='kind' Text='' Value='1' style='position:absolute;top:78px;left:170px;z-index:674;'/>
+<asp:RadioButton ID='kind_ctrolRadio2' runat='server' GroupName='kind' Text='' Value='2' style='position:absolute;top:78px;left:233px;z-index:674; right: 901px;'/>
+<div style="display:none;">
+<cc1:DscTextBox id='safe' runat='server' title='安規' ShowTitle='False'
+	style="display:none;Z-INDEX:674; POSITION: absolute; LEFT: 323px; TOP: 78px;">
+	<FrmFieldKeys FrmID='FrmODMFPAYCN02' BOID='ODMFPAYCN02' FieldName='safe'></FrmFieldKeys>
+</cc1:DscTextBox>
+<asp:RadioButton ID='safe_ctrolRadio0' runat='server' GroupName='safe' Text='' Value='3' style='position:absolute;top:78px;left:323px;z-index:674;'/>
+</div>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
 	<img src="ODMFPAYCNV2.png" id="Head01_file_1" runat="server" width="719" height="715" />
@@ -471,5 +469,5 @@
     <!--三位一撇--20230424 Peggy-->
 	<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
 
-<script src="ODMFPAYCN02.js?NoCache=20231120001" type="text/javascript"></script>
+<script src="ODMFPAYCN02.js?NoCache=20231117003" type="text/javascript"></script>
 </asp:Content>

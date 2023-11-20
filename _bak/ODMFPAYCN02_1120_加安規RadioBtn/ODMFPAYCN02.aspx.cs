@@ -160,8 +160,6 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.useyear.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "useyear", tLanguageType);
 			this.tax.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "tax", tLanguageType);
 			this.deptid.Title = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "deptid", tLanguageType);
-			this.chksafe.Text = MultiLanguage.GetComment("FD", "ODMFPAYCN02", "chksafe", tLanguageType);
-
 
             #region 三位一撇
             //^_^ 20230411 Peggy 
@@ -237,6 +235,8 @@ this.textarea5.ToolTip = this.textarea5.Text;
 			kind_ctrolRadio0.Checked = (kind.Value == "0"); kind_ctrolRadio0.Enabled = kind.InputEnabled;
 			kind_ctrolRadio1.Checked = (kind.Value == "1"); kind_ctrolRadio1.Enabled = kind.InputEnabled;
 			kind_ctrolRadio2.Checked = (kind.Value == "2"); kind_ctrolRadio2.Enabled = kind.InputEnabled;
+			safe.Attributes["style"] = "display:none;";
+			safe_ctrolRadio0.Checked = (safe.Value == "3"); safe_ctrolRadio0.Enabled = safe.InputEnabled;
 
 
 			//單頭RadioButton控制項 end
@@ -251,7 +251,6 @@ this.chkatt02.Text = String.Empty;
 this.chkatt04.Text = String.Empty;
 this.chkatt05.Text = String.Empty;
 this.other.Text = String.Empty;
-this.chksafe.Text = String.Empty;
 
 
 			mtotal.InputEnabled = false;//設定為欄位計算，預設唯讀
@@ -1361,7 +1360,8 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			this.kind_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '0';");
 			this.kind_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '1';");
 			this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '2';");
-					}//settingClientFunction結尾
+			this.safe_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_safe_txt').value = '3';");
+		}//settingClientFunction結尾
 
 		/// <summary>
 		/// %%必填%%
@@ -2264,12 +2264,12 @@ order by resdd003 desc";
 
 			tDbl=0;
 			try{
-				tDbl = double.Parse(this.chksafe.Value.Trim());
+				tDbl = double.Parse(this.safe.Value.Trim());
 			}
 			catch(Exception e){
 				tDbl=0;
 			}
-			pAryCondValue[0, 9] = "chksafe";
+			pAryCondValue[0, 9] = "safe";
 			pAryCondValue[1, 9] = tDbl; 
 			tDbl = 0;
 
