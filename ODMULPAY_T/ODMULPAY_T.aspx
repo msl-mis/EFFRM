@@ -41,17 +41,16 @@
 	<TITLESTYLE Width='110px'></TITLESTYLE>
 	<FRMFIELDKEYS FrmID='FrmODMULPAY_T' BOID='ODMULPAY_T' FieldName='odmulpay_t002'></FRMFIELDKEYS>
 </cc1:DscTextBox>
-<cc1:DscLabel ID='lblkind' runat='server' Style="z-index:688; position: absolute; left: 30px; top: 69px; vertical-align:middle;font-family:'微軟正黑體';font-size:12pt;font-weight:bold; width: 44px;" Text='類別:' Height='22px'></cc1:DscLabel>
+
 <cc1:DscLabel ID='label2' runat='server' Style="z-index:688; position: absolute; left: 101px; top: 69px; vertical-align:middle;font-family:'微軟正黑體';font-size:12pt;font-weight:bold;" Text='安規費用' Width='76px' Height='22px'></cc1:DscLabel>
 <cc1:DscLabel ID='label3' runat='server' Style="z-index:679; position: absolute; left: 211px; top: 69px; vertical-align:middle;font-family:'微軟正黑體';font-size:12pt;font-weight:bold;" Text='工廠材料採購' Width='100px' Height='22px'></cc1:DscLabel>
 <cc1:DscLabel ID='label4' runat='server' Style="z-index:672; position: absolute; left: 337px; top: 69px; vertical-align:middle;font-family:'Arial';font-size:12pt;font-weight:bold;" Text='工廠其他費用' Width='100px' Height='22px'></cc1:DscLabel>
-<cc1:DscLabel ID='lbldate' runat='server' Style="z-index:688; position: absolute; left: 510px; top: 69px; vertical-align:middle;font-family:'微軟正黑體';font-size:12pt;font-weight:bold; width: 77px;" Text='申請日期:' Height='22px'></cc1:DscLabel>
 <cc1:DscDateAssistant2 ID='datetime1' runat='server' Title='datetime1' ShowTitle='False'
 	style="POSITION: absolute; left: 579px; top: 64px; z-index: 655;" 
 	TxtInput_TabIndex='101' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
-	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>	
-   <InputStyle Width='103px' Height='23px' CssClass='Edit20' />
+	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
+	<InputStyle Width='103px' Height='23px' CssClass='Edit20' />
 	<FrmFieldKeys FrmID='FrmODMULPAY_T' BOID='ODMULPAY_T' FieldName='datetime1'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
 <cc1:DscTextBox id='dept' runat='server' title='部門' ShowTitle='False'
@@ -291,7 +290,7 @@
 	<InputStyle Width='18px' Height='22px' />
 	<FrmFieldKeys FrmID='FrmODMULPAY_T' BOID='ODMULPAY_T' FieldName='chkadd02'></FrmFieldKeys>
 </cc1:DscCheckBox>
-<cc1:DscTextBox id='textarea2' runat='server' title='內容01' ShowTitle='False'
+<cc1:DscTextBox id='textarea2' runat='server' title='內容02' ShowTitle='False'
 	style="Z-INDEX:696; POSITION: absolute; LEFT: 74px; TOP: 328px;"
 	TxtInput_TabIndex='156' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMULPAY_T' BOID='ODMULPAY_T' FieldName='textarea2'></FrmFieldKeys>
@@ -405,6 +404,7 @@
 	<FrmFieldKeys FrmID='FrmODMULPAY_T' BOID='ODMULPAY_T' FieldName='curr'></FrmFieldKeys>
 	<CommentList F0001='Combo' F0002='ODMULPAY_T_curr' />
 </cc1:DscDropDownList>
+<div style="display:none;">
 <cc1:DscTextBox id='kind' runat='server' title='安規費用' ShowTitle='False'
 	style="display:none;Z-INDEX:658; POSITION: absolute; LEFT: 80px; TOP: 71px;">
 	<FrmFieldKeys FrmID='FrmODMULPAY_T' BOID='ODMULPAY_T' FieldName='kind'></FrmFieldKeys>
@@ -412,6 +412,7 @@
 <asp:RadioButton ID='kind_ctrolRadio0' runat='server' GroupName='kind' Text='' Value='0' style='position:absolute;top:71px;left:80px;z-index:658;'/>
 <asp:RadioButton ID='kind_ctrolRadio1' runat='server' GroupName='kind' Text='' Value='1' style='position:absolute;top:70px;left:189px;z-index:658;'/>
 <asp:RadioButton ID='kind_ctrolRadio2' runat='server' GroupName='kind' Text='' Value='2' style='position:absolute;top:70px;left:313px;z-index:658;'/>
+</div>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
 	<img src="msl請款V2.png" id="Head01_file_1" runat="server" width="748" height="690" />
@@ -450,5 +451,5 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMULPAY_T.js?NoCache=20231030001" type="text/javascript"></script>
+<script src="ODMULPAY_T.js?NoCache=20231121003" type="text/javascript"></script>
 </asp:Content>

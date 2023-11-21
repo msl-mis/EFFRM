@@ -2107,6 +2107,18 @@ order by resdd003 desc";
 			string tTemp = string.Empty;
 			double tDbl = 0;
 		
+			tDbl=0;
+			try{
+				tDbl = double.Parse(this.kind.Value.Trim());
+			}
+			catch(Exception e){
+				tDbl=0;
+			}
+			pAryCondValue[0, 0] = "kind";
+			pAryCondValue[1, 0] = tDbl; 
+			tDbl = 0;
+
+
 		}
 		#endregion
 

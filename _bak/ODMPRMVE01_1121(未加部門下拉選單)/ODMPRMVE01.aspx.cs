@@ -128,9 +128,6 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.money03.Title = MultiLanguage.GetComment("FD", "ODMPRMVE01", "money03", tLanguageType);
 			this.totomoney.Title = MultiLanguage.GetComment("FD", "ODMPRMVE01", "totomoney", tLanguageType);
 			this.username.Title = MultiLanguage.GetComment("FD", "ODMPRMVE01", "username", tLanguageType);
-			this.select01.Title = MultiLanguage.GetComment("FD", "ODMPRMVE01", "select01", tLanguageType);
-			this.select02.Title = MultiLanguage.GetComment("FD", "ODMPRMVE01", "select02", tLanguageType);
-			this.select03.Title = MultiLanguage.GetComment("FD", "ODMPRMVE01", "select03", tLanguageType);
 
 
 			#region 自訂排序
@@ -196,32 +193,24 @@ this.contact03.ToolTip = this.contact03.Text;
 			//單頭底圖顯示設定
 			#region ================ 表單底圖判斷顯示時機 ================
 			Head01_file_1.Visible = false;
-Head01_file_2.Visible = false;
-Head01_file_3.Visible = false;
 
 			switch (base.FormStatus)
 			{
 				case EFFormStatus.CREATE: //填單
 					{
 						Head01_file_1.Visible = true;
-Head01_file_2.Visible = true;
-Head01_file_3.Visible = true;
 
 					}
 					break;
 				case EFFormStatus.APPROVE: //簽核
 					{
 						Head01_file_1.Visible = true;
-Head01_file_2.Visible = true;
-Head01_file_3.Visible = true;
 
 					}
 					break;
 				case EFFormStatus.DISPLAY: //原稿
 					{
 						Head01_file_1.Visible = true;
-Head01_file_2.Visible = true;
-Head01_file_3.Visible = true;
 
 					}
 					break;
@@ -235,8 +224,7 @@ Head01_file_3.Visible = true;
 				//傳送
 				string tParentScript = base.BtnCreateToolSendForm.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("SetCustomSubject()")<0){
-					tParentScript = tParentScript.Replace("if (!checkSubjectField()) {event.returnValue = false;return false; };", "");
-					tParentScript = tParentScript.Replace("ShowProgressBar", "SetCustomSubject(); if (!checkSubjectField()) {event.returnValue = false;return false; };ShowProgressBar");
+					tParentScript = tParentScript.Replace("if (!checkSubjectField())", "SetCustomSubject();if (!checkSubjectField())");
 					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
 					base.BtnCreateToolSendForm.Attributes.Add("onclick", tParentScript);
 				}
@@ -281,173 +269,7 @@ Head01_file_3.Visible = true;
 
 
 			#region 自訂下拉選項
-			#region 單頭頁籤Head01-select01下拉選項
-			if(!IsPostBack)
-			{
-				this.select01.Items.Clear();//清空所有選項
-				this.select01.Items.Insert(0, new ListItem("", ""));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "01省政府",this.UserInfo.Language.ToString().Trim()), "01省政府"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "02海關局",this.UserInfo.Language.ToString().Trim()), "02海關局"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "03南定省勞動局",this.UserInfo.Language.ToString().Trim()), "03南定省勞動局"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "04南定省稅務局",this.UserInfo.Language.ToString().Trim()), "04南定省稅務局"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "05南定省社保局",this.UserInfo.Language.ToString().Trim()), "05南定省社保局"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "06南定投資計劃局",this.UserInfo.Language.ToString().Trim()), "06南定投資計劃局"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "07南定省環保局",this.UserInfo.Language.ToString().Trim()), "07南定省環保局"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "08南定省外事公安",this.UserInfo.Language.ToString().Trim()), "08南定省外事公安"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "09南定省消防公安",this.UserInfo.Language.ToString().Trim()), "09南定省消防公安"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "10南定省環保公安",this.UserInfo.Language.ToString().Trim()), "10南定省環保公安"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "11南定省經濟公安",this.UserInfo.Language.ToString().Trim()), "11南定省經濟公安"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "12海后縣政府",this.UserInfo.Language.ToString().Trim()), "12海后縣政府"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "13海后縣公安",this.UserInfo.Language.ToString().Trim()), "13海后縣公安"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "14海清鄉政府",this.UserInfo.Language.ToString().Trim()), "14海清鄉政府"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "15海清鄉公安",this.UserInfo.Language.ToString().Trim()), "15海清鄉公安"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "16安興鄉政府",this.UserInfo.Language.ToString().Trim()), "16安興鄉政府"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "17安興鄉公安",this.UserInfo.Language.ToString().Trim()), "17安興鄉公安"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "18安壽鄉政府",this.UserInfo.Language.ToString().Trim()), "18安壽鄉政府"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "19安壽鄉公安",this.UserInfo.Language.ToString().Trim()), "19安壽鄉公安"));
-				this.select01.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select01.CommentList.F0002, "20其它",this.UserInfo.Language.ToString().Trim()), "20其它"));
-				if(MasterObj.NowRow != null)
-				{
-					select01.DDLInput.SelectedValue = (MasterObj.NowRow["select01"].Value == null ? "" : MasterObj.NowRow["select01"].Value.ToString());
-				}
-
-				//轉會表單
-				if(base.CmdForwardApproveForm == "Y" && MasterObj.NewRow != null)
-				{
-					select01.DDLInput.SelectedValue = (MasterObj.NewRow["select01"].Value == null ? "" : MasterObj.NewRow["select01"].Value.ToString());
-				}
-
-				//判斷 CREATE 狀態,若是在草稿或是退件重送,則值要從MasterObj.NewRow中讀取,這樣下拉式選項才能bind到正確的資料非初始值
-				if (this.FormStatus == EFFormStatus.CREATE)
-				{
-					if (Request["ScriptSheetNo"] != null || Request["ReSendSheetNo"] != null)
-					{
-						if(MasterObj.NewRows.Count>0)
-							select01.DDLInput.SelectedValue = (MasterObj.NewRow["select01"].Value == null ? "" : MasterObj.NewRow["select01"].Value.ToString());
-					}
-					else if (Request["cmdCopyForm"] != null)
-					{
-						if (Request["cmdCopyForm"].ToString() == "Y")
-						{
-							if(MasterObj.NewRows.Count>0)
-								select01.DDLInput.SelectedValue = (MasterObj.NewRow["select01"].Value == null ? "" : MasterObj.NewRow["select01"].Value.ToString());
-						}
-					}
-				}
-			}
-			#endregion 單頭頁籤Head01-select01下拉選項
-
-			#region 單頭頁籤Head01-select02下拉選項
-			if(!IsPostBack)
-			{
-				this.select02.Items.Clear();//清空所有選項
-				this.select02.Items.Insert(0, new ListItem("", ""));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "01省政府",this.UserInfo.Language.ToString().Trim()), "01省政府"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "02海關局",this.UserInfo.Language.ToString().Trim()), "02海關局"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "03南定省勞動局",this.UserInfo.Language.ToString().Trim()), "03南定省勞動局"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "04南定省稅務局",this.UserInfo.Language.ToString().Trim()), "04南定省稅務局"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "05南定省社保局",this.UserInfo.Language.ToString().Trim()), "05南定省社保局"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "06南定投資計劃局",this.UserInfo.Language.ToString().Trim()), "06南定投資計劃局"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "07南定省環保局",this.UserInfo.Language.ToString().Trim()), "07南定省環保局"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "08南定省外事公安",this.UserInfo.Language.ToString().Trim()), "08南定省外事公安"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "09南定省消防公安",this.UserInfo.Language.ToString().Trim()), "09南定省消防公安"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "10南定省環保公安",this.UserInfo.Language.ToString().Trim()), "10南定省環保公安"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "11南定省經濟公安",this.UserInfo.Language.ToString().Trim()), "11南定省經濟公安"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "12海后縣政府",this.UserInfo.Language.ToString().Trim()), "12海后縣政府"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "13海后縣公安",this.UserInfo.Language.ToString().Trim()), "13海后縣公安"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "14海清鄉政府",this.UserInfo.Language.ToString().Trim()), "14海清鄉政府"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "15海清鄉公安",this.UserInfo.Language.ToString().Trim()), "15海清鄉公安"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "16安興鄉政府",this.UserInfo.Language.ToString().Trim()), "16安興鄉政府"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "17安興鄉公安",this.UserInfo.Language.ToString().Trim()), "17安興鄉公安"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "18安壽鄉政府",this.UserInfo.Language.ToString().Trim()), "18安壽鄉政府"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "19安壽鄉公安",this.UserInfo.Language.ToString().Trim()), "19安壽鄉公安"));
-				this.select02.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select02.CommentList.F0002, "20其它",this.UserInfo.Language.ToString().Trim()), "20其它"));
-				if(MasterObj.NowRow != null)
-				{
-					select02.DDLInput.SelectedValue = (MasterObj.NowRow["select02"].Value == null ? "" : MasterObj.NowRow["select02"].Value.ToString());
-				}
-
-				//轉會表單
-				if(base.CmdForwardApproveForm == "Y" && MasterObj.NewRow != null)
-				{
-					select02.DDLInput.SelectedValue = (MasterObj.NewRow["select02"].Value == null ? "" : MasterObj.NewRow["select02"].Value.ToString());
-				}
-
-				//判斷 CREATE 狀態,若是在草稿或是退件重送,則值要從MasterObj.NewRow中讀取,這樣下拉式選項才能bind到正確的資料非初始值
-				if (this.FormStatus == EFFormStatus.CREATE)
-				{
-					if (Request["ScriptSheetNo"] != null || Request["ReSendSheetNo"] != null)
-					{
-						if(MasterObj.NewRows.Count>0)
-							select02.DDLInput.SelectedValue = (MasterObj.NewRow["select02"].Value == null ? "" : MasterObj.NewRow["select02"].Value.ToString());
-					}
-					else if (Request["cmdCopyForm"] != null)
-					{
-						if (Request["cmdCopyForm"].ToString() == "Y")
-						{
-							if(MasterObj.NewRows.Count>0)
-								select02.DDLInput.SelectedValue = (MasterObj.NewRow["select02"].Value == null ? "" : MasterObj.NewRow["select02"].Value.ToString());
-						}
-					}
-				}
-			}
-			#endregion 單頭頁籤Head01-select02下拉選項
-
-			#region 單頭頁籤Head01-select03下拉選項
-			if(!IsPostBack)
-			{
-				this.select03.Items.Clear();//清空所有選項
-				this.select03.Items.Insert(0, new ListItem("", ""));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "01省政府",this.UserInfo.Language.ToString().Trim()), "01省政府"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "02海關局",this.UserInfo.Language.ToString().Trim()), "02海關局"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "03南定省勞動局",this.UserInfo.Language.ToString().Trim()), "03南定省勞動局"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "04南定省稅務局",this.UserInfo.Language.ToString().Trim()), "04南定省稅務局"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "05南定省社保局",this.UserInfo.Language.ToString().Trim()), "05南定省社保局"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "06南定投資計劃局",this.UserInfo.Language.ToString().Trim()), "06南定投資計劃局"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "07南定省環保局",this.UserInfo.Language.ToString().Trim()), "07南定省環保局"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "08南定省外事公安",this.UserInfo.Language.ToString().Trim()), "08南定省外事公安"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "09南定省消防公安",this.UserInfo.Language.ToString().Trim()), "09南定省消防公安"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "10南定省環保公安",this.UserInfo.Language.ToString().Trim()), "10南定省環保公安"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "11南定省經濟公安",this.UserInfo.Language.ToString().Trim()), "11南定省經濟公安"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "12海后縣政府",this.UserInfo.Language.ToString().Trim()), "12海后縣政府"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "13海后縣公安",this.UserInfo.Language.ToString().Trim()), "13海后縣公安"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "14海清鄉政府",this.UserInfo.Language.ToString().Trim()), "14海清鄉政府"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "15海清鄉公安",this.UserInfo.Language.ToString().Trim()), "15海清鄉公安"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "16安興鄉政府",this.UserInfo.Language.ToString().Trim()), "16安興鄉政府"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "17安興鄉公安",this.UserInfo.Language.ToString().Trim()), "17安興鄉公安"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "18安壽鄉政府",this.UserInfo.Language.ToString().Trim()), "18安壽鄉政府"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "19安壽鄉公安",this.UserInfo.Language.ToString().Trim()), "19安壽鄉公安"));
-				this.select03.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.select03.CommentList.F0002, "20其它",this.UserInfo.Language.ToString().Trim()), "20其它"));
-				if(MasterObj.NowRow != null)
-				{
-					select03.DDLInput.SelectedValue = (MasterObj.NowRow["select03"].Value == null ? "" : MasterObj.NowRow["select03"].Value.ToString());
-				}
-
-				//轉會表單
-				if(base.CmdForwardApproveForm == "Y" && MasterObj.NewRow != null)
-				{
-					select03.DDLInput.SelectedValue = (MasterObj.NewRow["select03"].Value == null ? "" : MasterObj.NewRow["select03"].Value.ToString());
-				}
-
-				//判斷 CREATE 狀態,若是在草稿或是退件重送,則值要從MasterObj.NewRow中讀取,這樣下拉式選項才能bind到正確的資料非初始值
-				if (this.FormStatus == EFFormStatus.CREATE)
-				{
-					if (Request["ScriptSheetNo"] != null || Request["ReSendSheetNo"] != null)
-					{
-						if(MasterObj.NewRows.Count>0)
-							select03.DDLInput.SelectedValue = (MasterObj.NewRow["select03"].Value == null ? "" : MasterObj.NewRow["select03"].Value.ToString());
-					}
-					else if (Request["cmdCopyForm"] != null)
-					{
-						if (Request["cmdCopyForm"].ToString() == "Y")
-						{
-							if(MasterObj.NewRows.Count>0)
-								select03.DDLInput.SelectedValue = (MasterObj.NewRow["select03"].Value == null ? "" : MasterObj.NewRow["select03"].Value.ToString());
-						}
-					}
-				}
-			}
-			#endregion 單頭頁籤Head01-select03下拉選項
+			
 			#endregion 自訂下拉選項
 
 			#region 增加初始設定(可判斷表單狀態)
@@ -1336,6 +1158,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
             OEMLibrary.RegisterNumberFormat(this, arrayTextBox);
             #endregion
             //20230328 edit by peggy End
+
 
         }//settingClientFunction結尾
 

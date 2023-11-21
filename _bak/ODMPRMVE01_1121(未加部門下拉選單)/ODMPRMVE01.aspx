@@ -10,7 +10,7 @@
 			<div id="createRecord" style="WIDTH: 100%; HEIGHT: 100%" runat="server">
 				<cc1:DscPanel id="ecPnlMaster" runat="server" Width="98%" IniHTML='&#10;<div style="OVERFLOW: auto; WIDTH: 100%; POSITION: relative; HEIGHT: 100%" ms_positioning="GridLayout"></div>'
 					FrmDefineKeys-FrmType="Query" FrmDefineKeys-FrmID="FrmODMPRMVE01" FrmDefineKeys-BOID="ODMPRMVE01"
-					BorderStyle="None" BorderColor="Transparent" BorderWidth="0px" Height="603px">
+					BorderStyle="None" BorderColor="Transparent" BorderWidth="0px" Height="505px">
 					<!--單頭頁籤-->
 					<iewc:TabStrip id="TabStrip1" runat="server" 
 						TabDefaultStyle="background-image:url(../../_Common/AppUtil/Themes/images/Menu/Tbtn01.gif);" 
@@ -22,8 +22,8 @@
 					<!--單頭頁籤畫面集合-->
 
 					<!--單頭頁籤 一-->
-					<cc1:Dscpanel id='divheadDefault' style='DISPLAY: block' runat='server' Width='100%' Height='603px' BackColor='Transparent'>
-						<div class='TabPage' style='POSITION: relative; HEIGHT: 603px; left: 0px; top: 0px;' >
+					<cc1:Dscpanel id='divheadDefault' style='DISPLAY: block' runat='server' Width='100%' Height='505px' BackColor='Transparent'>
+						<div class='TabPage' style='POSITION: relative; HEIGHT: 505px; left: 0px; top: 0px;' >
 							<asp:ValidationSummary id='ValidationSummaryHead01' style='Z-INDEX: 100; POSITION: absolute; LEFT: 745px; TOP: 7px;' runat='server' ShowSummary='False' ShowMessageBox='True'></asp:ValidationSummary>
 							<!--此區間放入單頭頁籤 一 的各個dsc元件-->
 
@@ -43,7 +43,7 @@
 </cc1:DscTextBox>
 
 <cc1:DscDateAssistant2 ID='datetime1' runat='server' Title='datetime1' ShowTitle='False'
-	style="POSITION: absolute; left: 17px; top: 199px; z-index: 698;" 
+	style="POSITION: absolute; left: 20px; top: 181px; z-index: 699;" 
 	TxtInput_TabIndex='101' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -51,7 +51,7 @@
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='datetime1'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
 <cc1:DscDateAssistant2 ID='datetime2' runat='server' Title='datetime2' ShowTitle='False'
-	style="POSITION: absolute; left: 14px; top: 307px; z-index: 700;" 
+	style="POSITION: absolute; left: 20px; top: 263px; z-index: 698;" 
 	TxtInput_TabIndex='102' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -59,43 +59,37 @@
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='datetime2'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
 <cc1:DscDateAssistant2 ID='datetime3' runat='server' Title='datetime3' ShowTitle='False'
-	style="POSITION: absolute; left: 14px; top: 421px; z-index: 699;" 
+	style="POSITION: absolute; left: 19px; top: 350px; z-index: 700;" 
 	TxtInput_TabIndex='103' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
 	<InputStyle Width='85px' Height='22px' CssClass='Edit20' />
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='datetime3'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
-<div style="display:none;">
 <cc1:DscTextBox id='dept01' runat='server' title='dept01' ShowTitle='False'
-	style="Z-INDEX:686; POSITION: absolute; LEFT: 751px; TOP: 187px;"
+	style="Z-INDEX:697; POSITION: absolute; LEFT: 122px; TOP: 181px;"
 	TxtInput_TabIndex='104'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='dept01'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='10px' Height='22px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='180px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
-</div>
-<div style="display:none;">
 <cc1:DscTextBox id='dept02' runat='server' title='dept02' ShowTitle='False'
-	style="Z-INDEX:685; POSITION: absolute; LEFT: 751px; TOP: 215px;"
+	style="Z-INDEX:696; POSITION: absolute; LEFT: 122px; TOP: 263px;"
 	TxtInput_TabIndex='105'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='dept02'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='10px' Height='22px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='180px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
-</div>
-<div style="display:none;">
 <cc1:DscTextBox id='dept03' runat='server' title='dept03' ShowTitle='False'
-	style="Z-INDEX:684; POSITION: absolute; LEFT: 751px; TOP: 243px;"
+	style="Z-INDEX:695; POSITION: absolute; LEFT: 122px; TOP: 350px;"
 	TxtInput_TabIndex='106'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='dept03'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='10px' Height='22px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='180px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
-</div>
 <div style="display:none;">
 <cc1:DscTextBox id='name01' runat='server' title='name01' ShowTitle='False'
-	style="Z-INDEX:681; POSITION: absolute; LEFT: 752px; TOP: 160px;"
+	style="Z-INDEX:686; POSITION: absolute; LEFT: 745px; TOP: 159px;"
 	TxtInput_TabIndex='107'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='name01'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -104,7 +98,7 @@
 </div>
 <div style="display:none;">
 <cc1:DscTextBox id='name02' runat='server' title='name02' ShowTitle='False'
-	style="Z-INDEX:683; POSITION: absolute; LEFT: 751px; TOP: 107px;"
+	style="Z-INDEX:685; POSITION: absolute; LEFT: 746px; TOP: 108px;"
 	TxtInput_TabIndex='108'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='name02'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -113,7 +107,7 @@
 </div>
 <div style="display:none;">
 <cc1:DscTextBox id='name03' runat='server' title='name03' ShowTitle='False'
-	style="Z-INDEX:682; POSITION: absolute; LEFT: 752px; TOP: 133px;"
+	style="Z-INDEX:684; POSITION: absolute; LEFT: 746px; TOP: 132px;"
 	TxtInput_TabIndex='109'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='name03'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -121,100 +115,64 @@
 </cc1:DscTextBox>
 </div>
 <cc1:DscTextBox id='contact01' runat='server' title='contact01' ShowTitle='False'
-	style="Z-INDEX:694; POSITION: absolute; LEFT: 323px; TOP: 157px;"
+	style="Z-INDEX:694; POSITION: absolute; LEFT: 321px; TOP: 152px;"
 	TxtInput_TabIndex='110' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='contact01'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='280px' Height='100px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='280px' Height='80px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='contact02' runat='server' title='contact02' ShowTitle='False'
-	style="Z-INDEX:693; POSITION: absolute; LEFT: 323px; TOP: 268px;"
+	style="Z-INDEX:693; POSITION: absolute; LEFT: 321px; TOP: 239px;"
 	TxtInput_TabIndex='111' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='contact02'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='280px' Height='100px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='280px' Height='80px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='contact03' runat='server' title='contact03' ShowTitle='False'
-	style="Z-INDEX:692; POSITION: absolute; LEFT: 323px; TOP: 381px;"
+	style="Z-INDEX:692; POSITION: absolute; LEFT: 321px; TOP: 325px;"
 	TxtInput_TabIndex='112' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='contact03'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='280px' Height='100px' CssClass='Edit20'></InputStyle>
+	<InputStyle Width='280px' Height='80px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='money01' runat='server' title='money01' ShowTitle='False'
-	style="Z-INDEX:689; POSITION: absolute; LEFT: 624px; TOP: 199px;"
+	style="Z-INDEX:689; POSITION: absolute; LEFT: 618px; TOP: 181px;"
 	TxtInput_TabIndex='113'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='money01'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='112px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='money02' runat='server' title='money02' ShowTitle='False'
-	style="Z-INDEX:688; POSITION: absolute; LEFT: 624px; TOP: 307px;"
+	style="Z-INDEX:688; POSITION: absolute; LEFT: 618px; TOP: 263px;"
 	TxtInput_TabIndex='114'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='money02'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='112px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='money03' runat='server' title='money03' ShowTitle='False'
-	style="Z-INDEX:687; POSITION: absolute; LEFT: 624px; TOP: 421px;"
+	style="Z-INDEX:687; POSITION: absolute; LEFT: 618px; TOP: 350px;"
 	TxtInput_TabIndex='115'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='money03'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='112px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='totomoney' runat='server' title='totalmoney' ShowTitle='False'
-	style="Z-INDEX:690; POSITION: absolute; LEFT: 624px; TOP: 494px;"
+	style="Z-INDEX:690; POSITION: absolute; LEFT: 618px; TOP: 419px;"
 	TxtInput_TabIndex='116'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='totomoney'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='112px' Height='24px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='username' runat='server' title='申請人' ShowTitle='False'
-	style="Z-INDEX:691; POSITION: absolute; LEFT: 605px; TOP: 75px;"
+	style="Z-INDEX:691; POSITION: absolute; LEFT: 606px; TOP: 79px;"
 	TxtInput_TabIndex='117'>
 	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='username'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='102px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
-<cc1:DscDropDownList ID='select01' runat='server' Title='部門01' ShowTitle='False'
-	Style="z-index:696; position: absolute; left: 124px; top: 201px;"
-	DDLInput_TabIndex='118'>
-	<Items>
-	</Items>
-	<TitleStyle Width='100px' />
-	<InputStyle Width='180px' Height='22px' />
-	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='select01'></FrmFieldKeys>
-	<CommentList F0001='Combo' F0002='ODMPRMVE01_select01' />
-</cc1:DscDropDownList>
-<cc1:DscDropDownList ID='select02' runat='server' Title='部門02' ShowTitle='False'
-	Style="z-index:695; position: absolute; left: 124px; top: 309px;"
-	DDLInput_TabIndex='119'>
-	<Items>
-	</Items>
-	<TitleStyle Width='100px' />
-	<InputStyle Width='180px' Height='22px' />
-	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='select02'></FrmFieldKeys>
-	<CommentList F0001='Combo' F0002='ODMPRMVE01_select02' />
-</cc1:DscDropDownList>
-<cc1:DscDropDownList ID='select03' runat='server' Title='部門03' ShowTitle='False'
-	Style="z-index:697; position: absolute; left: 122px; top: 423px;"
-	DDLInput_TabIndex='120'>
-	<Items>
-	</Items>
-	<TitleStyle Width='100px' />
-	<InputStyle Width='180px' Height='22px' />
-	<FrmFieldKeys FrmID='FrmODMPRMVE01' BOID='ODMPRMVE01' FieldName='select03'></FrmFieldKeys>
-	<CommentList F0001='Combo' F0002='ODMPRMVE01_select03' />
-</cc1:DscDropDownList>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
 	<img src="ODMPRMVE.jpg" id="Head01_file_1" runat="server" width="750" height="470" />
-</div>
-<div style="position:absolute; left:2px; top:5px; z-index:10; ">
-	<img src="ODMPRMVE.jpg" id="Head01_file_2" runat="server" width="778" height="548" />
-</div>
-<div style="position:absolute; left:2px; top:5px; z-index:10; ">
-	<img src="ODMPRMVE.jpg" id="Head01_file_3" runat="server" width="778" height="568" />
 </div>
 
 						</div>
@@ -252,5 +210,5 @@
 <!--引用JavaScript-->
 	<!--Peggy-->
     <script src="../../_Common/OEM/JS/OEMUtils.js"></script>
-<script src="ODMPRMVE01.js?NoCache=202207291706" type="text/javascript"></script>
+<script src="ODMPRMVE01.js?NoCache=202108311458" type="text/javascript"></script>
 </asp:Content>

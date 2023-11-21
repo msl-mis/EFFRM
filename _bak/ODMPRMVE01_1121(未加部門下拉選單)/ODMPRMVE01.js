@@ -9,6 +9,84 @@ function CustomerSaveCheck_Head(tStatus)
 	if (tStatus == "CREATE")
 	{
 		//填表時要驗證
+		//數值驗証
+		var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
+		if(tmoney01.length>0){
+			if('readonly' !== tmoney01.attr('readonly') &&
+				'disabled' !== tmoney01.attr('disabled')){
+				var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim().replace(/\,/g, '');
+				if(tmoney01Value.length==0 || isNaN(tmoney01Value))
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+				else
+				{
+					if (tmoney01Value < 0 || tmoney01Value > 1000000000)
+					{
+						tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+					}
+				}
+			}
+		}
+
+		//數值驗証
+		var tmoney02 = $('#MasterPage_MasterPageContent_money02_txt');
+		if(tmoney02.length>0){
+			if('readonly' !== tmoney02.attr('readonly') &&
+				'disabled' !== tmoney02.attr('disabled')){
+				var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim().replace(/\,/g, '');
+				if(tmoney02Value.length==0 || isNaN(tmoney02Value))
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money02_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+				else
+				{
+					if (tmoney02Value < 0 || tmoney02Value > 1000000000)
+					{
+						tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money02_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+					}
+				}
+			}
+		}
+
+		//數值驗証
+		var tmoney03 = $('#MasterPage_MasterPageContent_money03_txt');
+		if(tmoney03.length>0){
+			if('readonly' !== tmoney03.attr('readonly') &&
+				'disabled' !== tmoney03.attr('disabled')){
+				var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim().replace(/\,/g, '');
+				if(tmoney03Value.length==0 || isNaN(tmoney03Value))
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money03', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money03_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+				else
+				{
+					if (tmoney03Value < 0 || tmoney03Value > 1000000000)
+					{
+						tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money03', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money03_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+					}
+				}
+			}
+		}
+
+		//數值驗証
+		var ttotomoney = $('#MasterPage_MasterPageContent_totomoney_txt');
+		if(ttotomoney.length>0){
+			var ttotomoneyValue = $('#MasterPage_MasterPageContent_totomoney_txt').val().trim().replace(/\,/g, '');
+			if(ttotomoneyValue.length==0 || isNaN(ttotomoneyValue))
+			{
+				tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'totomoney', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMPRMVE01', 'totomoney_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+			}
+			else
+			{
+				if (ttotomoneyValue < 0 || ttotomoneyValue > 1000000000)
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'totomoney', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMPRMVE01', 'totomoney_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+			}
+		}
+
+
 	}
 	else if (tStatus == "APPROVE")
 	{
@@ -38,9 +116,19 @@ function CustomerSaveCheck_Head(tStatus)
 	}
 
 	//不允許空白驗證
+	var tdept01 = $('#MasterPage_MasterPageContent_dept01_txt');
+	if(tdept01.length>0){
+		var tdept01Value = $('#MasterPage_MasterPageContent_dept01_txt').val().trim();
+		if (tdept01Value.length==0){
+			//欄位不允許空白 !
+			tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'dept01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFieldNotFilledMsg + '\r\n';
+		}
+	}
+
+	//不允許空白驗證
 	var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
 	if(tmoney01.length>0){
-		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim();
+		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim().replace(/\,/g, '');
 		if (tmoney01Value.length==0){
 			//欄位不允許空白 !
 			tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFieldNotFilledMsg + '\r\n';
@@ -50,7 +138,7 @@ function CustomerSaveCheck_Head(tStatus)
 	//float格式驗証
 	var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
 	if(tmoney01.length>0){
-		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim();
+		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim().replace(/\,/g, '');
 		if (tmoney01Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney01Value)){
 				//輸入的資料不符合float數值格式 !
@@ -58,7 +146,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tmoney01Value=tmoney01Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money01_txt').val(Math.round(parseFloat(tmoney01Value)*Math.pow(10, 2))/Math.pow(10, 2));
+				$('#MasterPage_MasterPageContent_money01_txt').val(parseFloat(tmoney01Value).toFixed(2));
 			}
 		}
 	}
@@ -66,7 +154,7 @@ function CustomerSaveCheck_Head(tStatus)
 	//float格式驗証
 	var tmoney02 = $('#MasterPage_MasterPageContent_money02_txt');
 	if(tmoney02.length>0){
-		var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim();
+		var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim().replace(/\,/g, '');
 		if (tmoney02Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney02Value)){
 				//輸入的資料不符合float數值格式 !
@@ -74,7 +162,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tmoney02Value=tmoney02Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money02_txt').val(Math.round(parseFloat(tmoney02Value)*Math.pow(10, 2))/Math.pow(10, 2));
+				$('#MasterPage_MasterPageContent_money02_txt').val(parseFloat(tmoney02Value).toFixed(2));
 			}
 		}
 	}
@@ -82,7 +170,7 @@ function CustomerSaveCheck_Head(tStatus)
 	//float格式驗証
 	var tmoney03 = $('#MasterPage_MasterPageContent_money03_txt');
 	if(tmoney03.length>0){
-		var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim();
+		var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim().replace(/\,/g, '');
 		if (tmoney03Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney03Value)){
 				//輸入的資料不符合float數值格式 !
@@ -90,25 +178,15 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tmoney03Value=tmoney03Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money03_txt').val(Math.round(parseFloat(tmoney03Value)*Math.pow(10, 2))/Math.pow(10, 2));
+				$('#MasterPage_MasterPageContent_money03_txt').val(parseFloat(tmoney03Value).toFixed(2));
 			}
-		}
-	}
-
-	//不允許空白驗證
-	var tselect01 = $('#MasterPage_MasterPageContent_select01_ddl');
-	if(tselect01.length>0){
-		var tselect01Value = $('#MasterPage_MasterPageContent_select01_ddl').val().trim();
-		if (tselect01Value.length==0){
-			//欄位不允許空白 !
-			tErr += '「' + getI18NForSpecial('FD', 'ODMPRMVE01', 'select01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFieldNotFilledMsg + '\r\n';
 		}
 	}
 
 	//float格式驗証
 	var ttotomoney = $('#MasterPage_MasterPageContent_totomoney_txt');
 	if(ttotomoney.length>0){
-		var ttotomoneyValue = $('#MasterPage_MasterPageContent_totomoney_txt').val().trim();
+		var ttotomoneyValue = $('#MasterPage_MasterPageContent_totomoney_txt').val().trim().replace(/\,/g, '');
 		if (ttotomoneyValue.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(ttotomoneyValue)){
 				//輸入的資料不符合float數值格式 !
@@ -116,7 +194,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				ttotomoneyValue=ttotomoneyValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_totomoney_txt').val(Math.round(parseFloat(ttotomoneyValue)*Math.pow(10, 2))/Math.pow(10, 2));
+				$('#MasterPage_MasterPageContent_totomoney_txt').val(parseFloat(ttotomoneyValue).toFixed(2));
 			}
 		}
 	}
@@ -153,7 +231,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tmoney01Value=tmoney01Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money01_txt').val(Math.round(parseFloat(tmoney01Value)*Math.pow(10, 2))/Math.pow(10, 2));
+				$('#MasterPage_MasterPageContent_money01_txt').val(parseFloat(tmoney01Value).toFixed(2));
 			}
 		}
 	}
@@ -169,7 +247,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tmoney02Value=tmoney02Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money02_txt').val(Math.round(parseFloat(tmoney02Value)*Math.pow(10, 2))/Math.pow(10, 2));
+				$('#MasterPage_MasterPageContent_money02_txt').val(parseFloat(tmoney02Value).toFixed(2));
 			}
 		}
 	}
@@ -185,7 +263,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tmoney03Value=tmoney03Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money03_txt').val(Math.round(parseFloat(tmoney03Value)*Math.pow(10, 2))/Math.pow(10, 2));
+				$('#MasterPage_MasterPageContent_money03_txt').val(parseFloat(tmoney03Value).toFixed(2));
 			}
 		}
 	}
@@ -201,7 +279,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				ttotomoneyValue=ttotomoneyValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_totomoney_txt').val(Math.round(parseFloat(ttotomoneyValue)*Math.pow(10, 2))/Math.pow(10, 2));
+				$('#MasterPage_MasterPageContent_totomoney_txt').val(parseFloat(ttotomoneyValue).toFixed(2));
 			}
 		}
 	}
@@ -282,8 +360,7 @@ function InitOpenShowMSG(){
 }
 
 function InitTriggerMust(tStatus){
-	//2022/07/15;Folls;C01-20220715005;Radio及checkbox於簽核時無法實現觸發顯示欄位
-	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""|| tStatus=="APPROVE"){
+	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""){
 
 	}
 }
@@ -410,8 +487,8 @@ function domath_totomoney()
 		}
 		var intmoney01 = money01.length>0?parseFloat(money01):0;
 
-		document.getElementById("MasterPage_MasterPageContent_money01_txt").value=Math.round(parseFloat(intmoney01)*Math.pow(10, 2))/Math.pow(10, 2);
-		intmoney01 = parseFloat($("#MasterPage_MasterPageContent_money01_txt").val().trim());
+		document.getElementById("MasterPage_MasterPageContent_money01_txt").value =OEMFormat(parseFloat(intmoney01).toFixed(2));
+		intmoney01 = parseFloat($("#MasterPage_MasterPageContent_money01_txt").val().trim().replace(/\,/g, ''));
 
 		if($("#MasterPage_MasterPageContent_money02_txt").length==0)
 			return;
@@ -422,8 +499,8 @@ function domath_totomoney()
 		}
 		var intmoney02 = money02.length>0?parseFloat(money02):0;
 
-		document.getElementById("MasterPage_MasterPageContent_money02_txt").value=Math.round(parseFloat(intmoney02)*Math.pow(10, 2))/Math.pow(10, 2);
-		intmoney02 = parseFloat($("#MasterPage_MasterPageContent_money02_txt").val().trim());
+		document.getElementById("MasterPage_MasterPageContent_money02_txt").value =OEMFormat(parseFloat(intmoney02).toFixed(2));
+		intmoney02 = parseFloat($("#MasterPage_MasterPageContent_money02_txt").val().trim().replace(/\,/g, ''));
 
 		if($("#MasterPage_MasterPageContent_money03_txt").length==0)
 			return;
@@ -434,8 +511,8 @@ function domath_totomoney()
 		}
 		var intmoney03 = money03.length>0?parseFloat(money03):0;
 
-		document.getElementById("MasterPage_MasterPageContent_money03_txt").value=Math.round(parseFloat(intmoney03)*Math.pow(10, 2))/Math.pow(10, 2);
-		intmoney03 = parseFloat($("#MasterPage_MasterPageContent_money03_txt").val().trim());
+		document.getElementById("MasterPage_MasterPageContent_money03_txt").value =OEMFormat(parseFloat(intmoney03).toFixed(2));
+		intmoney03 = parseFloat($("#MasterPage_MasterPageContent_money03_txt").val().trim().replace(/\,/g, ''));
 
 		var finalvalue = intmoney01+intmoney02+intmoney03;
 		if(finalvalue==undefined || !isFinite(finalvalue)){
@@ -443,12 +520,7 @@ function domath_totomoney()
 			return;
 		}
 
-		document.getElementById("MasterPage_MasterPageContent_totomoney_txt").value = Math.round(parseFloat(finalvalue) * Math.pow(10, 2)) / Math.pow(10, 2);
-			//^_^ 20230411 Peggy 重新加上千份位↓
 		document.getElementById("MasterPage_MasterPageContent_totomoney_txt").value = OEMFormat(parseFloat(finalvalue).toFixed(2));
-		document.getElementById("MasterPage_MasterPageContent_money01_txt").value = OEMFormat(parseFloat(money01).toFixed(2));
-		document.getElementById("MasterPage_MasterPageContent_money02_txt").value = OEMFormat(parseFloat(money02).toFixed(2));
-		document.getElementById("MasterPage_MasterPageContent_money03_txt").value = OEMFormat(parseFloat(money03).toFixed(2));
 	}catch(err){
 		$("#MasterPage_MasterPageContent_totomoney_txt").val("");
 		var errorMsg = getI18NForSpecial('FD','CalculatedSet2','MutiLang_04','../../../src/_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx');

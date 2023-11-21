@@ -106,13 +106,19 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 		}
 
-		//Radio Button 驗証
-			if ($('#MasterPage_MasterPageContent_kind_txt').attr('readonly') !== 'readonly'){
-				if ($('#MasterPage_MasterPageContent_kind_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_kind_txt').value == '')
-				{
-					tErr += getI18NForSpecial('FD', 'ODMULPAY_T', 'kind_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-				}
-			}
+		////文字驗証
+		//var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
+		//if(topentype01.length>0){
+		//	if('readonly' !== topentype01.attr('readonly') &&
+		//		'disabled' !== topentype01.attr('disabled')){
+		//		var topentype01Value = $('#MasterPage_MasterPageContent_opentype01_txt').val();
+		//		if (topentype01Value.length < 1 || topentype01Value.length > 50)
+		//		{
+		//			tErr += '「' + getI18NForSpecial('FD', 'ODMULPAY_T', 'opentype01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMULPAY_T', 'opentype01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '\r\n';
+		//		}
+		//	}
+		//}
+
 
 	}
 	else if (tStatus == "APPROVE")
@@ -122,26 +128,6 @@ function CustomerSaveCheck_Head(tStatus)
 	}
 
 	//填表及簽核都要驗證
-	//不允許空白驗證
-	var tdatetime1 = $('#MasterPage_MasterPageContent_datetime1_txt');
-	if(tdatetime1.length>0){
-		var tdatetime1Value = $('#MasterPage_MasterPageContent_datetime1_txt').val().trim();
-		if (tdatetime1Value.length==0){
-			//欄位不允許空白 !
-			tErr += '「' + getI18NForSpecial('FD', 'ODMULPAY_T', 'datetime1', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFieldNotFilledMsg + '\r\n';
-		}
-	}
-
-	//不允許空白驗證
-	var tdept = $('#MasterPage_MasterPageContent_dept_txt');
-	if(tdept.length>0){
-		var tdeptValue = $('#MasterPage_MasterPageContent_dept_txt').val().trim();
-		if (tdeptValue.length==0){
-			//欄位不允許空白 !
-			tErr += '「' + getI18NForSpecial('FD', 'ODMULPAY_T', 'dept', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFieldNotFilledMsg + '\r\n';
-		}
-	}
-
 	//Int格式驗証
 	var tinv01 = $('#MasterPage_MasterPageContent_inv01_txt');
 	if(tinv01.length>0){
@@ -257,32 +243,12 @@ function CustomerSaveCheck_Head(tStatus)
 	}
 
 	//不允許空白驗證
-	var tpayee = $('#MasterPage_MasterPageContent_payee_txt');
-	if(tpayee.length>0){
-		var tpayeeValue = $('#MasterPage_MasterPageContent_payee_txt').val().trim();
-		if (tpayeeValue.length==0){
-			//欄位不允許空白 !
-			tErr += '「' + getI18NForSpecial('FD', 'ODMULPAY_T', 'payee', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFieldNotFilledMsg + '\r\n';
-		}
-	}
-
-	//不允許空白驗證
 	var ttextarea1 = $('#MasterPage_MasterPageContent_textarea1_txt');
 	if(ttextarea1.length>0){
 		var ttextarea1Value = $('#MasterPage_MasterPageContent_textarea1_txt').val().trim();
 		if (ttextarea1Value.length==0){
 			//欄位不允許空白 !
 			tErr += '「' + getI18NForSpecial('FD', 'ODMULPAY_T', 'textarea1', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFieldNotFilledMsg + '\r\n';
-		}
-	}
-
-	//不允許空白驗證
-	var tusername = $('#MasterPage_MasterPageContent_username_txt');
-	if(tusername.length>0){
-		var tusernameValue = $('#MasterPage_MasterPageContent_username_txt').val().trim();
-		if (tusernameValue.length==0){
-			//欄位不允許空白 !
-			tErr += '「' + getI18NForSpecial('FD', 'ODMULPAY_T', 'username', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + tFieldNotFilledMsg + '\r\n';
 		}
 	}
 
@@ -411,6 +377,18 @@ function DraftSaveCheck(){
 		}
 	}
 
+	//文字驗証
+		var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
+		if(topentype01.length>0){
+			if('readonly' !== topentype01.attr('readonly') &&
+				'disabled' !== topentype01.attr('disabled')){
+				var topentype01Value = $('#MasterPage_MasterPageContent_opentype01_txt').val();
+				if (topentype01Value.length < 1 || topentype01Value.length > 50)
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMULPAY_T', 'opentype01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMULPAY_T', 'opentype01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '\r\n';
+				}
+			}
+		}
 
 
 	if (tErr == "")
