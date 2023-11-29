@@ -131,7 +131,7 @@
 	<InputStyle Width='120px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea1' runat='server' title='內容01' ShowTitle='False'
-	style="Z-INDEX:694; POSITION: absolute; LEFT: 59px; TOP: 342px;"
+	style="Z-INDEX:694; POSITION: absolute; LEFT: 60px; TOP: 342px;"
 	TxtInput_TabIndex='114' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='textarea1'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -161,7 +161,7 @@
 	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea2' runat='server' title='內容02' ShowTitle='False'
-	style="Z-INDEX:695; POSITION: absolute; LEFT: 58px; TOP: 424px;"
+	style="Z-INDEX:695; POSITION: absolute; LEFT: 60px; TOP: 424px;"
 	TxtInput_TabIndex='118' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='textarea2'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -191,7 +191,7 @@
 	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea3' runat='server' title='內容03' ShowTitle='False'
-	style="Z-INDEX:697; POSITION: absolute; LEFT: 56px; TOP: 501px;"
+	style="Z-INDEX:697; POSITION: absolute; LEFT: 60px; TOP: 501px;"
 	TxtInput_TabIndex='122' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='textarea3'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -221,7 +221,7 @@
 	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea4' runat='server' title='內容04' ShowTitle='False'
-	style="Z-INDEX:696; POSITION: absolute; LEFT: 57px; TOP: 564px;"
+	style="Z-INDEX:696; POSITION: absolute; LEFT: 60px; TOP: 564px;"
 	TxtInput_TabIndex='127' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='textarea4'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -236,7 +236,7 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='opentype04'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscOpenQuery id='openitem04' runat='server' title='子類別04' ShowTitle='False'
-	style="Z-INDEX: 666; POSITION: absolute; LEFT: 468px; TOP: 588px;"
+	style="Z-INDEX: 666; POSITION: absolute; LEFT: 468px; TOP: 590px;"
 	TxtInput_TabIndex='129' TextMode='SingleLine'
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/data.gif'
 	ReturnVisible='True'>
@@ -251,7 +251,7 @@
 	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea5' runat='server' title='內容05' ShowTitle='False'
-	style="Z-INDEX:693; POSITION: absolute; LEFT: 61px; TOP: 621px;"
+	style="Z-INDEX:693; POSITION: absolute; LEFT: 60px; TOP: 621px;"
 	TxtInput_TabIndex='131' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='textarea5'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
