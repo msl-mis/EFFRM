@@ -9,6 +9,68 @@ function CustomerSaveCheck_Head(tStatus)
 	if (tStatus == "CREATE")
 	{
 		//填表時要驗證	
+
+		//文字驗証
+		var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
+		var tErr = '';
+
+		if (topentype01.length > 0) {
+			if ('readonly' !== topentype01.attr('readonly') &&
+				'disabled' !== topentype01.attr('disabled')) {
+				var topentype01Value = topentype01.val();
+
+				// 檢查是否超過長度
+				//if (topentype01Value.length > 50) {
+				//	// 將錯誤消息添加到輸入字段下方
+				//	appendErrorMessage(topentype01, '輸入超過長度');
+
+				//	// 顯示確認彈窗
+				//	if (confirm('xx欄位輸入超過長度，確定要提交嗎？')) {
+				//		// 用戶點擊確定，繼續提交表單
+				//	} else {
+				//		// 用戶點擊取消，阻止表單提交
+				//		event.preventDefault();
+				//	}
+				//} else {
+				// 清空可能存在的錯誤消息
+				clearErrorMessage(topentype01);
+
+				// 如果輸入為空，顯示提示信息
+				if (topentype01Value === null || topentype01Value.trim() === '') {
+					// 顯示確認彈窗
+					if (confirm('【請二次確認支出類別沒有勾選是該費用已在報價中或已跟客戶收款情形】')) {
+						// 用戶點擊確定，繼續提交表單
+					} else {
+						// 用戶點擊取消，阻止表單提交
+						event.preventDefault();
+					}
+				}
+				//}
+			}
+		}
+
+		// 函數用於在輸入字段下方添加錯誤消息
+		function appendErrorMessage(element, message) {
+			// 檢查是否已經有錯誤消息元素，如果有，更新文本內容，否則創建一個新的元素
+			var errorElement = element.next('.error-message');
+			if (errorElement.length === 0) {
+				errorElement = $('<div class="error-message"></div>').insertAfter(element);
+			}
+
+			// 更新錯誤消息文本
+			errorElement.text(message);
+			// 添加紅色樣式
+			errorElement.css('color', 'red');
+		}
+
+		// 函數用於清空輸入字段下方的錯誤消息
+		function clearErrorMessage(element) {
+			var errorElement = element.next('.error-message');
+			if (errorElement.length !== 0) {
+				errorElement.remove();
+			}
+		}
+
 		//Radio Button 驗証
 			if ($('#MasterPage_MasterPageContent_chpay_txt').attr('readonly') !== 'readonly'){
 				if ($('#MasterPage_MasterPageContent_chpay_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_chpay_txt').value == '')
@@ -22,48 +84,48 @@ function CustomerSaveCheck_Head(tStatus)
 				{
 					tErr += getI18NForSpecial('FD', 'ODMFPAYCN02', 'kind_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
 				}
-			}
-			//20230424 Peggy Star
-			//驗證第二個開窗必填
-			var _opentype01 = document.getElementById("MasterPage_MasterPageContent_opentype01_txt");
-			var _openitem01 = document.getElementById("MasterPage_MasterPageContent_openitem01_txt");
-			var _opentype02 = document.getElementById("MasterPage_MasterPageContent_opentype02_txt");
-			var _openitem02 = document.getElementById("MasterPage_MasterPageContent_openitem02_txt");
-			var _opentype03 = document.getElementById("MasterPage_MasterPageContent_opentype03_txt");
-			var _openitem03 = document.getElementById("MasterPage_MasterPageContent_openitem03_txt");
-			var _opentype04 = document.getElementById("MasterPage_MasterPageContent_opentype04_txt");
-			var _openitem04 = document.getElementById("MasterPage_MasterPageContent_openitem04_txt");
-			var _opentype05 = document.getElementById("MasterPage_MasterPageContent_opentype05_txt");
-			var _openitem05 = document.getElementById("MasterPage_MasterPageContent_openitem05_txt");
+		}
 
-			if (_opentype01 != null && _opentype01.value != "") {
-				if (_openitem01.value == "") {
-					tErr += "請選擇支出類別子項目!" + "\r\n";
-				}
+		//20230424 Peggy Star
+		//驗證第二個開窗必填
+		var _opentype01 = document.getElementById("MasterPage_MasterPageContent_opentype01_txt");
+		var _openitem01 = document.getElementById("MasterPage_MasterPageContent_openitem01_txt");
+		var _opentype02 = document.getElementById("MasterPage_MasterPageContent_opentype02_txt");
+		var _openitem02 = document.getElementById("MasterPage_MasterPageContent_openitem02_txt");
+		var _opentype03 = document.getElementById("MasterPage_MasterPageContent_opentype03_txt");
+		var _openitem03 = document.getElementById("MasterPage_MasterPageContent_openitem03_txt");
+		var _opentype04 = document.getElementById("MasterPage_MasterPageContent_opentype04_txt");
+		var _openitem04 = document.getElementById("MasterPage_MasterPageContent_openitem04_txt");
+		var _opentype05 = document.getElementById("MasterPage_MasterPageContent_opentype05_txt");
+		var _openitem05 = document.getElementById("MasterPage_MasterPageContent_openitem05_txt");
+
+		if (_opentype01 != null && _opentype01.value != "") {
+			if (_openitem01.value == "") {
+				tErr += "請選擇支出類別子項目!" + "\r\n";
 			}
-			if (_opentype02 != null && _opentype02.value != "") {
-				if (_openitem02.value == "") {
-					tErr += "請選擇支出類別子項目!" + "\r\n";
-				}
+		}
+		if (_opentype02 != null && _opentype02.value != "") {
+			if (_openitem02.value == "") {
+				tErr += "請選擇支出類別子項目!" + "\r\n";
 			}
-			if (_opentype03 != null && _opentype03.value != "") {
-				if (_openitem03.value == "") {
-					tErr += "請選擇支出類別子項目!" + "\r\n";
-				}
+		}
+		if (_opentype03 != null && _opentype03.value != "") {
+			if (_openitem03.value == "") {
+				tErr += "請選擇支出類別子項目!" + "\r\n";
 			}
-			if (_opentype04 != null && _opentype04.value != "") {
-				if (_openitem04.value == "") {
-					tErr += "請選擇支出類別子項目!" + "\r\n";
-				}
+		}
+		if (_opentype04 != null && _opentype04.value != "") {
+			if (_openitem04.value == "") {
+				tErr += "請選擇支出類別子項目!" + "\r\n";
 			}
-			if (_opentype05 != null && _opentype05.value != "") {
-				if (_openitem05.value == "") {
-					tErr += "請選擇支出類別子項目!" + "\r\n";
-				}
+		}
+		if (_opentype05 != null && _opentype05.value != "") {
+			if (_openitem05.value == "") {
+				tErr += "請選擇支出類別子項目!" + "\r\n";
 			}
+		}
 
 		//20230424 Peggy End
-
 	}
 	else if (tStatus == "APPROVE")
 	{
@@ -348,7 +410,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney04 = $('#MasterPage_MasterPageContent_money04_txt');
 	if(tmoney04.length>0){
-		var tmoney04Value = $('#MasterPage_MasterPageContent_money04_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
+		var tmoney04Value = $('#MasterPage_MasterPageContent_money04_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
 		if (tmoney04Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney04Value)){
 				//輸入的資料不符合float數值格式 !
@@ -520,49 +582,183 @@ function InitTriggerMust(tStatus){
 	}
 }
 
-function InitTriggerOpen(){
-	if($("#MasterPage_MasterPageContent_opentype01_txt").length>0){
-		if($("#MasterPage_MasterPageContent_opentype01_txt").val()==""){
+//20231129 Peggy-子類別預設Disable-S
+function InitTriggerOpen() {
+	if ($("#MasterPage_MasterPageContent_opentype01_txt").length > 0) {
+		if ($("#MasterPage_MasterPageContent_opentype01_txt").val() == "") {
+			$('#MasterPage_MasterPageContent_openitem01_txt')[0].style.backgroundColor = '#deecea';
 			$('#MasterPage_MasterPageContent_openitem01_txt').val("");
 			$('#MasterPage_MasterPageContent_openitem01_txt2').text("");
-			$('#MasterPage_MasterPageContent_openitem01_txt2hdn').val("");
+			if (!$('#MasterPage_MasterPageContent_openitem01_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem01_txt').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem01_btn').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem01_btn').css("cursor", "default");
+				$('#MasterPage_MasterPageContent_openitem01_btn').css("pointer-events", "none");
+			}
+		}
+		else {
+			$('#MasterPage_MasterPageContent_openitem01_txt')[0].style.backgroundColor = 'white';
+			if ($('#MasterPage_MasterPageContent_openitem01_txt').hasClass("PL_ReadOnly")) {
+				$('#MasterPage_MasterPageContent_openitem01_txt')[0].style.backgroundColor = '#deecea';
+			}
+			else if ($('#MasterPage_MasterPageContent_openitem01_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem01_txt').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem01_btn').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem01_btn').css("cursor", "pointer");
+				$('#MasterPage_MasterPageContent_openitem01_btn').css("pointer-events", "auto");
+			}
 		}
 	}
 
-	if($("#MasterPage_MasterPageContent_opentype02_txt").length>0){
-		if($("#MasterPage_MasterPageContent_opentype02_txt").val()==""){
+	if ($("#MasterPage_MasterPageContent_opentype02_txt").length > 0) {
+		if ($("#MasterPage_MasterPageContent_opentype02_txt").val() == "") {
+			$('#MasterPage_MasterPageContent_openitem02_txt')[0].style.backgroundColor = '#deecea';
 			$('#MasterPage_MasterPageContent_openitem02_txt').val("");
 			$('#MasterPage_MasterPageContent_openitem02_txt2').text("");
-			$('#MasterPage_MasterPageContent_openitem02_txt2hdn').val("");
+			if (!$('#MasterPage_MasterPageContent_openitem02_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem02_txt').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem02_btn').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem02_btn').css("cursor", "default");
+				$('#MasterPage_MasterPageContent_openitem02_btn').css("pointer-events", "none");
+			}
+		}
+		else {
+			$('#MasterPage_MasterPageContent_openitem02_txt')[0].style.backgroundColor = 'white';
+			if ($('#MasterPage_MasterPageContent_openitem02_txt').hasClass("PL_ReadOnly")) {
+				$('#MasterPage_MasterPageContent_openitem02_txt')[0].style.backgroundColor = '#deecea';
+			}
+			else if ($('#MasterPage_MasterPageContent_openitem02_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem02_txt').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem02_btn').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem02_btn').css("cursor", "pointer");
+				$('#MasterPage_MasterPageContent_openitem02_btn').css("pointer-events", "auto");
+			}
 		}
 	}
 
-	if($("#MasterPage_MasterPageContent_opentype03_txt").length>0){
-		if($("#MasterPage_MasterPageContent_opentype03_txt").val()==""){
+	if ($("#MasterPage_MasterPageContent_opentype03_txt").length > 0) {
+		if ($("#MasterPage_MasterPageContent_opentype03_txt").val() == "") {
+			$('#MasterPage_MasterPageContent_openitem03_txt')[0].style.backgroundColor = '#deecea';
 			$('#MasterPage_MasterPageContent_openitem03_txt').val("");
 			$('#MasterPage_MasterPageContent_openitem03_txt2').text("");
-			$('#MasterPage_MasterPageContent_openitem03_txt2hdn').val("");
+			if (!$('#MasterPage_MasterPageContent_openitem03_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem03_txt').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem03_btn').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem03_btn').css("cursor", "default");
+				$('#MasterPage_MasterPageContent_openitem03_btn').css("pointer-events", "none");
+			}
+		}
+		else {
+			$('#MasterPage_MasterPageContent_openitem03_txt')[0].style.backgroundColor = 'white';
+			if ($('#MasterPage_MasterPageContent_openitem03_txt').hasClass("PL_ReadOnly")) {
+				$('#MasterPage_MasterPageContent_openitem03_txt')[0].style.backgroundColor = '#deecea';
+			}
+			else if ($('#MasterPage_MasterPageContent_openitem03_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem03_txt').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem03_btn').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem03_btn').css("cursor", "pointer");
+				$('#MasterPage_MasterPageContent_openitem03_btn').css("pointer-events", "auto");
+			}
 		}
 	}
 
-	if($("#MasterPage_MasterPageContent_opentype04_txt").length>0){
-		if($("#MasterPage_MasterPageContent_opentype04_txt").val()==""){
+	if ($("#MasterPage_MasterPageContent_opentype04_txt").length > 0) {
+		if ($("#MasterPage_MasterPageContent_opentype04_txt").val() == "") {
+			$('#MasterPage_MasterPageContent_openitem04_txt')[0].style.backgroundColor = '#deecea';
 			$('#MasterPage_MasterPageContent_openitem04_txt').val("");
 			$('#MasterPage_MasterPageContent_openitem04_txt2').text("");
-			$('#MasterPage_MasterPageContent_openitem04_txt2hdn').val("");
+			if (!$('#MasterPage_MasterPageContent_openitem04_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem04_txt').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem04_btn').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem04_btn').css("cursor", "default");
+				$('#MasterPage_MasterPageContent_openitem04_btn').css("pointer-events", "none");
+			}
+		}
+		else {
+			$('#MasterPage_MasterPageContent_openitem04_txt')[0].style.backgroundColor = 'white';
+			if ($('#MasterPage_MasterPageContent_openitem04_txt').hasClass("PL_ReadOnly")) {
+				$('#MasterPage_MasterPageContent_openitem04_txt')[0].style.backgroundColor = '#deecea';
+			}
+			else if ($('#MasterPage_MasterPageContent_openitem04_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem04_txt').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem04_btn').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem04_btn').css("cursor", "pointer");
+				$('#MasterPage_MasterPageContent_openitem04_btn').css("pointer-events", "auto");
+			}
 		}
 	}
 
-	if($("#MasterPage_MasterPageContent_opentype05_txt").length>0){
-		if($("#MasterPage_MasterPageContent_opentype05_txt").val()==""){
+	if ($("#MasterPage_MasterPageContent_opentype05_txt").length > 0) {
+		if ($("#MasterPage_MasterPageContent_opentype05_txt").val() == "") {
+			$('#MasterPage_MasterPageContent_openitem05_txt')[0].style.backgroundColor = '#deecea';
 			$('#MasterPage_MasterPageContent_openitem05_txt').val("");
 			$('#MasterPage_MasterPageContent_openitem05_txt2').text("");
-			$('#MasterPage_MasterPageContent_openitem05_txt2hdn').val("");
+			if (!$('#MasterPage_MasterPageContent_openitem05_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem05_txt').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem05_btn').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem05_btn').css("cursor", "default");
+				$('#MasterPage_MasterPageContent_openitem05_btn').css("pointer-events", "none");
+			}
+		}
+		else {
+			$('#MasterPage_MasterPageContent_openitem05_txt')[0].style.backgroundColor = 'white';
+			if ($('#MasterPage_MasterPageContent_openitem05_txt').hasClass("PL_ReadOnly")) {
+				$('#MasterPage_MasterPageContent_openitem05_txt')[0].style.backgroundColor = '#deecea';
+			}
+			else if ($('#MasterPage_MasterPageContent_openitem05_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem05_txt').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem05_btn').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem05_btn').css("cursor", "pointer");
+				$('#MasterPage_MasterPageContent_openitem05_btn').css("pointer-events", "auto");
+			}
 		}
 	}
-
-
 }
+//20231129 Peggy-子類別預設Disable-E
+
+//function InitTriggerOpen(){
+//	if($("#MasterPage_MasterPageContent_opentype01_txt").length>0){
+//		if($("#MasterPage_MasterPageContent_opentype01_txt").val()==""){
+//			$('#MasterPage_MasterPageContent_openitem01_txt').val("");
+//			$('#MasterPage_MasterPageContent_openitem01_txt2').text("");
+//			$('#MasterPage_MasterPageContent_openitem01_txt2hdn').val("");
+//		}
+//	}
+
+//	if($("#MasterPage_MasterPageContent_opentype02_txt").length>0){
+//		if($("#MasterPage_MasterPageContent_opentype02_txt").val()==""){
+//			$('#MasterPage_MasterPageContent_openitem02_txt').val("");
+//			$('#MasterPage_MasterPageContent_openitem02_txt2').text("");
+//			$('#MasterPage_MasterPageContent_openitem02_txt2hdn').val("");
+//		}
+//	}
+
+//	if($("#MasterPage_MasterPageContent_opentype03_txt").length>0){
+//		if($("#MasterPage_MasterPageContent_opentype03_txt").val()==""){
+//			$('#MasterPage_MasterPageContent_openitem03_txt').val("");
+//			$('#MasterPage_MasterPageContent_openitem03_txt2').text("");
+//			$('#MasterPage_MasterPageContent_openitem03_txt2hdn').val("");
+//		}
+//	}
+
+//	if($("#MasterPage_MasterPageContent_opentype04_txt").length>0){
+//		if($("#MasterPage_MasterPageContent_opentype04_txt").val()==""){
+//			$('#MasterPage_MasterPageContent_openitem04_txt').val("");
+//			$('#MasterPage_MasterPageContent_openitem04_txt2').text("");
+//			$('#MasterPage_MasterPageContent_openitem04_txt2hdn').val("");
+//		}
+//	}
+
+//	if($("#MasterPage_MasterPageContent_opentype05_txt").length>0){
+//		if($("#MasterPage_MasterPageContent_opentype05_txt").val()==""){
+//			$('#MasterPage_MasterPageContent_openitem05_txt').val("");
+//			$('#MasterPage_MasterPageContent_openitem05_txt2').text("");
+//			$('#MasterPage_MasterPageContent_openitem05_txt2hdn').val("");
+//		}
+//	}
+
+
+//}
 
 function InitCalculated(){
 	domath_mtotal();
@@ -859,7 +1055,7 @@ function domath_mtotal()
 
 		if($("#MasterPage_MasterPageContent_money05_txt").length==0)
 			return;
-		var money05 = $("#MasterPage_MasterPageContent_money05_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var money05 = $("#MasterPage_MasterPageContent_money05_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money05)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -918,7 +1114,6 @@ function chkTriggerFieldNull_Head()
 			$("#MasterPage_MasterPageContent_inv02_txt").val('');
 		}
 	}
-
 
 	//20230510 Peggy Star
 	if ($("#MasterPage_MasterPageContent_chkitem02_chk").length > 0) {

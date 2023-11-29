@@ -160,6 +160,10 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.curr.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "curr", tLanguageType);
 			this.useyear.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "useyear", tLanguageType);
 			this.paydate.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "paydate", tLanguageType);
+			this.safeno.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "safeno", tLanguageType);
+			this.safename.Title = MultiLanguage.GetComment("FD", "ODMFPAYMVE02", "safename", tLanguageType);
+
+
             #region 三位一撇
             //^_^ 20230411 Peggy 
             //三位一撇
@@ -168,10 +172,6 @@ namespace tw.com.dsc.easyflowDotNet.forms
             money04.TxtInput,money05.TxtInput,mtotal.TxtInput
             });
             #endregion
-
-            #region 自訂排序
-
-            #endregion 自訂排序
 
             #region 限制修改欄位
             this.TxtCreateToolSubject.InputEnabled=true;
@@ -235,6 +235,8 @@ this.textarea5.ToolTip = this.textarea5.Text;
 			chpay_ctrolRadio0.Checked = (chpay.Value == "0"); chpay_ctrolRadio0.Enabled = chpay.InputEnabled;
 			chpay_ctrolRadio1.Checked = (chpay.Value == "1"); chpay_ctrolRadio1.Enabled = chpay.InputEnabled;
 			chpay_ctrolRadio2.Checked = (chpay.Value == "2"); chpay_ctrolRadio2.Enabled = chpay.InputEnabled;
+			kind.Attributes["style"] = "display:none;";
+			kind_ctrolRadio0.Checked = (kind.Value == "0"); kind_ctrolRadio0.Enabled = kind.InputEnabled;
 
 
 			//單頭RadioButton控制項 end
@@ -290,7 +292,8 @@ this.other.Text = String.Empty;
 				//傳送
 				string tParentScript = base.BtnCreateToolSendForm.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("SetCustomSubject()")<0){
-					tParentScript = tParentScript.Replace("if (!checkSubjectField())", "SetCustomSubject();if (!checkSubjectField())");
+					tParentScript = tParentScript.Replace("if (!checkSubjectField()) {event.returnValue = false;return false; };", "");
+					tParentScript = tParentScript.Replace("ShowProgressBar", "SetCustomSubject(); if (!checkSubjectField()) {event.returnValue = false;return false; };ShowProgressBar");
 					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
 					base.BtnCreateToolSendForm.Attributes.Add("onclick", tParentScript);
 				}
@@ -1257,6 +1260,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
             openitem05.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem05_txt", "TrigMIMJ01_07_openitem05", "MasterPage_MasterPageContent_openitem05_txt,MasterPage_MasterPageContent_opentype05_txt"));
             openitem05.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem05_txt');");
 
+
             switch (tWindowOpenStyle){
 				case "2":
 					string tPara = "RESAK§10§" + this.UserInfo.DepartmentId + "§§§";
@@ -1345,16 +1349,16 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 
             //20230423 Peggy 註冊在js建的規則, 於chkitem02
             this.chkitem02.Attributes.Add("onclick", ";openRadio();");
-            //this.chkitem02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem02_chk')[0].checked){{$('#MasterPage_MasterPageContent_itemname').show();}} else{{$('#MasterPage_MasterPageContent_itemname').hide();}} ");
             this.chkitem05.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem05_chk')[0].checked){{$('#MasterPage_MasterPageContent_chkother').show();}} else{{$('#MasterPage_MasterPageContent_chkother').hide();}} ");
-			this.chkatt01.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt01_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv01').show();}} else{{$('#MasterPage_MasterPageContent_inv01').hide();}} ");
-			this.chkatt02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt02_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv02').show();}} else{{$('#MasterPage_MasterPageContent_inv02').hide();}} ");
-			this.other.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_other_chk')[0].checked){{$('#MasterPage_MasterPageContent_attother').show();}} else{{$('#MasterPage_MasterPageContent_attother').hide();}} ");
-			this.chkven_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkven_txt').value = '0';");
-			this.chkven_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkven_txt').value = '1';");
-			this.chpay_ctrolRadio0.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '0';");
-			this.chpay_ctrolRadio1.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '1';");
-			this.chpay_ctrolRadio2.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '2';");
+this.chkatt01.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt01_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv01').show();}} else{{$('#MasterPage_MasterPageContent_inv01').hide();}} ");
+this.chkatt02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt02_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv02').show();}} else{{$('#MasterPage_MasterPageContent_inv02').hide();}} ");
+this.other.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_other_chk')[0].checked){{$('#MasterPage_MasterPageContent_attother').show();}} else{{$('#MasterPage_MasterPageContent_attother').hide();}} ");
+this.chkven_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkven_txt').value = '0';");
+this.chkven_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_chkven_txt').value = '1';");
+this.chpay_ctrolRadio0.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '0';");
+this.chpay_ctrolRadio1.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '1';");
+this.chpay_ctrolRadio2.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '2';");
+this.kind_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '0';");
 		}//settingClientFunction結尾
 
 		/// <summary>

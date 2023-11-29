@@ -160,22 +160,15 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.curr.Title = MultiLanguage.GetComment("FD", "ODMFPAYTEST01", "curr", tLanguageType);
 			this.useyear.Title = MultiLanguage.GetComment("FD", "ODMFPAYTEST01", "useyear", tLanguageType);
 			this.tax.Title = MultiLanguage.GetComment("FD", "ODMFPAYTEST01", "tax", tLanguageType);
+			this.deptid.Title = MultiLanguage.GetComment("FD", "ODMFPAYTEST01", "deptid", tLanguageType);
 
-            #region 三位一撇
-            //^_^ 20230411 Peggy 
-            //三位一撇
-            OEMLibrary.RegisterNumberFormat(this, new TextBox2[] {
-            money01.TxtInput,money02.TxtInput,money03.TxtInput,
-            money04.TxtInput,money05.TxtInput,mtotal.TxtInput
-            });
-            #endregion
 
-            #region 自訂排序
+			#region 自訂排序
+			
+			#endregion 自訂排序
 
-            #endregion 自訂排序
-
-            #region 限制修改欄位
-            this.TxtCreateToolSubject.InputEnabled=true;
+			#region 限制修改欄位
+			this.TxtCreateToolSubject.InputEnabled=true;
 
 			#endregion 限制修改欄位
 
@@ -382,33 +375,17 @@ this.other.Text = String.Empty;
 				#endregion CmpCode公司組織控件，依公司組織過濾加簽、轉寄名單
 			}
 
-            #region 自訂Page_Prender區塊
-            //20230411 Peggy  判斷開單時,才跑openRadio, 並清空主類及子項 & 訂單編號
+			#region 自訂Page_Prender區塊
+			
+			#endregion 自訂Page_Prender區塊
+		}
+		#endregion Page_Prender做的事
 
-            //if (base.FormStatus == EFFormStatus.CREATE)
-            //{
-            //    ScriptManager.RegisterStartupScript(this, typeof(string), Guid.NewGuid().ToString(), "openRadio();", true);
-            //    this.opentype01.Text = String.Empty;
-            //    this.openitem01.Text = String.Empty;
-            //    this.opentype02.Text = String.Empty;
-            //    this.openitem02.Text = String.Empty;
-            //    this.opentype03.Text = String.Empty;
-            //    this.openitem03.Text = String.Empty;
-            //    this.opentype04.Text = String.Empty;
-            //    this.openitem04.Text = String.Empty;
-            //    this.opentype05.Text = String.Empty;
-            //    this.openitem05.Text = String.Empty;
-            //    this.orderno.Text = String.Empty;
-            //}
-            #endregion 自訂Page_Prender區塊
-        }
-        #endregion Page_Prender做的事
-
-        #region setBasicInfo , 設定表單的基本屬性
-        /// <summary>
-        /// 設定表單的基本屬性 (setBasicInfo)
-        /// </summary>
-        protected override void setBasicInfo()
+		#region setBasicInfo , 設定表單的基本屬性
+		/// <summary>
+		/// 設定表單的基本屬性 (setBasicInfo)
+		/// </summary>
+		protected override void setBasicInfo()
 		{
 			// 作業代號
 			this.TaskId = "ODMFPAYTEST01";
@@ -1291,6 +1268,19 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			empl2.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_empl2_txt","員工代號_empl2","MasterPage_MasterPageContent_empl2_txt"));
 			empl2.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_empl2_txt');");
 			
+			switch (tWindowOpenStyle){
+				case "2":
+					string tPara = "RESAL§06§" + this.UserInfo.DepartmentId + "§§§";
+					string tUrl = "../../_Common/EFDefOpen/F2MutipleFrame.aspx?open=DeptSingle&value=";
+					deptid.HtmImg.Attributes.Add("onclick", "if(!SingleSelectEmpl('" + tUrl + System.Web.HttpUtility.UrlEncode(tPara) + "','" + deptid.TxtInput.ClientID + "','部門代號_deptid')){return false;}");
+					break;
+				default:
+					deptid.HtmImg.Attributes.Add("onclick",MIMJUtil.getClickParams("MasterPage_MasterPageContent_deptid_btn","MasterPage_MasterPageContent_deptid_txt","S"));
+					break;
+			}
+			deptid.TxtInput.Attributes.Add("onblur",MIMJUtil.getBlurParams("MasterPage_MasterPageContent_deptid_txt","部門代號_deptid","MasterPage_MasterPageContent_deptid_txt"));
+			deptid.TxtInput.Attributes.Add("onchange","AddtoHash('MasterPage_MasterPageContent_deptid_txt');");
+
 			string strmoney01_DoMathScript_mtotal_onChange=string.Empty;
 			if(money01.TxtInput.Attributes["onchange"]!=null){strmoney01_DoMathScript_mtotal_onChange=money01.TxtInput.Attributes["onchange"].ToString().Trim(';');}
 			if(strmoney01_DoMathScript_mtotal_onChange.Length>0)
@@ -1351,9 +1341,8 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 				strmoney05_DoMathScript_mtotal_onblur+=";";
 			money05.TxtInput.Attributes.Add("onblur",strmoney05_DoMathScript_mtotal_onblur+"domath_mtotal();");
 
-            //20230423 Peggy 註冊在js建的規則, 於chkitem02
-            this.chkitem02.Attributes.Add("onclick", ";openRadio();");
-            //this.chkitem02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem02_chk')[0].checked){{$('#MasterPage_MasterPageContent_itemname').show();}} else{{$('#MasterPage_MasterPageContent_itemname').hide();}} ");
+
+this.chkitem02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem02_chk')[0].checked){{$('#MasterPage_MasterPageContent_useyear').show();}} else{{$('#MasterPage_MasterPageContent_useyear').hide();}} ");
 this.chkitem05.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkitem05_chk')[0].checked){{$('#MasterPage_MasterPageContent_chkother').show();}} else{{$('#MasterPage_MasterPageContent_chkother').hide();}} ");
 this.chkatt01.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt01_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv01').show();}} else{{$('#MasterPage_MasterPageContent_inv01').hide();}} ");
 this.chkatt02.Attributes.Add("onclick", " if($('#MasterPage_MasterPageContent_chkatt02_chk')[0].checked){{$('#MasterPage_MasterPageContent_inv02').show();}} else{{$('#MasterPage_MasterPageContent_inv02').hide();}} ");
@@ -1388,6 +1377,7 @@ this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('Master
 				pMiMjManager.Add("openitem05_0", openitem05);
 				pMiMjManager.Add("empl1_0", empl1);
 				pMiMjManager.Add("empl2_0", empl2);
+				pMiMjManager.Add("deptid_0", deptid);
 
 			}
 
@@ -1415,6 +1405,7 @@ this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('Master
 			defalutHash.Add("empl1", this.UserInfo.EmployeeId.ToString());
 			defalutHash.Add("empl2", ajaxGetSupervisorID());
 			defalutHash.Add("curr", "RMB");
+			defalutHash.Add("deptid", ajaxGetDepartmentId());
 		}
 
 		//草稿儲存後要將主旨清除
@@ -2180,6 +2171,65 @@ order by resdd003 desc";
 			}
 			pAryCondValue[0, 1] = "ID";
 			pAryCondValue[1, 1] = tValue; 
+
+
+			tDbl=0;
+			try{
+				tDbl = double.Parse(this.deptid.Value.Trim());
+			}
+			catch(Exception e){
+				tDbl=0;
+			}
+			pAryCondValue[0, 2] = "DeptID";
+			pAryCondValue[1, 2] = tDbl; 
+			tDbl = 0;
+
+
+			tDbl=0;
+			try{
+				tDbl = double.Parse(this.mtotal.Value.Trim());
+			}
+			catch(Exception e){
+				tDbl=0;
+			}
+			pAryCondValue[0, 3] = "mtotal";
+			pAryCondValue[1, 3] = tDbl; 
+			tDbl = 0;
+
+
+			tDbl=0;
+			try{
+				tDbl = double.Parse(this.chpay.Value.Trim());
+			}
+			catch(Exception e){
+				tDbl=0;
+			}
+			pAryCondValue[0, 4] = "cashpay";
+			pAryCondValue[1, 4] = tDbl; 
+			tDbl = 0;
+
+
+			tDbl=0;
+			try{
+				tDbl = double.Parse(this.kind.Value.Trim());
+			}
+			catch(Exception e){
+				tDbl=0;
+			}
+			pAryCondValue[0, 5] = "Kind";
+			pAryCondValue[1, 5] = tDbl; 
+			tDbl = 0;
+
+
+			tValue="";
+			try{
+				tValue = (this.curr.Value.Trim());
+			}
+			catch(Exception e){
+				tValue="";
+			}
+			pAryCondValue[0, 6] = "curr";
+			pAryCondValue[1, 6] = tValue; 
 
 
 		}

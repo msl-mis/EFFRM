@@ -9,55 +9,96 @@ function CustomerSaveCheck_Head(tStatus)
 	if (tStatus == "CREATE")
 	{
 		//填表時要驗證
-		
-		//Radio Button 驗証
-		if ($('#MasterPage_MasterPageContent_chpay_txt').length > 0 && document.getElementById('MasterPage_MasterPageContent_chpay_txt').value == '') {
-			tErr += getI18NForSpecial('FD', 'ODMFPAYCN02', 'chpay_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '\r\n';
-		}
-		//Radio Button 驗証
-		if ($('#MasterPage_MasterPageContent_kind_txt').length > 0 && document.getElementById('MasterPage_MasterPageContent_kind_txt').value == '') {
-			tErr += getI18NForSpecial('FD', 'ODMFPAYCN02', 'kind_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '\r\n';
-		}
-		//20230424 Peggy Star
-		//驗證第二個開窗必填
-		var _opentype01 = document.getElementById("MasterPage_MasterPageContent_opentype01_txt");
-		var _openitem01 = document.getElementById("MasterPage_MasterPageContent_openitem01_txt");
-		var _opentype02 = document.getElementById("MasterPage_MasterPageContent_opentype02_txt");
-		var _openitem02 = document.getElementById("MasterPage_MasterPageContent_openitem02_txt");
-		var _opentype03 = document.getElementById("MasterPage_MasterPageContent_opentype03_txt");
-		var _openitem03 = document.getElementById("MasterPage_MasterPageContent_openitem03_txt");
-		var _opentype04 = document.getElementById("MasterPage_MasterPageContent_opentype04_txt");
-		var _openitem04 = document.getElementById("MasterPage_MasterPageContent_openitem04_txt");
-		var _opentype05 = document.getElementById("MasterPage_MasterPageContent_opentype05_txt");
-		var _openitem05 = document.getElementById("MasterPage_MasterPageContent_openitem05_txt");
 
-		if (_opentype01 != null && _opentype01.value != "") {
-			if (_openitem01.value == "") {
-				tErr += "請選擇子項目!" + "\r\n";
-			}
-		}
-		if (_opentype02 != null && _opentype02.value != "") {
-			if (_openitem02.value == "") {
-				tErr += "請選擇子項目!" + "\r\n";
-			}
-		}
-		if (_opentype03 != null && _opentype03.value != "") {
-			if (_openitem03.value == "") {
-				tErr += "請選擇子項目!" + "\r\n";
-			}
-		}
-		if (_opentype04 != null && _opentype04.value != "") {
-			if (_openitem04.value == "") {
-				tErr += "請選擇子項目!" + "\r\n";
-			}
-		}
-		if (_opentype05 != null && _opentype05.value != "") {
-			if (_openitem05.value == "") {
-				tErr += "請選擇子項目!" + "\r\n";
+
+		//文字驗証
+		//var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
+		//if(topentype01.length>0){
+		//	if('readonly' !== topentype01.attr('readonly') &&
+		//		'disabled' !== topentype01.attr('disabled')){
+		//		var topentype01Value = $('#MasterPage_MasterPageContent_opentype01_txt').val();
+		//		if (topentype01Value.length < 1 || topentype01Value.length > 50)
+		//		{
+		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'opentype01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'opentype01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '\r\n';
+		//		}
+		//	}
+		//}
+		//文字驗証
+		var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
+		var tErr = '';
+
+		if (topentype01.length > 0) {
+			if ('readonly' !== topentype01.attr('readonly') &&
+				'disabled' !== topentype01.attr('disabled')) {
+				var topentype01Value = topentype01.val();
+
+				// 檢查是否超過長度
+				//if (topentype01Value.length > 50) {
+				//	// 將錯誤消息添加到輸入字段下方
+				//	appendErrorMessage(topentype01, '輸入超過長度');
+
+				//	// 顯示確認彈窗
+				//	if (confirm('xx欄位輸入超過長度，確定要提交嗎？')) {
+				//		// 用戶點擊確定，繼續提交表單
+				//	} else {
+				//		// 用戶點擊取消，阻止表單提交
+				//		event.preventDefault();
+				//	}
+				//} else {
+				// 清空可能存在的錯誤消息
+				clearErrorMessage(topentype01);
+
+				// 如果輸入為空，顯示提示信息
+				if (topentype01Value === null || topentype01Value.trim() === '') {
+					  // 顯示確認彈窗
+					if (confirm('【請二次確認支出類別沒有勾選是該費用已在報價中或已跟客戶收款情形】')) {
+						// 用戶點擊確定，繼續提交表單
+					} else {
+						// 用戶點擊取消，阻止表單提交
+						event.preventDefault();
+					}
+				}
+				//}
 			}
 		}
 
-		//20230424 Peggy End
+		// 函數用於在輸入字段下方添加錯誤消息
+		function appendErrorMessage(element, message) {
+			// 檢查是否已經有錯誤消息元素，如果有，更新文本內容，否則創建一個新的元素
+			var errorElement = element.next('.error-message');
+			if (errorElement.length === 0) {
+				errorElement = $('<div class="error-message"></div>').insertAfter(element);
+			}
+
+			// 更新錯誤消息文本
+			errorElement.text(message);
+			// 添加紅色樣式
+			errorElement.css('color', 'red');
+		}
+
+		// 函數用於清空輸入字段下方的錯誤消息
+		function clearErrorMessage(element) {
+			var errorElement = element.next('.error-message');
+			if (errorElement.length !== 0) {
+				errorElement.remove();
+			}
+		}
+
+		//Radio Button 驗証
+			if ($('#MasterPage_MasterPageContent_chpay_txt').attr('readonly') !== 'readonly'){
+				if ($('#MasterPage_MasterPageContent_chpay_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_chpay_txt').value == '')
+				{
+					tErr += getI18NForSpecial('FD', 'ODMFPAYTEST01', 'chpay_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+			}
+		//Radio Button 驗証
+			if ($('#MasterPage_MasterPageContent_kind_txt').attr('readonly') !== 'readonly'){
+				if ($('#MasterPage_MasterPageContent_kind_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_kind_txt').value == '')
+				{
+					tErr += getI18NForSpecial('FD', 'ODMFPAYTEST01', 'kind_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+			}
+
 	}
 	else if (tStatus == "APPROVE")
 	{
@@ -247,12 +288,13 @@ function CustomerSaveCheck_Head(tStatus)
 	}
 
 
-	if (tErr == "") {
-		//20230518 Peggy 開單(複製表單)時, 把所有欄位開啟, 才能清空欄位值
-		//OEMTurnningOnOff("On", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_useyear_txt", false);
+
+	if (tErr == "")
+	{
 		return true;
 	}
-	else {
+	else
+	{
 		alert(tErr);
 		return false;
 	}
@@ -293,7 +335,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
 	if(tmoney01.length>0){
-		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim().replace(/\,/g, '');
+		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim();
 		if (tmoney01Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney01Value)){
 				//輸入的資料不符合float數值格式 !
@@ -309,7 +351,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney02 = $('#MasterPage_MasterPageContent_money02_txt');
 	if(tmoney02.length>0){
-		var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim().replace(/\,/g, '');
+		var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim();
 		if (tmoney02Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney02Value)){
 				//輸入的資料不符合float數值格式 !
@@ -325,7 +367,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney03 = $('#MasterPage_MasterPageContent_money03_txt');
 	if(tmoney03.length>0){
-		var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim().replace(/\,/g, '');
+		var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim();
 		if (tmoney03Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney03Value)){
 				//輸入的資料不符合float數值格式 !
@@ -341,7 +383,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney04 = $('#MasterPage_MasterPageContent_money04_txt');
 	if(tmoney04.length>0){
-		var tmoney04Value = $('#MasterPage_MasterPageContent_money04_txt').val().trim().replace(/\,/g, '');
+		var tmoney04Value = $('#MasterPage_MasterPageContent_money04_txt').val().trim();
 		if (tmoney04Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney04Value)){
 				//輸入的資料不符合float數值格式 !
@@ -357,7 +399,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney05 = $('#MasterPage_MasterPageContent_money05_txt');
 	if(tmoney05.length>0){
-		var tmoney05Value = $('#MasterPage_MasterPageContent_money05_txt').val().trim().replace(/\,/g, '');
+		var tmoney05Value = $('#MasterPage_MasterPageContent_money05_txt').val().trim();
 		if (tmoney05Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney05Value)){
 				//輸入的資料不符合float數值格式 !
@@ -373,7 +415,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmtotal = $('#MasterPage_MasterPageContent_mtotal_txt');
 	if(tmtotal.length>0){
-		var tmtotalValue = $('#MasterPage_MasterPageContent_mtotal_txt').val().trim().replace(/\,/g, '');
+		var tmtotalValue = $('#MasterPage_MasterPageContent_mtotal_txt').val().trim();
 		if (tmtotalValue.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmtotalValue)){
 				//輸入的資料不符合float數值格式 !
@@ -813,7 +855,7 @@ function domath_mtotal()
 	try{
 		if($("#MasterPage_MasterPageContent_money01_txt").length==0)
 			return;
-		var money01 = $("#MasterPage_MasterPageContent_money01_txt").val().trim().replace(/\,/g, '');
+		var money01 = $("#MasterPage_MasterPageContent_money01_txt").val().trim();
 		if(isNaN(money01)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -825,7 +867,7 @@ function domath_mtotal()
 
 		if($("#MasterPage_MasterPageContent_money02_txt").length==0)
 			return;
-		var money02 = $("#MasterPage_MasterPageContent_money02_txt").val().trim().replace(/\,/g, '');
+		var money02 = $("#MasterPage_MasterPageContent_money02_txt").val().trim();
 		if(isNaN(money02)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -837,7 +879,7 @@ function domath_mtotal()
 
 		if($("#MasterPage_MasterPageContent_money03_txt").length==0)
 			return;
-		var money03 = $("#MasterPage_MasterPageContent_money03_txt").val().trim().replace(/\,/g, '');
+		var money03 = $("#MasterPage_MasterPageContent_money03_txt").val().trim();
 		if(isNaN(money03)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -849,7 +891,7 @@ function domath_mtotal()
 
 		if($("#MasterPage_MasterPageContent_money04_txt").length==0)
 			return;
-		var money04 = $("#MasterPage_MasterPageContent_money04_txt").val().trim().replace(/\,/g, '');
+		var money04 = $("#MasterPage_MasterPageContent_money04_txt").val().trim();
 		if(isNaN(money04)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -861,7 +903,7 @@ function domath_mtotal()
 
 		if($("#MasterPage_MasterPageContent_money05_txt").length==0)
 			return;
-		var money05 = $("#MasterPage_MasterPageContent_money05_txt").val().trim().replace(/\,/g, '');
+		var money05 = $("#MasterPage_MasterPageContent_money05_txt").val().trim();
 		if(isNaN(money05)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
@@ -877,16 +919,7 @@ function domath_mtotal()
 			return;
 		}
 
-		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = Math.round(parseFloat(finalvalue) * Math.pow(10, 2)) / Math.pow(10, 2);
-		//^_^ 20230411 Peggy 重新加上千份位↓
-		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = OEMFormat(parseFloat(finalvalue).toFixed(2));
-		document.getElementById("MasterPage_MasterPageContent_money01_txt").value = OEMFormat(parseFloat(money01).toFixed(2));
-		document.getElementById("MasterPage_MasterPageContent_money02_txt").value = OEMFormat(parseFloat(money02).toFixed(2));
-		document.getElementById("MasterPage_MasterPageContent_money03_txt").value = OEMFormat(parseFloat(money03).toFixed(2));
-		document.getElementById("MasterPage_MasterPageContent_money04_txt").value = OEMFormat(parseFloat(money04).toFixed(2));
-		document.getElementById("MasterPage_MasterPageContent_money05_txt").value = OEMFormat(parseFloat(money05).toFixed(2));
-	    //^_^  20230411 Peggy 重新加上千份位↑
-
+		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value=Math.round(parseFloat(finalvalue)*Math.pow(10, 2))/Math.pow(10, 2);
 	}catch(err){
 		$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 		var errorMsg = getI18NForSpecial('FD','CalculatedSet2','MutiLang_04','../../../src/_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx');
@@ -966,26 +999,6 @@ function chkTriggerFieldNull_Head()
 		}
 	}
 
-	//20230510 Peggy Star
-	if ($("#MasterPage_MasterPageContent_chkitem02_chk").length > 0) {
-		if ($("#MasterPage_MasterPageContent_chkitem02_chk")[0].checked) {
-			if ($("#MasterPage_MasterPageContent_useyear_txt").val().trim().length == 0) {
-				tErr += '請確認 "使用年限"  是否有填寫\r\n';
-			}
-			else
-				//if ($("#MasterPage_MasterPageContent_orderno_txt").val().trim().length == 0) {
-				//	tErr += '請確認 "訂單號碼" 是否有填寫\r\n';
-				//}
-				//else
-				if ($("#MasterPage_MasterPageContent_chkven_txt").val().trim().length == 0) {
-					tErr += '請確認 "使用單位" 是否有填寫\r\n';
-				}
-		}
-		else {
-			$("#MasterPage_MasterPageContent_useyear_txt").val('');
-		}
-	}
-		//Peggy End
 
 	if (tErr == '')
 		return true;
@@ -1057,81 +1070,5 @@ function jsDoDispatch(pFormID, pSheetNo, pDispatchFormID){
 		}
 	}
 }
-//20230424 Peggy Star
-//第一個開窗後將第二個窗唯獨或開放，第二個開窗必填
-function opentype_change() {
-	var open01 = document.getElementById("MasterPage_MasterPageContent_opentype01_txt"); //第一個類別
-	var open02 = document.getElementById("MasterPage_MasterPageContent_opentype02_txt"); //第二個類別
-	var open03 = document.getElementById("MasterPage_MasterPageContent_opentype03_txt"); //第三個類別
-	var open04 = document.getElementById("MasterPage_MasterPageContent_opentype04_txt"); //第四個類別
-	var open05 = document.getElementById("MasterPage_MasterPageContent_opentype05_txt"); //第五個類別
-
-
-	if (open01 != null && open01.value != "") {
-		//openitem
-		OEMTurnningOnOff("On", "openitem01", true);
-	}
-	else {
-
-		OEMTurnningOnOff("Off", "openitem01");
-	}
-
-	if (open02 != null && open02.value != "") {
-		//openitem
-		OEMTurnningOnOff("On", "openitem02", true);
-	}
-	else {
-		OEMTurnningOnOff("Off", "openitem02");
-	}
-
-	if (open03 != null && open03.value != "") {
-		//openitem
-		OEMTurnningOnOff("On", "openitem03", true);
-	}
-	else {
-		OEMTurnningOnOff("Off", "openitem03");
-	}
-
-	if (open04 != null && open04.value != "") {
-		//openitem
-		OEMTurnningOnOff("On", "openitem04", true);
-	}
-	else {
-		OEMTurnningOnOff("Off", "openitem04");
-	}
-
-	if (open05 != null && open05.value != "") {
-		//openitem
-		OEMTurnningOnOff("On", "openitem05", true);
-	}
-	else {
-		OEMTurnningOnOff("Off", "openitem05");
-	}
-}
-//20230424 Peggy End
-
-//20230411 Peggy 在這裡做條件判斷, 在aspx 引用OEMSetControl.js
-//勾選chkitem02時,才顯示radioButton要勾選
-function openRadio() {
-	var _chkitem02 = document.getElementById("MasterPage_MasterPageContent_chkitem02_chk").checked;
-
-	if (_chkitem02) {
-		OEMTurnningOnOff("On", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_useyear_txt", false);
-		//$("#MasterPage_MasterPageContent_orderno_txt").show();
-
-	}
-	else {
-		document.getElementById("MasterPage_MasterPageContent_chkven_ctrolRadio0").checked = false;
-		document.getElementById("MasterPage_MasterPageContent_chkven_ctrolRadio1").checked = false;
-		document.getElementById("MasterPage_MasterPageContent_chkven_txt").value = "";
-		//document.getElementById("MasterPage_MasterPageContent_orderno_txt").value = "";
-		document.getElementById("MasterPage_MasterPageContent_useyear_txt").value = "";
-
-		OEMTurnningOnOff("Off", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_useyear_txt");
-		/*	$("#MasterPage_MasterPageContent_orderno_txt").hide();*/
-
-	}
-}
-
 
 

@@ -99,6 +99,11 @@ namespace tw.com.dsc.easyflowDotNet.forms
 					base.doMI("RESAK","03");
 					break;
 				}
+				case "MasterPage_MasterPageContent_deptid_btn":			//部門代號
+				{
+					base.doMI("RESAL","01");
+					break;
+				}
 
 				default:
 					break;
@@ -257,6 +262,11 @@ namespace tw.com.dsc.easyflowDotNet.forms
 				case "員工代號_empl2":	
 				{
 					base.doMJ("RESAK","03","MasterPage_MasterPageContent_empl2_txt2=resak002");
+					break;
+				}
+				case "部門代號_deptid":	
+				{
+					base.doMJ("RESAL","01","MasterPage_MasterPageContent_deptid_txt2=resal002");
 					break;
 				}
 

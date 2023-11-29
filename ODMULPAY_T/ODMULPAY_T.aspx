@@ -451,5 +451,5 @@
 		</div>
 
 <!--引用JavaScript-->
-<script src="ODMULPAY_T.js?NoCache=20231121003" type="text/javascript"></script>
+<script src="ODMULPAY_T.js?NoCache=20231121019" type="text/javascript"></script>
 </asp:Content>
