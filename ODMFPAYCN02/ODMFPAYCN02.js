@@ -9,7 +9,7 @@ function CustomerSaveCheck_Head(tStatus)
 	if (tStatus == "CREATE")
 	{
 		//填表時要驗證	
-
+		//Peggy 新增支出類別警示
 		//文字驗証
 		var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
 		var tErr = '';
@@ -38,7 +38,7 @@ function CustomerSaveCheck_Head(tStatus)
 				// 如果輸入為空，顯示提示信息
 				if (topentype01Value === null || topentype01Value.trim() === '') {
 					// 顯示確認彈窗
-					if (confirm('【請二次確認支出類別沒有勾選是該費用已在報價中或已跟客戶收款情形】')) {
+					if (confirm('【請二次確認支出類別沒有勾選，是因該費用已在報價中或已跟客戶收款的情形】')) {
 						// 用戶點擊確定，繼續提交表單
 					} else {
 						// 用戶點擊取消，阻止表單提交

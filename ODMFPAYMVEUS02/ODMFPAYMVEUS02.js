@@ -9,7 +9,67 @@ function CustomerSaveCheck_Head(tStatus)
 	if (tStatus == "CREATE")
 	{
 		//填表時要驗證
-		
+		//Peggy 新增請款單類別警示
+		//文字驗証
+		var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
+		var tErr = '';
+
+		if (topentype01.length > 0) {
+			if ('readonly' !== topentype01.attr('readonly') &&
+				'disabled' !== topentype01.attr('disabled')) {
+				var topentype01Value = topentype01.val();
+
+				// 檢查是否超過長度
+				//if (topentype01Value.length > 50) {
+				//	// 將錯誤消息添加到輸入字段下方
+				//	appendErrorMessage(topentype01, '輸入超過長度');
+
+				//	// 顯示確認彈窗
+				//	if (confirm('xx欄位輸入超過長度，確定要提交嗎？')) {
+				//		// 用戶點擊確定，繼續提交表單
+				//	} else {
+				//		// 用戶點擊取消，阻止表單提交
+				//		event.preventDefault();
+				//	}
+				//} else {
+				// 清空可能存在的錯誤消息
+				clearErrorMessage(topentype01);
+
+				// 如果輸入為空，顯示提示信息
+				if (topentype01Value === null || topentype01Value.trim() === '') {
+					// 顯示確認彈窗
+					if (confirm('【請二次確認支出類別沒有勾選，是因該費用已在報價中或已跟客戶收款的情形】\n\r Đề nghị xác nhận lại loại chi phí chưa chọn, do chi phí này đã có trong báo giá hoặc đã thu phí của khách hàng')) {
+						// 用戶點擊確定，繼續提交表單
+					} else {
+						// 用戶點擊取消，阻止表單提交
+						event.preventDefault();
+					}
+				}
+				//}
+			}
+		}
+
+		// 函數用於在輸入字段下方添加錯誤消息
+		function appendErrorMessage(element, message) {
+			// 檢查是否已經有錯誤消息元素，如果有，更新文本內容，否則創建一個新的元素
+			var errorElement = element.next('.error-message');
+			if (errorElement.length === 0) {
+				errorElement = $('<div class="error-message"></div>').insertAfter(element);
+			}
+
+			// 更新錯誤消息文本
+			errorElement.text(message);
+			// 添加紅色樣式
+			errorElement.css('color', 'red');
+		}
+
+		// 函數用於清空輸入字段下方的錯誤消息
+		function clearErrorMessage(element) {
+			var errorElement = element.next('.error-message');
+			if (errorElement.length !== 0) {
+				errorElement.remove();
+			}
+		}
 
 		//Radio Button 驗証
 			if ($('#MasterPage_MasterPageContent_chpay_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_chpay_txt').value == '')

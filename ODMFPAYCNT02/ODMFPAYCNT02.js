@@ -9,17 +9,84 @@ function CustomerSaveCheck_Head(tStatus)
 	if (tStatus == "CREATE")
 	{
 		//填表時要驗證
+		//Peggy 新增支出類別警示
+		//文字驗証
+		var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
+		var tErr = '';
+
+		if (topentype01.length > 0) {
+			if ('readonly' !== topentype01.attr('readonly') &&
+				'disabled' !== topentype01.attr('disabled')) {
+				var topentype01Value = topentype01.val();
+
+				// 檢查是否超過長度
+				//if (topentype01Value.length > 50) {
+				//	// 將錯誤消息添加到輸入字段下方
+				//	appendErrorMessage(topentype01, '輸入超過長度');
+
+				//	// 顯示確認彈窗
+				//	if (confirm('xx欄位輸入超過長度，確定要提交嗎？')) {
+				//		// 用戶點擊確定，繼續提交表單
+				//	} else {
+				//		// 用戶點擊取消，阻止表單提交
+				//		event.preventDefault();
+				//	}
+				//} else {
+				// 清空可能存在的錯誤消息
+				clearErrorMessage(topentype01);
+
+				// 如果輸入為空，顯示提示信息
+				if (topentype01Value === null || topentype01Value.trim() === '') {
+					// 顯示確認彈窗
+					if (confirm('【請二次確認支出類別沒有勾選，是因該費用已在報價中或已跟客戶收款的情形】')) {
+						// 用戶點擊確定，繼續提交表單
+					} else {
+						// 用戶點擊取消，阻止表單提交
+						event.preventDefault();
+					}
+				}
+				//}
+			}
+		}
+
+		// 函數用於在輸入字段下方添加錯誤消息
+		function appendErrorMessage(element, message) {
+			// 檢查是否已經有錯誤消息元素，如果有，更新文本內容，否則創建一個新的元素
+			var errorElement = element.next('.error-message');
+			if (errorElement.length === 0) {
+				errorElement = $('<div class="error-message"></div>').insertAfter(element);
+			}
+
+			// 更新錯誤消息文本
+			errorElement.text(message);
+			// 添加紅色樣式
+			errorElement.css('color', 'red');
+		}
+
+		// 函數用於清空輸入字段下方的錯誤消息
+		function clearErrorMessage(element) {
+			var errorElement = element.next('.error-message');
+			if (errorElement.length !== 0) {
+				errorElement.remove();
+			}
+		}
+		//Peggy End
 		
 		//Radio Button 驗証
-			if ($('#MasterPage_MasterPageContent_chpay_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_chpay_txt').value == '')
-			{
-				tErr += getI18NForSpecial('FD', 'ODMFPAYCNT02', 'chpay_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+			if ($('#MasterPage_MasterPageContent_chpay_txt').attr('readonly') !== 'readonly'){
+				if ($('#MasterPage_MasterPageContent_chpay_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_chpay_txt').value == '')
+				{
+					tErr += getI18NForSpecial('FD', 'ODMFPAYCNT02', 'chpay_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
 			}
 		//Radio Button 驗証
-			if ($('#MasterPage_MasterPageContent_kind_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_kind_txt').value == '')
-			{
-				tErr += getI18NForSpecial('FD', 'ODMFPAYCNT02', 'kind_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
-			}
+			if ($('#MasterPage_MasterPageContent_kind_txt').attr('readonly') !== 'readonly'){
+				if ($('#MasterPage_MasterPageContent_kind_txt').length>0 && document.getElementById('MasterPage_MasterPageContent_kind_txt').value == '')
+				{
+					tErr += getI18NForSpecial('FD', 'ODMFPAYCNT02', 'kind_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+		}
+
 		//20230424 Peggy Star
 		//驗證第二個開窗必填
 		var _opentype01 = document.getElementById("MasterPage_MasterPageContent_opentype01_txt");
@@ -132,7 +199,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tmoney01Value=tmoney01Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money01_txt').val(parseFloat(tmoney01Value).toFixed(2));
+				$('#MasterPage_MasterPageContent_money01_txt').val(Math.round(parseFloat(tmoney01Value)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -148,7 +215,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tmoney02Value=tmoney02Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money02_txt').val(parseFloat(tmoney02Value).toFixed(2));
+				$('#MasterPage_MasterPageContent_money02_txt').val(Math.round(parseFloat(tmoney02Value)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -164,7 +231,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tmoney03Value=tmoney03Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money03_txt').val(parseFloat(tmoney03Value).toFixed(2));
+				$('#MasterPage_MasterPageContent_money03_txt').val(Math.round(parseFloat(tmoney03Value)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -180,7 +247,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tmoney04Value=tmoney04Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money04_txt').val(parseFloat(tmoney04Value).toFixed(2));
+				$('#MasterPage_MasterPageContent_money04_txt').val(Math.round(parseFloat(tmoney04Value)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -196,7 +263,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tmoney05Value=tmoney05Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money05_txt').val(parseFloat(tmoney05Value).toFixed(2));
+				$('#MasterPage_MasterPageContent_money05_txt').val(Math.round(parseFloat(tmoney05Value)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -212,7 +279,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				tmtotalValue=tmtotalValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_mtotal_txt').val(parseFloat(tmtotalValue).toFixed(2));
+				$('#MasterPage_MasterPageContent_mtotal_txt').val(Math.round(parseFloat(tmtotalValue)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -295,7 +362,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
 	if(tmoney01.length>0){
-		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim().replace(/\,/g, '');
+		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if (tmoney01Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney01Value)){
 				//輸入的資料不符合float數值格式 !
@@ -303,7 +370,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tmoney01Value=tmoney01Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money01_txt').val(parseFloat(tmoney01Value).toFixed(2));
+				$('#MasterPage_MasterPageContent_money01_txt').val(Math.round(parseFloat(tmoney01Value)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -311,7 +378,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney02 = $('#MasterPage_MasterPageContent_money02_txt');
 	if(tmoney02.length>0){
-		var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim().replace(/\,/g, '');
+		var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if (tmoney02Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney02Value)){
 				//輸入的資料不符合float數值格式 !
@@ -319,7 +386,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tmoney02Value=tmoney02Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money02_txt').val(parseFloat(tmoney02Value).toFixed(2));
+				$('#MasterPage_MasterPageContent_money02_txt').val(Math.round(parseFloat(tmoney02Value)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -327,7 +394,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney03 = $('#MasterPage_MasterPageContent_money03_txt');
 	if(tmoney03.length>0){
-		var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim().replace(/\,/g, '');
+		var tmoney03Value = $('#MasterPage_MasterPageContent_money03_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位
 		if (tmoney03Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney03Value)){
 				//輸入的資料不符合float數值格式 !
@@ -335,7 +402,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tmoney03Value=tmoney03Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money03_txt').val(parseFloat(tmoney03Value).toFixed(2));
+				$('#MasterPage_MasterPageContent_money03_txt').val(Math.round(parseFloat(tmoney03Value)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -343,7 +410,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney04 = $('#MasterPage_MasterPageContent_money04_txt');
 	if(tmoney04.length>0){
-		var tmoney04Value = $('#MasterPage_MasterPageContent_money04_txt').val().trim().replace(/\,/g, '');
+		var tmoney04Value = $('#MasterPage_MasterPageContent_money04_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if (tmoney04Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney04Value)){
 				//輸入的資料不符合float數值格式 !
@@ -351,7 +418,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tmoney04Value=tmoney04Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money04_txt').val(parseFloat(tmoney04Value).toFixed(2));
+				$('#MasterPage_MasterPageContent_money04_txt').val(Math.round(parseFloat(tmoney04Value)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -359,7 +426,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney05 = $('#MasterPage_MasterPageContent_money05_txt');
 	if(tmoney05.length>0){
-		var tmoney05Value = $('#MasterPage_MasterPageContent_money05_txt').val().trim().replace(/\,/g, '');
+		var tmoney05Value = $('#MasterPage_MasterPageContent_money05_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if (tmoney05Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney05Value)){
 				//輸入的資料不符合float數值格式 !
@@ -367,7 +434,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tmoney05Value=tmoney05Value.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_money05_txt').val(parseFloat(tmoney05Value).toFixed(2));
+				$('#MasterPage_MasterPageContent_money05_txt').val(Math.round(parseFloat(tmoney05Value)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -375,7 +442,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmtotal = $('#MasterPage_MasterPageContent_mtotal_txt');
 	if(tmtotal.length>0){
-		var tmtotalValue = $('#MasterPage_MasterPageContent_mtotal_txt').val().trim().replace(/\,/g, '');
+		var tmtotalValue = $('#MasterPage_MasterPageContent_mtotal_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if (tmtotalValue.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmtotalValue)){
 				//輸入的資料不符合float數值格式 !
@@ -383,7 +450,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				tmtotalValue=tmtotalValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_mtotal_txt').val(parseFloat(tmtotalValue).toFixed(2));
+				$('#MasterPage_MasterPageContent_mtotal_txt').val(Math.round(parseFloat(tmtotalValue)*Math.pow(10, 2))/Math.pow(10, 2));
 			}
 		}
 	}
@@ -464,7 +531,8 @@ function InitOpenShowMSG(){
 }
 
 function InitTriggerMust(tStatus){
-	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""){
+	//2022/07/15;Folls;C01-20220715005;Radio及checkbox於簽核時無法實現觸發顯示欄位
+	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""|| tStatus=="APPROVE"){
 		if($("#MasterPage_MasterPageContent_chkatt01_chk").length>0){
 			if($("#MasterPage_MasterPageContent_chkatt01_chk")[0].checked){
 				$("#MasterPage_MasterPageContent_inv01").show();
@@ -514,149 +582,182 @@ function InitTriggerMust(tStatus){
 	}
 }
 
-function InitTriggerOpen(){
-	if($("#MasterPage_MasterPageContent_opentype01_txt").length>0){
-		if($("#MasterPage_MasterPageContent_opentype01_txt").val()==""){
-			$('#MasterPage_MasterPageContent_openitem01_txt')[0].style.backgroundColor='#deecea';
+//20231129 Peggy-子類別預設Disable-S
+function InitTriggerOpen() {
+	if ($("#MasterPage_MasterPageContent_opentype01_txt").length > 0) {
+		if ($("#MasterPage_MasterPageContent_opentype01_txt").val() == "") {
+			$('#MasterPage_MasterPageContent_openitem01_txt')[0].style.backgroundColor = '#deecea';
 			$('#MasterPage_MasterPageContent_openitem01_txt').val("");
 			$('#MasterPage_MasterPageContent_openitem01_txt2').text("");
-			if(!$('#MasterPage_MasterPageContent_openitem01_txt').attr("disabled"))
-			{
-				$('#MasterPage_MasterPageContent_openitem01_txt').prop("disabled",true);
-				$('#MasterPage_MasterPageContent_openitem01_btn').prop("disabled",true);
-				$('#MasterPage_MasterPageContent_openitem01_btn').css("cursor","default");
-				$('#MasterPage_MasterPageContent_openitem01_btn').css("pointer-events","none");
+			if (!$('#MasterPage_MasterPageContent_openitem01_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem01_txt').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem01_btn').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem01_btn').css("cursor", "default");
+				$('#MasterPage_MasterPageContent_openitem01_btn').css("pointer-events", "none");
 			}
 		}
-		else{
-			$('#MasterPage_MasterPageContent_openitem01_txt')[0].style.backgroundColor='white';
-			if($('#MasterPage_MasterPageContent_openitem01_txt').hasClass("PL_ReadOnly")){
-				$('#MasterPage_MasterPageContent_openitem01_txt')[0].style.backgroundColor='#deecea';
+		else {
+			$('#MasterPage_MasterPageContent_openitem01_txt')[0].style.backgroundColor = 'white';
+			if ($('#MasterPage_MasterPageContent_openitem01_txt').hasClass("PL_ReadOnly")) {
+				$('#MasterPage_MasterPageContent_openitem01_txt')[0].style.backgroundColor = '#deecea';
 			}
-			else if($('#MasterPage_MasterPageContent_openitem01_txt').attr("disabled"))
-			{
-				$('#MasterPage_MasterPageContent_openitem01_txt').prop("disabled",false);
-				$('#MasterPage_MasterPageContent_openitem01_btn').prop("disabled",false);
-				$('#MasterPage_MasterPageContent_openitem01_btn').css("cursor","pointer");
-				$('#MasterPage_MasterPageContent_openitem01_btn').css("pointer-events","auto");
+			else if ($('#MasterPage_MasterPageContent_openitem01_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem01_txt').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem01_btn').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem01_btn').css("cursor", "pointer");
+				$('#MasterPage_MasterPageContent_openitem01_btn').css("pointer-events", "auto");
 			}
 		}
 	}
 
-	if($("#MasterPage_MasterPageContent_opentype02_txt").length>0){
-		if($("#MasterPage_MasterPageContent_opentype02_txt").val()==""){
-			$('#MasterPage_MasterPageContent_openitem02_txt')[0].style.backgroundColor='#deecea';
+	if ($("#MasterPage_MasterPageContent_opentype02_txt").length > 0) {
+		if ($("#MasterPage_MasterPageContent_opentype02_txt").val() == "") {
+			$('#MasterPage_MasterPageContent_openitem02_txt')[0].style.backgroundColor = '#deecea';
 			$('#MasterPage_MasterPageContent_openitem02_txt').val("");
 			$('#MasterPage_MasterPageContent_openitem02_txt2').text("");
-			if(!$('#MasterPage_MasterPageContent_openitem02_txt').attr("disabled"))
-			{
-				$('#MasterPage_MasterPageContent_openitem02_txt').prop("disabled",true);
-				$('#MasterPage_MasterPageContent_openitem02_btn').prop("disabled",true);
-				$('#MasterPage_MasterPageContent_openitem02_btn').css("cursor","default");
-				$('#MasterPage_MasterPageContent_openitem02_btn').css("pointer-events","none");
+			if (!$('#MasterPage_MasterPageContent_openitem02_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem02_txt').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem02_btn').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem02_btn').css("cursor", "default");
+				$('#MasterPage_MasterPageContent_openitem02_btn').css("pointer-events", "none");
 			}
 		}
-		else{
-			$('#MasterPage_MasterPageContent_openitem02_txt')[0].style.backgroundColor='white';
-			if($('#MasterPage_MasterPageContent_openitem02_txt').hasClass("PL_ReadOnly")){
-				$('#MasterPage_MasterPageContent_openitem02_txt')[0].style.backgroundColor='#deecea';
+		else {
+			$('#MasterPage_MasterPageContent_openitem02_txt')[0].style.backgroundColor = 'white';
+			if ($('#MasterPage_MasterPageContent_openitem02_txt').hasClass("PL_ReadOnly")) {
+				$('#MasterPage_MasterPageContent_openitem02_txt')[0].style.backgroundColor = '#deecea';
 			}
-			else if($('#MasterPage_MasterPageContent_openitem02_txt').attr("disabled"))
-			{
-				$('#MasterPage_MasterPageContent_openitem02_txt').prop("disabled",false);
-				$('#MasterPage_MasterPageContent_openitem02_btn').prop("disabled",false);
-				$('#MasterPage_MasterPageContent_openitem02_btn').css("cursor","pointer");
-				$('#MasterPage_MasterPageContent_openitem02_btn').css("pointer-events","auto");
+			else if ($('#MasterPage_MasterPageContent_openitem02_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem02_txt').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem02_btn').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem02_btn').css("cursor", "pointer");
+				$('#MasterPage_MasterPageContent_openitem02_btn').css("pointer-events", "auto");
 			}
 		}
 	}
 
-	if($("#MasterPage_MasterPageContent_opentype03_txt").length>0){
-		if($("#MasterPage_MasterPageContent_opentype03_txt").val()==""){
-			$('#MasterPage_MasterPageContent_openitem03_txt')[0].style.backgroundColor='#deecea';
+	if ($("#MasterPage_MasterPageContent_opentype03_txt").length > 0) {
+		if ($("#MasterPage_MasterPageContent_opentype03_txt").val() == "") {
+			$('#MasterPage_MasterPageContent_openitem03_txt')[0].style.backgroundColor = '#deecea';
 			$('#MasterPage_MasterPageContent_openitem03_txt').val("");
 			$('#MasterPage_MasterPageContent_openitem03_txt2').text("");
-			if(!$('#MasterPage_MasterPageContent_openitem03_txt').attr("disabled"))
-			{
-				$('#MasterPage_MasterPageContent_openitem03_txt').prop("disabled",true);
-				$('#MasterPage_MasterPageContent_openitem03_btn').prop("disabled",true);
-				$('#MasterPage_MasterPageContent_openitem03_btn').css("cursor","default");
-				$('#MasterPage_MasterPageContent_openitem03_btn').css("pointer-events","none");
+			if (!$('#MasterPage_MasterPageContent_openitem03_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem03_txt').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem03_btn').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem03_btn').css("cursor", "default");
+				$('#MasterPage_MasterPageContent_openitem03_btn').css("pointer-events", "none");
 			}
 		}
-		else{
-			$('#MasterPage_MasterPageContent_openitem03_txt')[0].style.backgroundColor='white';
-			if($('#MasterPage_MasterPageContent_openitem03_txt').hasClass("PL_ReadOnly")){
-				$('#MasterPage_MasterPageContent_openitem03_txt')[0].style.backgroundColor='#deecea';
+		else {
+			$('#MasterPage_MasterPageContent_openitem03_txt')[0].style.backgroundColor = 'white';
+			if ($('#MasterPage_MasterPageContent_openitem03_txt').hasClass("PL_ReadOnly")) {
+				$('#MasterPage_MasterPageContent_openitem03_txt')[0].style.backgroundColor = '#deecea';
 			}
-			else if($('#MasterPage_MasterPageContent_openitem03_txt').attr("disabled"))
-			{
-				$('#MasterPage_MasterPageContent_openitem03_txt').prop("disabled",false);
-				$('#MasterPage_MasterPageContent_openitem03_btn').prop("disabled",false);
-				$('#MasterPage_MasterPageContent_openitem03_btn').css("cursor","pointer");
-				$('#MasterPage_MasterPageContent_openitem03_btn').css("pointer-events","auto");
+			else if ($('#MasterPage_MasterPageContent_openitem03_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem03_txt').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem03_btn').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem03_btn').css("cursor", "pointer");
+				$('#MasterPage_MasterPageContent_openitem03_btn').css("pointer-events", "auto");
 			}
 		}
 	}
 
-	if($("#MasterPage_MasterPageContent_opentype04_txt").length>0){
-		if($("#MasterPage_MasterPageContent_opentype04_txt").val()==""){
-			$('#MasterPage_MasterPageContent_openitem04_txt')[0].style.backgroundColor='#deecea';
+	if ($("#MasterPage_MasterPageContent_opentype04_txt").length > 0) {
+		if ($("#MasterPage_MasterPageContent_opentype04_txt").val() == "") {
+			$('#MasterPage_MasterPageContent_openitem04_txt')[0].style.backgroundColor = '#deecea';
 			$('#MasterPage_MasterPageContent_openitem04_txt').val("");
 			$('#MasterPage_MasterPageContent_openitem04_txt2').text("");
-			if(!$('#MasterPage_MasterPageContent_openitem04_txt').attr("disabled"))
-			{
-				$('#MasterPage_MasterPageContent_openitem04_txt').prop("disabled",true);
-				$('#MasterPage_MasterPageContent_openitem04_btn').prop("disabled",true);
-				$('#MasterPage_MasterPageContent_openitem04_btn').css("cursor","default");
-				$('#MasterPage_MasterPageContent_openitem04_btn').css("pointer-events","none");
+			if (!$('#MasterPage_MasterPageContent_openitem04_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem04_txt').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem04_btn').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem04_btn').css("cursor", "default");
+				$('#MasterPage_MasterPageContent_openitem04_btn').css("pointer-events", "none");
 			}
 		}
-		else{
-			$('#MasterPage_MasterPageContent_openitem04_txt')[0].style.backgroundColor='white';
-			if($('#MasterPage_MasterPageContent_openitem04_txt').hasClass("PL_ReadOnly")){
-				$('#MasterPage_MasterPageContent_openitem04_txt')[0].style.backgroundColor='#deecea';
+		else {
+			$('#MasterPage_MasterPageContent_openitem04_txt')[0].style.backgroundColor = 'white';
+			if ($('#MasterPage_MasterPageContent_openitem04_txt').hasClass("PL_ReadOnly")) {
+				$('#MasterPage_MasterPageContent_openitem04_txt')[0].style.backgroundColor = '#deecea';
 			}
-			else if($('#MasterPage_MasterPageContent_openitem04_txt').attr("disabled"))
-			{
-				$('#MasterPage_MasterPageContent_openitem04_txt').prop("disabled",false);
-				$('#MasterPage_MasterPageContent_openitem04_btn').prop("disabled",false);
-				$('#MasterPage_MasterPageContent_openitem04_btn').css("cursor","pointer");
-				$('#MasterPage_MasterPageContent_openitem04_btn').css("pointer-events","auto");
+			else if ($('#MasterPage_MasterPageContent_openitem04_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem04_txt').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem04_btn').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem04_btn').css("cursor", "pointer");
+				$('#MasterPage_MasterPageContent_openitem04_btn').css("pointer-events", "auto");
 			}
 		}
 	}
 
-	if($("#MasterPage_MasterPageContent_opentype05_txt").length>0){
-		if($("#MasterPage_MasterPageContent_opentype05_txt").val()==""){
-			$('#MasterPage_MasterPageContent_openitem05_txt')[0].style.backgroundColor='#deecea';
+	if ($("#MasterPage_MasterPageContent_opentype05_txt").length > 0) {
+		if ($("#MasterPage_MasterPageContent_opentype05_txt").val() == "") {
+			$('#MasterPage_MasterPageContent_openitem05_txt')[0].style.backgroundColor = '#deecea';
 			$('#MasterPage_MasterPageContent_openitem05_txt').val("");
 			$('#MasterPage_MasterPageContent_openitem05_txt2').text("");
-			if(!$('#MasterPage_MasterPageContent_openitem05_txt').attr("disabled"))
-			{
-				$('#MasterPage_MasterPageContent_openitem05_txt').prop("disabled",true);
-				$('#MasterPage_MasterPageContent_openitem05_btn').prop("disabled",true);
-				$('#MasterPage_MasterPageContent_openitem05_btn').css("cursor","default");
-				$('#MasterPage_MasterPageContent_openitem05_btn').css("pointer-events","none");
+			if (!$('#MasterPage_MasterPageContent_openitem05_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem05_txt').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem05_btn').prop("disabled", true);
+				$('#MasterPage_MasterPageContent_openitem05_btn').css("cursor", "default");
+				$('#MasterPage_MasterPageContent_openitem05_btn').css("pointer-events", "none");
 			}
 		}
-		else{
-			$('#MasterPage_MasterPageContent_openitem05_txt')[0].style.backgroundColor='white';
-			if($('#MasterPage_MasterPageContent_openitem05_txt').hasClass("PL_ReadOnly")){
-				$('#MasterPage_MasterPageContent_openitem05_txt')[0].style.backgroundColor='#deecea';
+		else {
+			$('#MasterPage_MasterPageContent_openitem05_txt')[0].style.backgroundColor = 'white';
+			if ($('#MasterPage_MasterPageContent_openitem05_txt').hasClass("PL_ReadOnly")) {
+				$('#MasterPage_MasterPageContent_openitem05_txt')[0].style.backgroundColor = '#deecea';
 			}
-			else if($('#MasterPage_MasterPageContent_openitem05_txt').attr("disabled"))
-			{
-				$('#MasterPage_MasterPageContent_openitem05_txt').prop("disabled",false);
-				$('#MasterPage_MasterPageContent_openitem05_btn').prop("disabled",false);
-				$('#MasterPage_MasterPageContent_openitem05_btn').css("cursor","pointer");
-				$('#MasterPage_MasterPageContent_openitem05_btn').css("pointer-events","auto");
+			else if ($('#MasterPage_MasterPageContent_openitem05_txt').attr("disabled")) {
+				$('#MasterPage_MasterPageContent_openitem05_txt').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem05_btn').prop("disabled", false);
+				$('#MasterPage_MasterPageContent_openitem05_btn').css("cursor", "pointer");
+				$('#MasterPage_MasterPageContent_openitem05_btn').css("pointer-events", "auto");
 			}
 		}
 	}
-
-
 }
+
+//function InitTriggerOpen(){
+//	if($("#MasterPage_MasterPageContent_opentype01_txt").length>0){
+//		if($("#MasterPage_MasterPageContent_opentype01_txt").val()==""){
+//			$('#MasterPage_MasterPageContent_openitem01_txt').val("");
+//			$('#MasterPage_MasterPageContent_openitem01_txt2').text("");
+//			$('#MasterPage_MasterPageContent_openitem01_txt2hdn').val("");
+//		}
+//	}
+
+//	if($("#MasterPage_MasterPageContent_opentype02_txt").length>0){
+//		if($("#MasterPage_MasterPageContent_opentype02_txt").val()==""){
+//			$('#MasterPage_MasterPageContent_openitem02_txt').val("");
+//			$('#MasterPage_MasterPageContent_openitem02_txt2').text("");
+//			$('#MasterPage_MasterPageContent_openitem02_txt2hdn').val("");
+//		}
+//	}
+
+//	if($("#MasterPage_MasterPageContent_opentype03_txt").length>0){
+//		if($("#MasterPage_MasterPageContent_opentype03_txt").val()==""){
+//			$('#MasterPage_MasterPageContent_openitem03_txt').val("");
+//			$('#MasterPage_MasterPageContent_openitem03_txt2').text("");
+//			$('#MasterPage_MasterPageContent_openitem03_txt2hdn').val("");
+//		}
+//	}
+
+//	if($("#MasterPage_MasterPageContent_opentype04_txt").length>0){
+//		if($("#MasterPage_MasterPageContent_opentype04_txt").val()==""){
+//			$('#MasterPage_MasterPageContent_openitem04_txt').val("");
+//			$('#MasterPage_MasterPageContent_openitem04_txt2').text("");
+//			$('#MasterPage_MasterPageContent_openitem04_txt2hdn').val("");
+//		}
+//	}
+
+//	if($("#MasterPage_MasterPageContent_opentype05_txt").length>0){
+//		if($("#MasterPage_MasterPageContent_opentype05_txt").val()==""){
+//			$('#MasterPage_MasterPageContent_openitem05_txt').val("");
+//			$('#MasterPage_MasterPageContent_openitem05_txt2').text("");
+//			$('#MasterPage_MasterPageContent_openitem05_txt2hdn').val("");
+//		}
+//	}
+
+
+//}
 
 function InitCalculated(){
 	domath_mtotal();
@@ -905,62 +1006,62 @@ function domath_mtotal()
 	try{
 		if($("#MasterPage_MasterPageContent_money01_txt").length==0)
 			return;
-		var money01 = $("#MasterPage_MasterPageContent_money01_txt").val().trim().replace(/\,/g, '');
+		var money01 = $("#MasterPage_MasterPageContent_money01_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money01)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
 		}
 		var intmoney01 = money01.length>0?parseFloat(money01):0;
 
-		document.getElementById("MasterPage_MasterPageContent_money01_txt").value=parseFloat(intmoney01).toFixed(2);
+		document.getElementById("MasterPage_MasterPageContent_money01_txt").value=Math.round(parseFloat(intmoney01)*Math.pow(10, 2))/Math.pow(10, 2);
 		intmoney01 = parseFloat($("#MasterPage_MasterPageContent_money01_txt").val().trim());
 
 		if($("#MasterPage_MasterPageContent_money02_txt").length==0)
 			return;
-		var money02 = $("#MasterPage_MasterPageContent_money02_txt").val().trim().replace(/\,/g, '');
+		var money02 = $("#MasterPage_MasterPageContent_money02_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money02)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
 		}
 		var intmoney02 = money02.length>0?parseFloat(money02):0;
 
-		document.getElementById("MasterPage_MasterPageContent_money02_txt").value=parseFloat(intmoney02).toFixed(2);
+		document.getElementById("MasterPage_MasterPageContent_money02_txt").value=Math.round(parseFloat(intmoney02)*Math.pow(10, 2))/Math.pow(10, 2);
 		intmoney02 = parseFloat($("#MasterPage_MasterPageContent_money02_txt").val().trim());
 
 		if($("#MasterPage_MasterPageContent_money03_txt").length==0)
 			return;
-		var money03 = $("#MasterPage_MasterPageContent_money03_txt").val().trim().replace(/\,/g, '');
+		var money03 = $("#MasterPage_MasterPageContent_money03_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money03)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
 		}
 		var intmoney03 = money03.length>0?parseFloat(money03):0;
 
-		document.getElementById("MasterPage_MasterPageContent_money03_txt").value=parseFloat(intmoney03).toFixed(2);
+		document.getElementById("MasterPage_MasterPageContent_money03_txt").value=Math.round(parseFloat(intmoney03)*Math.pow(10, 2))/Math.pow(10, 2);
 		intmoney03 = parseFloat($("#MasterPage_MasterPageContent_money03_txt").val().trim());
 
 		if($("#MasterPage_MasterPageContent_money04_txt").length==0)
 			return;
-		var money04 = $("#MasterPage_MasterPageContent_money04_txt").val().trim().replace(/\,/g, '');
+		var money04 = $("#MasterPage_MasterPageContent_money04_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money04)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
 		}
 		var intmoney04 = money04.length>0?parseFloat(money04):0;
 
-		document.getElementById("MasterPage_MasterPageContent_money04_txt").value=parseFloat(intmoney04).toFixed(2);
+		document.getElementById("MasterPage_MasterPageContent_money04_txt").value=Math.round(parseFloat(intmoney04)*Math.pow(10, 2))/Math.pow(10, 2);
 		intmoney04 = parseFloat($("#MasterPage_MasterPageContent_money04_txt").val().trim());
 
 		if($("#MasterPage_MasterPageContent_money05_txt").length==0)
 			return;
-		var money05 = $("#MasterPage_MasterPageContent_money05_txt").val().trim().replace(/\,/g, '');
+		var money05 = $("#MasterPage_MasterPageContent_money05_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money05)){
 			$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 			return;
 		}
 		var intmoney05 = money05.length>0?parseFloat(money05):0;
 
-		document.getElementById("MasterPage_MasterPageContent_money05_txt").value=parseFloat(intmoney05).toFixed(2);
+		document.getElementById("MasterPage_MasterPageContent_money05_txt").value=Math.round(parseFloat(intmoney05)*Math.pow(10, 2))/Math.pow(10, 2);
 		intmoney05 = parseFloat($("#MasterPage_MasterPageContent_money05_txt").val().trim());
 
 		var finalvalue = intmoney01+intmoney02+intmoney03+intmoney04+intmoney05;
@@ -969,8 +1070,7 @@ function domath_mtotal()
 			return;
 		}
 
-		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = parseFloat(finalvalue).toFixed(2);
-
+		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = Math.round(parseFloat(finalvalue) * Math.pow(10, 2)) / Math.pow(10, 2);
 		//^_^ 20230411 Peggy 重新加上千份位↓
 		document.getElementById("MasterPage_MasterPageContent_mtotal_txt").value = OEMFormat(parseFloat(finalvalue).toFixed(2));
 		document.getElementById("MasterPage_MasterPageContent_money01_txt").value = OEMFormat(parseFloat(money01).toFixed(2));
@@ -979,8 +1079,6 @@ function domath_mtotal()
 		document.getElementById("MasterPage_MasterPageContent_money04_txt").value = OEMFormat(parseFloat(money04).toFixed(2));
 		document.getElementById("MasterPage_MasterPageContent_money05_txt").value = OEMFormat(parseFloat(money05).toFixed(2));
 	    //^_^  20230411 Peggy 重新加上千份位↑
-
-
 	}catch(err){
 		$("#MasterPage_MasterPageContent_mtotal_txt").val("");
 		var errorMsg = getI18NForSpecial('FD','CalculatedSet2','MutiLang_04','../../../src/_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx');
@@ -1015,6 +1113,28 @@ function chkTriggerFieldNull_Head()
 			$("#MasterPage_MasterPageContent_inv02_txt").val('');
 		}
 	}
+
+	//20230510 Peggy Star
+	if ($("#MasterPage_MasterPageContent_chkitem02_chk").length > 0) {
+		if ($("#MasterPage_MasterPageContent_chkitem02_chk")[0].checked) {
+			if ($("#MasterPage_MasterPageContent_useyear_txt").val().trim().length == 0) {
+				tErr += '請確認 "使用年限"  是否有填寫\r\n';
+			}
+			else
+				//if ($("#MasterPage_MasterPageContent_orderno_txt").val().trim().length == 0) {
+				//	tErr += '請確認 "訂單號碼" 是否有填寫\r\n';
+				//}
+				//else
+				if ($("#MasterPage_MasterPageContent_chkven_txt").val().trim().length == 0) {
+					tErr += '請確認 "使用單位" 是否有填寫\r\n';
+				}
+		}
+		else {
+			$("#MasterPage_MasterPageContent_useyear_txt").val('');
+		}
+	}
+		//Peggy End
+
 
 	if($("#MasterPage_MasterPageContent_chkitem05_chk").length>0){
 		if($("#MasterPage_MasterPageContent_chkitem05_chk")[0].checked){
@@ -1122,21 +1242,22 @@ function jsDoDispatch(pFormID, pSheetNo, pDispatchFormID){
 }
 
 
-
 //20230424 Peggy Star
 //第一個開窗後將第二個窗唯獨或開放，第二個開窗必填
 function opentype_change() {
 	var open01 = document.getElementById("MasterPage_MasterPageContent_opentype01_txt"); //第一個類別
 	var open02 = document.getElementById("MasterPage_MasterPageContent_opentype02_txt"); //第二個類別
-	var open03 = document.getElementById("MasterPage_MasterPageContent_opentype03_txt"); //第二個類別
-	var open04 = document.getElementById("MasterPage_MasterPageContent_opentype04_txt"); //第二個類別
-	var open05 = document.getElementById("MasterPage_MasterPageContent_opentype05_txt"); //第二個類別
+	var open03 = document.getElementById("MasterPage_MasterPageContent_opentype03_txt"); //第三個類別
+	var open04 = document.getElementById("MasterPage_MasterPageContent_opentype04_txt"); //第四個類別
+	var open05 = document.getElementById("MasterPage_MasterPageContent_opentype05_txt"); //第五個類別
+
 
 	if (open01 != null && open01.value != "") {
 		//openitem
 		OEMTurnningOnOff("On", "openitem01", true);
 	}
 	else {
+
 		OEMTurnningOnOff("Off", "openitem01");
 	}
 
@@ -1180,7 +1301,7 @@ function openRadio() {
 	var _chkitem02 = document.getElementById("MasterPage_MasterPageContent_chkitem02_chk").checked;
 
 	if (_chkitem02) {
-		OEMTurnningOnOff("On", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_orderno_txt,MasterPage_MasterPageContent_useyear_txt", false);
+		OEMTurnningOnOff("On", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_useyear_txt", false);
 		//$("#MasterPage_MasterPageContent_orderno_txt").show();
 
 	}
@@ -1188,11 +1309,13 @@ function openRadio() {
 		document.getElementById("MasterPage_MasterPageContent_chkven_ctrolRadio0").checked = false;
 		document.getElementById("MasterPage_MasterPageContent_chkven_ctrolRadio1").checked = false;
 		document.getElementById("MasterPage_MasterPageContent_chkven_txt").value = "";
-		document.getElementById("MasterPage_MasterPageContent_orderno_txt").value = "";
+		//document.getElementById("MasterPage_MasterPageContent_orderno_txt").value = "";
 		document.getElementById("MasterPage_MasterPageContent_useyear_txt").value = "";
 
-		OEMTurnningOnOff("Off", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_orderno_txt,MasterPage_MasterPageContent_useyear_txt");
+		OEMTurnningOnOff("Off", "chkven_ctrolRadio0,chkven_ctrolRadio1,MasterPage_MasterPageContent_useyear_txt");
 		/*	$("#MasterPage_MasterPageContent_orderno_txt").hide();*/
 
 	}
 }
+
+
