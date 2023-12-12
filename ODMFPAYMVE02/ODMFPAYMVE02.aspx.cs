@@ -237,6 +237,9 @@ this.textarea5.ToolTip = this.textarea5.Text;
 			chpay_ctrolRadio2.Checked = (chpay.Value == "2"); chpay_ctrolRadio2.Enabled = chpay.InputEnabled;
 			kind.Attributes["style"] = "display:none;";
 			kind_ctrolRadio0.Checked = (kind.Value == "0"); kind_ctrolRadio0.Enabled = kind.InputEnabled;
+			kind01.Attributes["style"] = "display:none;";
+			kind01_ctrolRadio0.Checked = (kind01.Value == "0"); kind01_ctrolRadio0.Enabled = kind01.InputEnabled;
+			kind01_ctrolRadio1.Checked = (kind01.Value == "1"); kind01_ctrolRadio1.Enabled = kind01.InputEnabled;
 
 
 			//單頭RadioButton控制項 end
@@ -1260,7 +1263,6 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
             openitem05.TxtInput.Attributes.Add("onblur", MIMJUtil.getBlurParams("MasterPage_MasterPageContent_openitem05_txt", "TrigMIMJ01_07_openitem05", "MasterPage_MasterPageContent_openitem05_txt,MasterPage_MasterPageContent_opentype05_txt"));
             openitem05.TxtInput.Attributes.Add("onchange", "AddtoHash('MasterPage_MasterPageContent_openitem05_txt');");
 
-
             switch (tWindowOpenStyle){
 				case "2":
 					string tPara = "RESAK§10§" + this.UserInfo.DepartmentId + "§§§";
@@ -1359,6 +1361,8 @@ this.chpay_ctrolRadio0.Attributes.Add("onclick", "InitTriggerMust('" + base.Form
 this.chpay_ctrolRadio1.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '1';");
 this.chpay_ctrolRadio2.Attributes.Add("onclick", "InitTriggerMust('" + base.FormStatus.ToString() + "');document.getElementById('MasterPage_MasterPageContent_chpay_txt').value = '2';");
 this.kind_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind_txt').value = '0';");
+this.kind01_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind01_txt').value = '0';");
+this.kind01_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('MasterPage_MasterPageContent_kind01_txt').value = '1';");
 		}//settingClientFunction結尾
 
 		/// <summary>
@@ -1408,7 +1412,8 @@ this.kind_ctrolRadio0.Attributes.Add("onclick", "document.getElementById('Master
 			defalutHash.Add("SenderID", this.UserInfo.EmployeeId.ToString());
 			defalutHash.Add("SuperID", ajaxGetSupervisorID());
 			defalutHash.Add("curr", "VND");
-		}
+            defalutHash.Add("kind01", "0");
+        }
 
 		//草稿儲存後要將主旨清除
 		protected override void AfterCreateToolSaveForm()

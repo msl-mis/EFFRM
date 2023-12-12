@@ -1397,6 +1397,7 @@ this.kind_ctrolRadio2.Attributes.Add("onclick", "document.getElementById('Master
 		#region SetDefaultValue , 設定表單欄位的初始值
 		protected override void SetDefaultValue(Hashtable defalutHash)
 		{
+			defalutHash.Add("kind", "0");
 			defalutHash.Add("odmfpantest01001", this.formID);
 			defalutHash.Add("odmfpantest01002", this.SheetNo);
 			defalutHash.Add("datetime1", DateTime.Now.ToString("yyyyMMdd"));

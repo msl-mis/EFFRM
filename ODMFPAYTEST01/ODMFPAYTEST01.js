@@ -9,78 +9,113 @@ function CustomerSaveCheck_Head(tStatus)
 	if (tStatus == "CREATE")
 	{
 		//填表時要驗證
-
-
-		//文字驗証
-		//var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
-		//if(topentype01.length>0){
-		//	if('readonly' !== topentype01.attr('readonly') &&
-		//		'disabled' !== topentype01.attr('disabled')){
-		//		var topentype01Value = $('#MasterPage_MasterPageContent_opentype01_txt').val();
-		//		if (topentype01Value.length < 1 || topentype01Value.length > 50)
-		//		{
-		//			tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'opentype01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'opentype01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '\r\n';
-		//		}
-		//	}
-		//}
-		//文字驗証
-		var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
-		var tErr = '';
-
-		if (topentype01.length > 0) {
-			if ('readonly' !== topentype01.attr('readonly') &&
-				'disabled' !== topentype01.attr('disabled')) {
-				var topentype01Value = topentype01.val();
-
-				// 檢查是否超過長度
-				//if (topentype01Value.length > 50) {
-				//	// 將錯誤消息添加到輸入字段下方
-				//	appendErrorMessage(topentype01, '輸入超過長度');
-
-				//	// 顯示確認彈窗
-				//	if (confirm('xx欄位輸入超過長度，確定要提交嗎？')) {
-				//		// 用戶點擊確定，繼續提交表單
-				//	} else {
-				//		// 用戶點擊取消，阻止表單提交
-				//		event.preventDefault();
-				//	}
-				//} else {
-				// 清空可能存在的錯誤消息
-				clearErrorMessage(topentype01);
-
-				// 如果輸入為空，顯示提示信息
-				if (topentype01Value === null || topentype01Value.trim() === '') {
-					  // 顯示確認彈窗
-					if (confirm('【請二次確認支出類別沒有勾選是該費用已在報價中或已跟客戶收款情形】')) {
-						// 用戶點擊確定，繼續提交表單
-					} else {
-						// 用戶點擊取消，阻止表單提交
-						event.preventDefault();
+		//數值驗証
+		var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
+		if(tmoney01.length>0){
+			if('readonly' !== tmoney01.attr('readonly') &&
+				'disabled' !== tmoney01.attr('disabled')){
+				var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim();
+				if(tmoney01Value.length==0 || isNaN(tmoney01Value))
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+				else
+				{
+					if (tmoney01Value < 0 || tmoney01Value > 1000000000)
+					{
+						tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
 					}
 				}
-				//}
 			}
 		}
 
-		// 函數用於在輸入字段下方添加錯誤消息
-		function appendErrorMessage(element, message) {
-			// 檢查是否已經有錯誤消息元素，如果有，更新文本內容，否則創建一個新的元素
-			var errorElement = element.next('.error-message');
-			if (errorElement.length === 0) {
-				errorElement = $('<div class="error-message"></div>').insertAfter(element);
+		//數值驗証
+		var tmoney02 = $('#MasterPage_MasterPageContent_money02_txt');
+		if(tmoney02.length>0){
+			if('readonly' !== tmoney02.attr('readonly') &&
+				'disabled' !== tmoney02.attr('disabled')){
+				var tmoney02Value = $('#MasterPage_MasterPageContent_money02_txt').val().trim();
+				if(tmoney02Value.length==0 || isNaN(tmoney02Value))
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money02_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+				else
+				{
+					if (tmoney02Value < 0 || tmoney02Value > 1000000000)
+					{
+						tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money02', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money02_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+					}
+				}
 			}
-
-			// 更新錯誤消息文本
-			errorElement.text(message);
-			// 添加紅色樣式
-			errorElement.css('color', 'red');
 		}
 
-		// 函數用於清空輸入字段下方的錯誤消息
-		function clearErrorMessage(element) {
-			var errorElement = element.next('.error-message');
-			if (errorElement.length !== 0) {
-				errorElement.remove();
+		//數值驗証
+		var tmoney04 = $('#MasterPage_MasterPageContent_money04_txt');
+		if(tmoney04.length>0){
+			if('readonly' !== tmoney04.attr('readonly') &&
+				'disabled' !== tmoney04.attr('disabled')){
+				var tmoney04Value = $('#MasterPage_MasterPageContent_money04_txt').val().trim();
+				if(tmoney04Value.length==0 || isNaN(tmoney04Value))
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money04', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money04_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+				else
+				{
+					if (tmoney04Value < 0 || tmoney04Value > 1000000000)
+					{
+						tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money04', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money04_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+					}
+				}
+			}
+		}
+
+		//數值驗証
+		var tmoney05 = $('#MasterPage_MasterPageContent_money05_txt');
+		if(tmoney05.length>0){
+			if('readonly' !== tmoney05.attr('readonly') &&
+				'disabled' !== tmoney05.attr('disabled')){
+				var tmoney05Value = $('#MasterPage_MasterPageContent_money05_txt').val().trim();
+				if(tmoney05Value.length==0 || isNaN(tmoney05Value))
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money05', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money05_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+				else
+				{
+					if (tmoney05Value < 0 || tmoney05Value > 1000000000)
+					{
+						tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money05', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'money05_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+					}
+				}
+			}
+		}
+
+		//數值驗証
+		var tmtotal = $('#MasterPage_MasterPageContent_mtotal_txt');
+		if(tmtotal.length>0){
+			var tmtotalValue = $('#MasterPage_MasterPageContent_mtotal_txt').val().trim();
+			if(tmtotalValue.length==0 || isNaN(tmtotalValue))
+			{
+				tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'mtotal', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'mtotal_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+			}
+			else
+			{
+				if (tmtotalValue < 0 || tmtotalValue > 1000000000)
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'mtotal', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'mtotal_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx')+ '\r\n';
+				}
+			}
+		}
+
+		//文字驗証
+		var topentype01 = $('#MasterPage_MasterPageContent_opentype01_txt');
+		if(topentype01.length>0){
+			if('readonly' !== topentype01.attr('readonly') &&
+				'disabled' !== topentype01.attr('disabled')){
+				var topentype01Value = $('#MasterPage_MasterPageContent_opentype01_txt').val();
+				if (topentype01Value.length < 1 || topentype01Value.length > 50)
+				{
+					tErr += '「' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'opentype01', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '」  ' + getI18NForSpecial('FD', 'ODMFPAYTEST01', 'opentype01_Err', '../../_Common/PlatformUtil/KernelPage/I18N/I18NForJs.aspx') + '\r\n';
+				}
 			}
 		}
 
