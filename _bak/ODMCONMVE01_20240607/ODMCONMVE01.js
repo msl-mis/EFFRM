@@ -21,7 +21,7 @@ function CustomerSaveCheck_Head(tStatus)
 	//float格式驗証
 	var ttotalmoney = $('#MasterPage_MasterPageContent_totalmoney_txt');
 	if(ttotalmoney.length>0){
-		var ttotalmoneyValue = $('#MasterPage_MasterPageContent_totalmoney_txt').val().trim().replace(/\,/g, '');
+		var ttotalmoneyValue = $('#MasterPage_MasterPageContent_totalmoney_txt').val().trim();
 		if (ttotalmoneyValue.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(ttotalmoneyValue)){
 				//輸入的資料不符合float數值格式 !
@@ -29,7 +29,7 @@ function CustomerSaveCheck_Head(tStatus)
 			}
 			else{
 				ttotalmoneyValue=ttotalmoneyValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_totalmoney_txt').val(Math.round(parseFloat(ttotalmoneyValue)*Math.pow(10, 3))/Math.pow(10, 3));
+				$('#MasterPage_MasterPageContent_totalmoney_txt').val(parseFloat(ttotalmoneyValue).toFixed(3));
 			}
 		}
 	}
@@ -76,7 +76,7 @@ function DraftSaveCheck(){
 			}
 			else{
 				ttotalmoneyValue=ttotalmoneyValue.replace(/\,/g,'');
-				$('#MasterPage_MasterPageContent_totalmoney_txt').val(Math.round(parseFloat(ttotalmoneyValue)*Math.pow(10, 3))/Math.pow(10, 3));
+				$('#MasterPage_MasterPageContent_totalmoney_txt').val(parseFloat(ttotalmoneyValue).toFixed(3));
 			}
 		}
 	}
@@ -157,8 +157,7 @@ function InitOpenShowMSG(){
 }
 
 function InitTriggerMust(tStatus){
-	//2022/07/15;Folls;C01-20220715005;Radio及checkbox於簽核時無法實現觸發顯示欄位
-	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""|| tStatus=="APPROVE"){
+	if(tStatus=="CREATE" || tStatus=="DISPLAY" || tStatus==""){
 
 	}
 }

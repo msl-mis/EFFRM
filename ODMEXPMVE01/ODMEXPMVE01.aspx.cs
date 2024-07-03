@@ -121,6 +121,7 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.money02.Title = MultiLanguage.GetComment("FD", "ODMEXPMVE01", "money02", tLanguageType);
 			this.money03.Title = MultiLanguage.GetComment("FD", "ODMEXPMVE01", "money03", tLanguageType);
 			this.totomoney.Title = MultiLanguage.GetComment("FD", "ODMEXPMVE01", "totomoney", tLanguageType);
+			this.superid.Title = MultiLanguage.GetComment("FD", "ODMEXPMVE01", "superid", tLanguageType);
 
 
 			#region 自訂排序
@@ -217,7 +218,8 @@ this.item03.ToolTip = this.item03.Text;
 				//傳送
 				string tParentScript = base.BtnCreateToolSendForm.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("SetCustomSubject()")<0){
-					tParentScript = tParentScript.Replace("if (!checkSubjectField())", "SetCustomSubject();if (!checkSubjectField())");
+					tParentScript = tParentScript.Replace("if (!checkSubjectField()) {event.returnValue = false;return false; };", "");
+					tParentScript = tParentScript.Replace("ShowProgressBar", "SetCustomSubject(); if (!checkSubjectField()) {event.returnValue = false;return false; };ShowProgressBar");
 					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
 					base.BtnCreateToolSendForm.Attributes.Add("onclick", tParentScript);
 				}
@@ -1143,7 +1145,6 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 				strmoney03_DoMathScript_totomoney_onblur+=";";
 			money03.TxtInput.Attributes.Add("onblur",strmoney03_DoMathScript_totomoney_onblur+"domath_totomoney();");
 
-
             //20230328 edit by peggy Start
             #region 金額三位一撇
             TextBox2[] arrayTextBox = {
@@ -1186,6 +1187,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			defalutHash.Add("odmexpmve01002", this.SheetNo);
 			defalutHash.Add("dept", ajaxGetDepartmentName());
 			defalutHash.Add("name", this.UserInfo.LoginName.ToString());
+			defalutHash.Add("superid", ajaxGetSupervisorID());
 		}
 
 		//草稿儲存後要將主旨清除
@@ -1941,6 +1943,17 @@ order by resdd003 desc";
 			pAryCondValue[0, 0] = "amount";
 			pAryCondValue[1, 0] = tDbl; 
 			tDbl = 0;
+
+
+			tValue="";
+			try{
+				tValue = (this.superid.Value.Trim());
+			}
+			catch(Exception e){
+				tValue="";
+			}
+			pAryCondValue[0, 1] = "superid";
+			pAryCondValue[1, 1] = tValue; 
 
 
 		}

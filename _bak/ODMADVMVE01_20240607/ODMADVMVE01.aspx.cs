@@ -130,7 +130,6 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.note04.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "note04", tLanguageType);
 			this.capital.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "capital", tLanguageType);
 			this.checkdate.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "checkdate", tLanguageType);
-			this.superid.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "superid", tLanguageType);
 
 
 			#region 自訂排序
@@ -232,8 +231,7 @@ this.note04.ToolTip = this.note04.Text;
 				//傳送
 				string tParentScript = base.BtnCreateToolSendForm.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("SetCustomSubject()")<0){
-					tParentScript = tParentScript.Replace("if (!checkSubjectField()) {event.returnValue = false;return false; };", "");
-					tParentScript = tParentScript.Replace("ShowProgressBar", "SetCustomSubject(); if (!checkSubjectField()) {event.returnValue = false;return false; };ShowProgressBar");
+					tParentScript = tParentScript.Replace("if (!checkSubjectField())", "SetCustomSubject();if (!checkSubjectField())");
 					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
 					base.BtnCreateToolSendForm.Attributes.Add("onclick", tParentScript);
 				}
@@ -1171,14 +1169,15 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 				strmoney04_DoMathScript_totalmoney_onblur+=";";
 			money04.TxtInput.Attributes.Add("onblur",strmoney04_DoMathScript_totalmoney_onblur+"domath_totalmoney();");
 
-            // peggy Start
+            //20230323 edit by peggy Start
             #region 金額三位一撇
             TextBox2[] arrayTextBox = {
                 money01.TxtInput, money02.TxtInput, money03.TxtInput, money04.TxtInput,totalmoney.TxtInput
                                               };
             OEMLibrary.RegisterNumberFormat(this, arrayTextBox);
             #endregion
-            //peggy End
+            //20230323 edit by peggy End
+
 
         }//settingClientFunction結尾
 
@@ -1209,7 +1208,6 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			defalutHash.Add("odmadvmve01002", this.SheetNo);
 			defalutHash.Add("dept", ajaxGetDepartmentName());
 			defalutHash.Add("name", this.UserInfo.LoginName.ToString());
-			defalutHash.Add("superid", ajaxGetSupervisorID());
 		}
 
 		//草稿儲存後要將主旨清除
@@ -1955,17 +1953,6 @@ order by resdd003 desc";
 			string tTemp = string.Empty;
 			double tDbl = 0;
 		
-			tValue="";
-			try{
-				tValue = (this.superid.Value.Trim());
-			}
-			catch(Exception e){
-				tValue="";
-			}
-			pAryCondValue[0, 0] = "superid";
-			pAryCondValue[1, 0] = tValue; 
-
-
 		}
 		#endregion
 
@@ -1981,12 +1968,13 @@ order by resdd003 desc";
 		{
 			return objRE.FindAgentID(base.StrParserRoleID, this.m_strProcID);
 		}
-		#endregion
+        #endregion
 
-		
-		
-		
-		protected override void BeforePrint(ref string pReport, ref string pReportID, ref string pWhere, ref string pOrder, ref string pReportDirectory)
+
+
+
+
+        protected override void BeforePrint(ref string pReport, ref string pReportID, ref string pWhere, ref string pOrder, ref string pReportDirectory)
 		{
 			pReport = "ODMADVMVE01";
 			pReportID = "ODMADVMVE01_02";//憑證式

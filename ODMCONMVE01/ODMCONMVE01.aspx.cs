@@ -116,6 +116,7 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			this.txtmain.Title = MultiLanguage.GetComment("FD", "ODMCONMVE01", "txtmain", tLanguageType);
 			this.txtuser.Title = MultiLanguage.GetComment("FD", "ODMCONMVE01", "txtuser", tLanguageType);
 			this.totalmoney.Title = MultiLanguage.GetComment("FD", "ODMCONMVE01", "totalmoney", tLanguageType);
+			this.superid.Title = MultiLanguage.GetComment("FD", "ODMCONMVE01", "superid", tLanguageType);
 
 
 			#region 自訂排序
@@ -204,7 +205,8 @@ namespace tw.com.dsc.easyflowDotNet.forms
 				//傳送
 				string tParentScript = base.BtnCreateToolSendForm.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("SetCustomSubject()")<0){
-					tParentScript = tParentScript.Replace("if (!checkSubjectField())", "SetCustomSubject();if (!checkSubjectField())");
+					tParentScript = tParentScript.Replace("if (!checkSubjectField()) {event.returnValue = false;return false; };", "");
+					tParentScript = tParentScript.Replace("ShowProgressBar", "SetCustomSubject(); if (!checkSubjectField()) {event.returnValue = false;return false; };ShowProgressBar");
 					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
 					base.BtnCreateToolSendForm.Attributes.Add("onclick", tParentScript);
 				}
@@ -1094,11 +1096,12 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			string tWindowOpenStyle = objEFPara.EF_getCompanyParameterData("WindowOpenStyle").ToString();
 
             //單頭控制項
+			//Peggy Start
             #region 金額三位一撇
-            TextBox2[] arrayTextBox = { totalmoney.TxtInput};
+            TextBox2[] arrayTextBox = { totalmoney.TxtInput };
             OEMLibrary.RegisterNumberFormat(this, arrayTextBox);
             #endregion
-
+            //Peggy End
 
         }//settingClientFunction結尾
 
@@ -1128,6 +1131,7 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			defalutHash.Add("odmconmve01001", this.formID);
 			defalutHash.Add("odmconmve01002", this.SheetNo);
 			defalutHash.Add("date", DateTime.Now.ToString("yyyyMMdd"));
+			defalutHash.Add("superid", ajaxGetSupervisorID());
 			defalutHash.Add("txtdept", ajaxGetDepartmentName());
 			defalutHash.Add("txtuser", this.UserInfo.LoginName.ToString());
 		}
@@ -1885,6 +1889,17 @@ order by resdd003 desc";
 			pAryCondValue[0, 0] = "totalmoney";
 			pAryCondValue[1, 0] = tDbl; 
 			tDbl = 0;
+
+
+			tValue="";
+			try{
+				tValue = (this.superid.Value.Trim());
+			}
+			catch(Exception e){
+				tValue="";
+			}
+			pAryCondValue[0, 1] = "superid";
+			pAryCondValue[1, 1] = tValue; 
 
 
 		}

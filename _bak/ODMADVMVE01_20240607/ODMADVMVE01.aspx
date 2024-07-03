@@ -43,21 +43,21 @@
 </cc1:DscTextBox>
 
 <cc1:DscTextBox id='name' runat='server' title='借支者姓名' ShowTitle='False'
-	style="Z-INDEX:693; POSITION: absolute; LEFT: 212px; TOP: 123px;"
+	style="Z-INDEX:694; POSITION: absolute; LEFT: 212px; TOP: 123px;"
 	TxtInput_TabIndex='101'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='name'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='76px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='dept' runat='server' title='部門' ShowTitle='False'
-	style="Z-INDEX:694; POSITION: absolute; LEFT: 115px; TOP: 149px;"
+	style="Z-INDEX:695; POSITION: absolute; LEFT: 115px; TOP: 149px;"
 	TxtInput_TabIndex='102'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='dept'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='100px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscDateAssistant2 ID='applydate' runat='server' Title='申請日期' ShowTitle='False'
-	style="POSITION: absolute; left: 568px; top: 150px; z-index: 682;" 
+	style="POSITION: absolute; left: 568px; top: 150px; z-index: 683;" 
 	TxtInput_TabIndex='103' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -66,7 +66,7 @@
 </cc1:DscDateAssistant2>
 <div style="display:none;">
 <cc1:DscTextBox id='deptno' runat='server' title='部門代碼' ShowTitle='False'
-	style="Z-INDEX:681; POSITION: absolute; LEFT: 739px; TOP: 211px;"
+	style="Z-INDEX:682; POSITION: absolute; LEFT: 739px; TOP: 211px;"
 	TxtInput_TabIndex='104'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='deptno'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -74,123 +74,115 @@
 </cc1:DscTextBox>
 </div>
 <cc1:DscTextBox id='textarea1' runat='server' title='預支內容1' ShowTitle='False'
-	style="Z-INDEX:699; POSITION: absolute; LEFT: 58px; TOP: 222px;"
+	style="Z-INDEX:700; POSITION: absolute; LEFT: 58px; TOP: 222px;"
 	TxtInput_TabIndex='105' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='textarea1'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='353px' Height='40px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea2' runat='server' title='預支內容2' ShowTitle='False'
-	style="Z-INDEX:698; POSITION: absolute; LEFT: 58px; TOP: 274px;"
+	style="Z-INDEX:699; POSITION: absolute; LEFT: 58px; TOP: 274px;"
 	TxtInput_TabIndex='106' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='textarea2'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='353px' Height='40px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea3' runat='server' title='預支內容3' ShowTitle='False'
-	style="Z-INDEX:697; POSITION: absolute; LEFT: 58px; TOP: 323px;"
+	style="Z-INDEX:698; POSITION: absolute; LEFT: 58px; TOP: 323px;"
 	TxtInput_TabIndex='107' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='textarea3'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='353px' Height='40px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='textarea4' runat='server' title='預支內容4' ShowTitle='False'
-	style="Z-INDEX:696; POSITION: absolute; LEFT: 58px; TOP: 374px;"
+	style="Z-INDEX:697; POSITION: absolute; LEFT: 58px; TOP: 374px;"
 	TxtInput_TabIndex='108' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='textarea4'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='353px' Height='40px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='money01' runat='server' title='金額01' ShowTitle='False'
-	style="Z-INDEX:691; POSITION: absolute; LEFT: 424px; TOP: 230px;"
+	style="Z-INDEX:692; POSITION: absolute; LEFT: 424px; TOP: 230px;"
 	TxtInput_TabIndex='109'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='money01'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='85px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='money02' runat='server' title='金額02' ShowTitle='False'
-	style="Z-INDEX:690; POSITION: absolute; LEFT: 424px; TOP: 281px;"
+	style="Z-INDEX:691; POSITION: absolute; LEFT: 424px; TOP: 281px;"
 	TxtInput_TabIndex='110'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='money02'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='85px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='money03' runat='server' title='金額03' ShowTitle='False'
-	style="Z-INDEX:689; POSITION: absolute; LEFT: 424px; TOP: 330px;"
+	style="Z-INDEX:690; POSITION: absolute; LEFT: 424px; TOP: 330px;"
 	TxtInput_TabIndex='111'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='money03'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='85px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='money04' runat='server' title='金額04' ShowTitle='False'
-	style="Z-INDEX:688; POSITION: absolute; LEFT: 424px; TOP: 383px;"
+	style="Z-INDEX:689; POSITION: absolute; LEFT: 424px; TOP: 383px;"
 	TxtInput_TabIndex='112'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='money04'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='85px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='totalmoney' runat='server' title='總金額' ShowTitle='False'
-	style="Z-INDEX:687; POSITION: absolute; LEFT: 424px; TOP: 425px;"
+	style="Z-INDEX:688; POSITION: absolute; LEFT: 424px; TOP: 425px;"
 	TxtInput_TabIndex='113'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='totalmoney'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='86px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='note01' runat='server' title='備註01' ShowTitle='False'
-	style="Z-INDEX:686; POSITION: absolute; LEFT: 521px; TOP: 223px;"
+	style="Z-INDEX:687; POSITION: absolute; LEFT: 521px; TOP: 223px;"
 	TxtInput_TabIndex='114' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='note01'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='114px' Height='40px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='note02' runat='server' title='備註02' ShowTitle='False'
-	style="Z-INDEX:685; POSITION: absolute; LEFT: 521px; TOP: 274px;"
+	style="Z-INDEX:686; POSITION: absolute; LEFT: 521px; TOP: 274px;"
 	TxtInput_TabIndex='115' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='note02'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='114px' Height='40px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='note03' runat='server' title='備註03' ShowTitle='False'
-	style="Z-INDEX:684; POSITION: absolute; LEFT: 521px; TOP: 324px;"
+	style="Z-INDEX:685; POSITION: absolute; LEFT: 521px; TOP: 324px;"
 	TxtInput_TabIndex='116' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='note03'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='114px' Height='40px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='note04' runat='server' title='備註04' ShowTitle='False'
-	style="Z-INDEX:683; POSITION: absolute; LEFT: 521px; TOP: 375px;"
+	style="Z-INDEX:684; POSITION: absolute; LEFT: 521px; TOP: 375px;"
 	TxtInput_TabIndex='117' TextMode='MultiLine'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='note04'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='114px' Height='40px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='capital' runat='server' title='大寫' ShowTitle='False'
-	style="Z-INDEX:695; POSITION: absolute; LEFT: 112px; TOP: 458px;"
+	style="Z-INDEX:696; POSITION: absolute; LEFT: 112px; TOP: 458px;"
 	TxtInput_TabIndex='118'>
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='capital'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='255px' Height='23px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscDateAssistant2 ID='checkdate' runat='server' Title='結帳時限' ShowTitle='False'
-	style="POSITION: absolute; left: 290px; top: 489px; z-index: 692;" 
+	style="POSITION: absolute; left: 290px; top: 489px; z-index: 693;" 
 	TxtInput_TabIndex='119' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
 	<InputStyle Width='110px' Height='22px' CssClass='Edit20' />
 	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='checkdate'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
-<div style="display:none;">
-<cc1:DscTextBox id='superid' runat='server' title='直屬主管' ShowTitle='False'
-	style="Z-INDEX:700; POSITION: absolute; LEFT: 46px; TOP: 34px;"
-	TxtInput_TabIndex='120'>
-	<FrmFieldKeys FrmID='FrmODMADVMVE01' BOID='ODMADVMVE01' FieldName='superid'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='61px' Height='47px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
-</div>
 
-<div style="position:absolute; left:2px; top:5px; z-index:10; ">
+<div style="position:absolute; left:2px; top:5px; z-index:10; width: 651px;">
 	<img src="ODMADVMVE.png" id="Head01_file_1" runat="server" width="696" height="555" />
+   <br />
 </div>
 
 						</div>
@@ -226,7 +218,7 @@
 		</div>
 
 <!--引用JavaScript-->
-	    <%--  Peggy引用千分位js --%>
+    <%-- 20230323 Peggy引用千分位js --%>
     <script src="../../_Common/OEM/JS/OEMUtils.js"></script>
-<script src="ODMADVMVE01.js?NoCache=202406070001" type="text/javascript"></script>
+<script src="ODMADVMVE01.js?NoCache=20240607005" type="text/javascript"></script>
 </asp:Content>

@@ -40,9 +40,9 @@ using tw.com.dsc.easyflowDotNet.kernelBasePage.easyflowfunction;
 namespace tw.com.dsc.easyflowDotNet.forms
 {
 	/// <summary>
-	/// ODMADVMVE01 的摘要描述。
+	/// ODMCONMVE01 的摘要描述。
 	/// </summary>
-	public partial class ODMADVMVE01 : tw.com.dsc.easyflowDotNet.kernelBasePage.EFBasePage
+	public partial class ODMCONMVE01 : tw.com.dsc.easyflowDotNet.kernelBasePage.EFBasePage
 	{
 		//edit by teppy 2011/02/08 Start
 		#region 讀取 sysba 參數設定用物件
@@ -96,13 +96,13 @@ namespace tw.com.dsc.easyflowDotNet.forms
 		protected override void Page_Load(object sender, EventArgs e)
 		{
 			base.Page_Load(sender, e);
-			AjaxPro.Utility.RegisterTypeForAjax(typeof(ODMADVMVE01));
+			AjaxPro.Utility.RegisterTypeForAjax(typeof(ODMCONMVE01));
 			UserInfoClass tClass = (UserInfoClass)Session["UserInfo"];
 			string tLanguageType = tClass.Language;
 
 			//多國語系
-			this.Title= MultiLanguage.GetComment("FD","ODMADVMVE01","lblTitle",this.UserInfo.Language);
-			string tHeadTabStrip01Text = MultiLanguage.GetComment("FD", "ODMADVMVE01", "HeadTabStrip01", tLanguageType);
+			this.Title= MultiLanguage.GetComment("FD","ODMCONMVE01","lblTitle",this.UserInfo.Language);
+			string tHeadTabStrip01Text = MultiLanguage.GetComment("FD", "ODMCONMVE01", "HeadTabStrip01", tLanguageType);
 			if(tHeadTabStrip01Text.Length>4){
 				this.TabStrip1.Items[0].Text = tHeadTabStrip01Text.Substring(0,4)+"..";
 				this.TabStrip1.Items[0].ToolTip = tHeadTabStrip01Text;
@@ -111,26 +111,11 @@ namespace tw.com.dsc.easyflowDotNet.forms
 				this.TabStrip1.Items[0].Text = tHeadTabStrip01Text;
 			}
 
-			this.name.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "name", tLanguageType);
-			this.dept.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "dept", tLanguageType);
-			this.applydate.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "applydate", tLanguageType);
-			this.deptno.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "deptno", tLanguageType);
-			this.textarea1.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "textarea1", tLanguageType);
-			this.textarea2.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "textarea2", tLanguageType);
-			this.textarea3.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "textarea3", tLanguageType);
-			this.textarea4.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "textarea4", tLanguageType);
-			this.money01.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "money01", tLanguageType);
-			this.money02.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "money02", tLanguageType);
-			this.money03.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "money03", tLanguageType);
-			this.money04.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "money04", tLanguageType);
-			this.totalmoney.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "totalmoney", tLanguageType);
-			this.note01.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "note01", tLanguageType);
-			this.note02.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "note02", tLanguageType);
-			this.note03.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "note03", tLanguageType);
-			this.note04.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "note04", tLanguageType);
-			this.capital.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "capital", tLanguageType);
-			this.checkdate.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "checkdate", tLanguageType);
-			this.superid.Title = MultiLanguage.GetComment("FD", "ODMADVMVE01", "superid", tLanguageType);
+			this.txtdept.Title = MultiLanguage.GetComment("FD", "ODMCONMVE01", "txtdept", tLanguageType);
+			this.date.Title = MultiLanguage.GetComment("FD", "ODMCONMVE01", "date", tLanguageType);
+			this.txtmain.Title = MultiLanguage.GetComment("FD", "ODMCONMVE01", "txtmain", tLanguageType);
+			this.txtuser.Title = MultiLanguage.GetComment("FD", "ODMCONMVE01", "txtuser", tLanguageType);
+			this.totalmoney.Title = MultiLanguage.GetComment("FD", "ODMCONMVE01", "totalmoney", tLanguageType);
 
 
 			#region 自訂排序
@@ -138,12 +123,12 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			#endregion 自訂排序
 
 			#region 限制修改欄位
-			this.TxtCreateToolSubject.InputEnabled=true;
+			this.TxtCreateToolSubject.InputEnabled=false;
 
 			#endregion 限制修改欄位
 
 			#region 增加初始設定
-			ScriptManager.RegisterStartupScript(this, typeof(string), "InitCalculated", "InitCalculated();", true);
+			
 			#endregion 增加初始設定
 		}
 		#endregion
@@ -174,17 +159,6 @@ namespace tw.com.dsc.easyflowDotNet.forms
 			//ToolTip參數：Y:顯示ToolTip；N:不顯示
 			string strToolTipParameter = objEFPara.EF_getCompanyParameterData("ToolTip").ToString();
 			
-			if(strToolTipParameter=="Y"){
-				this.textarea1.ToolTip = this.textarea1.Text;
-this.textarea2.ToolTip = this.textarea2.Text;
-this.textarea3.ToolTip = this.textarea3.Text;
-this.textarea4.ToolTip = this.textarea4.Text;
-this.note01.ToolTip = this.note01.Text;
-this.note02.ToolTip = this.note02.Text;
-this.note03.ToolTip = this.note03.Text;
-this.note04.ToolTip = this.note04.Text;
-
-			}
 
 			#endregion 與管理程式共用Before Prender區段
 
@@ -192,8 +166,6 @@ this.note04.ToolTip = this.note04.Text;
 
 			#region 與管理程式共用After Prender區段
 			
-
-			totalmoney.InputEnabled = false;//設定為欄位計算，預設唯讀
 
 
 			#endregion 與管理程式共用After Prender區段
@@ -232,8 +204,7 @@ this.note04.ToolTip = this.note04.Text;
 				//傳送
 				string tParentScript = base.BtnCreateToolSendForm.Attributes["onclick"].ToString();
 				if(tParentScript.IndexOf("SetCustomSubject()")<0){
-					tParentScript = tParentScript.Replace("if (!checkSubjectField()) {event.returnValue = false;return false; };", "");
-					tParentScript = tParentScript.Replace("ShowProgressBar", "SetCustomSubject(); if (!checkSubjectField()) {event.returnValue = false;return false; };ShowProgressBar");
+					tParentScript = tParentScript.Replace("if (!checkSubjectField())", "SetCustomSubject();if (!checkSubjectField())");
 					tParentScript = "if (!CustomerSaveCheck_Head('" + base.FormStatus.ToString() + "')) {return false; }" + tParentScript + "";
 					base.BtnCreateToolSendForm.Attributes.Add("onclick", tParentScript);
 				}
@@ -309,9 +280,9 @@ this.note04.ToolTip = this.note04.Text;
 		protected override void setBasicInfo()
 		{
 			// 作業代號
-			this.TaskId = "ODMADVMVE01";
+			this.TaskId = "ODMCONMVE01";
 			// 表單代號
-			this.formID = "ODMADVMVE01";
+			this.formID = "ODMCONMVE01";
 			// 有幾個單身 ex.0-->單檔, 1-->雙檔(一個單身), 2-->雙檔(二個單身)
 			this.detailDepth = 0;
 		}
@@ -1122,63 +1093,12 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 			//參數1.為原本的開窗方式  參數2.為樹狀的開窗
 			string tWindowOpenStyle = objEFPara.EF_getCompanyParameterData("WindowOpenStyle").ToString();
 
-			//單頭控制項
-			string strmoney01_DoMathScript_totalmoney_onChange=string.Empty;
-			if(money01.TxtInput.Attributes["onchange"]!=null){strmoney01_DoMathScript_totalmoney_onChange=money01.TxtInput.Attributes["onchange"].ToString().Trim(';');}
-			if(strmoney01_DoMathScript_totalmoney_onChange.Length>0)
-				strmoney01_DoMathScript_totalmoney_onChange+=";";
-			money01.TxtInput.Attributes.Add("onchange",strmoney01_DoMathScript_totalmoney_onChange+"domath_totalmoney();");
-
-			string strmoney01_DoMathScript_totalmoney_onblur=string.Empty;
-			if(money01.TxtInput.Attributes["onblur"]!=null){strmoney01_DoMathScript_totalmoney_onblur=money01.TxtInput.Attributes["onblur"].ToString().Trim(';');}
-			if(strmoney01_DoMathScript_totalmoney_onblur.Length>0)
-				strmoney01_DoMathScript_totalmoney_onblur+=";";
-			money01.TxtInput.Attributes.Add("onblur",strmoney01_DoMathScript_totalmoney_onblur+"domath_totalmoney();");
-
-			string strmoney02_DoMathScript_totalmoney_onChange=string.Empty;
-			if(money02.TxtInput.Attributes["onchange"]!=null){strmoney02_DoMathScript_totalmoney_onChange=money02.TxtInput.Attributes["onchange"].ToString().Trim(';');}
-			if(strmoney02_DoMathScript_totalmoney_onChange.Length>0)
-				strmoney02_DoMathScript_totalmoney_onChange+=";";
-			money02.TxtInput.Attributes.Add("onchange",strmoney02_DoMathScript_totalmoney_onChange+"domath_totalmoney();");
-
-			string strmoney02_DoMathScript_totalmoney_onblur=string.Empty;
-			if(money02.TxtInput.Attributes["onblur"]!=null){strmoney02_DoMathScript_totalmoney_onblur=money02.TxtInput.Attributes["onblur"].ToString().Trim(';');}
-			if(strmoney02_DoMathScript_totalmoney_onblur.Length>0)
-				strmoney02_DoMathScript_totalmoney_onblur+=";";
-			money02.TxtInput.Attributes.Add("onblur",strmoney02_DoMathScript_totalmoney_onblur+"domath_totalmoney();");
-
-			string strmoney03_DoMathScript_totalmoney_onChange=string.Empty;
-			if(money03.TxtInput.Attributes["onchange"]!=null){strmoney03_DoMathScript_totalmoney_onChange=money03.TxtInput.Attributes["onchange"].ToString().Trim(';');}
-			if(strmoney03_DoMathScript_totalmoney_onChange.Length>0)
-				strmoney03_DoMathScript_totalmoney_onChange+=";";
-			money03.TxtInput.Attributes.Add("onchange",strmoney03_DoMathScript_totalmoney_onChange+"domath_totalmoney();");
-
-			string strmoney03_DoMathScript_totalmoney_onblur=string.Empty;
-			if(money03.TxtInput.Attributes["onblur"]!=null){strmoney03_DoMathScript_totalmoney_onblur=money03.TxtInput.Attributes["onblur"].ToString().Trim(';');}
-			if(strmoney03_DoMathScript_totalmoney_onblur.Length>0)
-				strmoney03_DoMathScript_totalmoney_onblur+=";";
-			money03.TxtInput.Attributes.Add("onblur",strmoney03_DoMathScript_totalmoney_onblur+"domath_totalmoney();");
-
-			string strmoney04_DoMathScript_totalmoney_onChange=string.Empty;
-			if(money04.TxtInput.Attributes["onchange"]!=null){strmoney04_DoMathScript_totalmoney_onChange=money04.TxtInput.Attributes["onchange"].ToString().Trim(';');}
-			if(strmoney04_DoMathScript_totalmoney_onChange.Length>0)
-				strmoney04_DoMathScript_totalmoney_onChange+=";";
-			money04.TxtInput.Attributes.Add("onchange",strmoney04_DoMathScript_totalmoney_onChange+"domath_totalmoney();");
-
-			string strmoney04_DoMathScript_totalmoney_onblur=string.Empty;
-			if(money04.TxtInput.Attributes["onblur"]!=null){strmoney04_DoMathScript_totalmoney_onblur=money04.TxtInput.Attributes["onblur"].ToString().Trim(';');}
-			if(strmoney04_DoMathScript_totalmoney_onblur.Length>0)
-				strmoney04_DoMathScript_totalmoney_onblur+=";";
-			money04.TxtInput.Attributes.Add("onblur",strmoney04_DoMathScript_totalmoney_onblur+"domath_totalmoney();");
-
-            // peggy Start
+            //單頭控制項
             #region 金額三位一撇
-            TextBox2[] arrayTextBox = {
-                money01.TxtInput, money02.TxtInput, money03.TxtInput, money04.TxtInput,totalmoney.TxtInput
-                                              };
+            TextBox2[] arrayTextBox = { totalmoney.TxtInput};
             OEMLibrary.RegisterNumberFormat(this, arrayTextBox);
             #endregion
-            //peggy End
+
 
         }//settingClientFunction結尾
 
@@ -1205,11 +1125,11 @@ where resfc001=@resfc001 and resfc002=@resfc002 and resfc003=@resfc003 and ISNUL
 		#region SetDefaultValue , 設定表單欄位的初始值
 		protected override void SetDefaultValue(Hashtable defalutHash)
 		{
-			defalutHash.Add("odmadvmve01001", this.formID);
-			defalutHash.Add("odmadvmve01002", this.SheetNo);
-			defalutHash.Add("dept", ajaxGetDepartmentName());
-			defalutHash.Add("name", this.UserInfo.LoginName.ToString());
-			defalutHash.Add("superid", ajaxGetSupervisorID());
+			defalutHash.Add("odmconmve01001", this.formID);
+			defalutHash.Add("odmconmve01002", this.SheetNo);
+			defalutHash.Add("date", DateTime.Now.ToString("yyyyMMdd"));
+			defalutHash.Add("txtdept", ajaxGetDepartmentName());
+			defalutHash.Add("txtuser", this.UserInfo.LoginName.ToString());
 		}
 
 		//草稿儲存後要將主旨清除
@@ -1955,15 +1875,16 @@ order by resdd003 desc";
 			string tTemp = string.Empty;
 			double tDbl = 0;
 		
-			tValue="";
+			tDbl=0;
 			try{
-				tValue = (this.superid.Value.Trim());
+				tDbl = double.Parse(this.totalmoney.Value.Trim());
 			}
 			catch(Exception e){
-				tValue="";
+				tDbl=0;
 			}
-			pAryCondValue[0, 0] = "superid";
-			pAryCondValue[1, 0] = tValue; 
+			pAryCondValue[0, 0] = "totalmoney";
+			pAryCondValue[1, 0] = tDbl; 
+			tDbl = 0;
 
 
 		}
@@ -1988,10 +1909,10 @@ order by resdd003 desc";
 		
 		protected override void BeforePrint(ref string pReport, ref string pReportID, ref string pWhere, ref string pOrder, ref string pReportDirectory)
 		{
-			pReport = "ODMADVMVE01";
-			pReportID = "ODMADVMVE01_02";//憑證式
-			pWhere = "AND (odmadvmve01001='" + this.formID + "') AND (odmadvmve01002='" + this.SheetNo + "')";
-			pReportDirectory = "ODMADVMVE01";
+			pReport = "ODMCONMVE01";
+			pReportID = "ODMCONMVE01_02";//憑證式
+			pWhere = "AND (odmconmve01001='" + this.formID + "') AND (odmconmve01002='" + this.SheetNo + "')";
+			pReportDirectory = "ODMCONMVE01";
 			base.BeforePrint(ref pReportID, ref pWhere, ref pOrder, ref pOrder, ref pReportDirectory);
 		}
 

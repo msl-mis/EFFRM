@@ -154,7 +154,7 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='openitem01'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='money01' runat='server' title='金額01' ShowTitle='False'
-	style="Z-INDEX:651; POSITION: absolute; LEFT: 619px; TOP: 364px;"
+	style="Z-INDEX:652; POSITION: absolute; LEFT: 619px; TOP: 364px;"
 	TxtInput_TabIndex='117'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='money01'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -184,7 +184,7 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='openitem02'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='money02' runat='server' title='金額02' ShowTitle='False'
-	style="Z-INDEX:650; POSITION: absolute; LEFT: 619px; TOP: 445px;"
+	style="Z-INDEX:651; POSITION: absolute; LEFT: 619px; TOP: 445px;"
 	TxtInput_TabIndex='121'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='money02'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -214,7 +214,7 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='openitem03'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='money03' runat='server' title='金額03' ShowTitle='False'
-	style="Z-INDEX:649; POSITION: absolute; LEFT: 619px; TOP: 518px;"
+	style="Z-INDEX:650; POSITION: absolute; LEFT: 619px; TOP: 518px;"
 	TxtInput_TabIndex='126'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='money03'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -236,7 +236,7 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='opentype04'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscOpenQuery id='openitem04' runat='server' title='子類別04' ShowTitle='False'
-	style="Z-INDEX: 665; POSITION: absolute; LEFT: 468px; TOP: 588px;"
+	style="Z-INDEX: 665; POSITION: absolute; LEFT: 468px; TOP: 590px; right: 736px;"
 	TxtInput_TabIndex='129' TextMode='SingleLine'
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/data.gif'
 	ReturnVisible='True'>
@@ -244,7 +244,7 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='openitem04'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='money04' runat='server' title='金額04' ShowTitle='False'
-	style="Z-INDEX:648; POSITION: absolute; LEFT: 619px; TOP: 580px;"
+	style="Z-INDEX:649; POSITION: absolute; LEFT: 619px; TOP: 580px;"
 	TxtInput_TabIndex='130'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='money04'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -274,14 +274,14 @@
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='openitem05'></FrmFieldKeys>
 </cc1:DscOpenQuery>
 <cc1:DscTextBox id='money05' runat='server' title='金額05' ShowTitle='False'
-	style="Z-INDEX:647; POSITION: absolute; LEFT: 619px; TOP: 633px;"
+	style="Z-INDEX:648; POSITION: absolute; LEFT: 619px; TOP: 633px;"
 	TxtInput_TabIndex='134'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='money05'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='130px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='mtotal' runat='server' title='總金額' ShowTitle='False'
-	style="Z-INDEX:652; POSITION: absolute; LEFT: 618px; TOP: 680px;"
+	style="Z-INDEX:647; POSITION: absolute; LEFT: 619px; TOP: 680px;"
 	TxtInput_TabIndex='135'>
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='mtotal'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
@@ -364,7 +364,7 @@
 	<InputStyle Width='106px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscDropDownList ID='curr' runat='server' Title='幣別' ShowTitle='False'
-	Style="z-index:656; position: absolute; left: 566px; top: 684px;"
+	Style="z-index:656; position: absolute; left: 563px; top: 684px;"
 	DDLInput_TabIndex='148'>
 	<Items>
 		<asp:ListItem Selected='False' Value='RMB'>RMB</asp:ListItem>
@@ -434,7 +434,7 @@
 	style="display:none;Z-INDEX:685; POSITION: absolute; LEFT: 148px; TOP: 115px;">
 	<FrmFieldKeys FrmID='FrmODMFPAYMVE02' BOID='ODMFPAYMVE02' FieldName='kind01'></FrmFieldKeys>
 </cc1:DscTextBox>
-<asp:RadioButton ID='kind01_ctrolRadio0' runat='server' GroupName='kind01' Text='' Value='0' style='position:absolute;top:115px;left:148px;z-index:685;'/>
+<asp:RadioButton ID='kind01_ctrolRadio0' runat='server' GroupName='kind01' Text='' Value='0' style='position:absolute;top:115px;left:146px; z-index:685;'/>
 <asp:RadioButton ID='kind01_ctrolRadio1' runat='server' GroupName='kind01' Text='' Value='1' style='position:absolute;top:115px;left:335px;z-index:685;'/>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
@@ -477,5 +477,5 @@
 	 <script src="../../_Common/OEM/JS/OEMSetControl.js"></script>
     <!--三位一撇--20230424 Peggy-->
 	<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
-<script src="ODMFPAYMVE02.js?NoCache=20240605" type="text/javascript"></script>
+<script src="ODMFPAYMVE02.js?NoCache=20231211003" type="text/javascript"></script>
 </asp:Content>

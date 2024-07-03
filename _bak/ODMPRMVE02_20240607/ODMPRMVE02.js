@@ -608,7 +608,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tmoney01 = $('#MasterPage_MasterPageContent_money01_txt');
 	if(tmoney01.length>0){
-		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var tmoney01Value = $('#MasterPage_MasterPageContent_money01_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if (tmoney01Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tmoney01Value)){
 				//輸入的資料不符合float數值格式 !
@@ -960,7 +960,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tqty03 = $('#MasterPage_MasterPageContent_qty03_txt');
 	if(tqty03.length>0){
-		var tqty03Value = $('#MasterPage_MasterPageContent_qty03_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var tqty03Value = $('#MasterPage_MasterPageContent_qty03_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if (tqty03Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tqty03Value)){
 				//輸入的資料不符合float數值格式 !
@@ -1040,7 +1040,7 @@ function DraftSaveCheck(){
 	//float格式驗証
 	var tqty08 = $('#MasterPage_MasterPageContent_qty08_txt');
 	if(tqty08.length>0){
-		var tqty08Value = $('#MasterPage_MasterPageContent_qty08_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var tqty08Value = $('#MasterPage_MasterPageContent_qty08_txt').val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if (tqty08Value.length>0){
 			if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(tqty08Value)){
 				//輸入的資料不符合float數值格式 !
@@ -1406,7 +1406,7 @@ function domath_money03()
 	try{
 		if($("#MasterPage_MasterPageContent_permoney03_txt").length==0)
 			return;
-		var permoney03 = $("#MasterPage_MasterPageContent_permoney03_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var permoney03 = $("#MasterPage_MasterPageContent_permoney03_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(permoney03)){
 			$("#MasterPage_MasterPageContent_money03_txt").val("");
 						domath_totalmoney();
@@ -1419,7 +1419,7 @@ function domath_money03()
 
 		if($("#MasterPage_MasterPageContent_qty03_txt").length==0)
 			return;
-		var qty03 = $("#MasterPage_MasterPageContent_qty03_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var qty03 = $("#MasterPage_MasterPageContent_qty03_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(qty03)){
 			$("#MasterPage_MasterPageContent_money03_txt").val("");
 						domath_totalmoney();
@@ -1453,7 +1453,7 @@ function domath_money04()
 	try{
 		if($("#MasterPage_MasterPageContent_permoney04_txt").length==0)
 			return;
-		var permoney04 = $("#MasterPage_MasterPageContent_permoney04_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var permoney04 = $("#MasterPage_MasterPageContent_permoney04_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(permoney04)){
 			$("#MasterPage_MasterPageContent_money04_txt").val("");
 						domath_totalmoney();
@@ -1466,7 +1466,7 @@ function domath_money04()
 
 		if($("#MasterPage_MasterPageContent_qty04_txt").length==0)
 			return;
-		var qty04 = $("#MasterPage_MasterPageContent_qty04_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var qty04 = $("#MasterPage_MasterPageContent_qty04_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(qty04)){
 			$("#MasterPage_MasterPageContent_money04_txt").val("");
 						domath_totalmoney();
@@ -1500,7 +1500,7 @@ function domath_money05()
 	try{
 		if($("#MasterPage_MasterPageContent_permoney05_txt").length==0)
 			return;
-		var permoney05 = $("#MasterPage_MasterPageContent_permoney05_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var permoney05 = $("#MasterPage_MasterPageContent_permoney05_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(permoney05)){
 			$("#MasterPage_MasterPageContent_money05_txt").val("");
 						domath_totalmoney();
@@ -1513,7 +1513,7 @@ function domath_money05()
 
 		if($("#MasterPage_MasterPageContent_qty05_txt").length==0)
 			return;
-		var qty05 = $("#MasterPage_MasterPageContent_qty05_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var qty05 = $("#MasterPage_MasterPageContent_qty05_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(qty05)){
 			$("#MasterPage_MasterPageContent_money05_txt").val("");
 						domath_totalmoney();
@@ -1547,7 +1547,7 @@ function domath_money06()
 	try{
 		if($("#MasterPage_MasterPageContent_permoney06_txt").length==0)
 			return;
-		var permoney06 = $("#MasterPage_MasterPageContent_permoney06_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var permoney06 = $("#MasterPage_MasterPageContent_permoney06_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(permoney06)){
 			$("#MasterPage_MasterPageContent_money06_txt").val("");
 						domath_totalmoney();
@@ -1560,7 +1560,7 @@ function domath_money06()
 
 		if($("#MasterPage_MasterPageContent_qty06_txt").length==0)
 			return;
-		var qty06 = $("#MasterPage_MasterPageContent_qty06_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var qty06 = $("#MasterPage_MasterPageContent_qty06_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(qty06)){
 			$("#MasterPage_MasterPageContent_money06_txt").val("");
 						domath_totalmoney();
@@ -1594,7 +1594,7 @@ function domath_money07()
 	try{
 		if($("#MasterPage_MasterPageContent_permoney07_txt").length==0)
 			return;
-		var permoney07 = $("#MasterPage_MasterPageContent_permoney07_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var permoney07 = $("#MasterPage_MasterPageContent_permoney07_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(permoney07)){
 			$("#MasterPage_MasterPageContent_money07_txt").val("");
 						domath_totalmoney();
@@ -1607,7 +1607,7 @@ function domath_money07()
 
 		if($("#MasterPage_MasterPageContent_qty07_txt").length==0)
 			return;
-		var qty07 = $("#MasterPage_MasterPageContent_qty07_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var qty07 = $("#MasterPage_MasterPageContent_qty07_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(qty07)){
 			$("#MasterPage_MasterPageContent_money07_txt").val("");
 						domath_totalmoney();
@@ -1641,7 +1641,7 @@ function domath_money08()
 	try{
 		if($("#MasterPage_MasterPageContent_permoney08_txt").length==0)
 			return;
-		var permoney08 = $("#MasterPage_MasterPageContent_permoney08_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var permoney08 = $("#MasterPage_MasterPageContent_permoney08_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(permoney08)){
 			$("#MasterPage_MasterPageContent_money08_txt").val("");
 						domath_totalmoney();
@@ -1654,7 +1654,7 @@ function domath_money08()
 
 		if($("#MasterPage_MasterPageContent_qty08_txt").length==0)
 			return;
-		var qty08 = $("#MasterPage_MasterPageContent_qty08_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var qty08 = $("#MasterPage_MasterPageContent_qty08_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(qty08)){
 			$("#MasterPage_MasterPageContent_money08_txt").val("");
 						domath_totalmoney();
@@ -1688,7 +1688,7 @@ function domath_money09()
 	try{
 		if($("#MasterPage_MasterPageContent_permoney09_txt").length==0)
 			return;
-		var permoney09 = $("#MasterPage_MasterPageContent_permoney09_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var permoney09 = $("#MasterPage_MasterPageContent_permoney09_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(permoney09)){
 			$("#MasterPage_MasterPageContent_money09_txt").val("");
 						domath_totalmoney();
@@ -1701,7 +1701,7 @@ function domath_money09()
 
 		if($("#MasterPage_MasterPageContent_qty09_txt").length==0)
 			return;
-		var qty09 = $("#MasterPage_MasterPageContent_qty09_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var qty09 = $("#MasterPage_MasterPageContent_qty09_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(qty09)){
 			$("#MasterPage_MasterPageContent_money09_txt").val("");
 						domath_totalmoney();
@@ -1735,7 +1735,7 @@ function domath_money10()
 	try{
 		if($("#MasterPage_MasterPageContent_permoney10_txt").length==0)
 			return;
-		var permoney10 = $("#MasterPage_MasterPageContent_permoney10_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var permoney10 = $("#MasterPage_MasterPageContent_permoney10_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(permoney10)){
 			$("#MasterPage_MasterPageContent_money10_txt").val("");
 						domath_totalmoney();
@@ -1748,7 +1748,7 @@ function domath_money10()
 
 		if($("#MasterPage_MasterPageContent_qty10_txt").length==0)
 			return;
-		var qty10 = $("#MasterPage_MasterPageContent_qty10_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var qty10 = $("#MasterPage_MasterPageContent_qty10_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位
 		if(isNaN(qty10)){
 			$("#MasterPage_MasterPageContent_money10_txt").val("");
 						domath_totalmoney();
@@ -1782,7 +1782,7 @@ function domath_totalmoney()
 	try{
 		if($("#MasterPage_MasterPageContent_money01_txt").length==0)
 			return;
-		var money01 = $("#MasterPage_MasterPageContent_money01_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var money01 = $("#MasterPage_MasterPageContent_money01_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money01)){
 			$("#MasterPage_MasterPageContent_totalmoney_txt").val("");
 			return;
@@ -1794,7 +1794,7 @@ function domath_totalmoney()
 
 		if($("#MasterPage_MasterPageContent_money02_txt").length==0)
 			return;
-		var money02 = $("#MasterPage_MasterPageContent_money02_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;;
+		var money02 = $("#MasterPage_MasterPageContent_money02_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money02)){
 			$("#MasterPage_MasterPageContent_totalmoney_txt").val("");
 			return;
@@ -1806,7 +1806,7 @@ function domath_totalmoney()
 
 		if($("#MasterPage_MasterPageContent_money03_txt").length==0)
 			return;
-		var money03 = $("#MasterPage_MasterPageContent_money03_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var money03 = $("#MasterPage_MasterPageContent_money03_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money03)){
 			$("#MasterPage_MasterPageContent_totalmoney_txt").val("");
 			return;
@@ -1818,7 +1818,7 @@ function domath_totalmoney()
 
 		if($("#MasterPage_MasterPageContent_money04_txt").length==0)
 			return;
-		var money04 = $("#MasterPage_MasterPageContent_money04_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var money04 = $("#MasterPage_MasterPageContent_money04_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money04)){
 			$("#MasterPage_MasterPageContent_totalmoney_txt").val("");
 			return;
@@ -1830,7 +1830,7 @@ function domath_totalmoney()
 
 		if($("#MasterPage_MasterPageContent_money05_txt").length==0)
 			return;
-		var money05 = $("#MasterPage_MasterPageContent_money05_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var money05 = $("#MasterPage_MasterPageContent_money05_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money05)){
 			$("#MasterPage_MasterPageContent_totalmoney_txt").val("");
 			return;
@@ -1842,7 +1842,7 @@ function domath_totalmoney()
 
 		if($("#MasterPage_MasterPageContent_money06_txt").length==0)
 			return;
-		var money06 = $("#MasterPage_MasterPageContent_money06_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var money06 = $("#MasterPage_MasterPageContent_money06_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money06)){
 			$("#MasterPage_MasterPageContent_totalmoney_txt").val("");
 			return;
@@ -1854,7 +1854,7 @@ function domath_totalmoney()
 
 		if($("#MasterPage_MasterPageContent_money07_txt").length==0)
 			return;
-		var money07 = $("#MasterPage_MasterPageContent_money07_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var money07 = $("#MasterPage_MasterPageContent_money07_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money07)){
 			$("#MasterPage_MasterPageContent_totalmoney_txt").val("");
 			return;
@@ -1866,7 +1866,7 @@ function domath_totalmoney()
 
 		if($("#MasterPage_MasterPageContent_money08_txt").length==0)
 			return;
-		var money08 = $("#MasterPage_MasterPageContent_money08_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var money08 = $("#MasterPage_MasterPageContent_money08_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money08)){
 			$("#MasterPage_MasterPageContent_totalmoney_txt").val("");
 			return;
@@ -1878,7 +1878,7 @@ function domath_totalmoney()
 
 		if($("#MasterPage_MasterPageContent_money09_txt").length==0)
 			return;
-		var money09 = $("#MasterPage_MasterPageContent_money09_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var money09 = $("#MasterPage_MasterPageContent_money09_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money09)){
 			$("#MasterPage_MasterPageContent_totalmoney_txt").val("");
 			return;
@@ -1890,7 +1890,7 @@ function domath_totalmoney()
 
 		if($("#MasterPage_MasterPageContent_money10_txt").length==0)
 			return;
-		var money10 = $("#MasterPage_MasterPageContent_money10_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;;
+		var money10 = $("#MasterPage_MasterPageContent_money10_txt").val().trim().replace(/\,/g, ''); //20231117 Peggy 先移除千份位;
 		if(isNaN(money10)){
 			$("#MasterPage_MasterPageContent_totalmoney_txt").val("");
 			return;

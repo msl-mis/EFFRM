@@ -43,14 +43,14 @@
 </cc1:DscTextBox>
 
 <cc1:DscTextBox id='txtdept' runat='server' title='部門' ShowTitle='False'
-	style="Z-INDEX:699; POSITION: absolute; LEFT: 99px; TOP: 125px;"
+	style="Z-INDEX:700; POSITION: absolute; LEFT: 99px; TOP: 125px;"
 	TxtInput_TabIndex='101'>
 	<FrmFieldKeys FrmID='FrmODMCONMVE01' BOID='ODMCONMVE01' FieldName='txtdept'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscDateAssistant2 ID='date' runat='server' Title='申請日期' ShowTitle='False'
-	style="POSITION: absolute; left: 504px; top: 125px; z-index: 696;" 
+	style="POSITION: absolute; left: 504px; top: 125px; z-index: 697;" 
 	TxtInput_TabIndex='103' 
 	DisplayMode='yyyyMMdd' DateSaveFormat='String' DateLan='ChristianEra' datePagePath='../../_Common/PlatformUtil/Resource/ASP/' 
 	BtnVisible='True' ImgSrc='../../_Common/AppUtil/Themes/images/Program/calender.gif'>
@@ -58,35 +58,26 @@
 	<FrmFieldKeys FrmID='FrmODMCONMVE01' BOID='ODMCONMVE01' FieldName='date'></FrmFieldKeys>
 </cc1:DscDateAssistant2>
 <cc1:DscTextBox id='txtmain' runat='server' title='主旨' ShowTitle='False'
-	style="Z-INDEX:698; POSITION: absolute; LEFT: 102px; TOP: 172px;"
+	style="Z-INDEX:699; POSITION: absolute; LEFT: 102px; TOP: 172px;"
 	TxtInput_TabIndex='104'>
 	<FrmFieldKeys FrmID='FrmODMCONMVE01' BOID='ODMCONMVE01' FieldName='txtmain'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='700px' Height='60px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='txtuser' runat='server' title='申請人' ShowTitle='False'
-	style="Z-INDEX:697; POSITION: absolute; LEFT: 298px; TOP: 125px;"
+	style="Z-INDEX:698; POSITION: absolute; LEFT: 298px; TOP: 125px;"
 	TxtInput_TabIndex='105'>
 	<FrmFieldKeys FrmID='FrmODMCONMVE01' BOID='ODMCONMVE01' FieldName='txtuser'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='100px' Height='25px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
 <cc1:DscTextBox id='totalmoney' runat='server' title='合同總價值' ShowTitle='False'
-	style="Z-INDEX:695; POSITION: absolute; LEFT: 723px; TOP: 125px;"
-	TxtInput_TabIndex='106'>
+	style="Z-INDEX:696; POSITION: absolute; LEFT: 723px; TOP: 125px;"
+	TxtInput_TabIndex='106' TextAlign="Right">
 	<FrmFieldKeys FrmID='FrmODMCONMVE01' BOID='ODMCONMVE01' FieldName='totalmoney'></FrmFieldKeys>
 	<TitleStyle Width='100px'></TitleStyle>
 	<InputStyle Width='108px' Height='22px' CssClass='Edit20'></InputStyle>
 </cc1:DscTextBox>
-<div style="display:none;">
-<cc1:DscTextBox id='superid' runat='server' title='直屬主管' ShowTitle='False'
-	style="Z-INDEX:700; POSITION: absolute; LEFT: 57px; TOP: 30px;"
-	TxtInput_TabIndex='107'>
-	<FrmFieldKeys FrmID='FrmODMCONMVE01' BOID='ODMCONMVE01' FieldName='superid'></FrmFieldKeys>
-	<TitleStyle Width='100px'></TitleStyle>
-	<InputStyle Width='81px' Height='27px' CssClass='Edit20'></InputStyle>
-</cc1:DscTextBox>
-</div>
 
 <div style="position:absolute; left:2px; top:5px; z-index:10; ">
 	<img src="ODMCONMVE01.png" id="Head01_file_1" runat="server" width="850" height="256" />
@@ -125,7 +116,6 @@
 		</div>
 
 <!--引用JavaScript-->
-	<%--Peggy--%> 
-	<script src="../../_Common/OEM/JS/OEMUtils.js"></script>
-	 <script src="ODMCONMVE01.js?NoCache=20240607001" type="text/javascript"></script>
+    <script src="../../_Common/OEM/JS/OEMUtils.js"></script>
+<script src="ODMCONMVE01.js?NoCache=202108311455" type="text/javascript"></script>
 </asp:Content>

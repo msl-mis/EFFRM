@@ -1412,8 +1412,7 @@ this.kind01_ctrolRadio1.Attributes.Add("onclick", "document.getElementById('Mast
 			defalutHash.Add("SenderID", this.UserInfo.EmployeeId.ToString());
 			defalutHash.Add("SuperID", ajaxGetSupervisorID());
 			defalutHash.Add("curr", "VND");
-            defalutHash.Add("kind01", "0");
-        }
+		}
 
 		//草稿儲存後要將主旨清除
 		protected override void AfterCreateToolSaveForm()
@@ -2189,6 +2188,18 @@ order by resdd003 desc";
 			}
 			pAryCondValue[0, 2] = "SenderID";
 			pAryCondValue[1, 2] = tValue; 
+
+
+			tDbl=0;
+			try{
+				tDbl = double.Parse(this.mtotal.Value.Trim());
+			}
+			catch(Exception e){
+				tDbl=0;
+			}
+			pAryCondValue[0, 3] = "mtotal";
+			pAryCondValue[1, 3] = tDbl; 
+			tDbl = 0;
 
 
 		}
