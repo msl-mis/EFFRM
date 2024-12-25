@@ -333,10 +333,10 @@ namespace tw.com.dsc.easyflowDotNet.forms
 				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "11南定省經濟公安",this.UserInfo.Language.ToString().Trim()), "11南定省經濟公安"));
 				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "12海后縣政府",this.UserInfo.Language.ToString().Trim()), "12海后縣政府"));
 				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "13海后縣公安",this.UserInfo.Language.ToString().Trim()), "13海后縣公安"));
-				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "14海清鄉政府",this.UserInfo.Language.ToString().Trim()), "14海清鄉政府"));
-				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "15海清鄉公安",this.UserInfo.Language.ToString().Trim()), "15海清鄉公安"));
-				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "16安興鄉政府",this.UserInfo.Language.ToString().Trim()), "16安興鄉政府"));
-				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "17安興鄉公安",this.UserInfo.Language.ToString().Trim()), "17安興鄉公安"));
+				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "14海興鄉政府", this.UserInfo.Language.ToString().Trim()), "14海興鄉政府"));
+				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "15海興鄉公安", this.UserInfo.Language.ToString().Trim()), "15海興鄉公安"));
+				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "16福興鄉政府", this.UserInfo.Language.ToString().Trim()), "16福興鄉政府"));
+				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "17福興鄉公安", this.UserInfo.Language.ToString().Trim()), "17福興鄉公安"));
 				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "18安壽鄉政府",this.UserInfo.Language.ToString().Trim()), "18安壽鄉政府"));
 				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "19安壽鄉公安",this.UserInfo.Language.ToString().Trim()), "19安壽鄉公安"));
 				this.dept.Items.Add(new ListItem(MultiLanguage.GetComment("Combo", this.dept.CommentList.F0002, "20懿安縣政府",this.UserInfo.Language.ToString().Trim()), "20懿安縣政府"));
